@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Center | Solar Energy & Smart Agriculture Resources | KVB Green Energies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Navigation component would be included here -->
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Knowledge Center</h1>
+                <p class="hero-subtitle">Expert Insights on Renewable Energy & Smart Agriculture</p>
+                <p class="hero-description">Access technical articles, research papers, case studies, and educational resources on solar thermal technology, energy storage, and intelligent farming solutions.</p>
+                
+                <div class="hero-search">
+                    <form class="search-form" id="blog-search">
+                        <input type="text" placeholder="Search articles, guides, or research papers..." class="search-input">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div class="search-tags">
+                        <span>Popular searches:</span>
+                        <a href="#solar-cooking">solar cooking</a>
+                        <a href="#solar-drying">solar drying</a>
+                        <a href="#energy-storage">energy storage</a>
+                        <a href="#smart-agriculture">smart agriculture</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Topics</button>
+                <button class="category-tab" data-category="solar-cooking">Solar Cooking</button>
+                <button class="category-tab" data-category="solar-drying">Solar Drying</button>
+                <button class="category-tab" data-category="energy-storage">Energy Storage</button>
+                <button class="category-tab" data-category="smart-agri">Smart Agriculture</button>
+                <button class="category-tab" data-category="farmer-education">Farmer Education</button>
+                <button class="category-tab" data-category="technical">Technical Articles</button>
+                <button class="category-tab" data-category="policy">Government Policy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles">
+        <div class="container">
+            <h2 class="section-title">Featured Articles</h2>
+            
+            <div class="featured-grid">
+                <div class="featured-card main-featured">
+                    <div class="article-image">
+                        <img src="images/blog/featured-solar-cooking.jpg" alt="The Future of Solar Cooking in India">
+                        <div class="article-badge featured">Featured</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category solar-cooking">Solar Cooking</span>
+                            <span class="date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h3 class="article-title">The Future of Solar Cooking in India: Scaling Sustainable Community Kitchens</h3>
+                        <p class="article-excerpt">How large-scale solar cooking systems are transforming institutional kitchens across India, with case studies from army bases, temples, and educational institutions.</p>
+                        <div class="article-stats">
+                            <span class="stat"><i class="far fa-eye"></i> 2,450 views</span>
+                            <span class="stat"><i class="far fa-comment"></i> 42 comments</span>
+                            <span class="stat"><i class="fas fa-download"></i> 315 downloads</span>
+                        </div>
+                        <a href="articles/solar-cooking-future.html" class="btn btn-outline">Read Article</a>
+                    </div>
+                </div>
+                
+                <div class="featured-sidebar">
+                    <div class="sidebar-card">
+                        <div class="article-image">
+                            <img src="images/blog/solar-drying-tech.jpg" alt="Advanced Solar Drying Technologies">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="category solar-drying">Solar Drying</span>
+                                <span class="date">March 10, 2024</span>
+                            </div>
+                            <h4 class="article-title">Advanced Solar Drying Technologies for Agricultural Value Addition</h4>
+                            <a href="articles/solar-drying-tech.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="category energy-storage">Energy Storage</span>
+                                <span class="date">March 5, 2024</span>
+                            </div>
+                            <h4 class="article-title">Sand Battery Technology: Low-Cost Thermal Energy Storage Solutions</h4>
+                            <a href="articles/sand-battery-tech.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span class="category smart-agri">Smart Agriculture</span>
+                                <span class="date">Feb 28, 2024</span>
+                            </div>
+                            <h4 class="article-title">AI-Powered Crop Quality Detection: Revolutionizing Agricultural Grading</h4>
+                            <a href="articles/ai-crop-detection.html" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles-grid">
+        <div class="container">
+            <div class="grid-header">
+                <h2 class="section-title">Latest Articles & Resources</h2>
+                <div class="sort-options">
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by" class="sort-select">
+                        <option value="latest">Latest</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="trending">Trending</option>
+                        <option value="oldest">Oldest</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="articles-container">
+                <!-- Article 1 -->
+                <article class="article-card" data-category="solar-cooking" data-tags="technology, community, sustainable">
+                    <div class="article-image">
+                        <img src="images/blog/solar-steam-systems.jpg" alt="Solar Steam Systems Guide">
+                        <div class="article-badge guide">Guide</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category solar-cooking">Solar Cooking</span>
+                            <span class="date">Feb 20, 2024</span>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                        <h3 class="article-title">Complete Guide to Solar Steam Cooking Systems: Design, Installation & Maintenance</h3>
+                        <p class="article-excerpt">Detailed technical guide covering everything from system design principles to installation best practices and long-term maintenance protocols for solar steam cooking systems.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">Installation</span>
+                            <span class="tag">Maintenance</span>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user-engineering"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Dr. Rajesh Kumar</span>
+                                    <span class="author-role">Chief Technology Officer</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/solar-steam-guide.html" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+                                <button class="save-article" title="Save for later">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="article-card" data-category="farmer-education" data-tags="training, agriculture, solar">
+                    <div class="article-image">
+                        <img src="images/blog/farmer-training.jpg" alt="Farmer Training Program">
+                        <div class="article-badge tutorial">Tutorial</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category farmer-education">Farmer Education</span>
+                            <span class="date">Feb 15, 2024</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <h3 class="article-title">Solar Drying Training Program: Empowering Farmers with Practical Skills</h3>
+                        <p class="article-excerpt">Step-by-step training curriculum for farmers on operating and maintaining solar drying systems, including troubleshooting common issues.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Training</span>
+                            <span class="tag">Farmers</span>
+                            <span class="tag">Practical Guide</span>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Ms. Anjali Sharma</span>
+                                    <span class="author-role">Training Director</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/farmer-training.html" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+                                <button class="save-article" title="Save for later">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="article-card" data-category="technical" data-tags="research, performance, analysis">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category technical">Technical Article</span>
+                            <span class="date">Feb 10, 2024</span>
+                            <span class="read-time">12 min read</span>
+                        </div>
+                        <h3 class="article-title">Performance Analysis of Parabolic Trough Collectors for Industrial Process Heating</h3>
+                        <p class="article-excerpt">Research paper analyzing the thermal performance and economic viability of PTC systems for medium-temperature industrial applications.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Research Paper</span>
+                            <span class="tag">Performance Analysis</span>
+                            <span class="tag">Industrial Heating</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <h4>Download Resources:</h4>
+                            <div class="resource-links">
+                                <a href="downloads/ptc-performance-paper.pdf" class="resource-link" download>
+                                    <i class="fas fa-file-pdf"></i> Research Paper (PDF, 2.1MB)
+                                </a>
+                                <a href="downloads/ptc-data-set.xlsx" class="resource-link" download>
+                                    <i class="fas fa-file-excel"></i> Performance Data (Excel, 850KB)
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Research Team</span>
+                                    <span class="author-role">KVB Innovation Lab</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/ptc-performance.html" class="read-link">Read Analysis <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 4 -->
+                <article class="article-card" data-category="policy" data-tags="government, subsidy, renewable">
+                    <div class="article-image">
+                        <img src="images/blog/government-subsidy.jpg" alt="Government Subsidy Guide">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category policy">Government Policy</span>
+                            <span class="date">Feb 5, 2024</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                        <h3 class="article-title">Complete Guide to Government Subsidies for Solar Thermal Systems in India (2024)</h3>
+                        <p class="article-excerpt">Updated guide covering MNRE and state government subsidies, eligibility criteria, application process, and documentation requirements.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Subsidy</span>
+                            <span class="tag">Government</span>
+                            <span class="tag">Funding</span>
+                        </div>
+                        
+                        <div class="download-info">
+                            <p><i class="fas fa-download"></i> <strong>Updated for 2024</strong> - Includes latest subsidy rates and schemes</p>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Policy Team</span>
+                                    <span class="author-role">Government Relations</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/subsidy-guide.html" class="read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                                <a href="downloads/subsidy-application-template.pdf" class="download-link" download>
+                                    <i class="fas fa-download"></i> Template
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 5 -->
+                <article class="article-card" data-category="smart-agri" data-tags="technology, innovation, farming">
+                    <div class="article-image">
+                        <img src="images/blog/microgreen-systems.jpg" alt="Microgreen Farming Systems">
+                        <div class="article-badge innovation">Innovation</div>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category smart-agri">Smart Agriculture</span>
+                            <span class="date">Jan 30, 2024</span>
+                            <span class="read-time">9 min read</span>
+                        </div>
+                        <h3 class="article-title">Automated Microgreen Farming Systems: Technology for Urban Agriculture</h3>
+                        <p class="article-excerpt">Exploring automated vertical farming technologies for high-value microgreen production in urban environments with limited space.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Urban Farming</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Vertical Farming</span>
+                        </div>
+                        
+                        <div class="video-preview">
+                            <a href="https://youtube.com/watch?v=microgreen-demo" class="video-link" target="_blank">
+                                <i class="fas fa-play-circle"></i> Watch System Demonstration
+                            </a>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Innovation Team</span>
+                                    <span class="author-role">Automation Division</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/microgreen-systems.html" class="read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Article 6 -->
+                <article class="article-card" data-category="energy-storage" data-tags="research, innovation, thermal">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="category energy-storage">Energy Storage</span>
+                            <span class="date">Jan 25, 2024</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <h3 class="article-title">Hybrid Solar-Biomass Thermal Systems: 24/7 Renewable Energy Solutions</h3>
+                        <p class="article-excerpt">Technical analysis of integrated solar and biomass thermal systems for continuous operation in industrial and institutional applications.</p>
+                        
+                        <div class="article-tags">
+                            <span class="tag">Hybrid Systems</span>
+                            <span class="tag">Renewable Integration</span>
+                            <span class="tag">Continuous Operation</span>
+                        </div>
+                        
+                        <div class="case-study-link">
+                            <a href="case-studies.html#sugati" class="case-link">
+                                <i class="fas fa-chart-line"></i> Read Case Study: Sugati Ingredients Implementation
+                            </a>
+                        </div>
+                        
+                        <div class="article-footer">
+                            <div class="author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="author-info">
+                                    <span class="author-name">Engineering Team</span>
+                                    <span class="author-role">Systems Integration</span>
+                                </div>
+                            </div>
+                            <div class="article-actions">
+                                <a href="articles/hybrid-systems.html" class="read-link">Read Analysis <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="load-more-articles">
+                <button id="loadMoreArticles" class="btn btn-outline">
+                    <i class="fas fa-plus"></i> Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Library -->
+    <section class="resource-library">
+        <div class="container">
+            <h2 class="section-title">Resource Library</h2>
+            <p class="section-subtitle">Download technical documents, guides, and research papers</p>
+            
+            <div class="resource-categories">
+                <div class="resource-category">
+                    <h3><i class="fas fa-file-pdf"></i> Technical Documents</h3>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="downloads/solar-cooking-technical-specs.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Solar Cooking System Technical Specifications</span>
+                                    <span class="resource-meta">PDF • 2.4 MB • Updated: March 2024</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/solar-drying-design-guide.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Solar Drying System Design Guide</span>
+                                    <span class="resource-meta">PDF • 3.1 MB • Updated: Feb 2024</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/installation-manual.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">System Installation & Commissioning Manual</span>
+                                    <span class="resource-meta">PDF • 4.2 MB • Version 3.0</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="resource-category">
+                    <h3><i class="fas fa-chart-bar"></i> Research & Data</h3>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="downloads/performance-analysis-2023.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Annual Performance Analysis Report 2023</span>
+                                    <span class="resource-meta">PDF • 5.8 MB • Comprehensive Data</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/case-study-database.xlsx" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Case Studies Database (Excel)</span>
+                                    <span class="resource-meta">XLSX • 1.2 MB • 50+ Projects</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/roi-calculator-tool.xlsx" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">ROI Calculator Tool (Excel)</span>
+                                    <span class="resource-meta">XLSX • 850 KB • Interactive</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="resource-category">
+                    <h3><i class="fas fa-graduation-cap"></i> Training Materials</h3>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="downloads/operator-training-manual.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">System Operator Training Manual</span>
+                                    <span class="resource-meta">PDF • 2.8 MB • Complete Guide</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/maintenance-checklist.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Preventive Maintenance Checklist</span>
+                                    <span class="resource-meta">PDF • 1.1 MB • Monthly/Yearly</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="downloads/troubleshooting-guide.pdf" download>
+                                <i class="fas fa-download"></i>
+                                <div class="resource-info">
+                                    <span class="resource-title">Troubleshooting & Repair Guide</span>
+                                    <span class="resource-meta">PDF • 3.5 MB • Step-by-step</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="download-all">
+                <a href="downloads/kvb-resource-library.zip" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download Complete Resource Library (ZIP, 45.2 MB)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h2>Stay Updated with Latest Knowledge</h2>
+                    <p>Subscribe to our Knowledge Center newsletter for monthly updates on new articles, research papers, and technical resources.</p>
+                    
+                    <div class="newsletter-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Monthly curated articles</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Latest research papers</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Technical updates</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Industry insights</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="newsletter-form">
+                    <form id="knowledge-newsletter">
+                        <h3>Subscribe to Knowledge Center</h3>
+                        
+                        <div class="form-group">
+                            <label for="newsletter-name">Full Name</label>
+                            <input type="text" id="newsletter-name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsletter-email">Email Address</label>
+                            <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest-areas">Areas of Interest</label>
+                            <div class="interest-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="solar-cooking">
+                                    <span>Solar Cooking</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="solar-drying">
+                                    <span>Solar Drying</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="energy-storage">
+                                    <span>Energy Storage</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="interests" value="smart-agri">
+                                    <span>Smart Agriculture</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="user-type">I am a</label>
+                            <select id="user-type" name="user-type">
+                                <option value="">Select category</option>
+                                <option value="farmer">Farmer / Agri Business</option>
+                                <option value="institution">Institution / Organization</option>
+                                <option value="industry">Industry Professional</option>
+                                <option value="student">Student / Researcher</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="privacy-note">
+                            <input type="checkbox" id="privacy-agree" required>
+                            <label for="privacy-agree">I agree to receive newsletters and accept the <a href="#">privacy policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Subscribe to Newsletter
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Contributors -->
+    <section class="expert-contributors">
+        <div class="container">
+            <h2 class="section-title">Our Expert Contributors</h2>
+            <p class="section-subtitle">Learn from industry experts and technical specialists</p>
+            
+            <div class="contributors-grid">
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <i class="fas fa-user-engineering"></i>
+                    </div>
+                    <div class="contributor-info">
+                        <h3>Dr. Rajesh Kumar</h3>
+                        <p class="contributor-role">Chief Technology Officer</p>
+                        <p class="contributor-expertise">Solar Thermal Systems, Engineering Design</p>
+                        <div class="contributor-stats">
+                            <span class="stat">28 articles</span>
+                            <span class="stat">15+ years experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="contributor-info">
+                        <h3>Ms. Anjali Sharma</h3>
+                        <p class="contributor-role">Research Director</p>
+                        <p class="contributor-expertise">Renewable Energy Research, Performance Testing</p>
+                        <div class="contributor-stats">
+                            <span class="stat">22 articles</span>
+                            <span class="stat">PhD in Renewable Energy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="contributor-info">
+                        <h3>Mr. Suresh Patel</h3>
+                        <p class="contributor-role">Agriculture Technology Head</p>
+                        <p class="contributor-expertise">Smart Farming, Farmer Training</p>
+                        <div class="contributor-stats">
+                            <span class="stat">18 articles</span>
+                            <span class="stat">25+ years agri experience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contributor-card">
+                    <div class="contributor-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="contributor-info">
+                        <h3>Mr. Vikram Singh</h3>
+                        <p class="contributor-role">Automation Specialist</p>
+                        <p class="contributor-expertise">System Automation, IoT Integration</p>
+                        <div class="contributor-stats">
+                            <span class="stat">15 articles</span>
+                            <span class="stat">Patent Holder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Center CTA -->
+    <section class="knowledge-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Looking for Specific Information?</h2>
+                <p>Can't find what you're looking for? Request custom research or schedule a consultation with our technical team.</p>
+                
+                <div class="cta-actions">
+                    <a href="contact.html?type=research-request" class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i> Request Custom Research
+                    </a>
+                    <a href="contact.html?type=technical-consultation" class="btn btn-outline-light">
+                        <i class="fas fa-user-graduate"></i> Schedule Technical Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Footer component would be included here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Real Projects, Real Results | KVB Green Energies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Navigation component would be included here -->
+    </header>
+
+    <!-- Case Studies Hero -->
+    <section class="case-studies-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Case Studies</h1>
+                <p class="hero-subtitle">Real Projects, Measurable Results</p>
+                <p class="hero-description">Explore real-world implementations of KVB technologies across India. Each case study demonstrates practical applications, measurable impact, and proven ROI of our renewable energy and smart agriculture solutions.</p>
+                
+                <div class="case-stats">
+                    <div class="stat">
+                        <div class="stat-number">100<span>+</span></div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2500<span>+</span></div>
+                        <div class="stat-label">Tons CO₂ Reduced</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">70<span>%</span></div>
+                        <div class="stat-label">Average Fuel Savings</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">3-4<span>Y</span></div>
+                        <div class="stat-label">Average ROI Period</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Filter -->
+    <section class="case-filter">
+        <div class="container">
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="solution-type">Filter by Solution:</label>
+                    <select id="solution-type" class="filter-select">
+                        <option value="all">All Solutions</option>
+                        <option value="solar-cooking">Solar Cooking Systems</option>
+                        <option value="solar-drying">Solar Drying Systems</option>
+                        <option value="smart-agri">Smart Agriculture</option>
+                        <option value="energy-storage">Energy Storage</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="client-type">Filter by Client Type:</label>
+                    <select id="client-type" class="filter-select">
+                        <option value="all">All Client Types</option>
+                        <option value="government">Government & Defense</option>
+                        <option value="education">Universities & Research</option>
+                        <option value="religious">Religious Institutions</option>
+                        <option value="agriculture">Agriculture Organizations</option>
+                        <option value="industry">Food Industries</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="location">Filter by Location:</label>
+                    <select id="location" class="filter-select">
+                        <option value="all">All Locations</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="tamil-nadu">Tamil Nadu</option>
+                        <option value="goa">Goa</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="other">Other States</option>
+                    </select>
+                </div>
+                
+                <button id="clear-filters" class="btn btn-outline">
+                    <i class="fas fa-times"></i> Clear Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="case-studies-grid">
+        <div class="container">
+            <div class="cases-container">
+                <!-- Indian Army Case Study -->
+                <div class="case-study-card" data-solution="solar-cooking" data-client="government" data-location="tamil-nadu">
+                    <div class="case-image">
+                        <img src="images/cases/indian-army-case.jpg" alt="Indian Army Solar Cooking System">
+                        <div class="case-badge government">Government</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Indian Army, Chennai</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</p>
+                        <p class="case-description">Solar steam cooking system for army base kitchen serving 500+ personnel daily.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">70%</div>
+                                <div class="result-label">LPG Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">₹650,000</div>
+                                <div class="result-label">Annual Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">10 tons</div>
+                                <div class="result-label">CO₂ Reduction/year</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Solar Cooking</span>
+                            <span class="tag">Defense</span>
+                            <span class="tag">Large Scale</span>
+                        </div>
+                        
+                        <a href="#indian-army-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sri Siddharodhmath Case Study -->
+                <div class="case-study-card" data-solution="solar-cooking" data-client="religious" data-location="karnataka">
+                    <div class="case-image">
+                        <img src="images/cases/siddharodhmath-case.jpg" alt="Sri Siddharodhmath Solar Kitchen">
+                        <div class="case-badge religious">Religious Institution</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Sri Siddharodhmath, Hubli</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Hubli, Karnataka</p>
+                        <p class="case-description">Large-scale solar cooking system for temple kitchen serving 2000+ meals daily.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">65%</div>
+                                <div class="result-label">LPG Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">₹450,000</div>
+                                <div class="result-label">Annual Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">8.5 tons</div>
+                                <div class="result-label">CO₂ Reduction/year</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Community Kitchen</span>
+                            <span class="tag">Temple</span>
+                            <span class="tag">High Capacity</span>
+                        </div>
+                        
+                        <a href="#siddharodhmath-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- UAS Bengaluru Case Study -->
+                <div class="case-study-card" data-solution="solar-cooking" data-client="education" data-location="karnataka">
+                    <div class="case-image">
+                        <img src="images/cases/uas-bengaluru-case.jpg" alt="UAS Bengaluru Solar System">
+                        <div class="case-badge education">University</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>UAS Bengaluru</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</p>
+                        <p class="case-description">Solar cooking system for university hostel and renewable energy research center.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">60%</div>
+                                <div class="result-label">Fuel Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">Research</div>
+                                <div class="result-label">Demonstration Unit</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">Student</div>
+                                <div class="result-label">Training Facility</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Research</span>
+                            <span class="tag">Training</span>
+                        </div>
+                        
+                        <a href="#uas-bengaluru-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Coffee Board Case Study -->
+                <div class="case-study-card" data-solution="solar-drying" data-client="agriculture" data-location="karnataka">
+                    <div class="case-image">
+                        <img src="images/cases/coffee-board-case.jpg" alt="Coffee Board Solar Drying">
+                        <div class="case-badge agriculture">Agriculture</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Coffee Board, Balehonnur</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Balehonnur, Karnataka</p>
+                        <p class="case-description">Solar tunnel dryer demonstration unit for coffee processing and farmer training.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">40%</div>
+                                <div class="result-label">Drying Time</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">Improved</div>
+                                <div class="result-label">Product Quality</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">50+</div>
+                                <div class="result-label">Farmers Trained</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Coffee Processing</span>
+                            <span class="tag">Solar Drying</span>
+                            <span class="tag">Farmer Training</span>
+                        </div>
+                        
+                        <a href="#coffee-board-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sugati Ingredients Case Study -->
+                <div class="case-study-card" data-solution="solar-drying" data-client="industry" data-location="karnataka">
+                    <div class="case-image">
+                        <img src="images/cases/sugati-case.jpg" alt="Sugati Ingredients Solar Drying">
+                        <div class="case-badge industry">Food Industry</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Sugati Ingredients, Challakere</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Challakere, Karnataka</p>
+                        <p class="case-description">Industrial-scale solar drying system for food ingredient processing.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">75%</div>
+                                <div class="result-label">Fuel Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">₹800,000</div>
+                                <div class="result-label">Annual Savings</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">3 years</div>
+                                <div class="result-label">ROI Period</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Industrial</span>
+                            <span class="tag">Food Processing</span>
+                            <span class="tag">Large Scale</span>
+                        </div>
+                        
+                        <a href="#sugati-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- NABARD Case Study -->
+                <div class="case-study-card" data-solution="smart-agri" data-client="agriculture" data-location="karnataka">
+                    <div class="case-image">
+                        <img src="images/cases/nabard-case.jpg" alt="NABARD Farmer Training">
+                        <div class="case-badge agriculture">Agriculture</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>NABARD, Bagalkot</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Bagalkot, Karnataka</p>
+                        <p class="case-description">Farmer training and demonstration projects for solar agricultural technologies.</p>
+                        
+                        <div class="case-results">
+                            <div class="result">
+                                <div class="result-value">200+</div>
+                                <div class="result-label">Farmers Trained</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">15</div>
+                                <div class="result-label">Demo Units</div>
+                            </div>
+                            <div class="result">
+                                <div class="result-value">Rural</div>
+                                <div class="result-label">Development</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-tags">
+                            <span class="tag">Farmer Training</span>
+                            <span class="tag">Rural Development</span>
+                            <span class="tag">Government Scheme</span>
+                        </div>
+                        
+                        <a href="#nabard-details" class="case-link">View Full Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more-cases">
+                <button id="loadMoreCases" class="btn btn-outline">
+                    <i class="fas fa-plus"></i> Load More Case Studies
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Case Studies -->
+    <section class="detailed-case-studies">
+        <div class="container">
+            <!-- Indian Army Detailed Case Study -->
+            <div class="detailed-case" id="indian-army-details">
+                <div class="case-header">
+                    <div class="case-title">
+                        <h2>Indian Army Base, Chennai</h2>
+                        <div class="case-meta">
+                            <span class="meta-item"><i class="fas fa-calendar"></i> Installed: March 2021</span>
+                            <span class="meta-item"><i class="fas fa-industry"></i> Client: Indian Army</span>
+                            <span class="meta-item"><i class="fas fa-map-marker-alt"></i> Location: Chennai, Tamil Nadu</span>
+                        </div>
+                    </div>
+                    <div class="case-actions">
+                        <a href="downloads/indian-army-case-study.pdf" class="btn btn-outline" download>
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="case-body">
+                    <div class="case-overview">
+                        <h3>Project Overview</h3>
+                        <p>The Indian Army base in Chennai required a sustainable cooking solution for their kitchen serving 500+ personnel daily. The existing LPG-based system had high operational costs and supply chain dependencies.</p>
+                        
+                        <div class="case-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-fire"></i>
+                                <div>
+                                    <h4>Challenge</h4>
+                                    <p>High LPG consumption, rising costs, and supply uncertainties</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-solar-panel"></i>
+                                <div>
+                                    <h4>Solution</h4>
+                                    <p>100 m² solar steam cooking system with hybrid backup</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Results</h4>
+                                    <p>70% LPG reduction, 10 tons CO₂ savings annually</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-details">
+                        <div class="detail-section">
+                            <h3>Technical Specifications</h3>
+                            <div class="specs-grid">
+                                <div class="spec">
+                                    <div class="spec-label">System Type</div>
+                                    <div class="spec-value">Solar Steam Cooking System</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Collection Area</div>
+                                    <div class="spec-value">100 m²</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Capacity</div>
+                                    <div class="spec-value">500 meals/day</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Steam Temperature</div>
+                                    <div class="spec-value">120-150°C</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Backup System</div>
+                                    <div class="spec-value">Hybrid LPG backup</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Automation</div>
+                                    <div class="spec-value">Fully automated tracking</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>Financial Impact</h3>
+                            <div class="financial-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">₹650,000</div>
+                                    <div class="metric-label">Annual Savings</div>
+                                    <p>Reduction in LPG expenses</p>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">3.5 years</div>
+                                    <div class="metric-label">ROI Period</div>
+                                    <p>Payback through fuel savings</p>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">25+ years</div>
+                                    <div class="metric-label">System Life</div>
+                                    <p>Designed for long-term operation</p>
+                                </div>
+                            </div>
+                            
+                            <div class="roi-chart">
+                                <h4>ROI Analysis</h4>
+                                <div class="chart-container">
+                                    <div class="chart-bar" style="width: 100%; background: #ddd;">
+                                        <div class="chart-fill" style="width: 70%; background: var(--solar-yellow);">
+                                            <span>Year 1-3.5: Investment Recovery</span>
+                                        </div>
+                                        <div class="chart-fill" style="width: 30%; background: var(--eco-green); margin-left: 70%;">
+                                            <span>Year 3.5+: Net Savings</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-color" style="background: var(--solar-yellow);"></span>
+                                            <span>Investment Phase</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color" style="background: var(--eco-green);"></span>
+                                            <span>Savings Phase</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>Environmental Impact</h3>
+                            <div class="environmental-impact">
+                                <div class="impact-item">
+                                    <i class="fas fa-smog"></i>
+                                    <div>
+                                        <div class="impact-value">10 tons</div>
+                                        <div class="impact-label">Annual CO₂ Reduction</div>
+                                    </div>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-tree"></i>
+                                    <div>
+                                        <div class="impact-value">Equivalent to</div>
+                                        <div class="impact-label">450 trees planted</div>
+                                    </div>
+                                </div>
+                                <div class="impact-item">
+                                    <i class="fas fa-gas-pump"></i>
+                                    <div>
+                                        <div class="impact-value">15,000 kg</div>
+                                        <div class="impact-label">Annual LPG Saved</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>Project Gallery</h3>
+                            <div class="project-gallery">
+                                <a href="images/cases/army-installation1.jpg" data-lightbox="army-gallery" data-title="Solar Collector Installation">
+                                    <img src="images/cases/army-thumb1.jpg" alt="Installation">
+                                </a>
+                                <a href="images/cases/army-installation2.jpg" data-lightbox="army-gallery" data-title="Steam System Integration">
+                                    <img src="images/cases/army-thumb2.jpg" alt="Steam System">
+                                </a>
+                                <a href="images/cases/army-installation3.jpg" data-lightbox="army-gallery" data-title="Kitchen Integration">
+                                    <img src="images/cases/army-thumb3.jpg" alt="Kitchen">
+                                </a>
+                                <a href="images/cases/army-installation4.jpg" data-lightbox="army-gallery" data-title="Control System">
+                                    <img src="images/cases/army-thumb4.jpg" alt="Control Panel">
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>Client Testimonial</h3>
+                            <div class="client-testimonial">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"The solar cooking system has performed exceptionally well at our base. It has significantly reduced our LPG dependency and operational costs while providing reliable cooking capacity. The automated operation requires minimal supervision, making it ideal for defense applications."</p>
+                                    <i class="fas fa-quote-right"></i>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>Major Sharma</h4>
+                                        <p>Base Commander</p>
+                                        <p class="author-org">Indian Army, Chennai</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3>Key Success Factors</h3>
+                            <ul class="success-factors">
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Reliability</strong>
+                                        <p>Consistent performance meeting defense requirements</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Automation</strong>
+                                        <p>Minimal operator intervention required</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Safety</strong>
+                                        <p>Multiple safety systems for secure operation</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Maintenance</strong>
+                                        <p>Low maintenance design suitable for remote locations</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="case-cta">
+                        <div class="cta-content">
+                            <h3>Interested in Similar Solutions?</h3>
+                            <p>Contact our team to discuss solar cooking solutions for your institution</p>
+                            <div class="cta-actions">
+                                <a href="contact.html?case=indian-army" class="btn btn-primary">
+                                    <i class="fas fa-envelope"></i> Request Consultation
+                                </a>
+                                <a href="solutions/solar-thermal-systems.html" class="btn btn-outline">
+                                    <i class="fas fa-lightbulb"></i> View Solar Cooking Solutions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional case studies would follow similar structure -->
+        </div>
+    </section>
+
+    <!-- Case Study Calculator -->
+    <section class="case-calculator">
+        <div class="container">
+            <div class="calculator-content">
+                <h2>Calculate Your Potential Savings</h2>
+                <p>Use our calculator to estimate savings for your institution based on similar case studies</p>
+                
+                <div class="calculator-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="current-fuel">Current Fuel Type</label>
+                            <select id="current-fuel" class="form-control">
+                                <option value="lpg">LPG</option>
+                                <option value="firewood">Firewood</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="electricity">Electricity</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="monthly-consumption">Monthly Consumption</label>
+                            <div class="input-group">
+                                <input type="number" id="monthly-consumption" class="form-control" placeholder="e.g., 500">
+                                <span class="input-unit" id="consumption-unit">kg</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="meals-per-day">Meals Per Day</label>
+                            <input type="number" id="meals-per-day" class="form-control" placeholder="e.g., 200">
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button id="calculate-savings" class="btn btn-primary">
+                            <i class="fas fa-calculator"></i> Calculate Savings
+                        </button>
+                    </div>
+                    
+                    <div class="calculator-results" id="savings-results">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Case Studies -->
+    <section class="related-cases">
+        <div class="container">
+            <h2 class="section-title">Related Case Studies</h2>
+            
+            <div class="related-cases-grid">
+                <!-- Related cases would be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Footer component would be included here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="js/case-studies.js"></script>
+</body>
+</html>

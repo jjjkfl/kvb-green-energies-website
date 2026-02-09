@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability Impact | Environmental & Social Benefits | KVB Green Energies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Navigation component would be included here -->
+    </header>
+
+    <!-- Sustainability Hero -->
+    <section class="sustainability-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sustainability Impact</h1>
+                <p class="hero-subtitle">Measuring Our Environmental & Social Contribution</p>
+                <p class="hero-description">Every KVB system contributes to a cleaner environment and stronger communities. We measure success not just in financial returns, but in reduced emissions, conserved resources, and improved livelihoods.</p>
+                
+                <!-- Live Impact Dashboard -->
+                <div class="impact-dashboard">
+                    <div class="dashboard-header">
+                        <h3><i class="fas fa-chart-line"></i> Live Impact Dashboard</h3>
+                        <p class="dashboard-update">Updated: Real-time (based on installed systems)</p>
+                    </div>
+                    
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-smog"></i>
+                            </div>
+                            <div class="metric-data">
+                                <div class="metric-value" id="co2-saved">2,500<span>+</span></div>
+                                <div class="metric-label">Tons of CO₂ Reduced</div>
+                                <div class="metric-equivalent">Equivalent to 113,000 trees</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="metric-data">
+                                <div class="metric-value" id="firewood-saved">5,000<span>+</span></div>
+                                <div class="metric-label">Tons of Firewood Saved</div>
+                                <div class="metric-equivalent">Protecting forests</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-gas-pump"></i>
+                            </div>
+                            <div class="metric-data">
+                                <div class="metric-value" id="lpg-saved">150,000<span>+</span></div>
+                                <div class="metric-label">kg of LPG Saved</div>
+                                <div class="metric-equivalent">Reducing fossil fuel use</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="metric-data">
+                                <div class="metric-value" id="people-impacted">10,000<span>+</span></div>
+                                <div class="metric-label">People Impacted</div>
+                                <div class="metric-equivalent">Cleaner cooking & livelihoods</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-update-info">
+                        <p><i class="fas fa-info-circle"></i> These metrics are estimated based on installed KVB systems and their operational data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Impact Comparison -->
+    <section class="impact-comparison">
+        <div class="container">
+            <h2 class="section-title">Environmental Impact: Before vs After</h2>
+            <p class="section-subtitle">Quantifying the difference KVB systems make</p>
+            
+            <div class="comparison-tabs">
+                <button class="comparison-tab active" data-comparison="firewood">Firewood vs Solar</button>
+                <button class="comparison-tab" data-comparison="lpg">LPG vs Solar</button>
+                <button class="comparison-tab" data-comparison="diesel">Diesel vs Solar</button>
+            </div>
+            
+            <div class="comparison-content">
+                <!-- Firewood vs Solar -->
+                <div class="comparison-chart active" id="firewood-comparison">
+                    <div class="chart-container">
+                        <canvas id="firewoodChart"></canvas>
+                    </div>
+                    <div class="chart-analysis">
+                        <h3>Firewood vs Solar Cooking: Environmental Impact</h3>
+                        <div class="analysis-points">
+                            <div class="point negative">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <h4>Firewood Cooking (Per 100 meals)</h4>
+                                    <ul>
+                                        <li>50-100 kg of firewood consumed</li>
+                                        <li>150-300 kg CO₂ emissions</li>
+                                        <li>Deforestation impact</li>
+                                        <li>Indoor air pollution health risks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="point positive">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Solar Cooking (Per 100 meals)</h4>
+                                    <ul>
+                                        <li>Zero fuel consumption</li>
+                                        <li>Zero operational emissions</li>
+                                        <li>No deforestation</li>
+                                        <li>Clean indoor air</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LPG vs Solar -->
+                <div class="comparison-chart" id="lpg-comparison">
+                    <div class="chart-container">
+                        <canvas id="lpgChart"></canvas>
+                    </div>
+                    <div class="chart-analysis">
+                        <h3>LPG vs Solar Cooking: Cost & Environmental Analysis</h3>
+                        <div class="analysis-points">
+                            <div class="point negative">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <h4>LPG Cooking (Annual for 500 meals/day)</h4>
+                                    <ul>
+                                        <li>₹650,000 - ₹800,000 fuel cost</li>
+                                        <li>10-12 tons CO₂ emissions</li>
+                                        <li>Fossil fuel dependency</li>
+                                        <li>Price volatility risks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="point positive">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Solar Cooking (Annual for 500 meals/day)</h4>
+                                    <ul>
+                                        <li>70-80% lower operational cost</li>
+                                        <li>Near-zero emissions</li>
+                                        <li>Energy independence</li>
+                                        <li>Price stability</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Reduction Calculator -->
+    <section class="carbon-calculator">
+        <div class="container">
+            <div class="calculator-wrapper">
+                <div class="calculator-info">
+                    <h2>Carbon Footprint Calculator</h2>
+                    <p>Calculate how much CO₂ you can reduce by switching to KVB solar thermal systems.</p>
+                    
+                    <div class="calculator-instructions">
+                        <h4>How it works:</h4>
+                        <p>Enter your current fuel consumption to see potential CO₂ savings and environmental impact.</p>
+                    </div>
+                    
+                    <div class="carbon-facts">
+                        <h4>Carbon Reduction Facts:</h4>
+                        <ul class="facts-list">
+                            <li>
+                                <i class="fas fa-leaf"></i>
+                                <div>
+                                    <strong>1 ton of CO₂</strong>
+                                    <p>Equals the emissions from driving 4,000 km in a car</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-tree"></i>
+                                <div>
+                                    <strong>1 solar cooking system</strong>
+                                    <p>Equals planting 400-500 trees annually</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-home"></i>
+                                <div>
+                                    <strong>Clean cooking</strong>
+                                    <p>Reduces indoor air pollution by 90% compared to firewood</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="calculator-form">
+                    <form id="carbonCalculator">
+                        <h3>Calculate Your Carbon Savings</h3>
+                        
+                        <div class="form-group">
+                            <label for="fuel-type">Current Fuel Type</label>
+                            <select id="fuel-type" name="fuel-type" required>
+                                <option value="">Select fuel type</option>
+                                <option value="firewood">Firewood</option>
+                                <option value="lpg">LPG/Cylinder Gas</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="electricity">Electricity (Grid)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fuel-consumption">Monthly Consumption</label>
+                            <div class="input-group">
+                                <input type="number" id="fuel-consumption" name="fuel-consumption" placeholder="e.g., 1000" required>
+                                <span class="input-unit" id="consumption-unit">kg</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="application">Application</label>
+                            <select id="application" name="application" required>
+                                <option value="">Select application</option>
+                                <option value="cooking">Cooking</option>
+                                <option value="drying">Crop Drying</option>
+                                <option value="heating">Process Heating</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="capacity">Daily Capacity</label>
+                            <input type="number" id="capacity" name="capacity" placeholder="e.g., 200 meals or kg">
+                            <span class="input-hint">meals/day or kg/day</span>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-calculator"></i> Calculate Carbon Savings
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="calculator-results" id="carbon-results">
+                        <!-- Results will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Impact -->
+    <section class="social-impact">
+        <div class="container">
+            <h2 class="section-title">Social Impact & Community Benefits</h2>
+            <p class="section-subtitle">Beyond environmental benefits: Improving lives and livelihoods</p>
+            
+            <div class="impact-areas">
+                <div class="impact-area">
+                    <div class="area-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Women's Empowerment</h3>
+                        <p>Reducing time spent on fuel collection and cooking, enabling education and income-generating activities.</p>
+                        <div class="impact-stats">
+                            <div class="stat">
+                                <div class="stat-value">3-5<span>h</span></div>
+                                <div class="stat-label">Daily time saved</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">Health</div>
+                                <div class="stat-label">Reduced smoke exposure</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-area">
+                    <div class="area-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Farmer Income Improvement</h3>
+                        <p>Solar drying systems increase farmer income by reducing post-harvest losses and improving product quality.</p>
+                        <div class="impact-stats">
+                            <div class="stat">
+                                <div class="stat-value">20-30<span>%</span></div>
+                                <div class="stat-label">Higher prices</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">40<span>%</span></div>
+                                <div class="stat-label">Less spoilage</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-area">
+                    <div class="area-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Educational Opportunities</h3>
+                        <p>Schools and hostels can redirect saved fuel costs to educational resources and infrastructure.</p>
+                        <div class="impact-stats">
+                            <div class="stat">
+                                <div class="stat-value">₹500,000<span>+</span></div>
+                                <div class="stat-label">Annual savings for schools</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">Clean</div>
+                                <div class="stat-label">Campus environment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-area">
+                    <div class="area-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="area-content">
+                        <h3>Community Development</h3>
+                        <p>Religious and community institutions can serve more people with sustainable resources.</p>
+                        <div class="impact-stats">
+                            <div class="stat">
+                                <div class="stat-value">2,000<span>+</span></div>
+                                <div class="stat-label">Daily meals served</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">Sustainable</div>
+                                <div class="stat-label">Community kitchens</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Impact -->
+    <section class="impact-case-studies">
+        <div class="container">
+            <h2 class="section-title">Impact in Action: Case Studies</h2>
+            
+            <div class="impact-cases">
+                <div class="impact-case">
+                    <div class="case-image">
+                        <img src="images/impact/farmer-impact.jpg" alt="Farmer Impact">
+                        <div class="case-badge">Agriculture</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Farmer Cooperatives, Bagalkot</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Bagalkot, Karnataka</p>
+                        <p class="case-description">50 farmers using solar tunnel dryers for chili and turmeric processing.</p>
+                        
+                        <div class="impact-metrics">
+                            <div class="impact-metric">
+                                <div class="metric-value">40<span>%</span></div>
+                                <div class="metric-label">Higher income</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-value">60<span>%</span></div>
+                                <div class="metric-label">Less spoilage</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-value">Clean</div>
+                                <div class="metric-label">Processing</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="impact-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"The solar dryer has doubled our chili prices. We now get premium rates for quality products."</p>
+                            <cite>- Mr. Raju, Farmer Cooperative Member</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="impact-case">
+                    <div class="case-image">
+                        <img src="images/impact/school-impact.jpg" alt="School Impact">
+                        <div class="case-badge">Education</div>
+                    </div>
+                    <div class="case-content">
+                        <h3>Government School, Hubli</h3>
+                        <p class="case-location"><i class="fas fa-map-marker-alt"></i> Hubli, Karnataka</p>
+                        <p class="case-description">Mid-day meal program powered by solar cooking for 500 students daily.</p>
+                        
+                        <div class="impact-metrics">
+                            <div class="impact-metric">
+                                <div class="metric-value">₹400,000</div>
+                                <div class="metric-label">Annual savings</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-value">Clean</div>
+                                <div class="metric-label">Kitchen air</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-value">500</div>
+                                <div class="metric-label">Students served</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="impact-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"The savings from solar cooking allowed us to buy new books and sports equipment."</p>
+                            <cite>- School Principal, Hubli</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainable Development Goals -->
+    <section class="sdg-section">
+        <div class="container">
+            <h2 class="section-title">Contributing to UN Sustainable Development Goals</h2>
+            <p class="section-subtitle">KVB technologies align with multiple UN SDGs for sustainable development</p>
+            
+            <div class="sdg-grid">
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #E5243B;">
+                        <span>7</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Affordable & Clean Energy</h3>
+                        <p>Providing access to affordable, reliable, sustainable modern energy through solar thermal solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #DDA63A;">
+                        <span>2</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Zero Hunger</h3>
+                        <p>Supporting sustainable food production and reducing post-harvest losses through solar drying.</p>
+                    </div>
+                </div>
+                
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #4C9F38;">
+                        <span>13</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Climate Action</h3>
+                        <p>Reducing carbon emissions and promoting climate-resilient agricultural practices.</p>
+                    </div>
+                </div>
+                
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #C5192D;">
+                        <span>3</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Good Health & Well-being</h3>
+                        <p>Reducing indoor air pollution and associated health risks from traditional cooking methods.</p>
+                    </div>
+                </div>
+                
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #3F7E44;">
+                        <span>12</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Responsible Consumption</h3>
+                        <p>Promoting sustainable consumption and production patterns in energy and agriculture.</p>
+                    </div>
+                </div>
+                
+                <div class="sdg-card">
+                    <div class="sdg-icon" style="background: #A21942;">
+                        <span>5</span>
+                    </div>
+                    <div class="sdg-content">
+                        <h3>Gender Equality</h3>
+                        <p>Reducing women's time burden in fuel collection and cooking, enabling empowerment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Commitment -->
+    <section class="sustainability-commitment">
+        <div class="container">
+            <div class="commitment-content">
+                <h2>Our Sustainability Commitment</h2>
+                <p>KVB Green Energies is committed to measurable, reportable impact across environmental, social, and economic dimensions.</p>
+                
+                <div class="commitment-points">
+                    <div class="commitment-point">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <h4>Impact Measurement</h4>
+                            <p>We track and report on key sustainability metrics for all installed systems.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="commitment-point">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <h4>Transparent Reporting</h4>
+                            <p>Annual sustainability reports detailing our environmental and social impact.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="commitment-point">
+                        <i class="fas fa-leaf"></i>
+                        <div>
+                            <h4>Continuous Improvement</h4>
+                            <p>Ongoing R&D to increase efficiency and reduce environmental footprint.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="commitment-point">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <h4>Stakeholder Engagement</h4>
+                            <p>Working with communities, farmers, and institutions for shared value creation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="commitment-cta">
+                    <a href="downloads/kvb-sustainability-report-2023.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i> Download Sustainability Report 2023
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact CTA -->
+    <section class="impact-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Our Sustainability Mission</h2>
+                <p>Whether you're an institution, farmer, or industry partner, you can contribute to a more sustainable future with KVB technologies.</p>
+                
+                <div class="cta-actions">
+                    <a href="contact.html?type=sustainability" class="btn btn-primary">
+                        <i class="fas fa-calendar"></i> Schedule Impact Assessment
+                    </a>
+                    <a href="downloads/sustainability-impact-guide.pdf" class="btn btn-outline-light" download>
+                        <i class="fas fa-download"></i> Download Impact Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Footer component would be included here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="js/sustainability.js"></script>
+</body>
+</html>

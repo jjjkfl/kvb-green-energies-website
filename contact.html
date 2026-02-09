@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact KVB Green Energies | Partnerships & Inquiries</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Navigation component would be included here -->
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contact & Partnerships</h1>
+                <p class="hero-subtitle">Connect with India's Leading Renewable Energy & Smart Agriculture Technology Company</p>
+                <p class="hero-description">Whether you're looking for technical consultation, partnership opportunities, or project implementation support, our team is ready to assist you.</p>
+                
+                <div class="contact-quick-links">
+                    <a href="#contact-form" class="quick-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Send Inquiry</span>
+                    </a>
+                    <a href="tel:+911234567890" class="quick-link">
+                        <i class="fas fa-phone"></i>
+                        <span>Call Now</span>
+                    </a>
+                    <a href="https://wa.me/911234567890" target="_blank" class="quick-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="#visit-us" class="quick-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Visit Office</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Channels -->
+    <section class="contact-channels">
+        <div class="container">
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="channel-content">
+                        <h3>General Inquiries</h3>
+                        <p>For general questions and information</p>
+                        <div class="channel-details">
+                            <div class="detail">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-XXXXX-XXXXX</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@kvbgreenenergies.com</span>
+                            </div>
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Mon-Sat: 9AM-6PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="fas fa-user-engineering"></i>
+                    </div>
+                    <div class="channel-content">
+                        <h3>Technical Support</h3>
+                        <p>For technical queries and project assistance</p>
+                        <div class="channel-details">
+                            <div class="detail">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-XXXXX-XXXXX</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>technical@kvbgreenenergies.com</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-tools"></i>
+                                <span>24/7 Support for Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="channel-card">
+                    <div class="channel-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="channel-content">
+                        <h3>Partnerships</h3>
+                        <p>For collaboration and partnership inquiries</p>
+                        <div class="channel-details">
+                            <div class="detail">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-XXXXX-XXXXX</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>partnerships@kvbgreenenergies.com</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>By Appointment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Type Selection -->
+    <section class="inquiry-types">
+        <div class="container">
+            <h2 class="section-title">How Can We Help You?</h2>
+            <p class="section-subtitle">Select your inquiry type for customized assistance</p>
+            
+            <div class="inquiry-grid">
+                <div class="inquiry-card" data-inquiry-type="technical">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Technical Inquiry</h3>
+                    <p>Product specifications, installation queries, technical consultations</p>
+                    <button class="btn btn-outline select-inquiry" data-type="technical">Select</button>
+                </div>
+                
+                <div class="inquiry-card" data-inquiry-type="demo">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Request Demo/Site Visit</h3>
+                    <p>Schedule product demonstration or visit existing installations</p>
+                    <button class="btn btn-outline select-inquiry" data-type="demo">Select</button>
+                </div>
+                
+                <div class="inquiry-card" data-inquiry-type="government">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Government Partnership</h3>
+                    <p>Government projects, tenders, and institutional collaborations</p>
+                    <button class="btn btn-outline select-inquiry" data-type="government">Select</button>
+                </div>
+                
+                <div class="inquiry-card" data-inquiry-type="investor">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investor Inquiry</h3>
+                    <p>Investment opportunities, company information, financial details</p>
+                    <button class="btn btn-outline select-inquiry" data-type="investor">Select</button>
+                </div>
+                
+                <div class="inquiry-card" data-inquiry-type="farmer">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Farmer Support</h3>
+                    <p>Agricultural technology queries, farmer subsidies, training programs</p>
+                    <button class="btn btn-outline select-inquiry" data-type="farmer">Select</button>
+                </div>
+                
+                <div class="inquiry-card" data-inquiry-type="other">
+                    <div class="inquiry-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Other Inquiries</h3>
+                    <p>Any other questions or information requests</p>
+                    <button class="btn btn-outline select-inquiry" data-type="other">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="form-header">
+                <h2>Send Your Inquiry</h2>
+                <p class="form-subtitle">Fill out the form below and our team will contact you within 24 hours</p>
+                <div class="selected-inquiry" id="selectedInquiryDisplay">
+                    <span>Please select an inquiry type above</span>
+                </div>
+            </div>
+            
+            <div class="form-wrapper">
+                <form id="mainContactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organization/Institution</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select State</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="tamil-nadu">Tamil Nadu</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="goa">Goa</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiryType">Inquiry Type *</label>
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="technical">Technical Inquiry</option>
+                            <option value="demo">Request Demo/Site Visit</option>
+                            <option value="government">Government Partnership</option>
+                            <option value="investor">Investor Inquiry</option>
+                            <option value="farmer">Farmer Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productInterest">Product/Service Interest</label>
+                        <select id="productInterest" name="productInterest">
+                            <option value="">Select if applicable</option>
+                            <option value="solar-cooking">Solar Cooking Systems</option>
+                            <option value="solar-drying">Solar Drying Systems</option>
+                            <option value="energy-storage">Energy Storage</option>
+                            <option value="smart-agri">Smart Agriculture</option>
+                            <option value="multiple">Multiple Systems</option>
+                            <option value="not-sure">Not sure - Need consultation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message/Requirements *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Please provide details about your requirements, project scope, timeline, or any specific questions..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="attachment">Attach Files (Optional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            <label for="attachment" class="file-label">
+                                <i class="fas fa-paperclip"></i>
+                                <span>Choose file</span>
+                            </label>
+                            <span class="file-name">No file chosen</span>
+                        </div>
+                        <p class="file-hint">Max file size: 10MB. Supported formats: PDF, DOC, JPG, PNG</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter" checked>
+                            <span>Subscribe to KVB newsletter for updates on renewable energy technologies</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" required>
+                            <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a> and consent to KVB contacting me regarding my inquiry *</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                        <p class="form-note">We typically respond within 24 hours during business days</p>
+                    </div>
+                </form>
+                
+                <div class="form-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-lightbulb"></i> Tips for Better Response</h3>
+                        <ul class="tips-list">
+                            <li>Provide specific details about your requirements</li>
+                            <li>Include project location and timeline</li>
+                            <li>Mention current fuel source and consumption</li>
+                            <li>Specify budget range if available</li>
+                            <li>Attach site photos if possible</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-clock"></i> Response Time</h3>
+                        <div class="response-time">
+                            <div class="time-category">
+                                <div class="time-label">General Inquiries</div>
+                                <div class="time-value">Within 24 hours</div>
+                            </div>
+                            <div class="time-category">
+                                <div class="time-label">Technical Queries</div>
+                                <div class="time-value">Within 48 hours</div>
+                            </div>
+                            <div class="time-category">
+                                <div class="time-label">Project Proposals</div>
+                                <div class="time-value">3-5 business days</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-phone-alt"></i> Prefer to Talk?</h3>
+                        <div class="contact-options">
+                            <a href="tel:+911234567890" class="contact-option">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="option-label">Call Us</span>
+                                    <span class="option-value">+91-XXXXX-XXXXX</span>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/911234567890" target="_blank" class="contact-option">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <span class="option-label">WhatsApp</span>
+                                    <span class="option-value">+91-XXXXX-XXXXX</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Location & Map -->
+    <section class="office-location" id="visit-us">
+        <div class="container">
+            <h2 class="section-title">Visit Our Office</h2>
+            
+            <div class="location-wrapper">
+                <div class="location-info">
+                    <div class="address-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Headquarters</h3>
+                        <div class="address-details">
+                            <p><strong>KVB Green Energies Pvt. Ltd.</strong></p>
+                            <p>Plot No. XX, Industrial Area</p>
+                            <p>Hubli, Karnataka - 580XXX</p>
+                            <p>India</p>
+                        </div>
+                        
+                        <div class="contact-details">
+                            <div class="detail">
+                                <i class="fas fa-phone"></i>
+                                <span>+91-XXXXX-XXXXX</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@kvbgreenenergies.com</span>
+                            </div>
+                            <div class="detail">
+                                <i class="far fa-clock"></i>
+                                <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+                        
+                        <div class="office-features">
+                            <h4>Office Facilities:</h4>
+                            <div class="features-grid">
+                                <div class="feature">
+                                    <i class="fas fa-car"></i>
+                                    <span>Parking Available</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-wheelchair"></i>
+                                    <span>Wheelchair Accessible</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Free Wi-Fi</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-coffee"></i>
+                                    <span>Meeting Room</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="visit-instructions">
+                            <h4>Before Visiting:</h4>
+                            <ul>
+                                <li>Please schedule appointment in advance</li>
+                                <li>Bring government-issued ID for security</li>
+                                <li>Carry relevant project documents</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-offices">
+                        <h3>Regional Offices</h3>
+                        <div class="office-cards">
+                            <div class="office-card">
+                                <h4>Bengaluru Office</h4>
+                                <p>#123, Tech Park, Bengaluru</p>
+                                <p>Karnataka - 560XXX</p>
+                                <a href="tel:+91-XXXXX-XXXXX" class="office-contact">
+                                    <i class="fas fa-phone"></i> +91-XXXXX-XXXXX
+                                </a>
+                            </div>
+                            
+                            <div class="office-card">
+                                <h4>Goa Office</h4>
+                                <p>#456, Commercial Complex, Panaji</p>
+                                <p>Goa - 403XXX</p>
+                                <a href="tel:+91-XXXXX-XXXXX" class="office-contact">
+                                    <i class="fas fa-phone"></i> +91-XXXXX-XXXXX
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-map">
+                    <div id="officeMap"></div>
+                    <div class="map-instructions">
+                        <p><i class="fas fa-info-circle"></i> Click on markers for office details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Opportunities -->
+    <section class="partnership-opportunities">
+        <div class="container">
+            <h2 class="section-title">Partnership Opportunities</h2>
+            <p class="section-subtitle">Join hands with KVB for sustainable growth and impact</p>
+            
+            <div class="partnership-types">
+                <div class="partnership-type">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Distribution Partnerships</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>Become an authorized distributor of KVB products in your region</p>
+                        <ul class="type-benefits">
+                            <li>Exclusive territory rights</li>
+                            <li>Technical training & support</li>
+                            <li>Marketing collateral</li>
+                            <li>Lead generation support</li>
+                        </ul>
+                        <a href="contact.html?partnership=distribution" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="partnership-type">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Institutional Collaborations</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>Collaborate with educational and research institutions</p>
+                        <ul class="type-benefits">
+                            <li>Joint research projects</li>
+                            <li>Student training programs</li>
+                            <li>Technology demonstration</li>
+                            <li>Knowledge exchange</li>
+                        </ul>
+                        <a href="contact.html?partnership=institutional" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="partnership-type">
+                    <div class="type-header">
+                        <div class="type-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>International Partnerships</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>Expand KVB technologies to international markets</p>
+                        <ul class="type-benefits">
+                            <li>Technology licensing</li>
+                            <li>Joint ventures</li>
+                            <li>Export partnerships</li>
+                            <li>Market development</li>
+                        </ul>
+                        <a href="contact.html?partnership=international" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="partnership-cta">
+                <div class="cta-content">
+                    <h3>Ready to Partner with KVB?</h3>
+                    <p>Download our partnership information kit for detailed information</p>
+                    <div class="cta-actions">
+                        <a href="downloads/kvb-partnership-kit.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Download Partnership Kit
+                        </a>
+                        <a href="#contact-form" class="btn btn-outline-light">
+                            <i class="fas fa-envelope"></i> Send Partnership Inquiry
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="contact-faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is the typical response time for inquiries?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We respond to general inquiries within 24 hours on business days. Technical queries may take up to 48 hours for detailed responses. For urgent matters, please call our support numbers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you provide site visits and demonstrations?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we arrange site visits to existing installations and product demonstrations at our facilities. Please schedule in advance through our demo request form or by calling our office.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What information should I provide for a technical inquiry?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For technical inquiries, please provide: current fuel consumption, application type (cooking/drying/heating), capacity requirements, site location, and any specific challenges you're facing. Site photos are helpful.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How can I check subsidy eligibility for my project?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our team assists with subsidy applications. Please provide your project details and location, and we'll check eligibility for various government schemes and guide you through the application process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you provide training for system operation and maintenance?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide comprehensive training for operators and maintenance staff. Training is included with system installation, and we also offer periodic refresher courses and advanced training programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Still Have Questions?</h2>
+                <p>Our team is ready to help you with any questions about our technologies, projects, or partnerships.</p>
+                
+                <div class="cta-buttons">
+                    <a href="tel:+911234567890" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/911234567890" target="_blank" class="btn btn-success">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="mailto:info@kvbgreenenergies.com" class="btn btn-outline-light">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Footer component would be included here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients & Partnerships | KVB Green Energies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <!-- Navigation component would be included here -->
+    </header>
+
+    <!-- Clients Hero -->
+    <section class="clients-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Clients & Partnerships</h1>
+                <p class="hero-subtitle">Trusted by India's Leading Institutions & Organizations</p>
+                <p class="hero-description">KVB technologies are deployed across India where reliability and performance are critical. Our prestigious client portfolio demonstrates national-scale trust in our renewable energy and smart agriculture solutions.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50<span>+</span></div>
+                        <div class="stat-label">Prestigious Clients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">States Across India</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100<span>+</span></div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">University Collaborations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Categories -->
+    <section class="client-categories">
+        <div class="container">
+            <h2 class="section-title">Our Client Ecosystem</h2>
+            <p class="section-subtitle">Serving diverse sectors with renewable energy and smart agriculture solutions</p>
+            
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Clients</button>
+                <button class="category-tab" data-category="government">Government & Defense</button>
+                <button class="category-tab" data-category="education">Universities & Research</button>
+                <button class="category-tab" data-category="religious">Religious Institutions</button>
+                <button class="category-tab" data-category="agriculture">Agriculture Organizations</button>
+                <button class="category-tab" data-category="industry">Food Industries</button>
+            </div>
+            
+            <!-- Interactive India Map -->
+            <div class="india-map-section">
+                <h3>National Presence Across India</h3>
+                <div class="map-container">
+                    <div id="indiaMap"></div>
+                    <div class="map-legend">
+                        <h4>Project Locations</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-icon solar"></span>
+                                <span>Solar Cooking</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon drying"></span>
+                                <span>Solar Drying</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon smart"></span>
+                                <span>Smart Agriculture</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon multiple"></span>
+                                <span>Multiple Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestigious Clients Grid -->
+    <section class="prestigious-clients">
+        <div class="container">
+            <h2 class="section-title">Prestigious Clients</h2>
+            
+            <div class="clients-grid">
+                <!-- Government & Defense -->
+                <div class="client-card category-government" data-category="government">
+                    <div class="client-logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Indian Army</h3>
+                        <p class="client-location">Chennai, Tamil Nadu</p>
+                        <p class="client-project">Solar Steam Cooking System for army kitchen</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">70% LPG savings</span>
+                            <span class="impact-stat">8 tons CO₂ reduction/year</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#indian-army" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-government" data-category="government">
+                    <div class="client-logo">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>INS Mandovi</h3>
+                        <p class="client-location">Goa</p>
+                        <p class="client-project">Solar thermal system for naval base</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Solar cooking installation</span>
+                            <span class="impact-stat">Defense application</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#ins-mandovi" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Universities & Research -->
+                <div class="client-card category-education" data-category="education">
+                    <div class="client-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>YASHADA</h3>
+                        <p class="client-location">Pune, Maharashtra</p>
+                        <p class="client-project">Government training institute solar kitchen</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Training demonstration</span>
+                            <span class="impact-stat">Government institution</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#yashada" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-education" data-category="education">
+                    <div class="client-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>UAS Bengaluru</h3>
+                        <p class="client-location">Bengaluru, Karnataka</p>
+                        <p class="client-project">University hostel solar cooking & research</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Research collaboration</span>
+                            <span class="impact-stat">Student training</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#uas-bengaluru" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-education" data-category="education">
+                    <div class="client-logo">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>UHS Bagalkot</h3>
+                        <p class="client-location">Bagalkot, Karnataka</p>
+                        <p class="client-project">Performance testing & research center</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Certification testing</span>
+                            <span class="impact-stat">Research partnership</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#uhs-bagalkot" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-education" data-category="education">
+                    <div class="client-logo">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>IIT Dharwad</h3>
+                        <p class="client-location">Dharwad, Karnataka</p>
+                        <p class="client-project">Research collaboration on thermal storage</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Joint research</span>
+                            <span class="impact-stat">Innovation lab</span>
+                        </div>
+                    </div>
+                    <a href="innovation-lab.html#iit-dharwad" class="client-link">View Research <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Religious Institutions -->
+                <div class="client-card category-religious" data-category="religious">
+                    <div class="client-logo">
+                        <i class="fas fa-temple"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Sri Siddharodhmath</h3>
+                        <p class="client-location">Hubli, Karnataka</p>
+                        <p class="client-project">Large-scale temple kitchen solar system</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">2000+ meals/day</span>
+                            <span class="impact-stat">65% fuel savings</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#siddharodhmath" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-religious" data-category="religious">
+                    <div class="client-logo">
+                        <i class="fas fa-place-of-worship"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Sri Siddaganga Math</h3>
+                        <p class="client-location">Tumkur, Karnataka</p>
+                        <p class="client-project">Community kitchen solar cooking system</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Community service</span>
+                            <span class="impact-stat">Sustainable cooking</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#siddaganga" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Agriculture Organizations -->
+                <div class="client-card category-agriculture" data-category="agriculture">
+                    <div class="client-logo">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Coffee Board</h3>
+                        <p class="client-location">Balehonnur, Karnataka</p>
+                        <p class="client-project">Solar coffee drying demonstration unit</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Coffee processing</span>
+                            <span class="impact-stat">Quality improvement</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#coffee-board" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-agriculture" data-category="agriculture">
+                    <div class="client-logo">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>NABARD</h3>
+                        <p class="client-location">Bagalkot, Karnataka</p>
+                        <p class="client-project">Farmer training & demonstration projects</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Farmer empowerment</span>
+                            <span class="impact-stat">Rural development</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#nabard" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-agriculture" data-category="agriculture">
+                    <div class="client-logo">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>ICAR - Goa</h3>
+                        <p class="client-location">Goa</p>
+                        <p class="client-project">Agricultural research institute</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Research partnership</span>
+                            <span class="impact-stat">Agri-tech testing</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#icar-goa" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Food Industries -->
+                <div class="client-card category-industry" data-category="industry">
+                    <div class="client-logo">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Sugati Ingredients</h3>
+                        <p class="client-location">Challakere, Karnataka</p>
+                        <p class="client-project">Solar drying for food processing</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Industrial scale</span>
+                            <span class="impact-stat">Process heating</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#sugati" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-industry" data-category="industry">
+                    <div class="client-logo">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Nithya Foods</h3>
+                        <p class="client-location">Puttur, Karnataka</p>
+                        <p class="client-project">Food processing solar thermal system</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Commercial application</span>
+                            <span class="impact-stat">Cost reduction</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#nithya-foods" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="client-card category-industry" data-category="industry">
+                    <div class="client-logo">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="client-info">
+                        <h3>Prakruti</h3>
+                        <p class="client-location">Karwar, Karnataka</p>
+                        <p class="client-project">Organic food processing with solar energy</p>
+                        <div class="client-impact">
+                            <span class="impact-stat">Sustainable processing</span>
+                            <span class="impact-stat">Organic certification</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html#prakruti" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- View All Button -->
+            <div class="view-all-clients">
+                <button id="loadMoreClients" class="btn btn-outline">
+                    <i class="fas fa-plus"></i> Load More Clients
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Statements -->
+    <section class="partnership-statements">
+        <div class="container">
+            <h2 class="section-title">Partnership Testimonials</h2>
+            <p class="section-subtitle">What our institutional partners say about working with KVB</p>
+            
+            <div class="statement-slider">
+                <div class="statement-slide active">
+                    <div class="statement-content">
+                        <div class="statement-text">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Our collaboration with KVB has been instrumental in advancing solar thermal research at our university. Their practical engineering expertise combined with our academic research has produced innovative solutions with real-world impact."</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="statement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Dr. Rajesh Kumar</h4>
+                                <p>Head of Renewable Energy Department</p>
+                                <p class="author-org">IIT Dharwad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="statement-slide">
+                    <div class="statement-content">
+                        <div class="statement-text">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"KVB's solar cooking systems have transformed our community kitchen operations. The reliability and performance have exceeded our expectations, and the cost savings have allowed us to serve more people in need."</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="statement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Swami Prasad</h4>
+                                <p>Administrator</p>
+                                <p class="author-org">Sri Siddharodhmath, Hubli</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="statement-slide">
+                    <div class="statement-content">
+                        <div class="statement-text">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"As a government training institute, we needed a reliable demonstration of renewable technology. KVB's system has become a key training tool for our officers learning about sustainable development solutions."</p>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="statement-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ms. Anjali Sharma</h4>
+                                <p>Director of Training</p>
+                                <p class="author-org">YASHADA, Pune</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Opportunities -->
+    <section class="partnership-opportunities">
+        <div class="container">
+            <h2 class="section-title">Partnership Opportunities</h2>
+            
+            <div class="opportunities-grid">
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Government Partnerships</h3>
+                    <p>Collaborate on government schemes, subsidies, and public infrastructure projects</p>
+                    <ul class="opportunity-list">
+                        <li>MNRE empanelment projects</li>
+                        <li>State government schemes</li>
+                        <li>Public institution deployments</li>
+                        <li>Defense establishment projects</li>
+                    </ul>
+                    <a href="contact.html?type=government" class="btn btn-outline">Explore Government Partnerships</a>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>University Collaborations</h3>
+                    <p>Research partnerships, student projects, and technology development</p>
+                    <ul class="opportunity-list">
+                        <li>Joint research projects</li>
+                        <li>Student internships</li>
+                        <li>Technology testing</li>
+                        <li>Knowledge exchange</li>
+                    </ul>
+                    <a href="contact.html?type=university" class="btn btn-outline">Explore Research Collaborations</a>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industry Partnerships</h3>
+                    <p>Technology implementation, distribution, and commercial projects</p>
+                    <ul class="opportunity-list">
+                        <li>Technology licensing</li>
+                        <li>Distribution partnerships</li>
+                        <li>Joint ventures</li>
+                        <li>Supply chain collaboration</li>
+                    </ul>
+                    <a href="contact.html?type=industry" class="btn btn-outline">Explore Industry Partnerships</a>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>International Partnerships</h3>
+                    <p>Global technology transfer, export, and international projects</p>
+                    <ul class="opportunity-list">
+                        <li>Technology export</li>
+                        <li>International distribution</li>
+                        <li>Global research collaboration</li>
+                        <li>Development projects</li>
+                    </ul>
+                    <a href="contact.html?type=international" class="btn btn-outline">Explore International Partnerships</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos Marquee -->
+    <section class="client-logos-marquee">
+        <div class="container">
+            <h3>Trusted by Leading Organizations Across India</h3>
+            <div class="logos-track">
+                <div class="logos-container">
+                    <!-- Logos would be repeated for seamless scrolling -->
+                    <div class="logo-item">
+                        <div class="logo-img">Indian Army</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">INS Mandovi</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">YASHADA</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Coffee Board</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">NABARD</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">ICAR</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">UHS Bagalkot</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">UAS Bengaluru</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Dantiwada Agriculture University</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Keladi University</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Sri Siddharodhmath</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Sri Siddaganga Math</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Prakruti</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Sugati Ingredients</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-img">Nithya Foods</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Partner CTA -->
+    <section class="become-partner">
+        <div class="container">
+            <div class="partner-cta-content">
+                <h2>Become a KVB Partner</h2>
+                <p>Join our network of institutions, organizations, and businesses driving sustainable change across India.</p>
+                
+                <div class="partner-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-award"></i>
+                        <h4>Technology Leadership</h4>
+                        <p>Access to cutting-edge renewable technologies</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Growth Opportunities</h4>
+                        <p>Expand your services with sustainable solutions</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Government Support</h4>
+                        <p>Assistance with subsidies and government schemes</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Training & Support</h4>
+                        <p>Comprehensive training and technical support</p>
+                    </div>
+                </div>
+                
+                <div class="partner-actions">
+                    <a href="contact.html?type=partner" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Become a Partner
+                    </a>
+                    <a href="downloads/partnership-brochure.pdf" class="btn btn-outline-light" download>
+                        <i class="fas fa-download"></i> Download Partnership Kit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Footer component would be included here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/clients-partnerships.js"></script>
+</body>
+</html>

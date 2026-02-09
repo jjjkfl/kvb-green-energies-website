@@ -1,0 +1,360 @@
+<!-- COMPLETE WORKING NAVIGATION BAR -->
+<div id="kvb-header">
+    <!-- Top Contact Bar -->
+    <div class="header-top">
+        <div class="header-container">
+            <div class="contact-info">
+                <span class="phone">+91 9545529950</span>
+                <span class="separator">|</span>
+                <span class="address">R16, KSIDC, 3rd Cross Belur Industrial Estate Dharwad-580011</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="header-main">
+        <div class="header-container">
+            <nav class="nav-wrapper">
+                <!-- Logo Section -->
+                <div class="logo-container">
+                    <a href="index.html">
+                        <!-- IMAGE LOGO - CHANGE THIS PATH TO YOUR LOGO -->
+                        <img src="images\products\kvb.jpeg" alt="KVB Green Energies" class="logo-image">
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="innovation-lab.html">Innovation Lab</a></li>
+                    <li><a href="clients-partnerships.html">Clients</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact-partnerships.html" class="contact-button">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<style>
+/* HEADER STYLES - WON'T AFFECT OTHER ELEMENTS */
+#kvb-header {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Top Bar */
+#kvb-header .header-top {
+    background: #f5f5f5;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#kvb-header .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#kvb-header .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+#kvb-header .contact-info .phone {
+    font-weight: bold;
+}
+
+#kvb-header .contact-info .separator {
+    color: #999;
+}
+
+#kvb-header .contact-info .address {
+    color: #555;
+}
+
+/* Main Header */
+#kvb-header .header-main {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Nav Wrapper */
+#kvb-header .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+#kvb-header .logo-container {
+    flex-shrink: 0;
+}
+
+#kvb-header .logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* If logo doesn't show, use text instead */
+/* #kvb-header .logo-container a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+} */
+
+/* Navigation List */
+#kvb-header .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: center;
+}
+
+#kvb-header .nav-list li {
+    margin: 0;
+}
+
+#kvb-header .nav-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+#kvb-header .nav-list a:hover {
+    color: #007bff;
+}
+
+#kvb-header .nav-list a.active {
+    color: #007bff;
+}
+
+#kvb-header .nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: width 0.3s;
+}
+
+#kvb-header .nav-list a:hover::after,
+#kvb-header .nav-list a.active::after {
+    width: 100%;
+}
+
+/* Contact Button */
+#kvb-header .contact-button {
+    background: #007bff;
+    color: white !important;
+    padding: 10px 25px !important;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#kvb-header .contact-button:hover {
+    background: #0056b3;
+}
+
+#kvb-header .contact-button::after {
+    display: none;
+}
+
+/* Mobile Menu Toggle */
+#kvb-header .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+#kvb-header .menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #333;
+    position: absolute;
+    transition: 0.3s;
+}
+
+#kvb-header .menu-toggle span:nth-child(1) {
+    top: 0;
+}
+
+#kvb-header .menu-toggle span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#kvb-header .menu-toggle span:nth-child(3) {
+    bottom: 0;
+}
+
+#kvb-header .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+#kvb-header .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#kvb-header .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 50%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    #kvb-header .nav-list {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #kvb-header .menu-toggle {
+        display: block;
+    }
+    
+    #kvb-header .nav-list {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        flex-direction: column;
+        background: white;
+        width: 300px;
+        height: calc(100vh - 100px);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        gap: 0;
+        transition: right 0.3s;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    #kvb-header .nav-list.active {
+        right: 0;
+    }
+    
+    #kvb-header .nav-list li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+    
+    #kvb-header .nav-list a {
+        display: block;
+        padding: 15px 0 !important;
+        width: 100%;
+    }
+    
+    #kvb-header .contact-button {
+        margin: 15px 0 0 0;
+        display: block;
+        text-align: center;
+    }
+    
+    #kvb-header .contact-info {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    
+    #kvb-header .header-container {
+        justify-content: center;
+    }
+    
+    #kvb-header .contact-info .separator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    #kvb-header .logo-image {
+        height: 40px;
+    }
+    
+    #kvb-header .nav-list {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+// SIMPLE JAVASCRIPT - WORKS EVERYWHERE
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('#kvb-header .menu-toggle');
+    const navList = document.querySelector('#kvb-header .nav-list');
+    
+    // Toggle mobile menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+    }
+    
+    // Close menu when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            const isClickInside = document.querySelector('#kvb-header').contains(e.target);
+            const isMenuToggle = e.target.closest('.menu-toggle');
+            
+            if (!isClickInside || (isClickInside && !e.target.closest('.nav-list') && !isMenuToggle)) {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (navList) navList.classList.remove('active');
+            }
+        }
+    });
+    
+    // Set active page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const links = document.querySelectorAll('#kvb-header .nav-list a[href]');
+    
+    links.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === 'index.html' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('#kvb-header .nav-list a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                if (menuToggle) menuToggle.classList.remove('active');
+                if (navList) navList.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
