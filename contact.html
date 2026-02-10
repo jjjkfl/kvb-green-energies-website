@@ -203,7 +203,7 @@
 
         .channels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -281,6 +281,135 @@
             width: 20px;
             font-size: 1.1rem;
         }
+
+        /* ===== HEADER & NAVIGATION STYLES ===== */
+.header {
+    background: white;
+    box-shadow: 0 2px 20px rgba(58, 90, 64, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.nav-brand {
+    flex: 0 0 auto;
+}
+
+.logo img {
+    height: 50px; /* Adjust this value as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--earth-green);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: var(--wheat);
+}
+
+.nav-menu a.active {
+    color: var(--wheat);
+    font-weight: 600;
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--wheat);
+    border-radius: 2px;
+}
+
+/* ===== MOBILE MENU TOGGLE (Hidden by default) ===== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--earth-green);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVE NAVIGATION ===== */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(58, 90, 64, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(113, 129, 109, 0.1);
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+}
 
         /* ===== INQUIRY TYPES ===== */
         .inquiry-types {
@@ -1333,7 +1462,8 @@
             <nav class="main-nav">
                 <div class="nav-brand">
                     <a href="index.html" class="logo">
-                        <img src="images/logo.png" alt="KVB Green Energies">
+                        <img src="images\products\kvb.jpeg" alt="KVB Green Energies">
+                        
                     </a>
                 </div>
                 <ul class="nav-menu">
@@ -1346,7 +1476,7 @@
                     <li><a href="blog.html">Knowledge Center</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
-                <a href="#contact-form" class="btn btn-primary nav-cta">Get Quote</a>
+            
             </nav>
         </div>
     </header>
@@ -1971,9 +2101,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logo-white.png" alt="KVB Green Energies" width="150">
-                    </div>
+                  
                     <p>Cultivating sustainable energy and smart agriculture solutions for India's greener tomorrow.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -1983,6 +2111,7 @@
                     </div>
                 </div>
                 <div class="footer-section">
+                    <!--
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -2011,6 +2140,7 @@
                     </ul>
                 </div>
             </div>
+        -->
             <div class="footer-bottom">
                 <p>&copy; 2023 KVB Green Energies Pvt. Ltd. All rights reserved.</p>
                 <div class="footer-links">
