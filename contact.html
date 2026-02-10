@@ -3,2399 +3,1070 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact KVB Green Energies | Natural Partnerships & Inquiries</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Contact | KVB Green Energies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=EB+Garamond:wght@400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        /* ===== VARIABLES ===== */
+        /* ===== VINTAGE AESTHETIC ===== */
         :root {
-            --earth-green: #3A5A40;
-            --sage-green: #71816D;
-            --light-sage: #A3B18A;
-            --wheat: #DDA15E;
-            --soft-white: #FEFAE0;
-            --soil-brown: #8B7355;
-            --sky-blue: #A8DADC;
-            --deep-green: #1B4332;
-            --gradient-nature: linear-gradient(135deg, var(--earth-green) 0%, var(--sage-green) 100%);
-            --gradient-warm: linear-gradient(135deg, var(--wheat) 0%, #BC6C25 100%);
-            --gradient-sky: linear-gradient(135deg, var(--sky-blue) 0%, #457B9D 100%);
-            --border-nature: 2px solid rgba(58, 90, 64, 0.1);
-            --shadow-soft: 0 8px 32px rgba(58, 90, 64, 0.08);
-            --shadow-hover: 0 15px 40px rgba(58, 90, 64, 0.15);
+            --cream: #F8F3E6;
+            --sage: #A3B18A;
+            --olive: #6B8E23;
+            --paper: #F5EFE0;
+            --sepia: #8B7355;
+            --border: #D4C9B8;
+            --shadow: rgba(163, 177, 138, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--soft-white);
-            color: #333;
-            line-height: 1.6;
+            font-family: 'EB Garamond', serif;
+            background: var(--cream);
+            color: var(--sepia);
+            line-height: 1.8;
+            font-size: 18px;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23a3b18a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            color: var(--earth-green);
-            font-weight: 600;
-        }
-
-        .section-title {
+        /* ===== VINTAGE PAPER EFFECT ===== */
+        .vintage-paper {
+            background: var(--paper);
             position: relative;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 25px var(--shadow);
         }
 
-        .section-title::after {
+        .vintage-paper::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--wheat);
-            border-radius: 2px;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(139, 115, 85, 0.1);
+            pointer-events: none;
         }
 
-        .btn {
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
+        .vintage-paper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(139, 115, 85, 0.05);
+            pointer-events: none;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--paper);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
-        .btn-primary {
-            background: var(--gradient-nature);
-            color: white;
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--olive);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--sage);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--earth-green);
-            color: var(--earth-green);
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
         }
 
-        .btn-outline:hover {
-            background: var(--earth-green);
-            color: white;
-            transform: translateY(-3px);
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sepia);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .btn-success {
-            background: var(--wheat);
-            color: white;
+        .nav-links a:hover {
+            color: var(--olive);
         }
 
-        /* ===== CONTACT HERO ===== */
-        .contact-hero {
-            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(58, 90, 64, 0.9)), 
-                        url('../images/farm-banner.jpg') center/cover no-repeat;
-            color: var(--soft-white);
-            padding: 120px 0 100px;
+        .nav-links a.active {
+            color: var(--olive);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--olive);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 6rem 2rem 4rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .contact-hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23FEFAE0"/></svg>');
-            background-size: cover;
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--olive);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
-        .hero-content {
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--sepia);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+        }
+
+        /* ===== VINTAGE CARDS ===== */
+        .vintage-cards {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .vintage-card {
+            background: var(--paper);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 20px var(--shadow);
             position: relative;
-            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .vintage-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--olive);
+            font-size: 1.8rem;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--olive);
+            font-weight: 600;
+        }
+
+        .card-content {
+            color: var(--sepia);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-list i {
+            color: var(--sage);
+            margin-top: 0.3rem;
+            min-width: 20px;
+        }
+
+        /* ===== VINTAGE FORM ===== */
+        .vintage-form-section {
+            padding: 4rem 2rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .contact-hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--soft-white);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.95;
-            font-weight: 300;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.85;
-            line-height: 1.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-quick-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .quick-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 18px 30px;
-            border-radius: 12px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            min-width: 200px;
-        }
-
-        .quick-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .quick-link i {
-            font-size: 1.3rem;
-        }
-
-        /* ===== NATURE DIVIDER ===== */
-        .nature-divider {
-            height: 120px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%233A5A40"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35,6.36,119.13-6.25C750.77,62.27,777,55.05,813,51.59c48.24-4.84,96.52-12.15,144.4-40.24,12.82-7.52,27-14.86,42.6-22.63,14-6.75,27.5-13.42,41-20V0Z" fill="%2371816D"/></svg>');
-            background-size: cover;
-            margin-top: -1px;
-        }
-
-        /* ===== CONTACT CHANNELS ===== */
-        .contact-channels {
-            padding: 100px 0;
-            background: var(--soft-white);
-        }
-
-        .channels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .channel-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s ease;
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-            border: var(--border-nature);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .channel-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--wheat);
-        }
-
-        .channel-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .channel-icon {
-            background: var(--gradient-nature);
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(58, 90, 64, 0.2);
-        }
-
-        .channel-content h3 {
-            margin-bottom: 15px;
-            color: var(--earth-green);
-            font-size: 1.5rem;
-        }
-
-        .channel-content p {
-            color: var(--sage-green);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .channel-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .channel-details .detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--soil-brown);
-        }
-
-        .channel-details .detail i {
-            color: var(--wheat);
-            width: 20px;
-            font-size: 1.1rem;
-        }
-
-        /* ===== INQUIRY TYPES ===== */
-        .inquiry-types {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--soft-white) 0%, #f9f7e8 100%);
-        }
-
-        .inquiry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .inquiry-card {
-            background: white;
-            border: var(--border-nature);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .inquiry-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .inquiry-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--earth-green);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .inquiry-card:hover::before {
-            background: var(--wheat);
-        }
-
-        .inquiry-card.selected {
-            border-color: var(--earth-green);
-            background: rgba(58, 90, 64, 0.03);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .inquiry-card.selected::before {
-            background: var(--wheat);
-        }
-
-        .inquiry-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-nature);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            box-shadow: 0 8px 20px rgba(58, 90, 64, 0.2);
-        }
-
-        .inquiry-card h3 {
-            margin-bottom: 15px;
-            color: var(--earth-green);
-            font-size: 1.4rem;
-        }
-
-        .inquiry-card p {
-            color: var(--sage-green);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ===== CONTACT FORM ===== */
-        .contact-form-section {
-            padding: 100px 0;
-            background: url('../images/form-bg-pattern.png') repeat, linear-gradient(135deg, #f9f7e8 0%, var(--soft-white) 100%);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .form-header h2 {
-            margin-bottom: 15px;
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
+            color: var(--olive);
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
         .form-subtitle {
-            color: var(--sage-green);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .selected-inquiry {
-            background: white;
-            padding: 18px 30px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            border-left: 5px solid var(--wheat);
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-        }
-
-        .selected-inquiry i {
-            color: var(--earth-green);
-            font-size: 1.3rem;
-        }
-
-        .btn-text {
-            background: none;
-            border: none;
-            color: var(--earth-green);
-            font-weight: 600;
-            cursor: pointer;
-            margin-left: 15px;
-            text-decoration: underline;
-        }
-
-        .form-wrapper {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--earth-green);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: var(--border-nature);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--earth-green);
-            box-shadow: 0 0 0 3px rgba(58, 90, 64, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .file-upload {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .file-label {
-            background: var(--soft-white);
-            border: 2px dashed var(--light-sage);
-            padding: 15px 30px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            color: var(--earth-green);
-        }
-
-        .file-label:hover {
-            border-color: var(--earth-green);
-            background: rgba(58, 90, 64, 0.05);
-        }
-
-        .file-name {
-            color: var(--sage-green);
-            font-size: 0.9rem;
-        }
-
-        .file-hint {
-            font-size: 0.85rem;
-            color: var(--sage-green);
-            margin-top: 8px;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: var(--sage-green);
-        }
-
-        .checkbox-label input {
-            margin-top: 5px;
-        }
-
-        .checkbox-label a {
-            color: var(--earth-green);
-            text-decoration: none;
-        }
-
-        .checkbox-label a:hover {
-            text-decoration: underline;
-        }
-
-        .form-submit {
-            margin-top: 40px;
             text-align: center;
-        }
-
-        .form-note {
-            font-size: 0.9rem;
-            color: var(--sage-green);
-            margin-top: 20px;
-            font-style: italic;
-        }
-
-        /* ===== FORM SIDEBAR ===== */
-        .form-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .sidebar-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-        }
-
-        .sidebar-card h3 {
-            color: var(--earth-green);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.3rem;
-        }
-
-        .tips-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .tips-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(113, 129, 109, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--sage-green);
-        }
-
-        .tips-list li:before {
-            content: '🌱';
-            font-size: 1.1rem;
-        }
-
-        .response-time {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .time-category {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(113, 129, 109, 0.1);
-        }
-
-        .time-label {
-            font-weight: 500;
-            color: var(--sage-green);
-        }
-
-        .time-value {
-            background: var(--gradient-nature);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .contact-options {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-option {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 18px;
-            background: var(--soft-white);
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: var(--border-nature);
-        }
-
-        .contact-option:hover {
-            background: var(--earth-green);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .contact-option i {
-            font-size: 1.4rem;
-        }
-
-        .option-label {
-            display: block;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .option-value {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* ===== SUCCESS MESSAGE ===== */
-        .form-success-message {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            animation: fadeIn 0.6s ease;
-            border: var(--border-nature);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .success-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .success-content i {
-            color: var(--earth-green);
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-        }
-
-        .success-details {
-            background: var(--soft-white);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            text-align: left;
-            border: var(--border-nature);
-        }
-
-        .success-details p {
-            margin: 12px 0;
-            color: var(--earth-green);
-        }
-
-        .success-actions {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        /* ===== OFFICE LOCATION ===== */
-        .office-location {
-            padding: 100px 0;
-            background: url('../images/map-bg-pattern.png') repeat, linear-gradient(135deg, var(--soft-white) 0%, #f9f7e8 100%);
-        }
-
-        .location-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 50px;
-        }
-
-        .address-card {
-            background: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 40px;
-            border: var(--border-nature);
-        }
-
-        .address-card h3 {
-            color: var(--earth-green);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-        }
-
-        .address-details {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid var(--soft-white);
-        }
-
-        .address-details p {
-            margin: 8px 0;
-            color: var(--sage-green);
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-bottom: 30px;
-        }
-
-        .contact-details .detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--soil-brown);
-        }
-
-        .contact-details .detail i {
-            color: var(--wheat);
-            width: 20px;
-            font-size: 1.1rem;
-        }
-
-        .office-features {
-            margin-bottom: 30px;
-        }
-
-        .office-features h4 {
-            margin-bottom: 18px;
-            color: var(--earth-green);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.9rem;
-            color: var(--sage-green);
-        }
-
-        .feature i {
-            color: var(--wheat);
-        }
-
-        .visit-instructions ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .visit-instructions li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--sage-green);
-        }
-
-        .visit-instructions li:before {
-            content: '🌿';
-        }
-
-        .regional-offices h3 {
-            margin-bottom: 25px;
-            color: var(--earth-green);
-            font-size: 1.5rem;
-        }
-
-        .office-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .office-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .office-card h4 {
-            color: var(--earth-green);
-            margin-bottom: 12px;
-        }
-
-        .office-card p {
-            font-size: 0.9rem;
-            color: var(--sage-green);
-            margin: 5px 0;
-        }
-
-        .office-contact {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--earth-green);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .office-contact:hover {
-            color: var(--wheat);
-            transform: translateX(5px);
-        }
-
-        /* ===== MAP STYLING ===== */
-        .location-map {
-            position: relative;
-        }
-
-        #officeMap {
-            height: 650px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-        }
-
-        .map-marker {
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-nature);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            border: 3px solid white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .map-popup {
-            padding: 15px;
-            min-width: 250px;
-        }
-
-        .map-popup h4 {
-            color: var(--earth-green);
-            margin-bottom: 12px;
-        }
-
-        .map-popup p {
-            margin: 8px 0;
-            font-size: 0.9rem;
-            color: var(--sage-green);
-        }
-
-        .popup-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--earth-green);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .popup-link:hover {
-            color: var(--wheat);
-        }
-
-        .map-instructions {
-            text-align: center;
-            padding: 20px;
-            color: var(--sage-green);
-            font-size: 0.9rem;
-            margin-top: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .map-instructions i {
-            color: var(--wheat);
-            margin-right: 8px;
-        }
-
-        /* ===== PARTNERSHIP OPPORTUNITIES ===== */
-        .partnership-opportunities {
-            padding: 100px 0;
-            background: linear-gradient(rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.9)), url('../images/leaf-pattern.png') repeat;
-        }
-
-        .partnership-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 50px;
-        }
-
-        .partnership-type {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s ease;
-            border: var(--border-nature);
-        }
-
-        .partnership-type:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .type-header {
-            background: var(--gradient-nature);
-            color: white;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .type-icon {
-            background: rgba(255, 255, 255, 0.2);
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-        }
-
-        .type-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 1.4rem;
-        }
-
-        .type-content {
-            padding: 30px;
-        }
-
-        .type-content p {
-            color: var(--sage-green);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .type-benefits {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 25px;
-        }
-
-        .type-benefits li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(113, 129, 109, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--sage-green);
-        }
-
-        .type-benefits li:before {
-            content: '✓';
-            color: var(--earth-green);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .partnership-cta {
-            background: var(--gradient-nature);
-            color: white;
-            padding: 60px;
-            border-radius: 20px;
-            margin-top: 60px;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partnership-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('../images/leaf-pattern-white.png') repeat;
-            opacity: 0.1;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-content h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        .cta-content p {
-            opacity: 0.95;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-actions {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        /* ===== FAQ SECTION ===== */
-        .contact-faq {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #f9f7e8 0%, var(--soft-white) 100%);
-        }
-
-        .faq-accordion {
-            max-width: 850px;
-            margin: 50px auto 0;
-        }
-
-        .faq-item {
-            background: white;
-            border: var(--border-nature);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active {
-            border-color: var(--earth-green);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question h4 {
-            margin: 0;
-            color: var(--earth-green);
-            font-size: 1.1rem;
-        }
-
-        .faq-question i {
-            color: var(--wheat);
-            transition: transform 0.3s ease;
+            color: var(--sepia);
+            margin-bottom: 3rem;
             font-size: 1.2rem;
         }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
+        .form-group {
+            margin-bottom: 2rem;
         }
 
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 30px 30px;
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            color: var(--sage-green);
-            line-height: 1.8;
-        }
-
-        /* ===== CONTACT CTA ===== */
-        .contact-cta {
-            padding: 100px 0;
-            background: linear-gradient(rgba(27, 67, 50, 0.9), rgba(27, 67, 50, 0.95)), url('../images/farm-cta-bg.jpg') center/cover no-repeat;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        .contact-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" opacity=".1" fill="%23ffffff"/></svg>');
-            background-size: cover;
-            opacity: 0.1;
-        }
-
-        .contact-cta .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-cta h2 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 2.8rem;
-        }
-
-        .contact-cta p {
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--olive);
+            font-weight: 500;
             font-size: 1.1rem;
         }
 
-        .cta-buttons {
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--sepia);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--sage);
+            background: white;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--sepia);
+            cursor: pointer;
+        }
+
+        .form-textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--olive);
+            color: var(--cream);
+            border: 1px solid var(--sage);
+            padding: 1.2rem 3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 3rem auto 0;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: var(--sage);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* ===== VINTAGE LOCATION ===== */
+        .vintage-location {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .location-card {
+            background: var(--paper);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .location-header {
             display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-header i {
+            font-size: 1.8rem;
+            color: var(--olive);
+        }
+
+        .location-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--olive);
+        }
+
+        .map-placeholder {
+            height: 250px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        /* ===== FOOTER ===== */
-        .main-footer {
-            background: var(--deep-green);
-            color: var(--soft-white);
-            padding: 60px 0 30px;
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--sage);
+            opacity: 0.5;
         }
 
-        /* ===== RESPONSIVE STYLES ===== */
-        @media (max-width: 1200px) {
-            .form-wrapper,
-            .location-wrapper {
-                gap: 40px;
-            }
+        /* ===== VINTAGE FOOTER ===== */
+        .vintage-footer {
+            background: var(--paper);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
 
-        @media (max-width: 992px) {
-            .form-wrapper {
-                grid-template-columns: 1fr;
-            }
-            
-            .location-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .office-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-hero h1 {
-                font-size: 3rem;
-            }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
         }
 
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--olive);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--sepia);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--olive);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border);
+            color: var(--sepia);
+            font-size: 0.9rem;
+        }
+
+        /* ===== VINTAGE DECORATIONS ===== */
+        .vintage-border {
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            padding: 0.5rem 0;
+            text-align: center;
+            color: var(--sepia);
+            font-style: italic;
+            margin: 3rem 0;
+        }
+
+        .ornament {
+            text-align: center;
+            color: var(--sage);
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .contact-hero {
-                padding: 100px 0 80px;
+            .nav-links {
+                display: none;
             }
-            
-            .contact-hero h1 {
+
+            .hero-title {
                 font-size: 2.5rem;
             }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .contact-quick-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .quick-link {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .inquiry-grid,
-            .channels-grid,
-            .partnership-types {
+
+            .location-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .features-grid {
+
+            .vintage-cards {
                 grid-template-columns: 1fr;
             }
-            
-            .cta-actions,
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-actions .btn,
-            .cta-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .partnership-cta {
-                padding: 40px;
+
+            .vintage-paper {
+                padding: 2rem;
             }
         }
 
-        @media (max-width: 576px) {
-            .contact-hero {
-                padding: 80px 0 60px;
-            }
-            
-            .contact-form,
-            .address-card,
-            .sidebar-card,
-            .partnership-type {
-                padding: 25px;
-            }
-            
-            .faq-question {
-                padding: 20px;
-            }
-            
-            .faq-answer {
-                padding: 0 20px;
-            }
-            
-            .success-actions {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .contact-cta {
-                padding: 80px 0;
-            }
-            
-            .contact-cta h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .contact-hero h1 {
+        @media (max-width: 480px) {
+            .hero-title {
                 font-size: 2rem;
             }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
+
+            .vintage-card {
+                padding: 1.5rem;
             }
-            
-            .form-wrapper {
-                padding: 15px;
-            }
-            
-            .btn {
-                padding: 12px 20px;
-                font-size: 0.9rem;
+
+            .form-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation (keep original structure) -->
+    <!-- Header -->
     <header class="header">
-        <!-- Navigation component would be included here -->
-        <div class="container">
-            <nav class="main-nav">
-                <div class="nav-brand">
-                    <a href="index.html" class="logo">
-                        <img src="images/logo.png" alt="KVB Green Energies">
-                    </a>
-                </div>
-                <ul class="nav-menu">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>KVB Green Energies</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="innovation-lab.html">Innovation Lab</a></li>
-                    <li><a href="clients-partnerships.html">Clients</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Knowledge Center</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
-                <a href="#contact-form" class="btn btn-primary nav-cta">Get Quote</a>
             </nav>
         </div>
     </header>
 
-    <!-- Contact Hero -->
-    <section class="contact-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Grow With Nature's Wisdom</h1>
-                <p class="hero-subtitle">Connect with India's Pioneers in Renewable Energy & Sustainable Agriculture</p>
-                <p class="hero-description">Join us in cultivating a greener future. Whether you seek technical guidance, partnership opportunities, or sustainable solutions, our team nurtures every inquiry with care.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="vintage-paper">
+            <h1 class="hero-title">Correspondence & Inquiries</h1>
+            <p class="hero-subtitle">Established in 1995, KVB Green Energies has been nurturing sustainable practices with traditional wisdom and modern innovation.</p>
+            
+            <div class="ornament">❖ ❖ ❖</div>
+            
+            <div class="vintage-border">
+                <p><em>"In nature's embrace, we find both power and peace."</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vintage Cards -->
+    <section class="vintage-cards">
+        <div class="vintage-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3 class="card-title">Written Correspondence</h3>
+            </div>
+            <div class="card-content">
+                <p>For formal inquiries, project proposals, or detailed consultations, please address your correspondence to:</p>
+            </div>
+            <ul class="contact-list">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Postal Address</strong><br>
+                        KVB Green Energies Ltd.<br>
+                        Plot No. 45, Green Valley Estate<br>
+                        Hubli, Karnataka 580032
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-mail-bulk"></i>
+                    <div>
+                        <strong>Electronic Mail</strong><br>
+                        correspondence@kvbgreen.com<br>
+                        inquiries@kvbgreen.com
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Response Time</strong><br>
+                        3-5 business days for written replies
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="vintage-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3 class="card-title">Telephone Communications</h3>
+            </div>
+            <div class="card-content">
+                <p>For immediate assistance or to schedule a consultation with our specialists:</p>
+            </div>
+            <ul class="contact-list">
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Main Office</strong><br>
+                        +91 80 2654 3210<br>
+                        Office Hours: 9:00 AM - 5:00 PM
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <strong>Technical Support</strong><br>
+                        +91 80 2654 3211<br>
+                        24-hour emergency service
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-fax"></i>
+                    <div>
+                        <strong>Facsimile</strong><br>
+                        +91 80 2654 3212
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="vintage-card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3 class="card-title">Personal Consultations</h3>
+            </div>
+            <div class="card-content">
+                <p>Schedule an in-person meeting or field visit with our agricultural and energy experts:</p>
+            </div>
+            <ul class="contact-list">
+                <li>
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <strong>Appointments</strong><br>
+                        By prior arrangement only<br>
+                        Monday through Friday
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-tractor"></i>
+                    <div>
+                        <strong>Field Visits</strong><br>
+                        Available for registered clients<br>
+                        Weekday mornings preferred
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-user-tie"></i>
+                    <div>
+                        <strong>Consultation Hours</strong><br>
+                        10:00 AM - 4:00 PM<br>
+                        Please bring relevant documents
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Vintage Form -->
+    <section class="vintage-form-section">
+        <div class="vintage-paper">
+            <h2 class="form-title">Inquiry Form</h2>
+            <p class="form-subtitle">Complete this form with your particulars, and our office shall respond posthaste.</p>
+            
+            <form id="vintageForm">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="Enter your complete name" required>
+                </div>
                 
-                <div class="contact-quick-links">
-                    <a href="#contact-form" class="quick-link">
+                <div class="form-group">
+                    <label class="form-label">Organization / Estate</label>
+                    <input type="text" class="form-input" placeholder="Name of farm, company, or institution">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Postal Address</label>
+                    <textarea class="form-input form-textarea" placeholder="Complete mailing address" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Telegraph / Telephone</label>
+                    <input type="tel" class="form-input" placeholder="Contact number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Electronic Mail</label>
+                    <input type="email" class="form-input" placeholder="Email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Nature of Inquiry</label>
+                    <select class="form-select" required>
+                        <option value="">Select category</option>
+                        <option value="solar">Solar Energy Systems</option>
+                        <option value="irrigation">Agricultural Irrigation</option>
+                        <option value="consultation">Professional Consultation</option>
+                        <option value="partnership">Business Partnership</option>
+                        <option value="employment">Employment Opportunity</option>
+                        <option value="other">Other Matters</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Detailed Particulars</label>
+                    <textarea class="form-input form-textarea" placeholder="Please provide a thorough description of your inquiry, requirements, or proposal..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" required>
+                        I hereby affirm that the information provided is accurate and complete
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Dispatch Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Vintage Location -->
+    <section class="vintage-location">
+        <div class="vintage-paper">
+            <h2 class="form-title">Our Establishments</h2>
+            
+            <div class="location-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <i class="fas fa-university"></i>
+                        <h3 class="location-title">Headquarters</h3>
+                    </div>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                Green Valley Estate<br>
+                                Hubli, Karnataka 580032<br>
+                                India
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                Office Hours:<br>
+                                Monday - Friday: 9:00-17:00<br>
+                                Saturday: 9:00-13:00
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-parking"></i>
+                            <div>
+                                Carriage parking available<br>
+                                Visitor passes required
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
                         <i class="fas fa-seedling"></i>
-                        <span>Plant Your Inquiry</span>
-                    </a>
-                    <a href="tel:+911234567890" class="quick-link">
-                        <i class="fas fa-phone"></i>
-                        <span>Call Our Farm</span>
-                    </a>
-                    <a href="https://wa.me/911234567890" target="_blank" class="quick-link">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Chat on WhatsApp</span>
-                    </a>
-                    <a href="#visit-us" class="quick-link">
-                        <i class="fas fa-tractor"></i>
-                        <span>Visit Our Fields</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="nature-divider"></div>
-
-    <!-- Contact Channels -->
-    <section class="contact-channels">
-        <div class="container">
-            <h2 class="section-title">Our Communication Fields</h2>
-            <p class="section-subtitle">Choose your preferred channel to connect with our team of green energy cultivators</p>
-            
-            <div class="channels-grid">
-                <div class="channel-card">
-                    <div class="channel-icon">
-                        <i class="fas fa-sun"></i>
+                        <h3 class="location-title">Demonstration Farm</h3>
                     </div>
-                    <div class="channel-content">
-                        <h3>General Inquiries</h3>
-                        <p>For questions about our sustainable solutions and general information</p>
-                        <div class="channel-details">
-                            <div class="detail">
-                                <i class="fas fa-phone"></i>
-                                <span>+91-XXXXX-XXXXX</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>info@kvbgreenenergies.com</span>
-                            </div>
-                            <div class="detail">
-                                <i class="far fa-clock"></i>
-                                <span>Mon-Sat: Sunrise to Sunset</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channel-card">
-                    <div class="channel-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="channel-content">
-                        <h3>Technical Support</h3>
-                        <p>For technical queries and nurturing your green energy projects</p>
-                        <div class="channel-details">
-                            <div class="detail">
-                                <i class="fas fa-phone"></i>
-                                <span>+91-XXXXX-XXXXX</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>technical@kvbgreenenergies.com</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-tools"></i>
-                                <span>24/7 Support for Growing Projects</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="channel-card">
-                    <div class="channel-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="channel-content">
-                        <h3>Partnerships</h3>
-                        <p>For collaboration and sowing seeds of partnership</p>
-                        <div class="channel-details">
-                            <div class="detail">
-                                <i class="fas fa-phone"></i>
-                                <span>+91-XXXXX-XXXXX</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>partnerships@kvbgreenenergies.com</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>By Appointment for Deep Cultivation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Inquiry Type Selection -->
-    <section class="inquiry-types">
-        <div class="container">
-            <h2 class="section-title">How Can We Help Your Growth?</h2>
-            <p class="section-subtitle">Select your inquiry type for personalized nurturing and guidance</p>
-            
-            <div class="inquiry-grid">
-                <div class="inquiry-card" data-inquiry-type="technical">
-                    <div class="inquiry-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Technical Inquiry</h3>
-                    <p>Product specifications, installation guidance, technical consultations for your green journey</p>
-                    <button class="btn btn-outline select-inquiry" data-type="technical">Select</button>
-                </div>
-                
-                <div class="inquiry-card" data-inquiry-type="demo">
-                    <div class="inquiry-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Request Demo/Site Visit</h3>
-                    <p>Experience our solutions firsthand at demonstration farms or existing green installations</p>
-                    <button class="btn btn-outline select-inquiry" data-type="demo">Select</button>
-                </div>
-                
-                <div class="inquiry-card" data-inquiry-type="government">
-                    <div class="inquiry-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <h3>Government Partnership</h3>
-                    <p>Government projects, tenders, and institutional collaborations for sustainable development</p>
-                    <button class="btn btn-outline select-inquiry" data-type="government">Select</button>
-                </div>
-                
-                <div class="inquiry-card" data-inquiry-type="investor">
-                    <div class="inquiry-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Investor Inquiry</h3>
-                    <p>Investment opportunities, company information, and sustainable financial partnerships</p>
-                    <button class="btn btn-outline select-inquiry" data-type="investor">Select</button>
-                </div>
-                
-                <div class="inquiry-card" data-inquiry-type="farmer">
-                    <div class="inquiry-icon">
+                    <div class="map-placeholder">
                         <i class="fas fa-tractor"></i>
                     </div>
-                    <h3>Farmer Support</h3>
-                    <p>Agricultural technology queries, farmer subsidies, and sustainable farming training programs</p>
-                    <button class="btn btn-outline select-inquiry" data-type="farmer">Select</button>
-                </div>
-                
-                <div class="inquiry-card" data-inquiry-type="other">
-                    <div class="inquiry-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>Other Inquiries</h3>
-                    <p>Any other questions or information requests about our sustainable energy solutions</p>
-                    <button class="btn btn-outline select-inquiry" data-type="other">Select</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="contact-form-section" id="contact-form">
-        <div class="container">
-            <div class="form-header">
-                <h2>Sow Your Inquiry Seeds</h2>
-                <p class="form-subtitle">Share your needs and we'll nurture your inquiry to fruition within 24 hours</p>
-                <div class="selected-inquiry" id="selectedInquiryDisplay">
-                    <span>Please select an inquiry type above</span>
-                </div>
-            </div>
-            
-            <div class="form-wrapper">
-                <form id="mainContactForm" class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullName">Full Name *</label>
-                            <input type="text" id="fullName" name="fullName" required placeholder="Your name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="organization">Organization/Institution</label>
-                            <input type="text" id="organization" name="organization" placeholder="Farm/Company name">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@domain.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+91-XXXXXXXXXX">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">City *</label>
-                            <input type="text" id="city" name="city" required placeholder="Your city">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="state">State *</label>
-                            <select id="state" name="state" required>
-                                <option value="">Select State</option>
-                                <option value="karnataka">Karnataka</option>
-                                <option value="tamil-nadu">Tamil Nadu</option>
-                                <option value="maharashtra">Maharashtra</option>
-                                <option value="goa">Goa</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="inquiryType">Inquiry Type *</label>
-                        <select id="inquiryType" name="inquiryType" required>
-                            <option value="">Select Inquiry Type</option>
-                            <option value="technical">Technical Inquiry</option>
-                            <option value="demo">Request Demo/Site Visit</option>
-                            <option value="government">Government Partnership</option>
-                            <option value="investor">Investor Inquiry</option>
-                            <option value="farmer">Farmer Support</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="productInterest">Product/Service Interest</label>
-                        <select id="productInterest" name="productInterest">
-                            <option value="">Select if applicable</option>
-                            <option value="solar-cooking">Solar Cooking Systems</option>
-                            <option value="solar-drying">Solar Drying Systems</option>
-                            <option value="energy-storage">Energy Storage</option>
-                            <option value="smart-agri">Smart Agriculture</option>
-                            <option value="multiple">Multiple Systems</option>
-                            <option value="not-sure">Not sure - Need consultation</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your Message/Requirements *</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Share your vision, requirements, project scope, timeline, or any specific questions about sustainable solutions..." required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="attachment">Attach Files (Optional)</label>
-                        <div class="file-upload">
-                            <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
-                            <label for="attachment" class="file-label">
-                                <i class="fas fa-paperclip"></i>
-                                <span>Choose file</span>
-                            </label>
-                            <span class="file-name">No file chosen</span>
-                        </div>
-                        <p class="file-hint">Max file size: 10MB. Supported formats: PDF, DOC, JPG, PNG</p>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="newsletter" checked>
-                            <span>Subscribe to KVB's seasonal newsletter for updates on renewable energy and sustainable farming</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="privacy" required>
-                            <span>I agree to the <a href="privacy-policy.html">Privacy Policy</a> and consent to KVB contacting me regarding my inquiry *</span>
-                        </label>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-seedling"></i> Plant Your Inquiry
-                        </button>
-                        <p class="form-note">We typically respond within 24 hours during business days</p>
-                    </div>
-                </form>
-                
-                <div class="form-sidebar">
-                    <div class="sidebar-card">
-                        <h3><i class="fas fa-lightbulb"></i> Tips for Better Response</h3>
-                        <ul class="tips-list">
-                            <li>Provide specific details about your requirements</li>
-                            <li>Include project location and timeline</li>
-                            <li>Mention current energy source and consumption</li>
-                            <li>Specify budget range if available</li>
-                            <li>Attach site photos if possible</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="sidebar-card">
-                        <h3><i class="fas fa-clock"></i> Response Time</h3>
-                        <div class="response-time">
-                            <div class="time-category">
-                                <div class="time-label">General Inquiries</div>
-                                <div class="time-value">Within 24 hours</div>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                Sustainable Agriculture Centre<br>
+                                Dharwad District<br>
+                                Karnataka 580007
                             </div>
-                            <div class="time-category">
-                                <div class="time-label">Technical Queries</div>
-                                <div class="time-value">Within 48 hours</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                Visits by appointment<br>
+                                Guided tours available<br>
+                                Tuesdays & Thursdays
                             </div>
-                            <div class="time-category">
-                                <div class="time-label">Project Proposals</div>
-                                <div class="time-value">3-5 business days</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <div>
+                                Group visits welcomed<br>
+                                Educational programs offered
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="sidebar-card">
-                        <h3><i class="fas fa-phone-alt"></i> Prefer to Talk?</h3>
-                        <div class="contact-options">
-                            <a href="tel:+911234567890" class="contact-option">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <span class="option-label">Call Us</span>
-                                    <span class="option-value">+91-XXXXX-XXXXX</span>
-                                </div>
-                            </a>
-                            <a href="https://wa.me/911234567890" target="_blank" class="contact-option">
-                                <i class="fab fa-whatsapp"></i>
-                                <div>
-                                    <span class="option-label">WhatsApp</span>
-                                    <span class="option-value">+91-XXXXX-XXXXX</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Office Location & Map -->
-    <section class="office-location" id="visit-us">
-        <div class="container">
-            <h2 class="section-title">Visit Our Sustainable Fields</h2>
-            
-            <div class="location-wrapper">
-                <div class="location-info">
-                    <div class="address-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Headquarters</h3>
-                        <div class="address-details">
-                            <p><strong>KVB Green Energies Pvt. Ltd.</strong></p>
-                            <p>Plot No. XX, Green Industrial Area</p>
-                            <p>Hubli, Karnataka - 580XXX</p>
-                            <p>India</p>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <div class="detail">
-                                <i class="fas fa-phone"></i>
-                                <span>+91-XXXXX-XXXXX</span>
-                            </div>
-                            <div class="detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>info@kvbgreenenergies.com</span>
-                            </div>
-                            <div class="detail">
-                                <i class="far fa-clock"></i>
-                                <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
-                            </div>
-                        </div>
-                        
-                        <div class="office-features">
-                            <h4>Office Facilities:</h4>
-                            <div class="features-grid">
-                                <div class="feature">
-                                    <i class="fas fa-car"></i>
-                                    <span>Ample Parking</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-wheelchair"></i>
-                                    <span>Accessible Entrances</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-wifi"></i>
-                                    <span>High-Speed Wi-Fi</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-coffee"></i>
-                                    <span>Meeting Spaces</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="visit-instructions">
-                            <h4>Before Visiting:</h4>
-                            <ul>
-                                <li>Please schedule appointment in advance</li>
-                                <li>Bring government-issued ID for security</li>
-                                <li>Carry relevant project documents</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="regional-offices">
-                        <h3>Regional Offices</h3>
-                        <div class="office-cards">
-                            <div class="office-card">
-                                <h4>Bengaluru Office</h4>
-                                <p>#123, Green Tech Park, Bengaluru</p>
-                                <p>Karnataka - 560XXX</p>
-                                <a href="tel:+91-XXXXX-XXXXX" class="office-contact">
-                                    <i class="fas fa-phone"></i> +91-XXXXX-XXXXX
-                                </a>
-                            </div>
-                            
-                            <div class="office-card">
-                                <h4>Goa Office</h4>
-                                <p>#456, Sustainable Complex, Panaji</p>
-                                <p>Goa - 403XXX</p>
-                                <a href="tel:+91-XXXXX-XXXXX" class="office-contact">
-                                    <i class="fas fa-phone"></i> +91-XXXXX-XXXXX
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-map">
-                    <div id="officeMap"></div>
-                    <div class="map-instructions">
-                        <p><i class="fas fa-info-circle"></i> Click on markers for office details and directions</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partnership Opportunities -->
-    <section class="partnership-opportunities">
-        <div class="container">
-            <h2 class="section-title">Cultivate Partnerships</h2>
-            <p class="section-subtitle">Join hands with KVB to sow seeds of sustainable growth and reap abundant harvests</p>
-            
-            <div class="partnership-types">
-                <div class="partnership-type">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Distribution Partnerships</h3>
-                    </div>
-                    <div class="type-content">
-                        <p>Become an authorized distributor of KVB's sustainable solutions in your region</p>
-                        <ul class="type-benefits">
-                            <li>Exclusive territory cultivation rights</li>
-                            <li>Technical training & nurturing support</li>
-                            <li>Marketing and growth collateral</li>
-                            <li>Lead generation and cultivation support</li>
-                        </ul>
-                        <a href="contact.html?partnership=distribution" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="partnership-type">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h3>Institutional Collaborations</h3>
-                    </div>
-                    <div class="type-content">
-                        <p>Collaborate with educational and research institutions for sustainable innovation</p>
-                        <ul class="type-benefits">
-                            <li>Joint research and cultivation projects</li>
-                            <li>Student training and growth programs</li>
-                            <li>Technology demonstration farms</li>
-                            <li>Knowledge exchange and cultivation</li>
-                        </ul>
-                        <a href="contact.html?partnership=institutional" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="partnership-type">
-                    <div class="type-header">
-                        <div class="type-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>International Partnerships</h3>
-                    </div>
-                    <div class="type-content">
-                        <p>Expand KVB's sustainable technologies to international markets and climates</p>
-                        <ul class="type-benefits">
-                            <li>Technology licensing and cultivation</li>
-                            <li>Joint ventures for growth</li>
-                            <li>Export partnerships</li>
-                            <li>Market development and cultivation</li>
-                        </ul>
-                        <a href="contact.html?partnership=international" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="partnership-cta">
-                <div class="cta-content">
-                    <h3>Ready to Cultivate with KVB?</h3>
-                    <p>Download our comprehensive partnership information kit for detailed cultivation guidelines</p>
-                    <div class="cta-actions">
-                        <a href="downloads/kvb-partnership-kit.pdf" class="btn btn-primary" download>
-                            <i class="fas fa-download"></i> Download Partnership Kit
-                        </a>
-                        <a href="#contact-form" class="btn btn-outline-light">
-                            <i class="fas fa-envelope"></i> Send Partnership Inquiry
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="contact-faq">
-        <div class="container">
-            <h2 class="section-title">Commonly Asked Cultivation Questions</h2>
-            
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What is the typical response time for inquiries?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We nurture general inquiries within 24 hours on business days. Technical queries may take up to 48 hours for detailed cultivation responses. For urgent matters, please call our support numbers directly.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Do you provide site visits and demonstrations?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we arrange site visits to our sustainable demonstration farms and product demonstrations at our green facilities. Please schedule in advance through our demo request form or by calling our office.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What information should I provide for a technical inquiry?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>For technical inquiries, please provide: current energy consumption, application type (cooking/drying/heating), capacity requirements, site location, and any specific challenges you're facing. Site photos are helpful for proper cultivation planning.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>How can I check subsidy eligibility for my project?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our team assists with subsidy applications and cultivation. Please provide your project details and location, and we'll check eligibility for various government schemes and guide you through the application cultivation process.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Do you provide training for system operation and maintenance?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we provide comprehensive training for operators and maintenance staff. Training is included with system installation, and we also offer periodic refresher courses and advanced cultivation programs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="contact-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Still Have Cultivation Questions?</h2>
-                <p>Our team of green energy cultivators is ready to help you grow your sustainable projects and answer any questions about our technologies.</p>
-                
-                <div class="cta-buttons">
-                    <a href="tel:+911234567890" class="btn btn-primary">
-                        <i class="fas fa-phone"></i> Call Our Fields
-                    </a>
-                    <a href="https://wa.me/911234567890" target="_blank" class="btn btn-success">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Chat
-                    </a>
-                    <a href="mailto:info@kvbgreenenergies.com" class="btn btn-outline-light">
-                        <i class="fas fa-envelope"></i> Send Email
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <!-- Footer content remains the same as original -->
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logo-white.png" alt="KVB Green Energies" width="150">
-                    </div>
-                    <p>Cultivating sustainable energy and smart agriculture solutions for India's greener tomorrow.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="blog.html">Knowledge Center</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="solutions/solar-cooking.html">Solar Cooking</a></li>
-                        <li><a href="solutions/solar-drying.html">Solar Drying</a></li>
-                        <li><a href="solutions/energy-storage.html">Energy Storage</a></li>
-                        <li><a href="solutions/smart-agriculture.html">Smart Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Hubli, Karnataka, India</li>
-                        <li><i class="fas fa-phone"></i> +91-XXXXX-XXXXX</li>
-                        <li><i class="fas fa-envelope"></i> info@kvbgreenenergies.com</li>
-                        <li><i class="far fa-clock"></i> Mon-Sat: 9AM-6PM</li>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 KVB Green Energies Pvt. Ltd. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="sitemap.html">Sitemap</a>
-                </div>
+            
+            <div class="ornament" style="margin-top: 3rem;">✦ ✦ ✦</div>
+            
+            <div class="vintage-border">
+                <p><em>"The true meaning of life is to plant trees, under whose shade you do not expect to sit."</em></p>
             </div>
+        </div>
+    </section>
+
+    <!-- Vintage Footer -->
+    <footer class="vintage-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>KVB Green Energies</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--sepia); line-height: 1.7;">
+                    Established in 1995, we continue to pioneer sustainable energy solutions while preserving traditional agricultural wisdom.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Reference</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Our History</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="projects.html">Project Archive</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Departments</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Agricultural Division</a></li>
+                    <li><a href="#">Energy Systems</a></li>
+                    <li><a href="#">Research & Development</a></li>
+                    <li><a href="#">Community Outreach</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Publications</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Annual Reports</a></li>
+                    <li><a href="#">Technical Papers</a></li>
+                    <li><a href="#">Newsletters</a></li>
+                    <li><a href="#">Research Bulletins</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 1995-2024 KVB Green Energies Ltd. All rights reserved. | Registered Office: Hubli, Karnataka</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">This establishment operates in accordance with all applicable regulations and standards.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <!-- Keep the same JavaScript from original, as functionality remains the same -->
-    <script src="js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Contact Page Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inquiry Type Selection
-            const inquiryCards = document.querySelectorAll('.inquiry-card');
-            const selectButtons = document.querySelectorAll('.select-inquiry');
-            const inquiryTypeSelect = document.getElementById('inquiryType');
-            const selectedInquiryDisplay = document.getElementById('selectedInquiryDisplay');
-
-            selectButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const inquiryType = this.getAttribute('data-type');
-                    
-                    // Update visual selection
-                    inquiryCards.forEach(card => {
-                        card.classList.remove('selected');
-                        if (card.getAttribute('data-inquiry-type') === inquiryType) {
-                            card.classList.add('selected');
-                        }
-                    });
-                    
-                    // Update form dropdown
-                    if (inquiryTypeSelect) {
-                        inquiryTypeSelect.value = inquiryType;
-                    }
-                    
-                    // Update display text
-                    const inquiryTypes = {
-                        'technical': 'Technical Inquiry',
-                        'demo': 'Request Demo/Site Visit',
-                        'government': 'Government Partnership',
-                        'investor': 'Investor Inquiry',
-                        'farmer': 'Farmer Support',
-                        'other': 'Other Inquiries'
-                    };
-                    
-                    if (selectedInquiryDisplay) {
-                        selectedInquiryDisplay.innerHTML = `
-                            <i class="fas fa-check-circle"></i>
-                            <span>Selected: <strong>${inquiryTypes[inquiryType]}</strong></span>
-                            <button class="btn-text" id="changeInquiry">Change</button>
-                        `;
-                        
-                        // Scroll to form
-                        document.getElementById('contact-form').scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        
-                        // Add change button functionality
-                        document.getElementById('changeInquiry').addEventListener('click', function() {
-                            selectedInquiryDisplay.innerHTML = '<span>Please select an inquiry type above</span>';
-                            inquiryCards.forEach(card => card.classList.remove('selected'));
-                            if (inquiryTypeSelect) inquiryTypeSelect.value = '';
-                        });
-                    }
-                });
-            });
-
-            // File Upload Preview
-            const fileInput = document.getElementById('attachment');
-            const fileNameDisplay = document.querySelector('.file-name');
-
-            if (fileInput && fileNameDisplay) {
-                fileInput.addEventListener('change', function() {
-                    if (this.files.length > 0) {
-                        fileNameDisplay.textContent = this.files[0].name;
-                        
-                        // Validate file size (10MB limit)
-                        const fileSize = this.files[0].size;
-                        const maxSize = 10 * 1024 * 1024; // 10MB in bytes
-                        
-                        if (fileSize > maxSize) {
-                            alert('File size exceeds 10MB limit. Please choose a smaller file.');
-                            this.value = '';
-                            fileNameDisplay.textContent = 'No file chosen';
-                        }
-                    } else {
-                        fileNameDisplay.textContent = 'No file chosen';
-                    }
-                });
-            }
-
-            // Leaflet Map Initialization
-            function initOfficeMap() {
-                const mapContainer = document.getElementById('officeMap');
-                if (!mapContainer) return;
-
-                // Create map centered on Hubli (Headquarters)
-                const map = L.map('officeMap').setView([15.3647, 75.1240], 12);
-
-                // Add tile layer
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap contributors',
-                    maxZoom: 18
-                }).addTo(map);
-
-                // Office locations
-                const officeLocations = [
-                    {
-                        name: "KVB Headquarters",
-                        coords: [15.3647, 75.1240],
-                        address: "Plot No. XX, Green Industrial Area, Hubli, Karnataka - 580XXX",
-                        phone: "+91-XXXXX-XXXXX",
-                        hours: "Mon-Sat: 9:00 AM - 6:00 PM"
-                    },
-                    {
-                        name: "Bengaluru Office",
-                        coords: [12.9716, 77.5946],
-                        address: "#123, Green Tech Park, Bengaluru, Karnataka - 560XXX",
-                        phone: "+91-XXXXX-XXXXX",
-                        hours: "Mon-Fri: 9:00 AM - 5:00 PM"
-                    },
-                    {
-                        name: "Goa Office",
-                        coords: [15.4909, 73.8278],
-                        address: "#456, Sustainable Complex, Panaji, Goa - 403XXX",
-                        phone: "+91-XXXXX-XXXXX",
-                        hours: "Mon-Sat: 9:00 AM - 5:00 PM"
-                    }
-                ];
-
-                // Custom icon
-                const officeIcon = L.divIcon({
-                    className: 'office-marker',
-                    html: `<div class="map-marker"><i class="fas fa-map-marker-alt"></i></div>`,
-                    iconSize: [45, 45],
-                    iconAnchor: [22.5, 45],
-                    popupAnchor: [0, -45]
-                });
-
-                // Add markers
-                officeLocations.forEach(office => {
-                    const marker = L.marker(office.coords, {
-                        icon: officeIcon
-                    }).addTo(map);
-
-                    marker.bindPopup(`
-                        <div class="map-popup">
-                            <h4>${office.name}</h4>
-                            <p><i class="fas fa-map-marker-alt"></i> ${office.address}</p>
-                            <p><i class="fas fa-phone"></i> ${office.phone}</p>
-                            <p><i class="far fa-clock"></i> ${office.hours}</p>
-                            <a href="https://maps.google.com/?q=${office.coords[0]},${office.coords[1]}" 
-                               target="_blank" 
-                               class="popup-link">
-                                <i class="fas fa-directions"></i> Get Directions
-                            </a>
-                        </div>
-                    `);
-                });
-
-                // Fit bounds to show all markers
-                const bounds = L.latLngBounds(officeLocations.map(office => office.coords));
-                map.fitBounds(bounds, { padding: [50, 50] });
-
-                return map;
-            }
-
-            // Initialize map after page loads
-            setTimeout(initOfficeMap, 100);
-
-            // Contact Form Submission
-            const contactForm = document.getElementById('mainContactForm');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // Get form data
-                    const formData = new FormData(this);
-                    const formObject = {};
-                    formData.forEach((value, key) => {
-                        formObject[key] = value;
-                    });
-
-                    // Validate form
-                    if (!validateContactForm(formObject)) {
-                        return;
-                    }
-
-                    // Show loading state
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sowing Your Inquiry...';
-                    submitBtn.disabled = true;
-
-                    // Simulate API call (replace with actual API call)
-                    setTimeout(() => {
-                        // Success message
-                        const successMessage = document.createElement('div');
-                        successMessage.className = 'form-success-message';
-                        successMessage.innerHTML = `
-                            <div class="success-content">
-                                <i class="fas fa-check-circle"></i>
-                                <div>
-                                    <h3>Inquiry Planted Successfully!</h3>
-                                    <p>Thank you for contacting KVB Green Energies. We have received your inquiry regarding <strong>${formObject.inquiryType}</strong> and will nurture it to fruition.</p>
-                                    <div class="success-details">
-                                        <p><strong>Reference ID:</strong> KVB-${Date.now().toString().slice(-6)}</p>
-                                        <p><strong>Expected Response:</strong> Within 24 hours</p>
-                                        <p><strong>Contact Email:</strong> ${formObject.email}</p>
-                                    </div>
-                                    <div class="success-actions">
-                                        <button class="btn btn-outline" id="printInquiry">
-                                            <i class="fas fa-print"></i> Print Summary
-                                        </button>
-                                        <button class="btn btn-primary" id="newInquiry">
-                                            <i class="fas fa-plus"></i> New Inquiry
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        
-                        // Insert success message
-                        this.parentNode.insertBefore(successMessage, this);
-                        this.style.display = 'none';
-                        
-                        // Reset button
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                        
-                        // Add event listeners for success buttons
-                        document.getElementById('printInquiry').addEventListener('click', function() {
-                            window.print();
-                        });
-                        
-                        document.getElementById('newInquiry').addEventListener('click', function() {
-                            location.reload();
-                        });
-                        
-                        // Scroll to success message
-                        successMessage.scrollIntoView({ behavior: 'smooth' });
-                        
-                    }, 1500); // Simulate 1.5 second delay
-                });
-            }
-
-            // Form validation
-            function validateContactForm(data) {
-                // Simple validation
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const phonePattern = /^[0-9+\-\s]{10,15}$/;
-                
-                if (!data.fullName || data.fullName.trim().length < 2) {
-                    alert('Please enter a valid full name');
-                    return false;
-                }
-                
-                if (!emailPattern.test(data.email)) {
-                    alert('Please enter a valid email address');
-                    return false;
-                }
-                
-                if (!phonePattern.test(data.phone)) {
-                    alert('Please enter a valid phone number');
-                    return false;
-                }
-                
-                if (!data.city || data.city.trim().length < 2) {
-                    alert('Please enter your city');
-                    return false;
-                }
-                
-                if (!data.state) {
-                    alert('Please select your state');
-                    return false;
-                }
-                
-                if (!data.inquiryType) {
-                    alert('Please select an inquiry type');
-                    return false;
-                }
-                
-                if (!data.message || data.message.trim().length < 10) {
-                    alert('Please provide a detailed message (minimum 10 characters)');
-                    return false;
-                }
-                
-                return true;
-            }
-
-            // FAQ Accordion
-            const faqQuestions = document.querySelectorAll('.faq-question');
+        // Vintage Form Submission
+        document.getElementById('vintageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-                    
-                    // Toggle current item
-                    this.parentElement.classList.toggle('active');
-                    
-                    if (this.parentElement.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        icon.className = 'fas fa-chevron-up';
-                    } else {
-                        answer.style.maxHeight = '0';
-                        icon.className = 'fas fa-chevron-down';
-                    }
-                    
-                    // Close other items
-                    faqQuestions.forEach(otherQuestion => {
-                        if (otherQuestion !== this) {
-                            const otherAnswer = otherQuestion.nextElementSibling;
-                            const otherIcon = otherQuestion.querySelector('i');
-                            otherQuestion.parentElement.classList.remove('active');
-                            otherAnswer.style.maxHeight = '0';
-                            otherIcon.className = 'fas fa-chevron-down';
-                        }
-                    });
-                });
-            });
-
-            // URL parameter handling for partnership links
-            const urlParams = new URLSearchParams(window.location.search);
-            const partnershipType = urlParams.get('partnership');
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
             
-            if (partnershipType) {
-                // Pre-select partnership inquiry type
-                const types = {
-                    'distribution': 'government',
-                    'institutional': 'government', 
-                    'international': 'government'
-                };
-                
-                if (types[partnershipType]) {
-                    const inquiryType = types[partnershipType];
-                    inquiryCards.forEach(card => {
-                        if (card.getAttribute('data-inquiry-type') === inquiryType) {
-                            card.classList.add('selected');
-                            if (inquiryTypeSelect) {
-                                inquiryTypeSelect.value = inquiryType;
-                            }
-                            
-                            // Update message textarea with partnership info
-                            const messageTextarea = document.getElementById('message');
-                            if (messageTextarea) {
-                                messageTextarea.value = `I'm interested in ${partnershipType} partnership opportunities with KVB Green Energies. Please send me more information about cultivating this partnership.\n\n`;
-                            }
-                        }
-                    });
+            // Show vintage loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Dispatching...';
+            submitBtn.disabled = true;
+            
+            // Simulate vintage typewriter effect
+            const vintageMessage = document.createElement('div');
+            vintageMessage.className = 'vintage-paper';
+            vintageMessage.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                max-width: 600px;
+                animation: fadeIn 0.5s ease;
+                background: var(--paper);
+            `;
+            
+            // Create typewriter content
+            const typewriterContent = `
+                <div style="text-align: center; padding: 3rem;">
+                    <div style="font-size: 3rem; color: var(--olive); margin-bottom: 1rem;">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3 style="font-family: 'Cormorant Garamond', serif; color: var(--olive); margin-bottom: 1.5rem; font-size: 1.8rem;">
+                        Inquiry Received
+                    </h3>
+                    <div id="typewriter-text" style="color: var(--sepia); line-height: 1.7; margin-bottom: 2rem; min-height: 100px;">
+                    </div>
+                    <div style="background: var(--cream); padding: 1rem; border: 1px solid var(--border); margin-bottom: 2rem;">
+                        <p style="color: var(--olive); margin: 0;">
+                            <strong>Reference Number:</strong> KVB/${new Date().getFullYear()}/${String(Date.now()).slice(-6)}
+                        </p>
+                    </div>
+                    <button onclick="this.closest('.vintage-paper').remove()" 
+                            style="background: var(--olive); color: var(--cream); border: 1px solid var(--sage); padding: 0.8rem 2rem; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; cursor: pointer;">
+                        Close
+                    </button>
+                </div>
+            `;
+            
+            vintageMessage.innerHTML = typewriterContent;
+            document.body.appendChild(vintageMessage);
+            
+            // Typewriter effect
+            const text = "Your inquiry has been received by our offices and shall be processed with due diligence. A formal response will be dispatched to the provided address within three to five business days. We thank you for your interest in our establishment and look forward to the possibility of future correspondence.";
+            const typewriterEl = document.getElementById('typewriter-text');
+            let i = 0;
+            const speed = 30; // typing speed in ms
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typewriterEl.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
                     
-                    // Scroll to form
-                    setTimeout(() => {
-                        document.getElementById('contact-form').scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 500);
+                    // Add vintage typewriter sound (optional - would need audio file)
+                    // const clickSound = new Audio('typewriter-click.mp3');
+                    // clickSound.volume = 0.1;
+                    // clickSound.play();
                 }
             }
+            
+            // Start typewriter after a brief pause
+            setTimeout(typeWriter, 500);
+            
+            // Reset form after delay
+            setTimeout(() => {
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
 
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+        // Add fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Paper texture effect on cards
+        document.querySelectorAll('.vintage-card, .vintage-paper').forEach(element => {
+            element.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
             });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Add subtle paper aging effect
+        document.querySelectorAll('.vintage-paper').forEach(paper => {
+            // Create subtle paper texture
+            const texture = document.createElement('div');
+            texture.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    linear-gradient(90deg, transparent 95%, rgba(139, 115, 85, 0.03) 100%),
+                    linear-gradient(rgba(139, 115, 85, 0.03) 1px, transparent 1px);
+                background-size: 20px 20px;
+                pointer-events: none;
+                z-index: 1;
+            `;
+            paper.style.position = 'relative';
+            paper.appendChild(texture);
+        });
+
+        // Add page turning sound on form submit (optional)
+        function playPageTurnSound() {
+            // This would require an audio file
+            // const sound = new Audio('page-turn.mp3');
+            // sound.volume = 0.3;
+            // sound.play();
+        }
+
+        // Simulate ink blot effect on form focus
+        document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                const inkBlot = document.createElement('div');
+                inkBlot.style.cssText = `
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    background: radial-gradient(circle, rgba(163, 177, 138, 0.1) 0%, transparent 70%);
+                    pointer-events: none;
+                    z-index: -1;
+                    animation: inkSpread 0.5s ease-out;
+                `;
+                
+                const rect = this.getBoundingClientRect();
+                inkBlot.style.left = rect.left + rect.width/2 - 50 + 'px';
+                inkBlot.style.top = rect.top + rect.height/2 - 50 + 'px';
+                
+                document.body.appendChild(inkBlot);
+                
+                setTimeout(() => {
+                    inkBlot.remove();
+                }, 500);
+            });
+        });
+
+        // Add ink spread animation
+        const inkStyle = document.createElement('style');
+        inkStyle.textContent = `
+            @keyframes inkSpread {
+                0% {
+                    transform: scale(0.1);
+                    opacity: 0.5;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(inkStyle);
+
+        // Vintage clock in header
+        function updateVintageClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const dateString = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Create or update clock element
+            let clockEl = document.querySelector('.vintage-clock');
+            if (!clockEl) {
+                clockEl = document.createElement('div');
+                clockEl.className = 'vintage-clock';
+                clockEl.style.cssText = `
+                    position: fixed;
+                    bottom: 2rem;
+                    right: 2rem;
+                    background: var(--paper);
+                    padding: 0.8rem 1.5rem;
+                    border: 1px solid var(--border);
+                    font-family: 'Cormorant Garamond', serif;
+                    color: var(--sepia);
+                    z-index: 100;
+                    box-shadow: 0 3px 10px var(--shadow);
+                    text-align: center;
+                `;
+                document.body.appendChild(clockEl);
+            }
+            
+            clockEl.innerHTML = `
+                <div style="font-size: 1.2rem; font-weight: 600; color: var(--olive);">${timeString}</div>
+                <div style="font-size: 0.9rem; margin-top: 0.3rem;">${dateString}</div>
+            `;
+        }
+
+        // Update clock every minute
+        setInterval(updateVintageClock, 60000);
+        updateVintageClock(); // Initial call
+
+        // Add scroll effect with vintage feel
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            // Add subtle parallax to vintage paper elements
+            document.querySelectorAll('.vintage-paper').forEach((paper, index) => {
+                const speed = 0.3 + (index * 0.1);
+                paper.style.transform = `translateY(${currentScroll * speed * 0.1}px)`;
+            });
+            
+            lastScroll = currentScroll;
         });
     </script>
 </body>
