@@ -4,15 +4,1811 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About KVB Green Energies - Renewable Energy & Smart Agriculture Technology</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== ROOT VARIABLES ====== */
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --primary-light: #4CAF50;
+            --secondary: #FF9800;
+            --secondary-dark: #F57C00;
+            --dark: #263238;
+            --light: #F5F7FA;
+            --gray: #78909C;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            --gradient-green: linear-gradient(135deg, #4CAF50, #2E7D32);
+            --gradient-orange: linear-gradient(135deg, #FF9800, #F57C00);
+        }
+
+        /* ====== RESET & BASE STYLES ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ====== HEADER ====== */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(1);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--primary);
+        }
+
+        /* ====== PAGE HERO ====== */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(30, 100, 35, 0.9)), url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 160px 0 80px;
+            text-align: center;
+            margin-top: 70px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 152, 0, 0.2) 0%, transparent 50%);
+            animation: pulse 8s infinite alternate;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .breadcrumb:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb span {
+            color: var(--secondary);
+            margin-left: 5px;
+        }
+
+        /* ====== COMPANY STORY ====== */
+        .story-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.03) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 152, 0, 0.03) 0%, transparent 20%);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-content h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+            animation: widthGrow 1s ease-out 0.5s both;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: var(--dark);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .story-content p:nth-child(2) { animation-delay: 0.3s; }
+        .story-content p:nth-child(3) { animation-delay: 0.5s; }
+        .story-content p:nth-child(4) { animation-delay: 0.7s; }
+
+        .story-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+            border: 5px solid var(--white);
+            opacity: 0;
+            transform: perspective(1000px) rotateY(-5deg) translateX(50px);
+            animation: slideInRight 1s ease-out 0.3s forwards;
+        }
+
+        .story-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ====== VISION & MISSION ====== */
+        .vision-mission {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-mission::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .vm-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .vm-card.animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .vm-card.vision.animate { animation-delay: 0.2s; }
+        .vm-card.mission.animate { animation-delay: 0.4s; }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            z-index: 2;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .vm-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 32px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .vm-card:hover .vm-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .vm-card h3 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .vm-card p {
+            color: var(--dark);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ====== FOUNDER PROFILE ====== */
+        .founder-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+
+        .founder-profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .founder-profile.animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .founder-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .founder-profile.animate .founder-image {
+            animation: rotateIn 1s ease-out 0.3s forwards;
+        }
+
+        .founder-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            z-index: -1;
+            animation: borderPulse 3s infinite;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-details h3 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .founder-details p {
+            margin-bottom: 20px;
+            color: var(--dark);
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .founder-profile.animate .founder-details p:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.4s forwards; }
+        .founder-profile.animate .founder-details p:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.6s forwards; }
+
+        .founder-quote {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(255, 152, 0, 0.05));
+            padding: 25px;
+            border-left: 4px solid var(--secondary);
+            margin-top: 30px;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .founder-profile.animate .founder-quote {
+            animation: slideInRight 0.8s ease-out 0.8s forwards;
+        }
+
+        .founder-quote i:first-child {
+            color: var(--secondary);
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .founder-quote i:last-child {
+            color: var(--secondary);
+            font-size: 24px;
+            margin-left: 10px;
+            float: right;
+        }
+
+        .founder-quote p {
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* ====== TEAM SECTION ====== */
+        .team-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #e8f5e9 100%);
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="2" fill="%232E7D32" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .team-card.animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .team-card:nth-child(1).animate { animation-delay: 0.1s; }
+        .team-card:nth-child(2).animate { animation-delay: 0.2s; }
+        .team-card:nth-child(3).animate { animation-delay: 0.3s; }
+        .team-card:nth-child(4).animate { animation-delay: 0.4s; }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .team-info .position {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .team-info .bio {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .team-social a:hover {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ====== CO2 IMPACT SECTION ====== */
+        .impact-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.1;
+            z-index: 0;
+            animation: slowZoom 30s infinite alternate;
+        }
+
+        .impact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 200px;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stat-item.animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1).animate { animation-delay: 0.1s; }
+        .stat-item:nth-child(2).animate { animation-delay: 0.2s; }
+        .stat-item:nth-child(3).animate { animation-delay: 0.3s; }
+        .stat-item:nth-child(4).animate { animation-delay: 0.4s; }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .stat-symbol {
+            font-size: 24px;
+            margin-left: 5px;
+            opacity: 0.8;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .impact-visualization {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .impact-visualization.animate {
+            animation: fadeInUp 0.8s ease-out 0.5s forwards;
+        }
+
+        .impact-visualization h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .impact-visualization p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .impact-visualization strong {
+            color: var(--secondary);
+        }
+
+        /* ====== HORIZONTAL TIMELINE SECTION ====== */
+        .timeline-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(46, 125, 50, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 152, 0, 0.05) 0%, transparent 40%);
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Timeline Track */
+        .timeline-track {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, 
+                rgba(189, 189, 189, 0.3) 0%,
+                rgba(189, 189, 189, 0.6) 30%,
+                rgba(189, 189, 189, 0.8) 50%,
+                rgba(189, 189, 189, 0.6) 70%,
+                rgba(189, 189, 189, 0.3) 100%);
+            border-radius: 3px;
+            margin: 80px auto;
+            box-shadow: 
+                inset 0 0 10px rgba(0,0,0,0.1),
+                0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* Progress Fill */
+        .timeline-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            border-radius: 3px;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 2;
+            box-shadow: 
+                0 0 10px rgba(255, 152, 0, 0.5),
+                0 0 20px rgba(255, 152, 0, 0.3);
+        }
+
+        /* Tractor Indicator */
+        .tractor-indicator {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            transition: left 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tractor {
+            background: var(--white);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                0 0 0 2px rgba(255, 255, 255, 0.8),
+                0 0 0 4px var(--secondary);
+            position: relative;
+            animation: 
+                tractorBounce 3s infinite ease-in-out,
+                tractorGlow 3s infinite alternate;
+        }
+
+        .tractor-icon {
+            font-size: 36px;
+            color: var(--secondary);
+            animation: tractorPulse 2s infinite;
+        }
+
+        .tractor-wheels {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+
+        .wheel {
+            width: 22px;
+            height: 22px;
+            background: var(--dark);
+            border-radius: 50%;
+            border: 4px solid #555;
+            position: relative;
+            animation: wheelSpin 1.5s linear infinite;
+        }
+
+        .wheel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #888;
+            border-radius: 50%;
+        }
+
+        /* Timeline Steps */
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        .timeline-step {
+            position: relative;
+            width: calc(100% / 7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .step-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--white);
+            border: 4px solid #bdbdbd;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 4;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-step.active .step-dot {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 
+                0 0 0 8px rgba(255, 152, 0, 0.2),
+                0 0 0 16px rgba(255, 152, 0, 0.1),
+                0 0 20px rgba(255, 152, 0, 0.3);
+            animation: dotPulse 2s infinite;
+        }
+
+        .step-year {
+            font-weight: 800;
+            color: var(--gray);
+            font-size: 22px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .timeline-step.active .step-year {
+            color: var(--secondary-dark);
+            transform: translateY(-5px);
+        }
+
+        .step-title {
+            color: var(--dark);
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .timeline-step.active .step-title {
+            color: var(--primary);
+        }
+
+        /* Content Display */
+        .timeline-content {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 80px;
+            box-shadow: 
+                var(--shadow),
+                0 0 0 1px rgba(76, 175, 80, 0.1);
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        var(--gradient-secondary) border-box;
+            min-height: 300px;
+            opacity: 1;
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255, 152, 0, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .timeline-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+
+        .timeline-content p {
+            color: var(--dark);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .timeline-achievements {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .timeline-achievements li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        /* Timeline Controls */
+        .timeline-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .timeline-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .timeline-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+            background: var(--gradient-green);
+        }
+
+        .timeline-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .timeline-btn.secondary {
+            background: var(--gradient-secondary);
+        }
+
+        .timeline-btn.secondary:hover {
+            background: var(--gradient-orange);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .timeline-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .timeline-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2) !important;
+        }
+
+        .timeline-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2) !important;
+        }
+
+        .step-counter {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: rgba(76, 175, 80, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        /* ====== WHY CHOOSE SECTION ====== */
+        .why-choose-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e9 100%);
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .benefit-card.animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .benefit-card:nth-child(1).animate { animation-delay: 0.1s; }
+        .benefit-card:nth-child(2).animate { animation-delay: 0.2s; }
+        .benefit-card:nth-child(3).animate { animation-delay: 0.3s; }
+        .benefit-card:nth-child(4).animate { animation-delay: 0.4s; }
+        .benefit-card:nth-child(5).animate { animation-delay: 0.5s; }
+        .benefit-card:nth-child(6).animate { animation-delay: 0.6s; }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--gradient-secondary);
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .benefit-card p {
+            color: var(--dark);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ====== FOOTER ====== */
+        .main-footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .main-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 152, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(46, 125, 50, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--white);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes widthGrow {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: perspective(1000px) rotateY(-30deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(1000px) rotateY(-10deg);
+            }
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { 
+                border-color: var(--secondary);
+                transform: translate(0, 0);
+            }
+            50% { 
+                border-color: rgba(255, 152, 0, 0.5);
+                transform: translate(5px, 5px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes moveBackground {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        @keyframes tractorBounce {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -55%) scale(1.05); }
+        }
+
+        @keyframes tractorGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.2),
+                    0 0 0 2px rgba(255, 255, 255, 0.8),
+                    0 0 0 4px var(--secondary);
+            }
+            50% { 
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.2),
+                    0 0 0 2px rgba(255, 255, 255, 0.8),
+                    0 0 0 4px var(--secondary),
+                    0 0 20px rgba(255, 152, 0, 0.5);
+            }
+        }
+
+        @keyframes tractorPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.9; }
+        }
+
+        @keyframes wheelSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes dotPulse {
+            0% { box-shadow: 
+                0 0 0 0 rgba(255, 152, 0, 0.4),
+                0 0 0 0 rgba(255, 152, 0, 0.2); }
+            70% { box-shadow: 
+                0 0 0 10px rgba(255, 152, 0, 0),
+                0 0 0 20px rgba(255, 152, 0, 0); }
+            100% { box-shadow: 
+                0 0 0 0 rgba(255, 152, 0, 0),
+                0 0 0 0 rgba(255, 152, 0, 0); }
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .story-grid, .founder-profile {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .story-image {
+                order: -1;
+                transform: perspective(1000px) rotateY(0deg);
+                animation: slideInLeft 1s ease-out 0.3s forwards;
+            }
+            
+            .story-image:hover {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            
+            .founder-image {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            
+            .timeline-step {
+                width: calc(100% / 5);
+            }
+            
+            .timeline-step:nth-child(6),
+            .timeline-step:nth-child(7) {
+                display: none;
+            }
+            
+            .timeline-content {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+                padding: 0 15px;
+            }
+            
+            .page-hero h1 {
+                font-size: 36px;
+            }
+            
+            .page-hero p {
+                font-size: 16px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .impact-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .timeline-section {
+                padding: 80px 0;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+            
+            .timeline-track {
+                margin: 60px auto;
+            }
+            
+            .timeline-step {
+                width: calc(100% / 4);
+            }
+            
+            .timeline-step:nth-child(5) {
+                display: none;
+            }
+            
+            .step-title {
+                font-size: 14px;
+            }
+            
+            .step-year {
+                font-size: 18px;
+            }
+            
+            .timeline-content {
+                padding: 30px;
+                margin-top: 60px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 24px;
+            }
+            
+            .timeline-content p {
+                font-size: 16px;
+            }
+            
+            .timeline-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            .tractor {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .tractor-icon {
+                font-size: 28px;
+            }
+            
+            .wheel {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .page-hero {
+                padding: 120px 0 60px;
+                margin-top: 60px;
+            }
+            
+            .page-hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .story-content h2,
+            .founder-details h3 {
+                font-size: 24px;
+            }
+            
+            .vm-card,
+            .benefit-card,
+            .milestone-content,
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-step {
+                width: calc(100% / 3);
+            }
+            
+            .timeline-step:nth-child(4) {
+                display: none;
+            }
+            
+            .step-title {
+                font-size: 12px;
+            }
+            
+            .step-year {
+                font-size: 16px;
+            }
+            
+            .timeline-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .timeline-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+
+        /* ====== UTILITY CLASSES ====== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-20 { margin-top: 20px; }
+        .mt-40 { margin-top: 40px; }
+        .mt-60 { margin-top: 60px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-40 { margin-bottom: 40px; }
+        .mb-60 { margin-bottom: 60px; }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* ====== SCROLLBAR STYLING ====== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* ====== LOADING ANIMATION ====== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header as index.html -->
-    <header class="header">
-        <!-- Navigation from index.html -->
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo"><i class="fas fa-leaf"></i>KVB Green Energies</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="innovation-lab.html">Innovation Lab</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- About Hero -->
@@ -20,7 +1816,7 @@
         <div class="container">
             <div class="page-hero-content">
                 <h1>About KVB Green Energies</h1>
-                <p>Engineering sustainable infrastructure for community cooking, industrial heating, and agricultural value addition.</p>
+                <p>Engineering sustainable infrastructure for community cooking, industrial heating, and agricultural value addition with three decades of solar expertise.</p>
                 <div class="breadcrumb">
                     <a href="index.html">Home</a> / <span>About</span>
                 </div>
@@ -36,9 +1832,10 @@
                     <h2>Our Story</h2>
                     <p>KVB Green Energies is a renewable energy and smart agriculture technology company focused on designing sustainable infrastructure for community cooking, industrial heating, and agricultural value addition.</p>
                     <p>Founded with over three decades of solar expertise, the company bridges engineering innovation with real-world applications. Our work integrates solar thermal technology, energy storage, and intelligent agricultural systems to build scalable solutions for institutions and farmers.</p>
+                    <p>What began as a research initiative in solar thermal applications has now evolved into a national-scale operation, impacting thousands of lives across India while significantly reducing carbon emissions.</p>
                 </div>
                 <div class="story-image">
-                    <img src="images/about/story.jpg" alt="KVB Story">
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="KVB Green Energies Story">
                 </div>
             </div>
         </div>
@@ -53,14 +1850,14 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3>Our Vision</h3>
-                    <p>To engineer a future where clean energy and intelligent agriculture form the backbone of sustainable development.</p>
+                    <p>To engineer a future where clean energy and intelligent agriculture form the backbone of sustainable development, creating self-reliant communities and carbon-neutral industries.</p>
                 </div>
                 <div class="vm-card mission">
                     <div class="vm-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Our Mission</h3>
-                    <p>To reduce fossil fuel dependence, empower farmers through technology, and deliver reliable renewable solutions for large-scale impact.</p>
+                    <p>To reduce fossil fuel dependence by 50% in community cooking and industrial heating, empower 1 million farmers through technology, and deliver reliable renewable solutions for large-scale impact by 2030.</p>
                 </div>
             </div>
         </div>
@@ -72,15 +1869,15 @@
             <h2 class="section-title">Leadership</h2>
             <div class="founder-profile">
                 <div class="founder-image">
-                    <img src="images/about/founder.jpg" alt="Founder">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="KVB Founder">
                 </div>
                 <div class="founder-details">
                     <h3>Founder Profile</h3>
                     <p>With over three decades of experience in renewable energy and sustainable technologies, our founder has pioneered the development of solar thermal systems in India.</p>
-                    <p>Their vision combines engineering excellence with practical solutions that address real-world challenges in energy and agriculture.</p>
+                    <p>Their vision combines engineering excellence with practical solutions that address real-world challenges in energy and agriculture. Under their leadership, KVB has grown from a research initiative to a nationally recognized technology provider.</p>
                     <div class="founder-quote">
                         <i class="fas fa-quote-left"></i>
-                        <p>"Our mission is to create technologies that not only solve immediate problems but also build sustainable foundations for future generations."</p>
+                        <p>"Our mission is to create technologies that not only solve immediate problems but also build sustainable foundations for future generations. Every solar installation, every farmer empowered, brings us closer to energy independence."</p>
                         <i class="fas fa-quote-right"></i>
                     </div>
                 </div>
@@ -88,61 +1885,206 @@
         </div>
     </section>
 
-    <!-- Institutional Collaborations -->
-    <section class="collaborations-section">
+    <!-- Team Section -->
+    <section class="team-section">
         <div class="container">
-            <h2 class="section-title">Institutional Collaborations</h2>
-            <p class="section-subtitle">Strengthening research-driven innovation through partnerships</p>
+            <h2 class="section-title">Our Core Team</h2>
+            <p class="section-subtitle">The experts driving innovation and impact</p>
             
-            <div class="collaborations-grid">
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-university"></i>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dr. Arvind Sharma">
                     </div>
-                    <h4>UNIDO</h4>
-                </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-seedling"></i>
+                    <div class="team-info">
+                        <h4>Dr. Arvind Sharma</h4>
+                        <p class="position">Chief Technology Officer</p>
+                        <p class="bio">PhD in Renewable Energy with 25+ years in solar thermal systems</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <h4>Karnataka Horticulture Department</h4>
                 </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-flask"></i>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Priya Mehta">
                     </div>
-                    <h4>UHS Bagalkot</h4>
-                </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-graduation-cap"></i>
+                    <div class="team-info">
+                        <h4>Priya Mehta</h4>
+                        <p class="position">Head of Agricultural Innovations</p>
+                        <p class="bio">MS in Agricultural Engineering, specializing in post-harvest technology</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <h4>KLE Tech University</h4>
                 </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-building"></i>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Rajesh Kumar">
                     </div>
-                    <h4>GEDA Goa</h4>
-                </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-landmark"></i>
+                    <div class="team-info">
+                        <h4>Rajesh Kumar</h4>
+                        <p class="position">Director of Projects</p>
+                        <p class="bio">20+ years in large-scale renewable energy project implementation</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <h4>MEDA</h4>
                 </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-atom"></i>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dr. Anjali Reddy">
                     </div>
-                    <h4>IIT Dharwad</h4>
-                </div>
-                <div class="collab-item">
-                    <div class="collab-logo">
-                        <i class="fas fa-tractor"></i>
+                    <div class="team-info">
+                        <h4>Dr. Anjali Reddy</h4>
+                        <p class="position">R&D Lead</p>
+                        <p class="bio">PhD in Material Science, focusing on energy storage solutions</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
                     </div>
-                    <h4>Agricultural Universities across India</h4>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CO2 Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="impact-content">
+                <h2 class="section-title" style="color: white; border-bottom: none;">Climate Impact & CO₂ Reduction</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Quantifying our contribution to a sustainable planet</p>
+                
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100<span class="stat-symbol">+</span></div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">2500<span class="stat-symbol">+</span></div>
+                        <div class="stat-label">Tons CO₂ Reduced</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">70<span class="stat-symbol">%</span></div>
+                        <div class="stat-label">Average Fuel Savings</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">3-4<span class="stat-symbol">y</span></div>
+                        <div class="stat-label">Average ROI Period</div>
+                    </div>
+                </div>
+                
+                <div class="impact-visualization">
+                    <h3>Environmental Impact Visualization</h3>
+                    <p>Our solar thermal systems are equivalent to planting <strong>125,000 trees</strong> annually. Each installation prevents approximately <strong>25-30 tons of CO₂ emissions</strong> every year, contributing directly to India's climate change mitigation goals.</p>
+                    <p>The cumulative impact of our projects represents a significant step toward achieving carbon neutrality in community cooking and agricultural processing sectors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Timeline Section -->
+    <section class="timeline-section" id="timelineSection">
+        <div class="timeline-container">
+            <h2 class="section-title">Our Journey Through Time</h2>
+            <p class="section-subtitle">Follow our path of innovation and growth. Use the Next button to move through our milestones.</p>
+            
+            <!-- Timeline Track -->
+            <div class="timeline-track">
+                <div class="timeline-progress" id="timelineProgress"></div>
+                <div class="tractor-indicator" id="tractorIndicator">
+                    <div class="tractor">
+                        <div class="tractor-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <div class="tractor-wheels">
+                            <div class="wheel"></div>
+                            <div class="wheel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Steps -->
+            <div class="timeline-steps">
+                <div class="timeline-step active" data-index="0">
+                    <div class="step-dot"></div>
+                    <div class="step-year">1990s</div>
+                    <div class="step-title">Foundation & Early Research</div>
+                </div>
+                
+                <div class="timeline-step" data-index="1">
+                    <div class="step-dot"></div>
+                    <div class="step-year">2005</div>
+                    <div class="step-title">First Commercial Installation</div>
+                </div>
+                
+                <div class="timeline-step" data-index="2">
+                    <div class="step-dot"></div>
+                    <div class="step-year">2010</div>
+                    <div class="step-title">Government Certification</div>
+                </div>
+                
+                <div class="timeline-step" data-index="3">
+                    <div class="step-dot"></div>
+                    <div class="step-year">2015</div>
+                    <div class="step-title">UNIDO Empanelment</div>
+                </div>
+                
+                <div class="timeline-step" data-index="4">
+                    <div class="step-dot"></div>
+                    <div class="step-year">2018</div>
+                    <div class="step-title">Smart Agriculture Expansion</div>
+                </div>
+                
+                <div class="timeline-step" data-index="5">
+                    <div class="step-dot"></div>
+                    <div class="step-year">2022</div>
+                    <div class="step-title">Innovation Lab Launch</div>
+                </div>
+                
+                <div class="timeline-step" data-index="6">
+                    <div class="step-dot"></div>
+                    <div class="step-year">Today</div>
+                    <div class="step-title">National Scale Operations</div>
+                </div>
+            </div>
+            
+            <!-- Content Display -->
+            <div class="timeline-content" id="timelineContent">
+                <h3 id="timelineContentTitle">Foundation & Early Research (1990s)</h3>
+                <p id="timelineContentDescription">Pioneering solar thermal technology research and establishing engineering principles that would form the foundation of KVB Green Energies. Early prototypes focused on efficient solar collection for agricultural applications, laying the groundwork for future innovations that would transform renewable energy in India.</p>
+                
+                <ul class="timeline-achievements" id="timelineAchievements">
+                    <li>Initial solar thermal prototypes</li>
+                    <li>Agricultural application research</li>
+                    <li>Core technology development</li>
+                </ul>
+            </div>
+            
+            <!-- Timeline Controls -->
+            <div class="timeline-controls">
+                <button class="timeline-btn" id="prevBtn" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                
+                <div class="step-counter">
+                    <span id="currentStep">1</span> of <span id="totalSteps">7</span>
+                </div>
+                
+                <button class="timeline-btn secondary" id="nextBtn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -151,6 +2093,7 @@
     <section class="why-choose-section">
         <div class="container">
             <h2 class="section-title">Why Choose KVB</h2>
+            <p class="section-subtitle">Discover why institutions and farmers across India trust our solutions</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
@@ -158,7 +2101,7 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <h4>Proven Technology</h4>
-                    <p>Field-tested systems deployed in real-world environments.</p>
+                    <p>Field-tested systems deployed in 100+ real-world environments across India with proven reliability and performance.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -166,7 +2109,7 @@
                         <i class="fas fa-award"></i>
                     </div>
                     <h4>Government Recognized</h4>
-                    <p>Certified and empaneled by national agencies.</p>
+                    <p>Certified and empaneled by MNRE, UNIDO, and multiple state agencies ensuring quality and compliance.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -174,7 +2117,7 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h4>Engineering Expertise</h4>
-                    <p>Three decades of specialized solar thermal experience.</p>
+                    <p>Three decades of specialized solar thermal experience with patented technologies and innovative solutions.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -182,7 +2125,7 @@
                         <i class="fas fa-microscope"></i>
                     </div>
                     <h4>Research-Backed</h4>
-                    <p>Continuous innovation through university collaborations.</p>
+                    <p>Continuous innovation through partnerships with premier educational institutions and dedicated R&D.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -190,7 +2133,7 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <h4>Long Product Lifespan</h4>
-                    <p>Systems engineered for 25+ years of reliable operation.</p>
+                    <p>Systems engineered for 25+ years of reliable operation with minimal maintenance and maximum efficiency.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -198,83 +2141,489 @@
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h4>Sustainability-Driven</h4>
-                    <p>Mission-focused on environmental and social impact.</p>
+                    <p>Mission-focused on measurable environmental and social impact, not just profits, with clear sustainability goals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="timeline-section">
-        <div class="container">
-            <h2 class="section-title">Timeline of Achievements</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">1990s</div>
-                    <div class="timeline-content">
-                        <h4>Foundation & Early Research</h4>
-                        <p>Initial research and development in solar thermal technologies.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2005</div>
-                    <div class="timeline-content">
-                        <h4>First Commercial Installation</h4>
-                        <p>Deployed first solar cooking system for community kitchen.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2010</div>
-                    <div class="timeline-content">
-                        <h4>Government Certification</h4>
-                        <p>Received MNRE certification for solar thermal systems.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2015</div>
-                    <div class="timeline-content">
-                        <h4>UNIDO Empanelment</h4>
-                        <p>Recognized as technology partner by United Nations Industrial Development Organization.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2018</div>
-                    <div class="timeline-content">
-                        <h4>Smart Agriculture Expansion</h4>
-                        <p>Launched intelligent crop drying and processing systems.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2022</div>
-                    <div class="timeline-content">
-                        <h4>Innovation Lab Launch</h4>
-                        <p>Established dedicated R&D center for future technologies.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Today</div>
-                    <div class="timeline-content">
-                        <h4>National Scale Operations</h4>
-                        <p>Systems deployed across 15+ states, impacting thousands.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Same footer as index.html -->
+    <!-- Footer -->
     <footer class="main-footer">
-        <!-- Footer from index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo"><i class="fas fa-leaf"></i>KVB Green Energies</div>
+                    <p>Engineering sustainable infrastructure for community cooking, industrial heating, and agricultural value addition with three decades of solar expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka, India</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@kvbgreenenergies.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 KVB Green Energies. All Rights Reserved. | Designed for a Sustainable Future</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // ====== GLOBAL VARIABLES ======
+        let scrollTimeout;
+        let isScrolling = false;
+        
+        // ====== DOM ELEMENTS ======
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        // Timeline Elements
+        const timelineProgress = document.getElementById('timelineProgress');
+        const tractorIndicator = document.getElementById('tractorIndicator');
+        const timelineSteps = document.querySelectorAll('.timeline-step');
+        const timelineContentTitle = document.getElementById('timelineContentTitle');
+        const timelineContentDescription = document.getElementById('timelineContentDescription');
+        const timelineAchievements = document.getElementById('timelineAchievements');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentStepEl = document.getElementById('currentStep');
+        const totalStepsEl = document.getElementById('totalSteps');
+
+        // Animation Elements
+        const animateElements = document.querySelectorAll('.vm-card, .founder-profile, .team-card, .stat-item, .impact-visualization, .benefit-card');
+        
+        // ====== TIMELINE DATA ======
+        const timelineData = [
+            {
+                year: "1990s",
+                title: "Foundation & Early Research",
+                description: "Pioneering solar thermal technology research and establishing engineering principles that would form the foundation of KVB Green Energies. Early prototypes focused on efficient solar collection for agricultural applications, laying the groundwork for future innovations that would transform renewable energy in India.",
+                achievements: [
+                    "Initial solar thermal prototypes",
+                    "Agricultural application research",
+                    "Core technology development"
+                ]
+            },
+            {
+                year: "2005",
+                title: "First Commercial Installation",
+                description: "Successfully deployed the first solar cooking system for a community kitchen serving 500+ people daily in rural Karnataka. This milestone validated the commercial viability of our technology and demonstrated significant fuel savings of 70%, proving that sustainable solutions could be both effective and economical while addressing real community needs.",
+                achievements: [
+                    "70% fuel savings achieved",
+                    "Proven commercial viability",
+                    "Rural Karnataka implementation"
+                ]
+            },
+            {
+                year: "2010",
+                title: "Government Certification",
+                description: "Received MNRE (Ministry of New and Renewable Energy) certification for solar thermal systems, enabling nationwide implementation. This recognition opened doors for larger-scale projects and government partnerships, establishing KVB as a trusted technology provider in the renewable energy sector with validated quality standards.",
+                achievements: [
+                    "MNRE recognition",
+                    "National-scale operations enabled",
+                    "Quality certification achieved"
+                ]
+            },
+            {
+                year: "2015",
+                title: "UNIDO Empanelment",
+                description: "Recognized as technology partner by United Nations Industrial Development Organization for global projects. This partnership expanded our reach to international markets and validated our technology on a global stage, opening opportunities for knowledge exchange and collaborative innovation across developing nations.",
+                achievements: [
+                    "Global technology partner status",
+                    "International market expansion",
+                    "Knowledge exchange programs"
+                ]
+            },
+            {
+                year: "2018",
+                title: "Smart Agriculture Expansion",
+                description: "Launched intelligent crop drying and processing systems across 5 states, impacting 2000+ farmers. Integrated IoT sensors for remote monitoring and optimization of agricultural processes, reducing post-harvest losses by up to 40% and increasing farmer incomes significantly while promoting sustainable agricultural practices.",
+                achievements: [
+                    "IoT-enabled solar dryers",
+                    "40% reduction in post-harvest losses",
+                    "Farmer income increase by 30%"
+                ]
+            },
+            {
+                year: "2022",
+                title: "Innovation Lab Launch",
+                description: "Established dedicated R&D center in collaboration with IIT Dharwad for next-generation thermal storage technologies. Focus on phase-change materials and AI-optimized energy management systems, positioning KVB at the forefront of renewable energy innovation with cutting-edge research capabilities.",
+                achievements: [
+                    "Advanced thermal storage research",
+                    "AI-optimized energy management",
+                    "Phase-change material development"
+                ]
+            },
+            {
+                year: "Today",
+                title: "National Scale Operations",
+                description: "Systems deployed across 15+ states, impacting thousands of lives and reducing 2500+ tons of CO₂ annually. Currently expanding into Southeast Asian markets with customized solutions for tropical climates, while continuously innovating to address emerging energy and agricultural challenges with sustainable technology solutions.",
+                achievements: [
+                    "15+ states covered",
+                    "100+ projects completed",
+                    "Southeast Asian market expansion"
+                ]
+            }
+        ];
+        
+        // ====== STATE VARIABLES ======
+        let currentStep = 0;
+        const totalSteps = timelineData.length;
+        const stepWidth = 100 / (totalSteps - 1); // Percentage width per step
+
+        // ====== PAGE LOAD ======
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hide loading overlay
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+            }, 800);
+            
+            // Initialize animations
+            initAnimations();
+            
+            // Initialize timeline
+            initTimeline();
+            
+            // Add event listeners
+            setupEventListeners();
+        });
+        
+        // ====== INITIALIZE ANIMATIONS ======
+        function initAnimations() {
+            // Add animate class to elements when they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+                        entry.target.classList.add('animate');
+                        
+                        // Special handling for story content paragraphs
+                        if (entry.target.classList.contains('story-content')) {
+                            const paragraphs = entry.target.querySelectorAll('p');
+                            paragraphs.forEach((p, index) => {
+                                setTimeout(() => {
+                                    p.style.opacity = '1';
+                                    p.style.transform = 'translateY(0)';
+                                }, 300 + (index * 200));
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all animatable elements
+            animateElements.forEach(el => observer.observe(el));
+            document.querySelectorAll('.story-content, .founder-profile').forEach(el => observer.observe(el));
+        }
+        
+        // ====== TIMELINE FUNCTIONS ======
+        function initTimeline() {
+            // Set total steps
+            totalStepsEl.textContent = totalSteps;
+            
+            // Update display
+            updateTimelineDisplay();
+        }
+        
+        function updateTimelineDisplay() {
+            // Update step counter
+            currentStepEl.textContent = currentStep + 1;
+            
+            // Update progress bar and tractor position
+            const progressPercentage = (currentStep / (totalSteps - 1)) * 100;
+            timelineProgress.style.width = `${progressPercentage}%`;
+            tractorIndicator.style.left = `${progressPercentage}%`;
+            
+            // Update timeline steps
+            timelineSteps.forEach((step, index) => {
+                if (index === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+            
+            // Update content
+            const currentData = timelineData[currentStep];
+            timelineContentTitle.textContent = `${currentData.title} (${currentData.year})`;
+            timelineContentDescription.textContent = currentData.description;
+            
+            // Update achievements list
+            timelineAchievements.innerHTML = '';
+            currentData.achievements.forEach(achievement => {
+                const li = document.createElement('li');
+                li.textContent = achievement;
+                timelineAchievements.appendChild(li);
+            });
+            
+            // Update button states
+            prevBtn.disabled = currentStep === 0;
+            nextBtn.disabled = currentStep === totalSteps - 1;
+            
+            // Add animation to content
+            const contentBox = document.getElementById('timelineContent');
+            contentBox.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                contentBox.style.transform = 'scale(1)';
+            }, 50);
+        }
+        
+        function nextStep() {
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                updateTimelineDisplay();
+            }
+        }
+        
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateTimelineDisplay();
+            }
+        }
+        
+        function goToStep(index) {
+            if (index >= 0 && index < totalSteps) {
+                currentStep = index;
+                updateTimelineDisplay();
+            }
+        }
+        
+        // ====== EVENT LISTENERS ======
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Back to top button
+            backToTopBtn.addEventListener('click', scrollToTop);
+            
+            // Scroll events
+            window.addEventListener('scroll', handleScroll);
+            
+            // Resize events
+            window.addEventListener('resize', handleResize);
+            
+            // Timeline step clicks
+            timelineSteps.forEach((step, index) => {
+                step.addEventListener('click', () => {
+                    goToStep(index);
+                });
+            });
+            
+            // Next button
+            nextBtn.addEventListener('click', nextStep);
+            
+            // Previous button
+            prevBtn.addEventListener('click', prevStep);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextStep();
+                } else if (e.key === 'ArrowLeft') {
+                    prevStep();
+                }
+            });
+        }
+        
+        function toggleMobileMenu() {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        function handleScroll() {
+            // Header scroll effect
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button visibility
+            if (window.scrollY > 500) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.visibility = 'visible';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'hidden';
+            }
+        }
+        
+        function handleResize() {
+            // Update timeline on resize
+            updateTimelineDisplay();
+        }
+        
+        // ====== STATISTICS COUNTER ANIMATION ======
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const originalText = stat.textContent;
+                const numberMatch = originalText.match(/\d+/);
+                
+                if (numberMatch) {
+                    const finalNumber = parseInt(numberMatch[0]);
+                    const symbol = originalText.replace(numberMatch[0], '');
+                    
+                    let currentNumber = 0;
+                    const increment = finalNumber / 30;
+                    const duration = 1500;
+                    const steps = duration / 30;
+                    
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= finalNumber) {
+                            currentNumber = finalNumber;
+                            clearInterval(timer);
+                        }
+                        
+                        // Format number with proper spacing
+                        let displayNumber;
+                        if (finalNumber >= 1000) {
+                            displayNumber = Math.floor(currentNumber).toLocaleString();
+                        } else {
+                            displayNumber = Math.floor(currentNumber);
+                        }
+                        
+                        stat.innerHTML = displayNumber + `<span class="stat-symbol">${symbol}</span>`;
+                    }, steps);
+                }
+            });
+        }
+        
+        // Start statistics animation when stats come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const impactSectionEl = document.querySelector('.impact-section');
+        if (impactSectionEl) {
+            statsObserver.observe(impactSectionEl);
+        }
+        
+        // ====== INITIALIZE ON LOAD ======
+        window.addEventListener('load', () => {
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.vm-card, .founder-profile, .team-card').forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('animate');
+                    }
+                });
+            }, 500);
+            
+            // Initial timeline update
+            updateTimelineDisplay();
+        });
+        
+        // Helper function to check if element is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+    </script>
+    
+    <style>
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 100;
+        }
+        
+        .back-to-top:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </body>
 </html>
