@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles & Variables */
+        /* ----- Base Styles & Variables ----- */
         :root {
             --primary-color: #2E7D32;
             --primary-light: #4CAF50;
@@ -49,7 +49,7 @@
             padding: 0 20px;
         }
 
-        /* Typography */
+        /* ----- Typography ----- */
         h1, h2, h3, h4, h5 {
             font-family: var(--font-heading);
             font-weight: 700;
@@ -89,7 +89,7 @@
             font-size: 1.1rem;
         }
 
-        /* Header */
+        /* ----- Header & Navigation (FIXED PATHS) ----- */
         .header {
             background-color: var(--bg-white);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -196,7 +196,60 @@
             border-radius: 2px;
         }
 
-        /* Product Hero */
+        /* ----- DROPDOWN STYLES (ADDED) ----- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            border-radius: 12px;
+            padding: 0.8rem 0;
+            z-index: 1000;
+            animation: dropdownFade 0.3s ease;
+            border: 1px solid rgba(33,150,243,0.1);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-primary);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(33,150,243,0.05);
+            border-left-color: var(--ai-color);
+            padding-left: 1.8rem;
+        }
+
+        .dropdown-content i {
+            width: 20px;
+            color: var(--ai-color);
+            font-size: 1.1rem;
+        }
+
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ----- Product Hero ----- */
         .product-hero {
             min-height: 100vh;
             display: flex;
@@ -233,14 +286,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .product-branding {
@@ -259,9 +306,9 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-            50% { box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2); }
-            100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+            0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
+            100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         }
 
         .product-badge {
@@ -278,14 +325,8 @@
         }
 
         @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
         }
 
         .product-badge img {
@@ -319,7 +360,6 @@
             transform: translateY(-3px);
         }
 
-        /* Scroll Indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -331,12 +371,12 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-10px); }
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        /* Product Content */
+        /* ----- Product Content ----- */
         .product-content {
             padding: 6rem 0;
         }
@@ -351,7 +391,7 @@
             transform: translateX(-50%);
         }
 
-        /* Animated Cards */
+        /* ----- Animated Cards ----- */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -388,7 +428,6 @@
             display: inline-block;
         }
 
-        /* Applications Grid */
         .applications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -423,7 +462,7 @@
             font-size: 3.5rem;
             color: var(--ai-color);
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(100, 181, 246, 0.2));
+            background: linear-gradient(135deg, rgba(33,150,243,0.1), rgba(100,181,246,0.2));
             width: 90px;
             height: 90px;
             line-height: 90px;
@@ -431,7 +470,7 @@
             display: inline-block;
         }
 
-        /* Scroll Animation Images */
+        /* ----- Image Gallery with Scroll Animation ----- */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -481,7 +520,7 @@
             transform: translateY(0);
         }
 
-        /* Technical Table */
+        /* ----- Technical Table ----- */
         .tech-table-container {
             background: var(--bg-light);
             border-radius: 20px;
@@ -523,15 +562,15 @@
 
         .tech-table td {
             padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+            border-bottom: 1px solid rgba(33,150,243,0.1);
             transition: background-color 0.3s;
         }
 
         .tech-table tr:hover td {
-            background-color: rgba(33, 150, 243, 0.05);
+            background-color: rgba(33,150,243,0.05);
         }
 
-        /* Contact Wall */
+        /* ----- Contact Wall (Premium Content Gate) ----- */
         .contact-wall {
             position: fixed;
             top: 0;
@@ -556,7 +595,7 @@
 
         @keyframes fadeIn {
             from { opacity: 0; }
-            to { opacity: 1; }
+            to   { opacity: 1; }
         }
 
         .contact-form-container {
@@ -571,14 +610,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .close-contact {
@@ -625,7 +658,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--ai-color);
-            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+            box-shadow: 0 0 0 3px rgba(33,150,243,0.1);
         }
 
         .submit-btn {
@@ -644,7 +677,7 @@
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+            box-shadow: 0 8px 20px rgba(33,150,243,0.3);
         }
 
         .submit-btn:disabled {
@@ -653,7 +686,7 @@
             transform: none;
         }
 
-        /* Premium Content */
+        /* ----- Premium Content Section ----- */
         .premium-content {
             background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
             padding: 6rem 0;
@@ -691,8 +724,8 @@
         }
 
         @keyframes lockPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            0%,100% { transform: scale(1); }
+            50%     { transform: scale(1.1); }
         }
 
         .unlock-btn {
@@ -713,10 +746,9 @@
 
         .unlock-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
+            box-shadow: 0 10px 25px rgba(33,150,243,0.3);
         }
 
-        /* Premium Features */
         .premium-features {
             display: none;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -740,10 +772,10 @@
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
+            box-shadow: 0 15px 40px rgba(33,150,243,0.15);
         }
 
-        /* Footer */
+        /* ----- Footer ----- */
         .main-footer {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
@@ -772,7 +804,7 @@
         }
 
         .footer-col a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -783,12 +815,12 @@
 
         .footer-bottom {
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255,255,255,0.5);
         }
 
-        /* Responsive */
+        /* ----- Responsive Design ----- */
         @media (max-width: 992px) {
             h1 { font-size: 2.8rem; }
             h2 { font-size: 2.2rem; }
@@ -814,15 +846,13 @@
             }
             
             .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
+                transform: rotate(45deg) translate(6px,6px);
             }
-            
             .hamburger.active span:nth-child(2) {
                 opacity: 0;
             }
-            
             .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+                transform: rotate(-45deg) translate(6px,-6px);
             }
         }
 
@@ -831,16 +861,13 @@
                 flex-direction: column;
                 text-align: center;
             }
-            
             .specs-grid,
             .applications-grid {
                 grid-template-columns: 1fr;
             }
-            
             .tech-table-container {
                 padding: 2rem 1rem;
             }
-            
             .contact-form-container {
                 padding: 2rem;
             }
@@ -849,7 +876,6 @@
         @media (max-width: 480px) {
             h1 { font-size: 2.2rem; }
             h2 { font-size: 1.8rem; }
-            
             .product-tags {
                 flex-direction: column;
                 align-items: flex-start;
@@ -858,22 +884,49 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ========== HEADER – FIXED PATHS (USE ../ FOR ROOT) ========== -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="images/products/kvb.jpeg" alt="KVB Green Energies Logo">
-                    <span class="logo-text">KVB Green Energies</span>
+                    <a href="../index.html">
+                        <img src="../images/products/kvb.jpeg" alt="KVB Green Energies Logo">
+                        <span class="logo-text">KVB Green Energies</span>
+                    </a>
                 </div>
                 
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Knowledge</a></li>
-                    <li><a href="contact.html" class="cta-button">Contact</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    
+                    <!-- Solutions Dropdown – correct paths -->
+                    <li class="dropdown">
+                        <a href="../solutions.html">Solutions <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="../solutions/solar-thermal-systems.html"><i class="fas fa-fire"></i> Solar Thermal Systems</a>
+                            <a href="../solutions/energy-storage.html"><i class="fas fa-battery-full"></i> Energy Storage</a>
+                            <a href="../solutions/smart-agriculture.html"><i class="fas fa-seedling"></i> Smart Agriculture</a>
+                        </div>
+                    </li>
+                    
+                    <!-- Products Dropdown – links in SAME folder (no products/ prefix) -->
+                    <li class="dropdown">
+                        <a href="../products.html">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="solar-steam-cooking.html"><i class="fas fa-utensils"></i> Solar Steam Cooking</a>
+                            <a href="solar-dryers.html"><i class="fas fa-wind"></i> Solar Tunnel Dryers</a>
+                            <a href="scheffler-concentrators.html"><i class="fas fa-satellite-dish"></i> Scheffler Concentrators</a>
+                            <a href="ai-crop-detection.html"><i class="fas fa-robot"></i> AI Crop Detection</a>
+                            <a href="thermal-storage.html"><i class="fas fa-thermometer-half"></i> Thermal Storage</a>
+                            <a href="microgreen-systems.html"><i class="fas fa-leaf"></i> Microgreen Systems</a>
+                        </div>
+                    </li>
+
+                    <li><a href="../innovation-lab.html">Innovation Lab</a></li>
+                    <li><a href="../clients-partnerships.html">Clients</a></li>
+                    <li><a href="../case-studies.html">Case Studies</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../contact.html" class="cta-button">Contact</a></li>
                 </ul>
                 
                 <div class="hamburger">
@@ -884,13 +937,15 @@
             </nav>
         </div>
     </header>
+    <!-- ========== END HEADER ========== -->
 
-    <!-- Product Hero -->
+    <!-- ========== PRODUCT HERO ========== -->
     <section class="product-hero">
         <div class="container">
             <div class="hero-content">
                 <div class="product-branding">
-                    <img src="images/products/kvb.jpeg" alt="KVB Logo">
+                    <!-- FIXED image path: ../images/... -->
+                    <img src="../images/products/kvb.jpeg" alt="KVB Logo">
                     <div>
                         <h1>AI Crop Quality Detection System</h1>
                         <p style="font-size: 1.3rem; color: rgba(255,255,255,0.95);">
@@ -900,7 +955,8 @@
                 </div>
                 
                 <div class="product-badge">
-                    <img src="images/products/kvb.jpeg" alt="KVB Logo">
+                    <!-- FIXED image path -->
+                    <img src="../images/products/kvb.jpeg" alt="KVB Logo">
                     <span style="font-weight: 600;">Product Code: KVB-AIC-2024 | Smart Agriculture Technology</span>
                 </div>
                 
@@ -926,7 +982,7 @@
         </div>
     </section>
 
-    <!-- Product Content -->
+    <!-- ========== PRODUCT CONTENT ========== -->
     <section class="product-content">
         <div class="container">
             <!-- Specifications -->
@@ -942,19 +998,16 @@
                     <h3>Processing Speed</h3>
                     <p>1000+ items per minute with real-time analysis and sorting capabilities.</p>
                 </div>
-                
                 <div class="spec-card">
                     <i class="fas fa-crosshairs"></i>
                     <h3>Detection Accuracy</h3>
                     <p>98% - 99.5% accuracy across all detectable parameters and crop types.</p>
                 </div>
-                
                 <div class="spec-card">
                     <i class="fas fa-camera"></i>
                     <h3>Vision System</h3>
                     <p>6-camera multi-spectral array with RGB, NIR, and thermal imaging.</p>
                 </div>
-                
                 <div class="spec-card">
                     <i class="fas fa-microchip"></i>
                     <h3>AI Processing</h3>
@@ -971,19 +1024,16 @@
                     <h3>Size & Shape</h3>
                     <p>Precise dimensional analysis with sub-millimeter accuracy.</p>
                 </div>
-                
                 <div class="app-card">
                     <i class="fas fa-palette"></i>
                     <h3>Color Grading</h3>
                     <p>Advanced RGB and spectral analysis for color classification.</p>
                 </div>
-                
                 <div class="app-card">
                     <i class="fas fa-bug"></i>
                     <h3>Defect Detection</h3>
                     <p>Identifies bruises, spots, insect damage, and diseases.</p>
                 </div>
-                
                 <div class="app-card">
                     <i class="fas fa-weight"></i>
                     <h3>Weight Estimation</h3>
@@ -996,26 +1046,21 @@
             
             <div class="image-gallery">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="AI System Overview">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI System Overview">
                     <div class="gallery-overlay">
                         <h3>Complete AI System</h3>
                         <p>Full setup with camera array and processing unit</p>
                     </div>
                 </div>
-                
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Crop Sorting">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Crop Sorting">
                     <div class="gallery-overlay">
                         <h3>Automated Sorting</h3>
                         <p>Real-time grading and sorting based on quality parameters</p>
                     </div>
                 </div>
-                
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Control Interface">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Control Interface">
                     <div class="gallery-overlay">
                         <h3>Control Interface</h3>
                         <p>User-friendly dashboard for system monitoring</p>
@@ -1080,7 +1125,7 @@
                 </table>
             </div>
             
-            <!-- Premium Content Section -->
+            <!-- Premium Content Section with Contact Wall -->
             <div class="premium-content">
                 <div class="content-lock" id="contentLock">
                     <div class="lock-icon">
@@ -1111,7 +1156,6 @@
                             <i class="fas fa-download"></i> Download PDF
                         </a>
                     </div>
-                    
                     <div class="feature-card">
                         <h3><i class="fas fa-chart-bar"></i> ROI Calculator</h3>
                         <p>Interactive tool to calculate your return on investment and payback period.</p>
@@ -1119,7 +1163,6 @@
                             <i class="fas fa-calculator"></i> Calculate ROI
                         </a>
                     </div>
-                    
                     <div class="feature-card">
                         <h3><i class="fas fa-video"></i> Installation Videos</h3>
                         <p>Step-by-step video guides for system setup, calibration, and operation.</p>
@@ -1127,7 +1170,6 @@
                             <i class="fas fa-play-circle"></i> Watch Videos
                         </a>
                     </div>
-                    
                     <div class="feature-card">
                         <h3><i class="fas fa-users"></i> Case Studies</h3>
                         <p>Detailed case studies from successful implementations across India.</p>
@@ -1140,7 +1182,7 @@
         </div>
     </section>
 
-    <!-- Contact Wall -->
+    <!-- ========== CONTACT WALL (Premium Gate) ========== -->
     <div class="contact-wall" id="contactWall">
         <div class="contact-form-container">
             <button class="close-contact" id="closeContact">
@@ -1202,13 +1244,14 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- ========== FOOTER – FIXED PATHS ========== -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo">
-                        <img src="images/products/kvb.jpeg" alt="KVB Logo" style="height: 40px;">
+                        <!-- FIXED image path -->
+                        <img src="../images/products/kvb.jpeg" alt="KVB Logo" style="height: 40px;">
                         <span class="logo-text" style="color: white;">KVB Green Energies</span>
                     </div>
                     <p style="color: rgba(255,255,255,0.7); margin-top: 1rem;">
@@ -1229,10 +1272,11 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="products.html">All Products</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="blog.html">Knowledge Center</a></li>
-                        <li><a href="contact.html">Request Quote</a></li>
+                        <!-- FIXED paths: add ../ to go to root -->
+                        <li><a href="../products.html">All Products</a></li>
+                        <li><a href="../case-studies.html">Case Studies</a></li>
+                        <li><a href="../blog.html">Knowledge Center</a></li>
+                        <li><a href="../contact.html">Request Quote</a></li>
                     </ul>
                 </div>
             </div>
@@ -1243,8 +1287,9 @@
         </div>
     </footer>
 
+    <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // Mobile Navigation Toggle
+        // ----- Mobile Navigation Toggle -----
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         
@@ -1253,7 +1298,7 @@
             navMenu.classList.toggle('active');
         });
         
-        // Close mobile menu when clicking on a link
+        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -1261,7 +1306,7 @@
             });
         });
         
-        // Scroll Animations
+        // ----- Scroll Animations (Intersection Observer) -----
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1275,12 +1320,11 @@
             });
         }, observerOptions);
         
-        // Observe elements for scroll animation
         document.querySelectorAll('.spec-card, .app-card, .gallery-item').forEach(el => {
             observer.observe(el);
         });
         
-        // Contact Wall Functionality
+        // ----- Contact Wall / Premium Content Logic -----
         const unlockBtn = document.getElementById('unlockBtn');
         const contactWall = document.getElementById('contactWall');
         const closeContact = document.getElementById('closeContact');
@@ -1289,19 +1333,19 @@
         const contentLock = document.getElementById('contentLock');
         const premiumFeatures = document.getElementById('premiumFeatures');
         
-        // Show contact wall when unlock button is clicked
+        // Show contact wall
         unlockBtn.addEventListener('click', () => {
             contactWall.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
         
-        // Close contact wall
+        // Close contact wall (X button)
         closeContact.addEventListener('click', () => {
             contactWall.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
         
-        // Close contact wall when clicking outside
+        // Close when clicking outside the form
         contactWall.addEventListener('click', (e) => {
             if (e.target === contactWall) {
                 contactWall.classList.remove('active');
@@ -1309,47 +1353,37 @@
             }
         });
         
-        // Form submission
+        // Form submission – simulate sending data
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Disable submit button
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
             
-            // Simulate form submission (in real implementation, this would be an API call)
+            // Simulate API call
             setTimeout(() => {
-                // Get form data
                 const formData = new FormData(contactForm);
                 const data = Object.fromEntries(formData);
-                
-                // In real implementation, send data to server
                 console.log('Form submitted:', data);
                 
-                // Show success message
                 alert('Thank you! Your information has been submitted. Our team will contact you within 24 hours. Premium content is now unlocked!');
                 
-                // Close contact wall
                 contactWall.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                
-                // Reset form
                 contactForm.reset();
                 
                 // Unlock premium content
                 contentLock.style.display = 'none';
                 premiumFeatures.classList.add('active');
                 
-                // Scroll to premium content
+                // Scroll to premium section
                 premiumFeatures.scrollIntoView({ behavior: 'smooth' });
                 
-                // Reset submit button
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit & Access Content';
                 
-                // Store in localStorage that user has submitted form
+                // Store unlock in localStorage
                 localStorage.setItem('kvb_premium_unlocked', 'true');
-                
             }, 1500);
         });
         
@@ -1360,7 +1394,7 @@
                 premiumFeatures.classList.add('active');
             }
             
-            // Add parallax effect to hero background
+            // Parallax effect on hero
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
                 const hero = document.querySelector('.product-hero');
@@ -1369,13 +1403,12 @@
                 }
             });
             
-            // Add hover effect to cards
+            // Hover effects on cards
             document.querySelectorAll('.spec-card, .app-card, .feature-card').forEach(card => {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = this.classList.contains('spec-card') ? 
                                           'translateY(-10px)' : 'translateY(-5px)';
                 });
-                
                 card.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0)';
                 });
