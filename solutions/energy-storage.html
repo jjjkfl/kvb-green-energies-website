@@ -7,21 +7,47 @@
     <title>Advanced Energy Storage | Thermal & Battery Solutions | KVB Green Energies</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 
 <body>
     <header class="header">
-        <!-- Navigation component would be included here -->
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="KVB Green Energies" height="40">
+                    <span class="logo-text">KVB Green Energies</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="../solutions.html" class="active">Solutions <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="solar-thermal-systems.html">Solar Thermal Systems</a>
+                            <a href="energy-storage.html" class="active">Energy Storage</a>
+                            <a href="smart-agriculture.html">Smart Agriculture</a>
+                        </div>
+                    </li>
+                    <li><a href="../clients.html">Clients</a></li>
+                    <li><a href="../innovation.html">Innovation Lab</a></li>
+                    <li><a href="../case-studies.html">Case Studies</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="../contact.html" class="btn btn-primary">Get Quote</a>
+                    <button class="mobile-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- Product Hero -->
-    <section class="product-hero"
-        style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/products/energy-storage-hero.jpg');">
+    <section class="product-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/products/energy-storage-hero.jpg');">
         <div class="container">
             <div class="breadcrumb">
                 <a href="../index.html">Home</a> /
@@ -31,8 +57,8 @@
 
             <div class="product-header">
                 <div class="product-intro">
-                    <h1>Advanced Energy Storage</h1>
-                    <p class="product-tagline">Reliable round-the-clock power and thermal energy solutions.</p>
+                    <h1>Advanced Energy Storage Solutions</h1>
+                    <p class="product-tagline">Reliable round-the-clock power and thermal energy storage for continuous operations.</p>
 
                     <div class="product-highlights">
                         <div class="highlight-item">
@@ -52,6 +78,15 @@
                             <span>Grid Stability</span>
                         </div>
                     </div>
+                    
+                    <div class="hero-cta">
+                        <a href="#contact-form" class="btn btn-primary">
+                            <i class="fas fa-file-alt"></i> Download Technical Brochure
+                        </a>
+                        <a href="#contact-form" class="btn btn-secondary">
+                            <i class="fas fa-calculator"></i> Calculate ROI
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,21 +98,33 @@
             <div class="ps-grid">
                 <div class="problem-box">
                     <div class="box-header">
-                        <h3><i class="fas fa-bolt"></i> The Challenge</h3>
+                        <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
                     </div>
                     <div class="box-content">
-                        <p>Renewable energy sources like solar and wind are intermittent. Industries require continuous,
-                            reliable energy supply to maintain production schedules and grid stability.</p>
+                        <p>Renewable energy sources like solar and wind are intermittent. Industries require continuous, reliable energy supply to maintain production schedules and grid stability.</p>
+                        <ul>
+                            <li>Intermittent renewable energy supply</li>
+                            <li>Peak demand management challenges</li>
+                            <li>High electricity costs during peak hours</li>
+                            <li>Backup power requirements</li>
+                            <li>Grid instability issues</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="solution-box">
                     <div class="box-header">
-                        <h3><i class="fas fa-layer-group"></i> KVB Solution</h3>
+                        <h3><i class="fas fa-lightbulb"></i> Our Solution</h3>
                     </div>
                     <div class="box-content">
-                        <p>We provide cutting-edge storage solutions ranging from Thermal Energy Storage (TES) for
-                            process heat to advanced battery systems for electrical backup.</p>
+                        <p>We provide cutting-edge storage solutions ranging from Thermal Energy Storage (TES) for process heat to advanced battery systems for electrical backup.</p>
+                        <ul>
+                            <li>24/7 renewable energy availability</li>
+                            <li>Peak shaving and load shifting</li>
+                            <li>Backup power for critical operations</li>
+                            <li>Grid support and stabilization</li>
+                            <li>Reduced energy costs</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -88,6 +135,7 @@
     <section class="technologies-section">
         <div class="container">
             <h2 class="section-title">Storage Technologies</h2>
+            <p class="section-subtitle">Advanced storage solutions for thermal and electrical energy</p>
 
             <div class="tech-grid">
                 <!-- Thermal Storage -->
@@ -97,13 +145,15 @@
                     </div>
                     <div class="tech-content">
                         <h3>Thermal Energy Storage (TES)</h3>
-                        <p>Store excess solar heat in specialized fluids or phase change materials (PCM) for use during
-                            non-sunny hours.</p>
+                        <p>Store excess solar heat in specialized fluids or phase change materials (PCM) for use during non-sunny hours.</p>
                         <ul class="tech-specs">
                             <li><strong>Medium:</strong> Therminol / Molten Salts / PCM</li>
                             <li><strong>Retention:</strong> Up to 24 hours</li>
                             <li><strong>Efficiency:</strong> >95% thermal retention</li>
+                            <li><strong>Temperature:</strong> Up to 400°C</li>
+                            <li><strong>Applications:</strong> Process heating, steam generation</li>
                         </ul>
+                        <a href="#thermal-details" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -119,8 +169,76 @@
                             <li><strong>Capacity:</strong> Scalable (kWh to MWh)</li>
                             <li><strong>Response:</strong> Millisecond response time</li>
                             <li><strong>Life:</strong> >5000 cycles</li>
+                            <li><strong>Efficiency:</strong> 92-96% round-trip</li>
+                            <li><strong>Applications:</strong> Backup power, grid services</li>
                         </ul>
+                        <a href="#battery-details" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
+                </div>
+                
+                <!-- Sand Battery Storage -->
+                <div class="tech-card">
+                    <div class="tech-img">
+                        <img src="../images/products/sand-battery.jpg" alt="Sand Battery Storage">
+                    </div>
+                    <div class="tech-content">
+                        <h3>Sand Battery Storage</h3>
+                        <p>Innovative low-cost thermal energy storage using sand as storage medium.</p>
+                        <ul class="tech-specs">
+                            <li><strong>Medium:</strong> High-grade silica sand</li>
+                            <li><strong>Storage:</strong> 12-48 hour retention</li>
+                            <li><strong>Temperature:</strong> Up to 600°C</li>
+                            <li><strong>Cost:</strong> Extremely economical</li>
+                            <li><strong>Applications:</strong> District heating, industry</li>
+                        </ul>
+                        <a href="#sand-battery" class="btn-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Energy Storage Works</h2>
+            <p class="section-subtitle">Four-step process for continuous energy supply</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h4>Energy Capture</h4>
+                    <p>Excess solar/wind energy is captured during peak production hours</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-battery-charging"></i>
+                    </div>
+                    <h4>Storage</h4>
+                    <p>Energy is stored in thermal or battery systems at optimal conditions</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Retention</h4>
+                    <p>Stored energy is preserved with minimal losses (hours to days)</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Dispatch</h4>
+                    <p>Stored energy is released when needed for continuous operation</p>
                 </div>
             </div>
         </div>
@@ -130,6 +248,7 @@
     <section class="technical-specs">
         <div class="container">
             <h2 class="section-title">System Capabilities</h2>
+            
             <div class="specs-wrapper">
                 <div class="specs-table">
                     <table>
@@ -138,6 +257,7 @@
                                 <th>Feature</th>
                                 <th>Thermal Storage</th>
                                 <th>Battery Storage</th>
+                                <th>Sand Battery</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -145,19 +265,409 @@
                                 <td>Primary Application</td>
                                 <td>Process Heat / Steam</td>
                                 <td>Electricity / Backup</td>
+                                <td>Long-duration Heat</td>
                             </tr>
                             <tr>
                                 <td>Storage Temp</td>
                                 <td>Up to 400°C</td>
                                 <td>Ambient (Controlled)</td>
+                                <td>Up to 600°C</td>
                             </tr>
                             <tr>
-                                <td>Discharge Profile</td>
-                                <td>Steady Thermal Output</td>
-                                <td>Rapid Electrical Load</td>
+                                <td>Discharge Time</td>
+                                <td>6-24 hours</td>
+                                <td>1-4 hours</td>
+                                <td>12-48 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Efficiency</td>
+                                <td>90-95%</td>
+                                <td>85-95%</td>
+                                <td>85-90%</td>
+                            </tr>
+                            <tr>
+                                <td>Life Span</td>
+                                <td>20+ years</td>
+                                <td>10-15 years</td>
+                                <td>25+ years</td>
+                            </tr>
+                            <tr>
+                                <td>Cost per kWh</td>
+                                <td>$15-30</td>
+                                <td>$200-400</td>
+                                <td>$5-15</td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                
+                <div class="specs-features">
+                    <h3>Key Features</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Intelligent Energy Management</strong>
+                                <p>AI-based optimization for maximum savings</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Remote Monitoring</strong>
+                                <p>Real-time performance tracking via mobile/web</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Scalable Design</strong>
+                                <p>Modular systems for growing requirements</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Safety Systems</strong>
+                                <p>Multiple safety interlocks and protection</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Grid Integration</strong>
+                                <p>Seamless integration with existing infrastructure</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="applications">
+        <div class="container">
+            <h2 class="section-title">Applications</h2>
+            <p class="section-subtitle">Ideal for various industrial and commercial applications</p>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h4>Industrial Process Heat</h4>
+                    <p>Continuous thermal energy for manufacturing processes</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h4>Solar Plant Integration</h4>
+                    <p>Extend solar power availability beyond daylight hours</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Commercial Buildings</h4>
+                    <p>Peak shaving and backup power for offices, malls</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h4>Healthcare Facilities</h4>
+                    <p>Critical backup power for hospitals and clinics</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h4>Educational Institutions</h4>
+                    <p>Reliable power for universities and schools</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-icon">
+                        <i class="fas fa-tower-cell"></i>
+                    </div>
+                    <h4>Telecom Towers</h4>
+                    <p>Backup power for uninterrupted telecom services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Impact -->
+    <section class="performance-impact">
+        <div class="container">
+            <h2 class="section-title">Performance & Impact</h2>
+            
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Continuous Operation</div>
+                    <p>Round-the-clock renewable energy</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">40<span>%</span></div>
+                    <div class="metric-label">Energy Cost Reduction</div>
+                    <p>Through peak shaving and optimization</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">3-5<span>Y</span></div>
+                    <div class="metric-label">ROI Period</div>
+                    <p>Payback through energy savings</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">100<span>%</span></div>
+                    <div class="metric-label">Backup Reliability</div>
+                    <p>Critical operations protection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study -->
+    <section class="case-study-preview">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            
+            <div class="case-study-content">
+                <div class="case-image">
+                    <img src="../images/cases/storage-case.jpg" alt="Energy Storage Installation">
+                </div>
+                <div class="case-content">
+                    <h3>Case Study: Food Processing Plant, Maharashtra</h3>
+                    <p><strong>Challenge:</strong> 24/7 steam requirement with high LPG costs and unreliable grid</p>
+                    <p><strong>Solution:</strong> 500 kWh Thermal Energy Storage with solar integration</p>
+                    
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-value">70%</div>
+                            <div class="result-label">LPG Reduction</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">₹850,000</div>
+                            <div class="result-label">Annual Savings</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">3.2 Years</div>
+                            <div class="result-label">ROI Period</div>
+                        </div>
+                    </div>
+                    
+                    <a href="../case-studies.html#food-processing" class="btn btn-outline">Read Full Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is the typical lifespan of energy storage systems?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Thermal storage systems: 20+ years, Battery systems: 10-15 years, Sand battery: 25+ years. Regular maintenance can extend these lifespans.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How much space is required for installation?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Space requirements vary by capacity. Typically, 10-50 sq.m for commercial systems. We conduct site surveys to determine exact requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Are there government subsidies available?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, various state and central government schemes offer subsidies for energy storage systems. We assist with subsidy applications and documentation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What maintenance is required?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Battery systems: Quarterly inspection, Thermal systems: Annual maintenance, Monitoring: Continuous remote monitoring included.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="product-contact" id="contact-form">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get Customized Solution</h3>
+                    <p>Request a detailed proposal for your specific energy storage requirements</p>
+                    
+                    <div class="info-points">
+                        <div class="info-item">
+                            <i class="fas fa-user-engineering"></i>
+                            <div>
+                                <h5>Technical Consultation</h5>
+                                <p>Free energy audit by our engineers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-calculator"></i>
+                            <div>
+                                <h5>ROI Analysis</h5>
+                                <p>Detailed savings and payback calculation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-file-invoice"></i>
+                            <div>
+                                <h5>Subsidy Assistance</h5>
+                                <p>Help with government subsidy applications</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-hard-hat"></i>
+                            <div>
+                                <h5>Turnkey Installation</h5>
+                                <p>Complete project implementation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="product-inquiry-form">
+                        <h4>Energy Storage Inquiry</h4>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="designation">Designation</label>
+                                <input type="text" id="designation" name="designation">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="storage-type">Storage Type Interested In</label>
+                            <select id="storage-type" name="storage-type">
+                                <option value="">Select type</option>
+                                <option value="thermal">Thermal Energy Storage</option>
+                                <option value="battery">Battery Storage (BESS)</option>
+                                <option value="sand">Sand Battery</option>
+                                <option value="hybrid">Hybrid System</option>
+                                <option value="not-sure">Not sure - Need consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="capacity">Estimated Capacity Requirement</label>
+                            <select id="capacity" name="capacity">
+                                <option value="">Select capacity</option>
+                                <option value="small">Small (under 100 kWh)</option>
+                                <option value="medium">Medium (100-500 kWh)</option>
+                                <option value="large">Large (500+ kWh)</option>
+                                <option value="commercial">Commercial (MWh scale)</option>
+                                <option value="not-sure">Not sure - Need assessment</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Requirements</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Please provide details about your current energy usage and requirements..."></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Inquiry
+                            </button>
+                            <p class="form-note">We respond within 24 hours</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">Related Solutions</h2>
+            
+            <div class="related-grid">
+                <div class="related-card">
+                    <img src="../images/products/solar-scheffler.jpg" alt="Solar Scheffler Dish">
+                    <div class="related-content">
+                        <h4>Solar Thermal Systems</h4>
+                        <p>High-temperature solar concentrator for industrial applications</p>
+                        <a href="solar-thermal-systems.html" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="related-card">
+                    <img src="../images/products/biomass-hybrid.jpg" alt="Biomass Hybrid System">
+                    <div class="related-content">
+                        <h4>Biomass Hybrid Systems</h4>
+                        <p>Integrated solar-biomass systems for 24/7 operation</p>
+                        <a href="solar-thermal-systems.html#hybrid" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="related-card">
+                    <img src="../images/products/smart-grid.jpg" alt="Smart Grid Solutions">
+                    <div class="related-content">
+                        <h4>Smart Grid Solutions</h4>
+                        <p>Advanced grid management and optimization</p>
+                        <a href="../solutions.html#smart-grid" class="btn-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,11 +675,79 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <!-- Footer component -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KVB Green Energies</h3>
+                    <p>Engineering the Future of Renewable Energy & Smart Agriculture</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../solutions.html">Solutions</a></li>
+                        <li><a href="../clients.html">Clients</a></li>
+                        <li><a href="../case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@kvbgreenenergies.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Certifications</h4>
+                    <div class="certifications">
+                        <img src="../images/certifications/mnre.png" alt="MNRE Certified" height="40">
+                        <img src="../images/certifications/unido.png" alt="UNIDO" height="40">
+                        <img src="../images/certifications/iso.png" alt="ISO Certified" height="40">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 KVB Green Energies. All rights reserved.</p>
+                <p><a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
 
     <script src="../js/main.js"></script>
     <script src="../js/product-page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('product-inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you within 24 hours.');
+            this.reset();
+        });
+    </script>
 </body>
-
 </html>

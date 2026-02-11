@@ -3,477 +3,565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KVB Solutions - Solar Thermal, Energy Storage & Smart Agriculture Technologies</title>
+    <title>Products | Solar Energy & Smart Agriculture Solutions | KVB Green Energies</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Products Page Specific Styles */
+        :root {
+            --primary-color: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --secondary-color: #FF9800;
+            --accent-color: #2196F3;
+        }
+        
+        .products-hero {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .products-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="white" opacity="0.05"/></svg>');
+        }
+        
+        .products-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .products-hero .logo-large {
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .products-hero .logo-large img {
+            height: 80px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .product-categories {
+            padding: 4rem 0;
+            background-color: #F9FAFC;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        
+        .category-products {
+            padding: 1.5rem;
+        }
+        
+        .product-list {
+            list-style: none;
+        }
+        
+        .product-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .product-list li:hover {
+            background-color: rgba(46, 125, 50, 0.05);
+            padding-left: 10px;
+        }
+        
+        .product-list i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .product-list a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .view-product {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-list li:hover .view-product {
+            opacity: 1;
+        }
+        
+        /* Product Specifications */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .spec-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .spec-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Product Gallery */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            height: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        /* Featured Product Section */
+        .featured-product {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .featured-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .kvb-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(46, 125, 50, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .kvb-badge img {
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        
+        .kvb-badge span {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header (Same as above) -->
     <header class="header">
-        <!-- Same navigation as index.html -->
+        <!-- Use the header code from above -->
     </header>
 
-    <!-- Solutions Hero -->
-    <section class="page-hero solutions-hero">
+    <!-- Products Hero -->
+    <section class="products-hero">
         <div class="container">
-            <div class="page-hero-content">
-                <h1>Our Technology Solutions</h1>
-                <p>Complete ecosystem of renewable energy and smart agriculture technologies engineered for performance and sustainability.</p>
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a> / <span>Solutions</span>
-                </div>
+            <div class="logo-large">
+                <img src="images/products/kvb.jpeg" alt="KVB Green Energies Logo">
             </div>
+            <h1>KVB Green Energies Products</h1>
+            <p class="hero-subtitle">Premium Renewable Energy & Smart Agriculture Solutions</p>
+            <p class="hero-description">Explore our comprehensive range of solar thermal systems, energy storage solutions, and intelligent agricultural technologies designed for maximum efficiency and sustainability.</p>
         </div>
     </section>
 
-    <!-- Solutions Navigation -->
-    <section class="solutions-nav">
+    <!-- Product Categories -->
+    <section class="product-categories">
         <div class="container">
-            <div class="solutions-tabs">
-                <a href="#solar-thermal" class="solution-tab active" data-tab="solar-thermal">
-                    <i class="fas fa-solar-panel"></i>
-                    <span>Solar Thermal Systems</span>
-                </a>
-                <a href="#energy-storage" class="solution-tab" data-tab="energy-storage">
-                    <i class="fas fa-battery-full"></i>
-                    <span>Energy Storage</span>
-                </a>
-                <a href="#smart-agri" class="solution-tab" data-tab="smart-agri">
-                    <i class="fas fa-seedling"></i>
-                    <span>Smart Agriculture</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solar Thermal Systems -->
-    <section id="solar-thermal" class="solution-category active">
-        <div class="container">
-            <div class="category-header">
-                <h2 class="section-title">Solar Thermal Systems</h2>
-                <p class="section-subtitle">Harnessing solar energy for cooking, heating and industrial applications</p>
-            </div>
+            <h2 class="section-title">Our Product Portfolio</h2>
+            <p class="section-subtitle">Innovative solutions across three key technology domains</p>
             
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/solar-scheffler.jpg" alt="Solar Scheffler Dish">
+            <div class="category-grid">
+                <!-- Solar Thermal Systems -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Solar Thermal Systems</h3>
                     </div>
-                    <div class="product-content">
-                        <h3>Solar Scheffler Dish</h3>
-                        <p>Precision solar concentrator for high-temperature thermal applications up to 450°C.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> High thermal efficiency</li>
-                            <li><i class="fas fa-check"></i> Automated tracking system</li>
-                            <li><i class="fas fa-check"></i> Modular design</li>
-                            <li><i class="fas fa-check"></i> 25+ years lifespan</li>
+                    <div class="category-products">
+                        <ul class="product-list">
+                            <li>
+                                <i class="fas fa-fire"></i>
+                                <a href="products/solar-steam-cooking.html">Solar Steam Cooking Systems</a>
+                                <a href="products/solar-steam-cooking.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-satellite-dish"></i>
+                                <a href="products/scheffler-concentrators.html">Scheffler Solar Concentrators</a>
+                                <a href="products/scheffler-concentrators.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-water"></i>
+                                <a href="products/solar-water-heating.html">Solar Water Heating Systems</a>
+                                <a href="products/solar-water-heating.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-industry"></i>
+                                <a href="products/industrial-solar.html">Industrial Process Heat</a>
+                                <a href="products/industrial-solar.html" class="view-product">View →</a>
+                            </li>
                         </ul>
-                        <a href="solutions/solar-thermal-systems.html#scheffler" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
                 
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/solar-steam-cooking.jpg" alt="Solar Steam Cooking Systems">
+                <!-- Energy Storage Solutions -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h3>Energy Storage Solutions</h3>
                     </div>
-                    <div class="product-content">
-                        <h3>Solar Steam Cooking Systems</h3>
-                        <p>Large-scale cooking solutions for institutional kitchens replacing LPG/firewood.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Up to 70% fuel savings</li>
-                            <li><i class="fas fa-check"></i> Automated operation</li>
-                            <li><i class="fas fa-check"></i> Hybrid backup system</li>
-                            <li><i class="fas fa-check"></i> Scalable capacity</li>
+                    <div class="category-products">
+                        <ul class="product-list">
+                            <li>
+                                <i class="fas fa-thermometer-half"></i>
+                                <a href="products/thermal-storage.html">Thermal Energy Storage (Sand Battery)</a>
+                                <a href="products/thermal-storage.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-snowflake"></i>
+                                <a href="products/ice-storage.html">Ice Thermal Storage Systems</a>
+                                <a href="products/ice-storage.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-bolt"></i>
+                                <a href="products/hybrid-systems.html">Hybrid Solar-Biomass Systems</a>
+                                <a href="products/hybrid-systems.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-tachometer-alt"></i>
+                                <a href="products/energy-management.html">Energy Management Systems</a>
+                                <a href="products/energy-management.html" class="view-product">View →</a>
+                            </li>
                         </ul>
-                        <a href="solutions/solar-thermal-systems.html#steam-cooking" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
                 
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/parabolic-cooker.jpg" alt="Parabolic Cookers">
+                <!-- Smart Agriculture -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3>Smart Agriculture</h3>
                     </div>
-                    <div class="product-content">
-                        <h3>Parabolic Cookers</h3>
-                        <p>Community-scale solar cookers for schools, hostels and community kitchens.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Quick cooking time</li>
-                            <li><i class="fas fa-check"></i> Easy operation</li>
-                            <li><i class="fas fa-check"></i> Low maintenance</li>
-                            <li><i class="fas fa-check"></i> Cost-effective</li>
+                    <div class="category-products">
+                        <ul class="product-list">
+                            <li>
+                                <i class="fas fa-wind"></i>
+                                <a href="products/solar-dryers.html">Hybrid Solar Tunnel Dryers</a>
+                                <a href="products/solar-dryers.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-robot"></i>
+                                <a href="products/ai-crop-detection.html">AI Crop Quality Detection</a>
+                                <a href="products/ai-crop-detection.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-leaf"></i>
+                                <a href="products/microgreen-systems.html">Automated Microgreen Systems</a>
+                                <a href="products/microgreen-systems.html" class="view-product">View →</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-seedling"></i>
+                                <a href="products/smart-irrigation.html">Smart Irrigation Systems</a>
+                                <a href="products/smart-irrigation.html" class="view-product">View →</a>
+                            </li>
                         </ul>
-                        <a href="solutions/solar-thermal-systems.html#parabolic" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/industrial-thermal.jpg" alt="Industrial Solar Thermal">
-                    </div>
-                    <div class="product-content">
-                        <h3>Industrial Solar Thermal</h3>
-                        <p>High-temperature thermal systems for industrial process heating applications.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> 150-400°C temperature range</li>
-                            <li><i class="fas fa-check"></i> Process heat integration</li>
-                            <li><i class="fas fa-check"></i> Customizable solutions</li>
-                            <li><i class="fas fa-check"></i> ROI 3-5 years</li>
-                        </ul>
-                        <a href="solutions/solar-thermal-systems.html#industrial" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Energy Storage -->
-    <section id="energy-storage" class="solution-category">
+    <!-- Featured Product -->
+    <section class="featured-product">
         <div class="container">
-            <div class="category-header">
-                <h2 class="section-title">Energy Storage Solutions</h2>
-                <p class="section-subtitle">Advanced thermal storage for continuous renewable energy supply</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/ptc-thermal.jpg" alt="PTC Thermal Systems">
-                    </div>
-                    <div class="product-content">
-                        <h3>PTC Thermal Systems</h3>
-                        <p>Parabolic trough collector systems for medium-temperature thermal applications.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> 80-300°C operation</li>
-                            <li><i class="fas fa-check"></i> Linear focusing</li>
-                            <li><i class="fas fa-check"></i> Industrial grade</li>
-                            <li><i class="fas fa-check"></i> High reliability</li>
-                        </ul>
-                        <a href="solutions/energy-storage.html#ptc" class="btn btn-outline">Learn More</a>
-                    </div>
+            <div class="featured-content">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Solar Steam Cooking System">
                 </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/sand-battery.jpg" alt="Sand Battery Storage">
+                <div class="featured-info">
+                    <div class="kvb-badge">
+                        <img src="images/products/kvb.jpeg" alt="KVB Logo">
+                        <span>Featured Product</span>
                     </div>
-                    <div class="product-content">
-                        <h3>Sand Battery Storage</h3>
-                        <p>Innovative low-cost thermal energy storage using sand as storage medium.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> 12-24 hour storage</li>
-                            <li><i class="fas fa-check"></i> Low-cost materials</li>
-                            <li><i class="fas fa-check"></i> High thermal capacity</li>
-                            <li><i class="fas fa-check"></i> Minimal degradation</li>
-                        </ul>
-                        <a href="solutions/energy-storage.html#sand-battery" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/biomass-hybrid.jpg" alt="Biomass Hybrid Heating">
-                    </div>
-                    <div class="product-content">
-                        <h3>Biomass Hybrid Heating</h3>
-                        <p>Integrated solar-biomass systems for 24/7 renewable thermal energy.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Continuous operation</li>
-                            <li><i class="fas fa-check"></i> Renewable integration</li>
-                            <li><i class="fas fa-check"></i> Automated switching</li>
-                            <li><i class="fas fa-check"></i> Carbon neutral</li>
-                        </ul>
-                        <a href="solutions/energy-storage.html#biomass" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Smart Agriculture -->
-    <section id="smart-agri" class="solution-category">
-        <div class="container">
-            <div class="category-header">
-                <h2 class="section-title">Smart Agriculture Technologies</h2>
-                <p class="section-subtitle">Intelligent farming solutions increasing productivity and farmer income</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/solar-dryer.jpg" alt="Hybrid Solar Tunnel Dryers">
-                    </div>
-                    <div class="product-content">
-                        <h3>Hybrid Solar Tunnel Dryers</h3>
-                        <p>Advanced crop drying systems reducing post-harvest losses and improving quality.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> 40-60°C controlled drying</li>
-                            <li><i class="fas fa-check"></i> Reduced drying time</li>
-                            <li><i class="fas fa-check"></i> Improved product quality</li>
-                            <li><i class="fas fa-check"></i> Hybrid backup</li>
-                        </ul>
-                        <a href="solutions/smart-agriculture.html#dryers" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/soil-to-sale.jpg" alt="Soil-to-Sale Platform">
-                    </div>
-                    <div class="product-content">
-                        <h3>Soil-to-Sale Platform</h3>
-                        <p>Digital agriculture platform tracking crops from farm to market.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Crop tracking</li>
-                            <li><i class="fas fa-check"></i> Quality monitoring</li>
-                            <li><i class="fas fa-check"></i> Market linkage</li>
-                            <li><i class="fas fa-check"></i> Farmer empowerment</li>
-                        </ul>
-                        <a href="solutions/smart-agriculture.html#soil-to-sale" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/ai-crop.jpg" alt="AI Crop Quality Detection">
-                    </div>
-                    <div class="product-content">
-                        <h3>AI Crop Quality Detection</h3>
-                        <p>Computer vision systems for automated grading and quality assessment.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Automated grading</li>
-                            <li><i class="fas fa-check"></i> Quality consistency</li>
-                            <li><i class="fas fa-check"></i> Reduced labor</li>
-                            <li><i class="fas fa-check"></i> Data analytics</li>
-                        </ul>
-                        <a href="solutions/smart-agriculture.html#ai-crop" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/products/microgreen.jpg" alt="Microgreen Systems">
-                    </div>
-                    <div class="product-content">
-                        <h3>Microgreen Systems</h3>
-                        <p>Automated vertical farming systems for high-value microgreen production.</p>
-                        <ul class="product-features">
-                            <li><i class="fas fa-check"></i> Year-round production</li>
-                            <li><i class="fas fa-check"></i> Automated control</li>
-                            <li><i class="fas fa-check"></i> High density</li>
-                            <li><i class="fas fa-check"></i> Premium quality</li>
-                        </ul>
-                        <a href="solutions/smart-agriculture.html#microgreen" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions Comparison -->
-    <section class="solutions-comparison">
-        <div class="container">
-            <h2 class="section-title">Compare Solutions</h2>
-            <p class="section-subtitle">Find the right technology for your specific needs</p>
-            
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Solution</th>
-                            <th>Best For</th>
-                            <th>Capacity</th>
-                            <th>ROI Period</th>
-                            <th>CO₂ Reduction</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Solar Steam Cooking</td>
-                            <td>Institutional kitchens, hostels</td>
-                            <td>100-5000 meals/day</td>
-                            <td>2-4 years</td>
-                            <td>5-50 tons/year</td>
-                            <td><a href="#" class="btn btn-small">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Solar Tunnel Dryers</td>
-                            <td>Farmers, agri-processors</td>
-                            <td>50-2000 kg/batch</td>
-                            <td>1-3 years</td>
-                            <td>2-20 tons/year</td>
-                            <td><a href="#" class="btn btn-small">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>PTC Thermal Systems</td>
-                            <td>Industrial process heat</td>
-                            <td>10-1000 kW thermal</td>
-                            <td>3-5 years</td>
-                            <td>10-100 tons/year</td>
-                            <td><a href="#" class="btn btn-small">Details</a></td>
-                        </tr>
-                        <tr>
-                            <td>Sand Battery Storage</td>
-                            <td>24/7 thermal supply</td>
-                            <td>12-48 hour storage</td>
-                            <td>4-6 years</td>
-                            <td>5-30 tons/year</td>
-                            <td><a href="#" class="btn btn-small">Details</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Selector Tool -->
-    <section class="solution-selector">
-        <div class="container">
-            <div class="selector-wrapper">
-                <h2>Not Sure Which Solution You Need?</h2>
-                <p>Answer a few questions and we'll recommend the best technology for your requirements.</p>
-                
-                <div class="selector-form">
-                    <div class="step active" id="step1">
-                        <h4>What is your primary application?</h4>
-                        <div class="option-grid">
-                            <label class="option-card">
-                                <input type="radio" name="application" value="cooking">
-                                <div class="option-content">
-                                    <i class="fas fa-utensils"></i>
-                                    <span>Cooking/Food Preparation</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="application" value="drying">
-                                <div class="option-content">
-                                    <i class="fas fa-wind"></i>
-                                    <span>Crop Drying/Processing</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="application" value="heating">
-                                <div class="option-content">
-                                    <i class="fas fa-thermometer-three-quarters"></i>
-                                    <span>Industrial Process Heating</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="application" value="farming">
-                                <div class="option-content">
-                                    <i class="fas fa-tractor"></i>
-                                    <span>Smart Farming</span>
-                                </div>
-                            </label>
+                    <h2>Solar Steam Cooking System</h2>
+                    <p class="product-description">Our flagship product for large-scale institutional cooking. Replaces LPG/firewood completely with solar energy for cooking 500-5000 meals daily.</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h4><i class="fas fa-bullseye"></i> Capacity</h4>
+                            <p>500 - 5000 meals/day</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4><i class="fas fa-fire"></i> Temperature</h4>
+                            <p>120°C - 150°C steam</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4><i class="fas fa-sun"></i> Collector Area</h4>
+                            <p>50 - 500 m²</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4><i class="fas fa-chart-line"></i> ROI Period</h4>
+                            <p>3-5 years</p>
                         </div>
                     </div>
                     
-                    <div class="step" id="step2">
-                        <h4>What is your current fuel source?</h4>
-                        <div class="option-grid">
-                            <label class="option-card">
-                                <input type="radio" name="fuel" value="lpg">
-                                <div class="option-content">
-                                    <i class="fas fa-gas-pump"></i>
-                                    <span>LPG/Cylinder Gas</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="fuel" value="firewood">
-                                <div class="option-content">
-                                    <i class="fas fa-tree"></i>
-                                    <span>Firewood/Biomass</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="fuel" value="electricity">
-                                <div class="option-content">
-                                    <i class="fas fa-bolt"></i>
-                                    <span>Electricity</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="fuel" value="diesel">
-                                <div class="option-content">
-                                    <i class="fas fa-oil-can"></i>
-                                    <span>Diesel/Furnace Oil</span>
-                                </div>
-                            </label>
-                        </div>
+                    <div class="product-actions">
+                        <a href="products/solar-steam-cooking.html" class="btn btn-primary">
+                            <i class="fas fa-info-circle"></i> View Full Details
+                        </a>
+                        <a href="contact.html?product=solar-steam" class="btn btn-secondary">
+                            <i class="fas fa-file-invoice"></i> Request Quote
+                        </a>
                     </div>
-                    
-                    <div class="step" id="step3">
-                        <h4>What is your approximate daily/monthly consumption?</h4>
-                        <div class="option-grid">
-                            <label class="option-card">
-                                <input type="radio" name="scale" value="small">
-                                <div class="option-content">
-                                    <i class="fas fa-home"></i>
-                                    <span>Small (Home/Small Business)</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="scale" value="medium">
-                                <div class="option-content">
-                                    <i class="fas fa-building"></i>
-                                    <span>Medium (Institution/Medium Industry)</span>
-                                </div>
-                            </label>
-                            
-                            <label class="option-card">
-                                <input type="radio" name="scale" value="large">
-                                <div class="option-content">
-                                    <i class="fas fa-industry"></i>
-                                    <span>Large (Large Industry/Community)</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="navigation-buttons">
-                        <button class="btn btn-outline" id="prevBtn" disabled>Previous</button>
-                        <button class="btn btn-primary" id="nextBtn">Next</button>
-                        <button class="btn btn-success" id="submitBtn" style="display: none;">Get Recommendations</button>
-                    </div>
-                    
-                    <div class="results" id="selectorResults"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="solutions-cta">
+    <!-- Product Gallery -->
+    <section class="product-categories">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Implement Sustainable Technology?</h2>
-                <p>Contact our engineering team for a customized solution design and quotation.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html?request=consultation" class="btn btn-primary">Request Free Consultation</a>
-                    <a href="tel:+911234567890" class="btn btn-outline-light">
-                        <i class="fas fa-phone"></i> Call Now
-                    </a>
+            <h2 class="section-title">Product Gallery</h2>
+            <p class="section-subtitle">Visual showcase of our installed systems across India</p>
+            
+            <div class="product-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Solar Concentrators">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w-400&q=80" alt="Solar Drying">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Community Kitchen">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Energy Storage">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Technology Comparison -->
+    <section class="featured-product" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Why Choose KVB Products?</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="category-icon" style="background: rgba(46, 125, 50, 0.1); color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Proven Technology</h4>
+                    <p>15+ years of R&D, deployed in 100+ projects across India with proven reliability</p>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="category-icon" style="background: rgba(46, 125, 50, 0.1); color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Custom Solutions</h4>
+                    <p>Every system is customized based on location, requirements, and specific needs</p>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="category-icon" style="background: rgba(46, 125, 50, 0.1); color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Complete Support</h4>
+                    <p>End-to-end support from feasibility study to installation, training and maintenance</p>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="category-icon" style="background: rgba(46, 125, 50, 0.1); color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-indian-rupee-sign"></i>
+                    </div>
+                    <h4>Subsidy Assistance</h4>
+                    <p>Expert guidance on government subsidies and financing options for maximum savings</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 3rem;">
+                <div class="kvb-badge" style="display: inline-flex; margin-bottom: 1.5rem;">
+                    <img src="images/products/kvb.jpeg" alt="KVB Logo" style="height: 40px;">
+                    <span style="font-size: 1.1rem;">Trusted Renewable Energy Partner Since 2008</span>
+                </div>
+                <br>
+                <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    <i class="fas fa-calendar-check"></i> Schedule Product Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Use your existing footer) -->
     <footer class="main-footer">
-        <!-- Same footer as index.html -->
+        <!-- Your existing footer code -->
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/solutions.js"></script>
+    <script>
+        // Mobile Navigation
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add hover effect to product cards
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
