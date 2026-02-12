@@ -1,40 +1,1024 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Thermal Systems | Industrial Heating & Cooking | KVB Green Energies</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lightbox2 for image gallery -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-</head>
+    
+    <style>
+        /* ===== BASE STYLES & VARIABLES ===== */
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --primary-dark: #1B5E20;
+            --solar-color: #FF8F00;      /* Warm amber – solar energy */
+            --solar-light: #FFB74D;
+            --solar-dark: #F57C00;
+            --text-dark: #212121;
+            --text-muted: #757575;
+            --text-light: #9E9E9E;
+            --bg-light: #FFF8E1;          /* Light warm background */
+            --white: #FFFFFF;
+            --border: #E0E0E0;
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; position: relative; }
+        h3 { font-size: 1.8rem; margin-bottom: 1.2rem; }
+        h4 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+        p { color: var(--text-muted); margin-bottom: 1.2rem; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--solar-color), var(--primary));
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: -1rem auto 3rem;
+        }
+
+        /* ===== PARTICLE BACKGROUND ===== */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255,143,0,0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-30px) translateX(-10px); }
+            75% { transform: translateY(-10px) translateX(20px); }
+        }
+
+        /* ===== HEADER & NAVIGATION (FIXED PATHS) ===== */
+        .header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(46,125,50,0.2);
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--solar-color);
+        }
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--solar-color);
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--solar-color), var(--solar-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255,143,0,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,143,0,0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-secondary:hover {
+            background: white;
+            color: var(--solar-dark);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--solar-color);
+            border: 2px solid var(--solar-color);
+        }
+        .btn-outline:hover {
+            background: var(--solar-color);
+            color: white;
+        }
+        .btn-link {
+            color: var(--solar-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-link:hover {
+            gap: 12px;
+        }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 240px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            border-radius: 12px;
+            padding: 0.8rem 0;
+            z-index: 1000;
+            animation: dropdownFade 0.3s ease;
+            border: 1px solid rgba(255,143,0,0.1);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            padding: 0.8rem 1.5rem;
+            display: block;
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu a:hover,
+        .dropdown-menu a.active {
+            background: rgba(255,143,0,0.05);
+            border-left-color: var(--solar-color);
+            padding-left: 1.8rem;
+        }
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HERO SECTION WITH 3D EFFECT ===== */
+        .product-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255,143,0,0.9) 0%, rgba(245,124,0,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding-top: 80px;
+            color: white;
+            overflow: hidden;
+        }
+        .product-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .breadcrumb a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            color: white;
+            font-weight: 600;
+        }
+        .product-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .product-header h1 {
+            color: white;
+            animation: fadeInUp 1s;
+        }
+        .product-tagline {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+        .product-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        .highlight-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .product-hero-media {
+            perspective: 1000px;
+        }
+        .hero-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: rotateY(5deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+            animation: float3D 6s infinite ease-in-out;
+        }
+        .hero-image:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .video-preview {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .video-play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .video-play-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        @keyframes float3D {
+            0%, 100% { transform: rotateY(5deg) rotateX(5deg) translateY(0); }
+            50% { transform: rotateY(5deg) rotateX(5deg) translateY(-10px); }
+        }
+
+        /* ===== PROBLEM / SOLUTION ===== */
+        .problem-solution {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .problem-box, .solution-box {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.4s, opacity 0.6s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .problem-box.visible, .solution-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .box-header {
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .problem-box .box-header {
+            background: linear-gradient(135deg, #D32F2F, #B71C1C);
+        }
+        .solution-box .box-header {
+            background: linear-gradient(135deg, var(--solar-color), var(--solar-dark));
+        }
+        .box-header h3 {
+            color: white;
+            margin: 0;
+        }
+        .box-content {
+            padding: 2rem;
+        }
+        .box-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .box-content li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .box-content li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--solar-color);
+            font-weight: bold;
+        }
+
+        /* ===== TECHNOLOGIES SECTION WITH 3D TILT CARDS ===== */
+        .technologies-section {
+            padding: 5rem 0;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        .tech-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .tech-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tech-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: var(--shadow-lg);
+        }
+        .tech-img {
+            height: 240px;
+            overflow: hidden;
+        }
+        .tech-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .tech-card:hover .tech-img img {
+            transform: scale(1.05);
+        }
+        .tech-content {
+            padding: 2rem;
+        }
+        .tech-content h3 {
+            color: var(--solar-dark);
+            margin-bottom: 1rem;
+        }
+        .tech-specs {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        .tech-specs li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: baseline;
+        }
+        .tech-specs li strong {
+            min-width: 120px;
+            color: var(--text-dark);
+        }
+
+        /* ===== HOW IT WORKS – 3D DIAGRAM ===== */
+        .how-it-works {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+        .process-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--solar-color);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 15px rgba(255,143,0,0.3);
+        }
+        .step-icon {
+            font-size: 3rem;
+            color: var(--solar-dark);
+            margin-bottom: 1rem;
+        }
+        .process-step h4 {
+            margin-bottom: 0.8rem;
+        }
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--solar-light), var(--solar-color));
+            opacity: 0.3;
+        }
+        /* 3D Interactive Diagram */
+        .interactive-diagram {
+            margin-top: 4rem;
+            perspective: 1000px;
+        }
+        .diagram-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            animation: rotateDiagram 20s infinite linear;
+        }
+        .diagram-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            transform: rotateX(5deg) rotateY(5deg);
+            transition: transform 0.5s;
+        }
+        .diagram-container:hover .diagram-main {
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        @keyframes rotateDiagram {
+            0% { transform: rotateY(0deg); }
+            50% { transform: rotateY(10deg); }
+            100% { transform: rotateY(0deg); }
+        }
+
+        /* ===== TECHNICAL SPECIFICATIONS ===== */
+        .technical-specs {
+            padding: 5rem 0;
+        }
+        .specs-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .specs-table {
+            overflow-x: auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            padding: 1rem;
+        }
+        .specs-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .specs-table th {
+            background: linear-gradient(135deg, var(--solar-color), var(--solar-dark));
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .specs-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+        .specs-table tr:hover td {
+            background: rgba(255,143,0,0.05);
+        }
+        .specs-features {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+        }
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        .feature-list li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        .feature-list i {
+            color: var(--solar-color);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        /* ===== APPLICATIONS GRID ===== */
+        .applications {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .application-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .application-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .application-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--solar-color);
+            box-shadow: var(--shadow-md);
+        }
+        .app-icon {
+            font-size: 3.5rem;
+            color: var(--solar-color);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, rgba(255,143,0,0.1), rgba(255,183,77,0.2));
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .product-contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--solar-color), var(--solar-dark));
+            color: white;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .contact-info p {
+            color: rgba(255,255,255,0.9);
+        }
+        .info-points {
+            margin-top: 2rem;
+        }
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        .info-item i {
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .info-item h5 {
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        .info-item p {
+            margin-bottom: 0;
+        }
+        .contact-form {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .contact-form h4 {
+            color: var(--solar-dark);
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            transition: all 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--solar-color);
+            box-shadow: 0 0 0 3px rgba(255,143,0,0.1);
+        }
+
+        /* ===== FAQ SECTION (ADDED) ===== */
+        .faq-section {
+            padding: 5rem 0;
+        }
+        .faq-accordion {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s;
+        }
+        .faq-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .faq-question h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        .faq-question i {
+            color: var(--solar-color);
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.5rem;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-answer.active {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .main-footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-section h3,
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            color: var(--solar-light);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--solar-color);
+            transform: translateY(-3px);
+        }
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .product-header {
+                grid-template-columns: 1fr;
+            }
+            .ps-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .specs-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ========== HEADER ========== -->
     <header class="header">
-        <!-- Navigation component would be included here -->
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
+                    <img src="../images/products/kvb.jpeg" alt="KVB Green Energies">
+                    <span class="logo-text">KVB Green Energies</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="../solutions.html" class="active">Solutions <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="solar-thermal-systems.html" class="active">Solar Thermal Systems</a>
+                            <a href="energy-storage.html">Energy Storage</a>
+                            <a href="smart-agriculture.html">Smart Agriculture</a>
+                        </div>
+                    </li>
+                    <li><a href="../products.html">Products</a></li>
+                    <li><a href="../innovation-lab.html">Innovation Lab</a></li>
+                    <li><a href="../clients-partnerships.html">Clients</a></li>
+                    <li><a href="../case-studies.html">Case Studies</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="nav-cta">
+                    <a href="../contact.html" class="btn btn-primary">Get Quote</a>
+                    <button class="mobile-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <!-- Product Hero -->
-    <section class="product-hero"
-        style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/products/solar-thermal-hero.jpg');">
+    <!-- ========== HERO SECTION ========== -->
+    <section class="product-hero">
         <div class="container">
             <div class="breadcrumb">
-                <a href="../index.html">Home</a> /
-                <a href="../solutions.html">Solutions</a> /
+                <a href="../index.html">Home</a> / 
+                <a href="../solutions.html">Solutions</a> / 
                 <span>Solar Thermal Systems</span>
             </div>
 
             <div class="product-header">
                 <div class="product-intro">
                     <h1>Solar Thermal Systems</h1>
-                    <p class="product-tagline">Advanced concentrated solar technology for industrial process heat and
-                        community cooking.</p>
+                    <p class="product-tagline">Advanced concentrated solar technology for industrial process heat and community cooking.</p>
 
                     <div class="product-highlights">
                         <div class="highlight-item">
@@ -67,10 +1051,10 @@
 
                 <div class="product-hero-media">
                     <div class="hero-image">
-                        <img src="../images/products/scheffler-dish.jpg" alt="Scheffler Dish Concentrator">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Scheffler Dish Concentrator">
                     </div>
                     <div class="video-preview">
-                        <a href="https://youtube.com/watch?v=example" class="video-play-btn" data-lightbox>
+                        <a href="https://www.youtube.com/watch?v=example" class="video-play-btn" data-lightbox="youtube">
                             <i class="fas fa-play"></i>
                             <span>Watch Technology Demo</span>
                         </a>
@@ -80,17 +1064,17 @@
         </div>
     </section>
 
-    <!-- Problem & Solution -->
+    <!-- ========== PROBLEM & SOLUTION ========== -->
     <section class="problem-solution">
         <div class="container">
             <div class="ps-grid">
                 <div class="problem-box">
                     <div class="box-header">
-                        <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                        <i class="fas fa-exclamation-triangle" style="font-size: 1.8rem;"></i>
+                        <h3>The Challenge</h3>
                     </div>
                     <div class="box-content">
-                        <p>Industries and institutions face volatile fuel costs (LPG, Diesel, Furnace Oil) for thermal
-                            applications, coupled with mounting pressure to reduce carbon footprints.</p>
+                        <p>Industries and institutions face volatile fuel costs (LPG, Diesel, Furnace Oil) for thermal applications, coupled with mounting pressure to reduce carbon footprints.</p>
                         <ul>
                             <li>Unpredictable operating costs</li>
                             <li>High carbon taxation risks</li>
@@ -102,11 +1086,11 @@
 
                 <div class="solution-box">
                     <div class="box-header">
-                        <h3><i class="fas fa-lightbulb"></i> KVB Solution</h3>
+                        <i class="fas fa-lightbulb" style="font-size: 1.8rem;"></i>
+                        <h3>KVB Solution</h3>
                     </div>
                     <div class="box-content">
-                        <p>Our Concentrated Solar Thermal (CST) technologies harness solar energy to provide reliable,
-                            high-grade heat for diverse applications.</p>
+                        <p>Our Concentrated Solar Thermal (CST) technologies harness solar energy to provide reliable, high-grade heat for diverse applications.</p>
                         <ul>
                             <li>Scheffler Dishes & Parabolic Troughs</li>
                             <li>Direct steam generation or thermal oil</li>
@@ -119,7 +1103,7 @@
         </div>
     </section>
 
-    <!-- Technologies Section -->
+    <!-- ========== TECHNOLOGIES SECTION ========== -->
     <section class="technologies-section" id="technologies">
         <div class="container">
             <h2 class="section-title">Our Thermal Technologies</h2>
@@ -128,9 +1112,11 @@
             <div class="tech-grid">
                 <!-- Scheffler Dish -->
                 <div class="tech-card">
-                    <div class="tech-img">
-                        <img src="../images/products/scheffler-dish-detail.jpg" alt="Scheffler Dish">
-                    </div>
+                    <a href="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-lightbox="tech" data-title="Scheffler Dish Concentrator">
+                        <div class="tech-img">
+                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Scheffler Dish">
+                        </div>
+                    </a>
                     <div class="tech-content">
                         <h3>Scheffler Concentrator</h3>
                         <p>Fixed-focus concentrator ideal for community cooking and medium-temp process heat.</p>
@@ -144,13 +1130,14 @@
 
                 <!-- Parabolic Trough -->
                 <div class="tech-card">
-                    <div class="tech-img">
-                        <img src="../images/products/parabolic-trough.jpg" alt="Parabolic Trough">
-                    </div>
+                    <a href="https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-lightbox="tech" data-title="Parabolic Trough">
+                        <div class="tech-img">
+                            <img src="https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Parabolic Trough">
+                        </div>
+                    </a>
                     <div class="tech-content">
                         <h3>Parabolic Trough</h3>
-                        <p>Linear concentrators for large-scale industrial heating and power generation applications.
-                        </p>
+                        <p>Linear concentrators for large-scale industrial heating and power generation applications.</p>
                         <ul class="tech-specs">
                             <li><strong>Temp Range:</strong> 150°C - 300°C</li>
                             <li><strong>Application:</strong> Power Gen, Oil Heating, Cooling</li>
@@ -162,7 +1149,7 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- ========== HOW IT WORKS ========== -->
     <section class="how-it-works">
         <div class="container">
             <h2 class="section-title">System Operation</h2>
@@ -197,17 +1184,16 @@
                 </div>
             </div>
 
+            <!-- 3D Interactive Diagram -->
             <div class="interactive-diagram">
                 <div class="diagram-container">
-                    <img src="../images/diagrams/cst-process-flow.jpg" alt="CST Process Flow Diagram"
-                        class="diagram-main">
-                    <!-- Hotspots can be added here -->
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="CST Process Flow Diagram" class="diagram-main">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Specifications -->
+    <!-- ========== TECHNICAL SPECIFICATIONS ========== -->
     <section class="technical-specs">
         <div class="container">
             <h2 class="section-title">General Specifications</h2>
@@ -257,8 +1243,7 @@
                     <ul class="feature-list">
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong>High Precision Manufacturing</strong><br>Laser-aligned optics for maximum
-                                efficiency.</div>
+                            <div><strong>High Precision Manufacturing</strong><br>Laser-aligned optics for maximum efficiency.</div>
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
@@ -266,8 +1251,7 @@
                         </li>
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <div><strong>Turnkey Solutions</strong><br>Design, manufacturing, installation &
-                                maintenance.</div>
+                            <div><strong>Turnkey Solutions</strong><br>Design, manufacturing, installation & maintenance.</div>
                         </li>
                     </ul>
                 </div>
@@ -275,7 +1259,7 @@
         </div>
     </section>
 
-    <!-- Applications -->
+    <!-- ========== APPLICATIONS ========== -->
     <section class="applications">
         <div class="container">
             <h2 class="section-title">Industrial Applications</h2>
@@ -291,7 +1275,7 @@
                     <p>Dyeing, bleaching, drying, and finishing processes.</p>
                 </div>
                 <div class="application-card">
-                    <div class="app-icon"><i class="flask"></i></div>
+                    <div class="app-icon"><i class="fas fa-flask"></i></div>
                     <h4>Chemical & Pharma</h4>
                     <p>Distillation, evaporation, and process heating.</p>
                 </div>
@@ -304,7 +1288,43 @@
         </div>
     </section>
 
-    <!-- Contact Form (Standard Component) -->
+    <!-- ========== FAQ SECTION ========== -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is the payback period for solar thermal systems?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically 3-4 years depending on fuel replacement cost and daily usage. Our ROI calculator provides exact figures based on your site.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I integrate with my existing boiler?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our systems are designed for hybrid integration with existing oil/gas/biomass boilers with intelligent fuel switching.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What maintenance is required?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Mirror cleaning every 2-3 months, annual bearing lubrication, and control system checks. Annual maintenance contracts available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT FORM ========== -->
     <section class="product-contact" id="contact-form">
         <div class="container">
             <div class="contact-wrapper">
@@ -333,24 +1353,24 @@
                     <form id="product-inquiry-form">
                         <h4>Request Proposal</h4>
                         <div class="form-group">
-                            <label>Name *</label>
-                            <input type="text" name="name" required>
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label>Email *</label>
-                            <input type="email" name="email" required>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label>Application Type</label>
-                            <select name="application">
+                            <label for="application">Application Type</label>
+                            <select id="application" name="application">
                                 <option>Community Cooking</option>
                                 <option>Industrial Process Heat</option>
                                 <option>Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="message" rows="3"></textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit Inquiry</button>
                     </form>
@@ -359,14 +1379,211 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========== FOOTER ========== -->
     <footer class="main-footer">
-        <!-- Footer component -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KVB Green Energies</h3>
+                    <p>Engineering the Future of Renewable Energy & Smart Agriculture</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../solutions.html">Solutions</a></li>
+                        <li><a href="../clients-partnerships.html">Clients</a></li>
+                        <li><a href="../case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> info@kvbgreenenergies.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Certifications</h4>
+                    <div class="certifications">
+                        <img src="../images/certifications/mnre.png" alt="MNRE Certified" height="40" style="background: white; padding: 5px; border-radius: 4px;">
+                        <img src="../images/certifications/unido.png" alt="UNIDO" height="40" style="background: white; padding: 5px; border-radius: 4px;">
+                        <img src="../images/certifications/iso.png" alt="ISO Certified" height="40" style="background: white; padding: 5px; border-radius: 4px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 KVB Green Energies. All rights reserved.</p>
+                <p><a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+            </div>
+        </div>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/product-page.js"></script>
+    <!-- ========== SCRIPTS ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-</body>
+    <script>
+        // ----- Particle Background Generation -----
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 100 + 50;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
 
+        // ----- Mobile Navigation Toggle -----
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // ----- Scroll Animations (Intersection Observer) -----
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animation
+        document.querySelectorAll('.problem-box, .solution-box, .tech-card, .process-step, .application-card, .faq-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ----- FAQ Accordion -----
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Close other answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== answer && ans.classList.contains('active')) {
+                        ans.classList.remove('active');
+                        ans.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                        ans.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+                
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // ----- Form Submission -----
+        document.getElementById('product-inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                alert('Thank you for your inquiry! Our solar thermal specialist will contact you within 24 hours.');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 1500);
+        });
+
+        // ----- Parallax Effect on Hero -----
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.product-hero');
+            if (hero) {
+                hero.style.backgroundPositionY = window.pageYOffset * 0.5 + 'px';
+            }
+        });
+
+        // ----- Smooth Scroll for Anchor Links -----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // ----- Lightbox Settings -----
+        if (typeof lightbox !== 'undefined') {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': 'Image %1 of %2'
+            });
+        }
+
+        // ----- 3D Tilt Effect on Tech Cards (optional enhancement) -----
+        document.querySelectorAll('.tech-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                this.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) rotateX(2deg) rotateY(2deg)';
+            });
+        });
+    </script>
+</body>
 </html>
