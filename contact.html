@@ -347,14 +347,7 @@
 }
 
 .nav-menu a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--wheat);
-    border-radius: 2px;
+   display: none;
 }
 
 /* ===== MOBILE MENU TOGGLE (Hidden by default) ===== */
@@ -1456,30 +1449,7 @@
 </head>
 <body>
     <!-- Header Navigation (keep original structure) -->
-    <header class="header">
-        <!-- Navigation component would be included here -->
-        <div class="container">
-            <nav class="main-nav">
-                <div class="nav-brand">
-                    <a href="index.html" class="logo">
-                        <img src="images\products\kvb.jpeg" alt="KVB Green Energies">
-                        
-                    </a>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="innovation-lab.html">Innovation Lab</a></li>
-                    <li><a href="clients-partnerships.html">Clients</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="blog.html">Knowledge Center</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            
-            </nav>
-        </div>
-    </header>
+    <script src="js/header.js"></script>
 
     <!-- Contact Hero -->
     <section class="contact-hero">
