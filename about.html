@@ -746,18 +746,24 @@
       color: var(--solar-yellow);
       transform: translateY(-5px);
     }
-    .step-title {
-      color: var(--dark-charcoal);
-      font-size: 16px;
-      font-weight: 600;
-      text-align: center;
-      line-height: 1.4;
-      transition: color 0.3s ease;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+   .step-title {
+  color: var(--dark-charcoal);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  
+  display: -webkit-box;
+  display: box;               /* fallback for older specs */
+  -webkit-line-clamp: 2;
+  line-clamp: 2;              /* standard property */
+  -webkit-box-orient: vertical;
+  box-orient: vertical;       /* standard equivalent */
+  
+  overflow: hidden;
+}
+
     .timeline-step.active .step-title {
       color: var(--eco-green);
     }
