@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS for animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
-        /* ===== GLOBAL VARIABLES (shared with header) ===== */
+        /* ===== GLOBAL VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -48,7 +50,7 @@
             padding: 0 24px;
         }
 
-        /* ===== HEADER – EMBEDDED ===== */
+        /* ===== HEADER ===== */
         .header {
             position: fixed;
             width: 100%;
@@ -109,17 +111,12 @@
             transition: var(--transition);
         }
 
-        .nav-menu a:hover {
-            color: var(--primary);
-            border-bottom-color: var(--solar-yellow);
-        }
-
+        .nav-menu a:hover,
         .nav-menu a.active {
             color: var(--primary);
             border-bottom-color: var(--solar-yellow);
         }
 
-        /* Dropdown */
         .dropdown {
             position: relative;
         }
@@ -209,82 +206,222 @@
             .hamburger { display: flex; }
         }
 
-        /* ===== PRODUCT STYLES (condensed – same as your original) ===== */
+        /* ===== PRODUCT HERO ===== */
         .product-hero {
             background: linear-gradient(135deg, rgba(27,94,32,0.95) 0%, rgba(46,125,50,0.95) 100%), url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover; background-position: center; background-attachment: fixed;
             color: white; padding: 8rem 0 6rem; position: relative; overflow: hidden; margin-top: 20px;
         }
-        .product-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%); animation: shimmer 6s infinite; }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
-        .product-branding { display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2.5rem; animation: slideInLeft 1s ease-out; }
-        .product-branding img { height: 80px; border-radius: 15px; border: 3px solid rgba(255,255,255,0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.3); animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-        .product-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, white, rgba(255,255,255,0.8)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .product-badge { display: inline-flex; align-items: center; background: rgba(255,255,255,0.2); backdrop-filter: blur(20px); padding: 1rem 2rem; border-radius: 50px; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: slideInUp 1s ease-out 0.3s both; }
+        .product-hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 6s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .product-branding {
+            display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 2.5rem;
+            animation: slideInLeft 1s ease-out;
+        }
+        .product-branding img {
+            height: 80px; border-radius: 15px; border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3); animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .product-hero h1 {
+            font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 800;
+            margin-bottom: 1rem; background: linear-gradient(45deg, white, rgba(255,255,255,0.8));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .product-badge {
+            display: inline-flex; align-items: center; background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px); padding: 1rem 2rem; border-radius: 50px; margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
         .product-badge img { height: 40px; margin-right: 15px; border-radius: 8px; }
-        .product-tags { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; }
-        .tag { background: rgba(255,255,255,0.2); padding: 0.75rem 1.5rem; border-radius: 50px; font-size: 0.95rem; font-weight: 600; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; animation: slideInUp 1s ease-out 0.6s both; }
+        .product-tags {
+            display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 3rem;
+        }
+        .tag {
+            background: rgba(255,255,255,0.2); padding: 0.75rem 1.5rem; border-radius: 50px;
+            font-size: 0.95rem; font-weight: 600; backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
         .tag:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         .tag i { margin-right: 8px; }
 
-        .product-detail-content { padding: 6rem 0; background: linear-gradient(to bottom, #f8fafc 0%, #e8f5e8 100%); }
-        .product-main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 5rem; align-items: start; }
+        /* ===== PRODUCT MAIN CONTENT ===== */
+        .product-detail-content {
+            padding: 6rem 0; background: linear-gradient(to bottom, #f8fafc 0%, #e8f5e8 100%);
+        }
+        .product-main-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 5rem;
+        }
         .product-image-gallery { position: sticky; top: 120px; height: fit-content; }
-        .main-image { width: 100%; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); margin-bottom: 2rem; transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
+        .main-image {
+            width: 100%; height: 450px; border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow-hover); margin-bottom: 2rem;
+            transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
         .main-image:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 30px 80px rgba(0,0,0,0.2); }
         .main-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .thumbnail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-        .thumbnail { height: 110px; border-radius: 15px; overflow: hidden; cursor: pointer; border: 3px solid transparent; transition: all 0.4s ease; position: relative; }
-        .thumbnail::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(46,125,50,0.3); opacity: 0; transition: opacity 0.3s ease; z-index: 1; }
+        .thumbnail-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
+        }
+        .thumbnail {
+            height: 110px; border-radius: 15px; overflow: hidden; cursor: pointer;
+            border: 3px solid transparent; transition: all 0.4s ease; position: relative;
+        }
+        .thumbnail::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(46,125,50,0.3); opacity: 0; transition: opacity 0.3s ease; z-index: 1;
+        }
         .thumbnail:hover::before, .thumbnail.active::before { opacity: 1; }
         .thumbnail.active { border-color: var(--primary); transform: scale(1.05); }
         .thumbnail img { width: 100%; height: 100%; object-fit: cover; z-index: 2; position: relative; }
 
-        .product-info h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1.5rem; font-weight: 700; }
-        .product-specs-highlight { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0; }
-        .spec-highlight-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); position: relative; overflow: hidden; }
-        .spec-highlight-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--solar-yellow)); }
+        .product-info h2 {
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--primary-dark);
+            margin-bottom: 1.5rem; font-weight: 700;
+        }
+        .product-specs-highlight {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0;
+        }
+        .spec-highlight-card {
+            background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary); transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+            position: relative; overflow: hidden;
+        }
+        .spec-highlight-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--solar-yellow));
+        }
         .spec-highlight-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
         .spec-highlight-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.2rem; display: block; }
-        .spec-highlight-card h4 { font-family: 'Montserrat', sans-serif; margin-bottom: 0.8rem; color: var(--primary-dark); font-size: 1.3rem; }
+        .spec-highlight-card h4 { font-family: 'Montserrat', sans-serif; margin-bottom: 0.8rem; color: var(--primary-dark); }
         .spec-highlight-card p { font-size: 1.1rem; color: #666; font-weight: 500; }
 
-        .feature-list { list-style: none; margin: 3rem 0; }
-        .feature-list li { padding: 1.5rem 0; border-bottom: 1px solid rgba(46,125,50,0.1); display: flex; align-items: flex-start; font-size: 1.1rem; transition: all 0.3s ease; }
-        .feature-list li:hover { padding-left: 1rem; background: rgba(46,125,50,0.03); border-radius: 10px; }
-        .feature-list i { color: var(--primary); margin-right: 20px; font-size: 1.3rem; width: 30px; flex-shrink: 0; margin-top: 2px; }
+        .feature-list {
+            list-style: none; margin: 3rem 0;
+        }
+        .feature-list li {
+            padding: 1.5rem 0; border-bottom: 1px solid rgba(46,125,50,0.1);
+            display: flex; align-items: flex-start; font-size: 1.1rem; transition: all 0.3s ease;
+        }
+        .feature-list li:hover {
+            padding-left: 1rem; background: rgba(46,125,50,0.03); border-radius: 10px;
+        }
+        .feature-list i { color: var(--primary); margin-right: 20px; font-size: 1.3rem; width: 30px; flex-shrink: 0; }
 
-        .btn { padding: 1.2rem 3rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; text-decoration: none; transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); cursor: pointer; border: none; font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden; }
-        .btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.6s; }
+        .btn {
+            padding: 1.2rem 3rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem;
+            display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); cursor: pointer; border: none;
+            font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
+        }
+        .btn::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
         .btn:hover::before { left: 100%; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; box-shadow: 0 10px 30px rgba(46,125,50,0.4); }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white;
+            box-shadow: 0 10px 30px rgba(46,125,50,0.4);
+        }
         .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(46,125,50,0.5); }
-        .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); box-shadow: 0 5px 20px rgba(46,125,50,0.2); }
+        .btn-secondary {
+            background: white; color: var(--primary); border: 2px solid var(--primary);
+            box-shadow: 0 5px 20px rgba(46,125,50,0.2);
+        }
         .btn-secondary:hover { background: var(--primary); color: white; transform: translateY(-5px); box-shadow: 0 15px 35px rgba(46,125,50,0.4); }
 
         .product-actions { display: flex; gap: 2rem; justify-content: flex-start; flex-wrap: wrap; margin-top: 3rem; }
 
-        /* ===== UNLOCK FORM & PREMIUM CONTENT ===== */
-        .unlock-section {
-            background: white;
-            border-radius: 30px;
-            padding: 4rem;
-            margin: 5rem 0;
-            box-shadow: var(--shadow-hover);
-            border: 1px solid rgba(58,125,68,0.2);
+        /* ===== APPLICATIONS & TECHNICAL SECTIONS ===== */
+        .applications-section, .technical-specs, .case-study-showcase, .comparison-section { margin-top: 5rem; }
+        .section-title { font-size: 2.2rem; color: var(--primary-dark); position: relative; margin-bottom: 3rem; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 80px; height: 4px; background: var(--solar-yellow); }
+        .applications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 2rem; }
+        .application-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; box-shadow: var(--shadow-sm); transition: 0.3s; }
+        .application-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .app-icon { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+
+        .tech-table-container { background: white; border-radius: 24px; padding: 2rem; box-shadow: var(--shadow-hover); margin-top: 3rem; }
+        .tech-table { width: 100%; border-collapse: collapse; }
+        .tech-table th { background: var(--primary); color: white; padding: 1rem; }
+        .tech-table td { padding: 1rem; border-bottom: 1px solid rgba(58,125,68,0.1); }
+        .tech-table tr:hover td { background: rgba(58,125,68,0.05); }
+
+        .case-study-showcase { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 30px; padding: 3rem; color: white; }
+        .case-results { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 2rem; }
+        .result-value { font-size: 2.2rem; font-weight: 700; }
+
+        /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST ===== */
+        .premium-wrapper {
+            margin: 6rem 0;
             position: relative;
-            overflow: hidden;
         }
 
-        .unlock-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, var(--primary), var(--solar-yellow));
+        .lock-container {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: var(--shadow-hover);
+            text-align: center;
+            border: 2px dashed rgba(58,125,68,0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .lock-container:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(58,125,68,0.2);
+        }
+        .lock-icon-big {
+            font-size: 5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%,100% { transform: scale(1); text-shadow: 0 0 20px rgba(58,125,68,0.3); }
+            50% { transform: scale(1.1); text-shadow: 0 0 40px rgba(58,125,68,0.6); }
+        }
+        .lock-container h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        .lock-container p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .unlock-form-container {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: var(--shadow-hover);
+            margin-top: 2rem;
+            display: none;
+            animation: slideDown 0.6s ease;
+        }
+        .unlock-form-container.visible {
+            display: block;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .unlock-header {
@@ -293,7 +430,6 @@
             gap: 1.5rem;
             margin-bottom: 2.5rem;
         }
-
         .unlock-header i {
             font-size: 3rem;
             color: var(--primary);
@@ -301,7 +437,6 @@
             padding: 1rem;
             border-radius: 50%;
         }
-
         .unlock-header h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
@@ -309,61 +444,24 @@
             margin-bottom: 0.5rem;
         }
 
-        .unlock-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .unlock-form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
         .unlock-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-
-        .form-group {
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
+        .form-group { margin-bottom: 0.5rem; }
+        .form-group.full-width { grid-column: span 2; }
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-dark);
+            display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-dark);
         }
-
         .form-group input,
         .form-group textarea {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            width: 100%; padding: 1rem 1.2rem; border: 2px solid #e0e0e0; border-radius: 12px;
+            font-family: 'Open Sans', sans-serif; font-size: 1rem; transition: all 0.3s ease;
         }
-
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(58,125,68,0.1);
-        }
-
-        .unlock-form .btn {
-            grid-column: span 2;
-            margin-top: 1rem;
-            padding: 1.2rem;
-            font-size: 1.2rem;
+            outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(58,125,68,0.1);
         }
 
         .hidden-content {
@@ -373,33 +471,23 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
             margin-top: 2rem;
         }
-
         .hidden-content.visible {
             display: block;
             opacity: 1;
             transform: translateY(0);
         }
-
         .premium-card {
             background: linear-gradient(145deg, #f8fafc, #edf7ed);
             padding: 2.5rem;
-            border-radius: 24px;
-            border-left: 6px solid var(--solar-yellow);
+            border-radius: 30px;
+            border-left: 8px solid var(--solar-yellow);
         }
-
-        .premium-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-
         .premium-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .premium-item {
             background: white;
             padding: 1.8rem;
@@ -407,80 +495,41 @@
             box-shadow: var(--shadow-sm);
             text-align: center;
         }
-
         .premium-item i {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
-
-        .premium-item h4 {
-            color: var(--primary-dark);
-            margin-bottom: 0.8rem;
-        }
-
-        .premium-item .btn-small {
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            font-size: 0.9rem;
-        }
+        .premium-item h4 { color: var(--primary-dark); margin-bottom: 0.8rem; }
+        .btn-small { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
 
         .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-        }
-
-        .success-message i {
-            font-size: 1.5rem;
-        }
-
-        .form-hidden {
-            display: none !important;
+            background: #d4edda; color: #155724; padding: 1.2rem; border-radius: 12px;
+            margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; font-weight: 600;
         }
 
         @media (max-width: 768px) {
+            .product-main-grid { grid-template-columns: 1fr; }
+            .product-specs-highlight { grid-template-columns: 1fr; }
             .unlock-form { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
-            .unlock-form .btn { grid-column: span 1; }
-            .unlock-header { flex-direction: column; text-align: center; }
         }
 
-        /* Footer (same as before) */
+        /* ===== FOOTER ===== */
         .main-footer {
-            background: #0a2e29;
-            color: white;
-            padding: 4rem 0 2rem;
-            margin-top: 6rem;
+            background: #0a2e29; color: white; padding: 4rem 0 2rem; margin-top: 6rem;
         }
         .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 3rem; margin-bottom: 3rem;
         }
-        .footer-col h4 {
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
+        .footer-col h4 { font-family: 'Montserrat', sans-serif; margin-bottom: 1.5rem; color: white; }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 0.8rem; }
         .footer-col a { color: #ccc; text-decoration: none; transition: color 0.3s; }
         .footer-col a:hover { color: var(--solar-yellow); }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            text-align: center;
-            opacity: 0.7;
-        }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; opacity: 0.7; }
 
+        /* ===== ANIMATIONS ===== */
         @keyframes slideInLeft {
             from { opacity: 0; transform: translateX(-50px); }
             to { opacity: 1; transform: translateX(0); }
@@ -489,15 +538,8 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -578,11 +620,10 @@
         </div>
     </section>
 
-    <!-- ===== PRODUCT DETAIL CONTENT (Your existing content) ===== -->
+    <!-- ===== PRODUCT MAIN CONTENT ===== -->
     <section class="product-detail-content">
         <div class="container">
-            <!-- ... (keep your full product gallery, specs, features, etc.) ... -->
-            <!-- For brevity, I'm showing a condensed version. In your actual file, paste your complete product content here. -->
+            <!-- Product Main Grid -->
             <div class="product-main-grid">
                 <div class="product-image-gallery">
                     <div class="main-image">
@@ -608,7 +649,9 @@
                         <img src="../images/products/kvb.jpeg" style="height:40px;"> <span style="color:var(--primary-dark);">KVB Certified Premium Product</span>
                     </div>
                     <h2>Revolutionary Solar Cooking Solution</h2>
-                    <p style="font-size:1.15rem; line-height:1.9; color:#555;">The KVB Solar Steam Cooking System harnesses concentrated solar energy to generate high-pressure steam for large-scale cooking...</p>
+                    <p style="font-size:1.15rem; line-height:1.9; color:#555;">
+                        The KVB Solar Steam Cooking System harnesses concentrated solar energy to generate high-pressure steam for large-scale cooking. Our innovative parabolic concentrators track the sun throughout the day, delivering consistent cooking power equivalent to commercial LPG systems but with zero fuel costs.
+                    </p>
                     <div class="product-specs-highlight">
                         <div class="spec-highlight-card"><i class="fas fa-utensils"></i><h4>Capacity Range</h4><p>500 - 5000 meals/day</p></div>
                         <div class="spec-highlight-card"><i class="fas fa-fire"></i><h4>Steam Temperature</h4><p>120°C - 150°C</p></div>
@@ -631,100 +674,159 @@
                 </div>
             </div>
 
-            <!-- ===== APPLICATIONS, SPECS, CASE STUDY, COMPARISON, CTA (keep your existing sections) ===== -->
-            <!-- For brevity I'm not repeating them here – but you MUST copy your full content from your original file and paste it here. -->
-            <!-- ... (your applications, technical specs, case study, comparison, CTA) ... -->
+            <!-- Applications Section -->
+            <div class="applications-section">
+                <h2 class="section-title">Ideal Applications</h2>
+                <div class="applications-grid">
+                    <div class="application-card"><div class="app-icon"><i class="fas fa-school"></i></div><h4>Educational Institutions</h4><p>Hostels, boarding schools, universities</p></div>
+                    <div class="application-card"><div class="app-icon"><i class="fas fa-hospital"></i></div><h4>Healthcare Facilities</h4><p>Hospitals, nursing homes, rehabilitation centres</p></div>
+                    <div class="application-card"><div class="app-icon"><i class="fas fa-university"></i></div><h4>Government Institutions</h4><p>Prisons, armed forces bases, government hostels</p></div>
+                    <div class="application-card"><div class="app-icon"><i class="fas fa-industry"></i></div><h4>Food Industry</h4><p>Catering services, food processing units</p></div>
+                </div>
+            </div>
 
+            <!-- Technical Specifications Table -->
+            <div class="technical-specs">
+                <h2 class="section-title">Technical Specifications</h2>
+                <div class="tech-table-container">
+                    <table class="tech-table">
+                        <thead><tr><th>Parameter</th><th>Specification</th><th>Details</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>System Type</strong></td><td>Solar Parabolic Concentrator</td><td>With steam generation and distribution</td></tr>
+                            <tr><td><strong>Steam Pressure</strong></td><td>5 - 8 bar</td><td>Adjustable based on cooking requirements</td></tr>
+                            <tr><td><strong>Steam Flow Rate</strong></td><td>50 - 500 kg/hr</td><td>Depends on collector area</td></tr>
+                            <tr><td><strong>Tracking System</strong></td><td>Automatic Dual-axis</td><td>Computer-controlled</td></tr>
+                            <tr><td><strong>Collector Efficiency</strong></td><td>68% - 72%</td><td>Annual average</td></tr>
+                            <tr><td><strong>Backup System</strong></td><td>Optional</td><td>Biomass/electric hybrid</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Case Study Showcase -->
+            <div class="case-study-showcase">
+                <div class="case-study-content">
+                    <h2 style="color:white;">Case Study: Shree Siddhivinayak Temple</h2>
+                    <p style="color:rgba(255,255,255,0.9); font-size:1.2rem;">Serving 3,000 devotees daily with solar energy</p>
+                    <div class="case-results">
+                        <div><div class="result-value">3,000</div><div>Meals/Day</div></div>
+                        <div><div class="result-value">100%</div><div>LPG Replacement</div></div>
+                        <div><div class="result-value">4.2 Y</div><div>ROI</div></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ===== 🔒 UNLOCK PREMIUM INFORMATION SECTION ===== -->
-    <div class="container">
-        <div class="unlock-section" id="unlockSection">
-            <div class="unlock-header">
+    <!-- ===== 🔒 PREMIUM UNLOCK SECTION ===== -->
+    <div class="container premium-wrapper">
+        <!-- LOCK ICON (visible initially, unless already unlocked) -->
+        <div id="lockContainer" class="lock-container">
+            <div class="lock-icon-big">
                 <i class="fas fa-lock"></i>
+            </div>
+            <h3>Unlock Premium Technical Library</h3>
+            <p>Get installation blueprints, ROI calculator, confidential case studies, and performance reports.</p>
+            <div style="margin-top: 2rem;">
+                <span style="background: var(--primary-light); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">
+                    <i class="fas fa-click"></i> Click the lock to begin
+                </span>
+            </div>
+        </div>
+
+        <!-- FORM CONTAINER (hidden initially) -->
+        <div id="unlockFormContainer" class="unlock-form-container">
+            <div class="unlock-header">
+                <i class="fas fa-file-alt"></i>
                 <div>
-                    <h2>Unlock Premium Technical Information</h2>
-                    <p>Enter your details below to access detailed engineering specs, installation blueprints, and confidential case studies.</p>
+                    <h2>Access Premium Content</h2>
+                    <p style="color: #666;">Enter your details – we'll send you the download link immediately.</p>
                 </div>
             </div>
-
-            <!-- FORM CONTAINER (visible initially) -->
-            <div id="unlockFormContainer" class="unlock-form-container">
-                <form id="googleFormSubmit" class="unlock-form">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="entry.123456789" placeholder="Dr. A. Sharma" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="entry.987654321" placeholder="director@institution.edu" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="entry.555444333" placeholder="+91 98765 43210">
-                    </div>
-                    <div class="form-group">
-                        <label for="organization">Organization / Institution</label>
-                        <input type="text" id="organization" name="entry.111222333" placeholder="Indian Army / IIT Dharwad / etc.">
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="message">Your Requirement (Optional)</label>
-                        <textarea id="message" name="entry.444555666" rows="3" placeholder="I'm interested in a system for 2000 meals/day..."></textarea>
-                    </div>
-                    <div class="form-group full-width">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-unlock-alt"></i> Unlock Premium Content
-                        </button>
-                    </div>
-                    <p style="grid-column: span 2; text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
-                        We respect your privacy. Your information will only be used to serve you better.
-                    </p>
-                </form>
-            </div>
-
-            <!-- HIDDEN PREMIUM CONTENT (shown after successful submission) -->
-            <div id="hiddenPremiumContent" class="hidden-content">
-                <div class="success-message" id="successMessage" style="display: none;">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Thank you! Your premium content is now unlocked.</span>
+            <form id="premiumForm" class="unlock-form">
+                <!-- Full Name – matches {{from_name}} in EmailJS template -->
+                <div class="form-group">
+                    <label for="from_name">Full Name *</label>
+                    <input type="text" id="from_name" name="from_name" placeholder="Dr. A. Sharma" required>
                 </div>
-                <div class="premium-card">
-                    <h3><i class="fas fa-file-alt" style="color: var(--solar-yellow); margin-right: 15px;"></i> Premium Technical Library</h3>
-                    <div class="premium-grid">
-                        <div class="premium-item">
-                            <i class="fas fa-drafting-compass"></i>
-                            <h4>Installation Blueprints</h4>
-                            <p>AutoCAD drawings, piping schematics, and structural details.</p>
-                            <a href="#" class="btn btn-small btn-secondary" style="margin-top: 1rem;">Download (ZIP)</a>
-                        </div>
-                        <div class="premium-item">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>ROI Calculator</h4>
-                            <p>Interactive Excel model with real fuel price inputs.</p>
-                            <a href="#" class="btn btn-small btn-secondary">Download</a>
-                        </div>
-                        <div class="premium-item">
-                            <i class="fas fa-video"></i>
-                            <h4>Installation Videos</h4>
-                            <p>Step-by-step commissioning and maintenance guides.</p>
-                            <a href="#" class="btn btn-small btn-secondary">Watch</a>
-                        </div>
-                        <div class="premium-item">
-                            <i class="fas fa-flask"></i>
-                            <h4>Performance Reports</h4>
-                            <p>Third-party test reports from UHS Bagalkot & IIT Dharwad.</p>
-                            <a href="#" class="btn btn-small btn-secondary">View</a>
-                        </div>
+                <!-- Email – matches {{reply_to}} and also used as recipient for auto-reply -->
+                <div class="form-group">
+                    <label for="reply_to">Email Address *</label>
+                    <input type="email" id="reply_to" name="reply_to" placeholder="director@institution.edu" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization" placeholder="Indian Army / IIT Dharwad / etc.">
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Your Requirement (Optional)</label>
+                    <textarea id="message" name="message" rows="3" placeholder="I'm interested in a system for 2000 meals/day..."></textarea>
+                </div>
+                
+                <!-- Hidden fields -->
+                <input type="hidden" name="product" value="Solar Steam Cooking System">
+                <!-- Admin email recipient – change this to your own email -->
+                <input type="hidden" id="admin_email" name="to_email" value="siddappagout@gmail.com">
+                
+                <div class="form-group full-width">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-unlock-alt"></i> Unlock Premium Content
+                    </button>
+                </div>
+                <p style="grid-column: span 2; text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                    We respect your privacy. Your information will only be used to serve you better.
+                </p>
+            </form>
+        </div>
+
+        <!-- PREMIUM CONTENT (hidden initially) -->
+        <div id="hiddenPremiumContent" class="hidden-content">
+            <div class="success-message" id="successMessage" style="display: none;">
+                <i class="fas fa-check-circle" style="font-size: 1.8rem;"></i>
+                <span style="font-size: 1.2rem;">Thank you! Your premium content is now unlocked.</span>
+            </div>
+            <div class="premium-card">
+                <h3 style="display: flex; align-items: center; gap: 15px;">
+                    <i class="fas fa-file-alt" style="color: var(--solar-yellow);"></i> 
+                    Premium Technical Library
+                </h3>
+                <div class="premium-grid">
+                    <div class="premium-item">
+                        <i class="fas fa-drafting-compass"></i>
+                        <h4>Installation Blueprints</h4>
+                        <p>AutoCAD drawings, piping schematics, structural details.</p>
+                        <a href="#" class="btn btn-small btn-secondary" style="margin-top: 1rem;">Download (ZIP)</a>
                     </div>
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 16px;">
-                        <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">📘 Confidential Case Studies</h4>
-                        <ul style="list-style: none;">
-                            <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Indian Army Base, Chennai – 70% LPG reduction, 10 ton CO₂/year saved</li>
-                            <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Sri Siddharodhmath, Hubli – 2000 meals/day, ROI 4.2 years</li>
-                            <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Coffee Board, Balehonnur – Solar drying + cooking hybrid</li>
-                        </ul>
+                    <div class="premium-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>ROI Calculator</h4>
+                        <p>Interactive Excel model with real fuel price inputs.</p>
+                        <a href="#" class="btn btn-small btn-secondary">Download</a>
                     </div>
+                    <div class="premium-item">
+                        <i class="fas fa-video"></i>
+                        <h4>Installation Videos</h4>
+                        <p>Step-by-step commissioning and maintenance guides.</p>
+                        <a href="#" class="btn btn-small btn-secondary">Watch</a>
+                    </div>
+                    <div class="premium-item">
+                        <i class="fas fa-flask"></i>
+                        <h4>Performance Reports</h4>
+                        <p>Third-party test reports from UHS Bagalkot & IIT Dharwad.</p>
+                        <a href="#" class="btn btn-small btn-secondary">View</a>
+                    </div>
+                </div>
+                <div style="margin-top: 2.5rem; padding: 1.5rem; background: white; border-radius: 20px;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">📘 Confidential Case Studies</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Indian Army Base, Chennai – 70% LPG reduction, 10 ton CO₂/year saved</li>
+                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Sri Siddharodhmath, Hubli – 2000 meals/day, ROI 4.2 years</li>
+                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 12px;"></i> Coffee Board, Balehonnur – Solar drying + cooking hybrid</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -763,15 +865,29 @@
         </div>
     </footer>
 
-    <!-- AOS -->
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Hidden iframe for Google Form submission -->
-    <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe>
-
     <script>
-        AOS.init({ duration: 800, easing: 'ease-in-out-cubic', once: true, offset: 30 });
+        // ===== ✅ EMAILJS INIT – YOUR CREDENTIALS =====
+        (function() {
+            // 🔐 YOUR CREDENTIALS (already set)
+            const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';     // Your public key
+            const EMAILJS_SERVICE_ID = 'service_t3i4ttm';        // Your service ID
+            const EMAILJS_ADMIN_TEMPLATE_ID = 'template_q9aciqa'; // Your admin template ID
 
-        // ===== HEADER INTERACTIONS =====
+            // ⚠️ IMPORTANT: REPLACE THIS WITH YOUR ACTUAL AUTO-REPLY TEMPLATE ID
+            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim'; // 🔁 REPLACE THIS
+
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+            
+            window.EMAILJS_CONFIG = {
+                serviceId: EMAILJS_SERVICE_ID,
+                adminTemplateId: EMAILJS_ADMIN_TEMPLATE_ID,
+                autoTemplateId: EMAILJS_AUTO_TEMPLATE_ID
+            };
+        })();
+
+        // ===== HEADER & MOBILE MENU =====
         (function() {
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
@@ -803,76 +919,146 @@
             element.classList.add('active');
         };
 
-        // ===== 🔓 UNLOCK PREMIUM CONTENT WITH GOOGLE FORM =====
+        // ===== 🔓 PREMIUM UNLOCK WITH DUAL EMAILS (ADMIN + CUSTOMER) =====
         (function() {
-            const unlockForm = document.getElementById('googleFormSubmit');
+            const lockContainer = document.getElementById('lockContainer');
             const formContainer = document.getElementById('unlockFormContainer');
             const hiddenContent = document.getElementById('hiddenPremiumContent');
             const successMsg = document.getElementById('successMessage');
-            const hiddenIframe = document.getElementById('hidden_iframe');
+            const unlockForm = document.getElementById('premiumForm');
 
-            // ⚠️ REPLACE THESE WITH YOUR ACTUAL GOOGLE FORM DETAILS ⚠️
-            const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/0/d/e/YOUR_FORM_ID/formResponse';
-            // Entry IDs – get them from your Google Form's HTML
-            const FIELD_MAPPING = {
-                name: 'entry.123456789',
-                email: 'entry.987654321',
-                phone: 'entry.555444333',
-                organization: 'entry.111222333',
-                message: 'entry.444555666'
-            };
-
-            // Check sessionStorage – if already unlocked, show content immediately
+            // Check sessionStorage – if already unlocked, show premium content directly
             if (sessionStorage.getItem('premiumUnlocked') === 'true') {
+                lockContainer.style.display = 'none';
                 formContainer.style.display = 'none';
                 hiddenContent.classList.add('visible');
                 successMsg.style.display = 'flex';
             }
 
+            // Click on lock → hide lock, show form
+            lockContainer.addEventListener('click', function() {
+                lockContainer.style.display = 'none';
+                formContainer.classList.add('visible');
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+
+            // ===== FORM SUBMISSION – SAFE NULL-CHECKED VERSION =====
             unlockForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                // Collect form data
-                const formData = new FormData(unlockForm);
-                
-                // Create a hidden form that targets the iframe
-                const hiddenForm = document.createElement('form');
-                hiddenForm.method = 'POST';
-                hiddenForm.action = GOOGLE_FORM_ACTION;
-                hiddenForm.target = 'hidden_iframe'; // submit to hidden iframe – no page reload
-                hiddenForm.style.display = 'none';
+                // ✅ SAFE GETTERS WITH FALLBACKS
+                const nameEl = document.getElementById('from_name');
+                const emailEl = document.getElementById('reply_to');
+                const phoneEl = document.getElementById('phone');
+                const orgEl = document.getElementById('organization');
+                const msgEl = document.getElementById('message');
+                const adminEmailEl = document.getElementById('admin_email');
 
-                // Append fields with correct entry IDs
-                for (let [field, entryId] of Object.entries(FIELD_MAPPING)) {
-                    const input = document.createElement('input');
-                    input.name = entryId;
-                    input.value = formData.get(field) || '';
-                    hiddenForm.appendChild(input);
+                // Validate required fields exist
+                if (!nameEl || !emailEl) {
+                    alert('Form error: Missing required fields. Please refresh and try again.');
+                    console.error('Missing form elements:', { nameEl, emailEl });
+                    return;
                 }
 
-                // Append to body, submit, then remove
-                document.body.appendChild(hiddenForm);
-                hiddenForm.submit();
-                document.body.removeChild(hiddenForm);
-
-                // Set flag in sessionStorage
-                sessionStorage.setItem('premiumUnlocked', 'true');
-
-                // Hide form, show success message and premium content
-                formContainer.style.transition = 'opacity 0.4s, transform 0.4s';
-                formContainer.style.opacity = '0';
-                formContainer.style.transform = 'translateY(-10px)';
+                const name = nameEl.value.trim();
+                const email = emailEl.value.trim();
                 
-                setTimeout(() => {
-                    formContainer.style.display = 'none';
-                    successMsg.style.display = 'flex';
-                    hiddenContent.classList.add('visible');
+                if (!name || !email) {
+                    alert('Please enter your full name and email address.');
+                    return;
+                }
+
+                const phone = phoneEl ? phoneEl.value.trim() || 'Not provided' : 'Not provided';
+                const organization = orgEl ? orgEl.value.trim() || 'Not provided' : 'Not provided';
+                const message = msgEl ? msgEl.value.trim() || 'No additional requirements' : 'No additional requirements';
+                const adminEmail = adminEmailEl ? adminEmailEl.value : 'siddappagout@gmail.com'; // fallback
+
+                const product = 'Solar Steam Cooking System';
+
+                // ===== 1. Parameters for ADMIN email =====
+                const adminParams = {
+                    from_name: name,
+                    reply_to: email,
+                    phone: phone,
+                    organization: organization,
+                    message: message,
+                    product: product,
+                    to_email: adminEmail
+                };
+
+                // ===== 2. Parameters for CUSTOMER auto-reply =====
+                const customerParams = {
+                    from_name: name,
+                    reply_to: email,
+                    phone: phone,
+                    organization: organization,
+                    message: message,
+                    product: product,
+                    to_email: email  // Send to the customer
+                };
+
+                const submitBtn = unlockForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+                // Send admin email first, then customer auto-reply
+                emailjs.send(
+                    window.EMAILJS_CONFIG.serviceId,
+                    window.EMAILJS_CONFIG.adminTemplateId,
+                    adminParams
+                )
+                .then(function(adminResponse) {
+                    console.log('✅ Admin email sent:', adminResponse.status);
+                    // Now send customer auto-reply using the second template
+                    return emailjs.send(
+                        window.EMAILJS_CONFIG.serviceId,
+                        window.EMAILJS_CONFIG.autoTemplateId,
+                        customerParams
+                    );
+                })
+                .then(function(customerResponse) {
+                    console.log('✅ Customer auto-reply sent:', customerResponse.status);
                     
-                    // Smooth scroll to the unlocked content
-                    hiddenContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 400);
+                    // Set unlock flag in sessionStorage
+                    sessionStorage.setItem('premiumUnlocked', 'true');
+
+                    // Hide form, show success + premium content
+                    formContainer.style.opacity = '0';
+                    formContainer.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        formContainer.style.display = 'none';
+                        formContainer.style.opacity = '1';
+                        formContainer.style.transform = 'translateY(0)';
+
+                        successMsg.style.display = 'flex';
+                        hiddenContent.classList.add('visible');
+                        hiddenContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Reset form and button
+                        unlockForm.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }, 400);
+                })
+                .catch(function(error) {
+                    console.error('❌ EmailJS error:', error);
+                    let errorMsg = 'There was a problem sending your information. ';
+                    if (error.text) {
+                        errorMsg += `Error: ${error.text}`;
+                    } else {
+                        errorMsg += 'Please try again or contact us directly at info@kvbgreenenergies.com.';
+                    }
+                    alert(errorMsg);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                });
             });
         })();
+
+        // ===== AOS INIT =====
+        AOS.init({ duration: 800, easing: 'ease-in-out-cubic', once: true, offset: 30 });
 
         // ===== SCROLL ANIMATIONS =====
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
@@ -881,21 +1067,9 @@
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, observerOptions);
-        document.querySelectorAll('.spec-highlight-card, .application-card, .comparison-card, .case-stat').forEach(el => {
+        document.querySelectorAll('.spec-highlight-card, .application-card, .case-stat').forEach(el => {
             el.classList.add('fade-in');
             observer.observe(el);
-        });
-
-        // Parallax
-        window.addEventListener('scroll', function() {
-            const hero = document.querySelector('.product-hero');
-            if (hero) hero.style.backgroundPosition = `center ${window.pageYOffset * 0.5}px`;
-        });
-
-        // Hover effects
-        document.querySelectorAll('.application-card, .spec-highlight-card').forEach(card => {
-            card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-10px) scale(1.02)'; });
-            card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
         });
     </script>
 </body>
