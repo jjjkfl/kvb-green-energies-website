@@ -366,6 +366,7 @@
 
         /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST ===== */
         .premium-wrapper {
+<<<<<<< HEAD
             margin: 6rem 0;
             position: relative;
         }
@@ -380,10 +381,42 @@
             transition: all 0.4s ease;
             cursor: pointer;
         }
+=======
+    margin: 6rem auto;
+    position: relative;
+    max-width: 900px;
+}
+
+.lock-container {
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.lock-container h3,
+.lock-container p,
+.lock-container span {
+    text-align: center;
+    display: block;
+}
+
+
+        .lock-container {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: var(--shadow-hover);
+            text-align: center;
+            border: 2px dashed rgba(58,125,68,0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+>>>>>>> cb5a4e7b649dfffda35b2f300f508745163a51b0
         .lock-container:hover {
             transform: scale(1.02);
             border-color: var(--primary);
             box-shadow: 0 30px 60px rgba(58,125,68,0.2);
+<<<<<<< HEAD
         }
         .lock-icon-big {
             font-size: 5rem;
@@ -432,17 +465,89 @@
         }
         .unlock-header i {
             font-size: 3rem;
-            color: var(--primary);
-            background: var(--primary-light);
-            padding: 1rem;
-            border-radius: 50%;
+=======
         }
+        .lock-icon-big {
+            font-size: 5rem;
+>>>>>>> cb5a4e7b649dfffda35b2f300f508745163a51b0
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+<<<<<<< HEAD
         .unlock-header h2 {
             font-family: 'Montserrat', sans-serif;
+=======
+        @keyframes pulse {
+            0%,100% { transform: scale(1); text-shadow: 0 0 20px rgba(58,125,68,0.3); }
+            50% { transform: scale(1.1); text-shadow: 0 0 40px rgba(58,125,68,0.6); }
+        }
+        .lock-container h3 {
+>>>>>>> cb5a4e7b649dfffda35b2f300f508745163a51b0
             font-size: 2rem;
             color: var(--primary-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
+<<<<<<< HEAD
+=======
+        .lock-container p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .unlock-form-container {
+            background: white;
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: var(--shadow-hover);
+            margin-top: 2rem;
+            display: none;
+            animation: slideDown 0.6s ease;
+        }
+        .unlock-form-container.visible {
+            display: block;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+      .unlock-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.unlock-header i {
+     text-align: inherit;
+    font-size: 3rem;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.unlock-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.unlock-header p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 500px;      /* Keeps text readable */
+    margin-left: auto;
+    margin-right: auto;
+}
+>>>>>>> cb5a4e7b649dfffda35b2f300f508745163a51b0
 
         .unlock-form {
             display: grid;
@@ -724,6 +829,7 @@
         <div id="lockContainer" class="lock-container">
             <div class="lock-icon-big">
                 <i class="fas fa-lock"></i>
+<<<<<<< HEAD
             </div>
             <h3>Unlock Premium Technical Library</h3>
             <p>Get installation blueprints, ROI calculator, confidential case studies, and performance reports.</p>
@@ -743,6 +849,27 @@
                     <p style="color: #666;">Enter your details – we'll send you the download link immediately.</p>
                 </div>
             </div>
+=======
+            </div>
+            <h3>Unlock Premium Technical Library</h3>
+            <p>Get installation blueprints, ROI calculator, confidential case studies, and performance reports.</p>
+            <div style="margin-top: 2rem;">
+                <span style="background: var(--primary-light); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">
+                    <i class="fas fa-click"></i> Click the lock to begin
+                </span>
+            </div>
+        </div>
+
+        <!-- FORM CONTAINER (hidden initially) -->
+        <div id="unlockFormContainer" class="unlock-form-container">
+           <div class="unlock-header">
+    <i class="fas fa-file-alt"></i>
+    <div>
+        <h2>Access Premium Content</h2>
+        <p style="color: #666;">Enter your details – we'll send you the download link immediately.</p>
+    </div>
+</div>
+>>>>>>> cb5a4e7b649dfffda35b2f300f508745163a51b0
             <form id="premiumForm" class="unlock-form">
                 <!-- Full Name – matches {{from_name}} in EmailJS template -->
                 <div class="form-group">
