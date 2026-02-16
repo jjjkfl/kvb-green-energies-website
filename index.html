@@ -731,30 +731,30 @@
       width: max-content;
       animation: scrollMarquee 40s linear infinite;
     }
-   .client-badge {
-  background: white;
-  padding: 12px 28px;
-  border-radius: 40px;
-  box-shadow: 0 4px 12px rgba(58,125,68,0.06);
-  border: 1px solid rgba(58,125,68,0.1);
+ .client-badge {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-width: 200px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  height: 70px;
 }
 
 .client-badge img {
-  max-height: 40px;
-  max-width: 100%;
+  max-height: 90px;     /* bigger logos */
+  max-width: 180px;
   object-fit: contain;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-    .client-badge:hover {
-      background: var(--eco-green);
-      color: white;
-      transform: scale(1.05);
-    }
+.client-badge img:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
     @keyframes scrollMarquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -1107,27 +1107,27 @@
         
        <div class="marquee-track">
   <div class="client-badge">
-    <img src="images/clients/indian-army.png" alt="Indian Army">
+    <img src="images\certificates\1.png" alt="Indian Army">
   </div>
 
   <div class="client-badge">
-    <img src="images/clients/ins-mandovi.png" alt="INS Mandovi">
+    <img src="images\certificates\2.png" alt="University of Agricultural Sciences, Bangalore">
   </div>
 
   <div class="client-badge">
-    <img src="images/clients/yashada.png" alt="YASHADA">
+    <img src="images\certificates\5.png" alt="Univesity of Horticultural Sciences, Bagalkot">
   </div>
 
   <div class="client-badge">
-    <img src="images/clients/coffee-board.png" alt="Coffee Board">
+    <img src="images\certificates\6.png" alt="Univesity of Agriculture and Horticultural Sciences, Shimoga">
   </div>
 
   <div class="client-badge">
-    <img src="images/clients/nabard.png" alt="NABARD">
+    <img src="images\certificates\11 (1).png" alt="IIT Dharwad">
   </div>
 
   <div class="client-badge">
-    <img src="images/clients/icar.png" alt="ICAR">
+    <img src="images\certificates\11 (2).png" alt="YASHADA">
   </div>
 </div>
 

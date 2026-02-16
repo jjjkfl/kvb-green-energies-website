@@ -64,7 +64,7 @@
       scroll-behavior: smooth;
     }
 
-    /* ===== HEADER – EXACT COPY FROM INDEX.HTML ===== */
+    /* ===== HEADER – EXACT COPY FROM INDEX.HTML (FIXED PATHS) ===== */
     .header {
       position: fixed;
       width: 100%;
@@ -199,7 +199,7 @@
       border-radius: 10px;
     }
 
-    /* ===== PAGE HERO (index style) ===== */
+    /* ===== PAGE HERO ===== */
     .page-hero {
       position: relative;
       min-height: 70vh;
@@ -401,7 +401,7 @@
     }
     .founder-image {
       position: relative;
-      border-radius: auto;
+      border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-hover);
       transform: perspective(1000px) rotateY(-5deg);
@@ -591,7 +591,7 @@
       color: var(--solar-yellow);
     }
 
-    /* ===== HORIZONTAL TIMELINE SECTION – FULLY RESTORED ===== */
+    /* ===== HORIZONTAL TIMELINE SECTION ===== */
     .timeline-section {
       padding: 120px 0;
       background: linear-gradient(145deg, #f0f7f0, #e6f0e6);
@@ -746,24 +746,20 @@
       color: var(--solar-yellow);
       transform: translateY(-5px);
     }
-   .step-title {
-  color: var(--dark-charcoal);
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.4;
-  transition: color 0.3s ease;
-  
-  display: -webkit-box;
-  display: box;               /* fallback for older specs */
-  -webkit-line-clamp: 2;
-  line-clamp: 2;              /* standard property */
-  -webkit-box-orient: vertical;
-  box-orient: vertical;       /* standard equivalent */
-  
-  overflow: hidden;
-}
-
+    .step-title {
+      color: var(--dark-charcoal);
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.4;
+      transition: color 0.3s ease;
+      
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .timeline-step.active .step-title {
       color: var(--eco-green);
     }
@@ -772,7 +768,7 @@
       border-radius: 20px;
       padding: 50px;
       margin-top: 80px;
-      box-shadow: var(--shadow), 0 0 0 1px rgba(58,125,68,0.1);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(58,125,68,0.1);
       border: 2px solid transparent;
       background: linear-gradient(white, white) padding-box,
                   linear-gradient(135deg, var(--solar-yellow), var(--eco-green)) border-box;
@@ -1003,7 +999,7 @@
     /* ===== BACK TO TOP ===== */
     .back-to-top {
       position: fixed;
-      bottom: 30px;
+      bottom: 100px;
       right: 30px;
       width: 50px;
       height: 50px;
@@ -1020,7 +1016,7 @@
       transition: var(--transition);
       opacity: 0;
       visibility: hidden;
-      z-index: 999;
+      z-index: 998;
     }
     .back-to-top.visible {
       opacity: 1;
@@ -1068,7 +1064,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER – EXACT COPY FROM INDEX.HTML (active: About) ===== -->
+  <!-- ===== HEADER – FIXED PATHS FOR PRODUCTS ===== -->
   <header class="header" id="header">
     <div class="container">
       <nav class="navbar">
@@ -1090,16 +1086,16 @@
               <a href="solutions/smart-agriculture.html"><i class="fas fa-seedling"></i> Smart Agriculture</a>
             </div>
           </li>
-          <!-- Products dropdown -->
+          <!-- Products dropdown – FIXED PATHS -->
           <li class="dropdown">
             <a href="#">Products <i class="fas fa-chevron-down"></i></a>
             <div class="dropdown-content">
               <a href="products/solar-steam-cooking.html"><i class="fas fa-utensils"></i> Solar Steam Cooking</a>
-              <a href="products/solar-tunnel-dryers.html"><i class="fas fa-wind"></i> Solar Tunnel Dryers</a>
+              <a href="products/solar-dryers.html"><i class="fas fa-wind"></i> Solar Tunnel Dryers</a>
               <a href="products/scheffler-concentrators.html"><i class="fas fa-satellite-dish"></i> Scheffler Concentrators</a>
               <a href="products/ai-crop-detection.html"><i class="fas fa-robot"></i> AI Crop Detection</a>
-              <a href="thermal-storage.html"><i class="fas fa-thermometer-half"></i> Thermal Storage</a>
-              <a href="microgreen-systems.html"><i class="fas fa-leaf"></i> Microgreen Systems</a>
+              <a href="products/thermal-storage.html"><i class="fas fa-thermometer-half"></i> Thermal Storage</a>
+              <a href="products/microgreen-systems.html"><i class="fas fa-leaf"></i> Microgreen Systems</a>
             </div>
           </li>
           <li><a href="innovation-lab.html">Innovation Lab</a></li>
@@ -1169,7 +1165,7 @@
       <h2 class="section-title" data-aos="fade-up">Leadership</h2>
       <div class="founder-profile">
         <div class="founder-image" data-aos="fade-right">
-          <img src="images\products\ravi3.jpg" alt="Founder">
+          <img src="images/products/ravi3.jpg" alt="Founder">
         </div>
         <div class="founder-details" data-aos="fade-left">
           <h3>Ravi Chavadi</h3>
@@ -1192,7 +1188,7 @@
       <p class="section-subtitle" data-aos="fade-up">The experts driving innovation and impact</p>
       <div class="team-grid">
         <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="team-img"><img src="images\products\nirmala.jpg" alt="Nirmala Kanavi"></div>
+          <div class="team-img"><img src="images/products/nirmala.jpg" alt="Nirmala Kanavi"></div>
           <div class="team-info">
             <h4>Nirmala Kanavi</h4>
             <p class="position">Director</p>
@@ -1252,7 +1248,7 @@
     </div>
   </section>
 
-  <!-- ===== HORIZONTAL TIMELINE SECTION – FULLY RESTORED ===== -->
+  <!-- ===== HORIZONTAL TIMELINE SECTION ===== -->
   <section class="timeline-section" id="timelineSection">
     <div class="timeline-container">
       <h2 class="section-title">Our Journey Through Time</h2>
@@ -1320,12 +1316,10 @@
           <h3>KVB Green Energies</h3>
           <p style="margin: 20px 0; color: #bcd0c5;">Innovating Energy. Transforming Agriculture.</p>
           <div style="display:flex; gap:20px;">
-          
- <a href="https://www.instagram.com/kvbgreenenergies/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com/people/KVB-green-Energies/100075492057443/"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@kvbgreenenergies"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/kvb-green-energies/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
-
+            <a href="https://www.instagram.com/kvbgreenenergies/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/people/KVB-green-Energies/100075492057443/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@kvbgreenenergies"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/kvb-green-energies/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -1334,7 +1328,7 @@
             <li><a href="solutions/solar-thermal-systems.html">Solar Thermal</a></li>
             <li><a href="solutions/energy-storage.html">Energy Storage</a></li>
             <li><a href="solutions/smart-agriculture.html">Smart Agriculture</a></li>
-            <li><a href="solutions/innovation-lab.html">Innovation Lab</a></li>
+            <li><a href="innovation-lab.html">Innovation Lab</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1344,21 +1338,21 @@
             <li><a href="clients-partnerships.html">Clients</a></li>
             <li><a href="certifications.html">Certifications</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="knowledge-center.html">Knowledge Center</a></li>
+            <li><a href="blog.html">Knowledge Center</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
           <ul>
             <li><i class="fas fa-map-marker-alt"></i> R16, KSIDC, 3rd Cross Belur Industrial Estate Dharwad-580011</li>
-            <li><i class="fas fa-phone"></i> +91- 9545529950</li>
+            <li><i class="fas fa-phone"></i> +91-9545529950</li>
             <li><i class="fas fa-envelope"></i> hello@kvbgreen.com</li>
           </ul>
           <div style="margin-top: 30px;">
             <h5>Subscribe</h5>
-            <form style="display:flex; margin-top: 12px;">
-              <input type="email" placeholder="Your email" style="padding: 10px 16px; border: none; border-radius: 30px 0 0 30px; width: 70%;">
-              <button type="submit" style="background: var(--solar-yellow); border: none; padding: 10px 20px; border-radius: 0 30px 30px 0;"><i class="fas fa-paper-plane"></i></button>
+            <form style="display:flex; margin-top: 12px;" onsubmit="alert('Newsletter subscription coming soon!'); return false;">
+              <input type="email" placeholder="Your email" style="padding: 10px 16px; border: none; border-radius: 30px 0 0 30px; width: 70%;" required>
+              <button type="submit" style="background: var(--solar-yellow); border: none; padding: 10px 20px; border-radius: 0 30px 30px 0; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
             </form>
           </div>
         </div>
@@ -1379,8 +1373,8 @@
     <a href="https://wa.me/9545529950" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <!-- Back to Top -->
- 
+  <!-- Back to Top Button (now added) -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
   <!-- AOS + Mobile menu + year + timeline JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1422,7 +1416,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // ===== TIMELINE DATA & FUNCTIONS (FULLY RESTORED) =====
+      // ===== TIMELINE DATA & FUNCTIONS =====
       const timelineData = [
         {
           year: "1990s",
