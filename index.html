@@ -405,126 +405,7 @@
       transition: var(--transition);
     }
 
-    .header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-    }
-
-    .logo a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo img {
-      height: 70px;
-      width: auto;
-      border-radius: 12px;
-      background: var(--eco-green);
-      padding: 4px;
-    }
-
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--eco-green);
-      letter-spacing: -0.03em;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .nav-menu a {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--dark-charcoal);
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    .nav-menu a:hover {
-      color: var(--eco-green);
-      border-bottom-color: var(--solar-yellow);
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: 100%;
-      left: -16px;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(16px);
-      min-width: 260px;
-      border-radius: 20px;
-      padding: 16px 8px;
-      box-shadow: var(--shadow-sm);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.7);
-    }
-
-    .dropdown:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-content a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 14px;
-    }
-
-    .dropdown-content a i {
-      width: 20px;
-      color: var(--eco-green);
-    }
-
-    .dropdown-content a:hover {
-      background: var(--primary-light);
-    }
-
-    .cta-button {
-      background: var(--eco-green);
-      color: white !important;
-      padding: 12px 24px !important;
-      border-radius: 50px;
-    }
-
-    .cta-button:hover {
-      background: var(--primary-dark);
-      transform: scale(1.02);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
+   
     .hero-section {
       position: relative;
       min-height: 100vh;
@@ -878,21 +759,7 @@
       border-radius: 0 80px 0 80px;
     }
 
-    .main-footer {
-      background: #0a2e29;
-      color: #d0dbd9;
-      padding-top: 70px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 48px;
-    }
-    .footer-col h4, .footer-col h3 { color: white; margin-bottom: 20px; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 12px; }
-    .footer-col a { color: #bcd0c5; }
-    .footer-col a:hover { color: var(--solar-yellow); }
+  
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -988,49 +855,8 @@
 
   <!-- MAIN WEBSITE -->
   <div id="mainWebsite">
-    <header class="header" id="header">
-      <div class="container">
-        <nav class="navbar">
-          <div class="logo">
-            <a href="index.html">
-              <img src="images/products/kvb.jpeg" alt="KVB Green Energies">
-              <span class="logo-text">KVB Green Energies</span>
-            </a>
-          </div>
-          <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-              <a href="#">Solutions <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="solutions/solar-thermal-systems.html"><i class="fas fa-solar-panel"></i> Solar Thermal Systems</a>
-                <a href="solutions/energy-storage.html"><i class="fas fa-battery-full"></i> Energy Storage</a>
-                <a href="solutions/smart-agriculture.html"><i class="fas fa-seedling"></i> Smart Agriculture</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="#">Products <i class="fas fa-chevron-down"></i></a>
-              <div class="dropdown-content">
-                <a href="products/solar-steam-cooking.html"><i class="fas fa-utensils"></i> Solar Steam Cooking</a>
-                <a href="products/solar-tunnel-dryers.html"><i class="fas fa-wind"></i> Solar Tunnel Dryers</a>
-                <a href="products/scheffler-concentrators.html"><i class="fas fa-satellite-dish"></i> Scheffler Concentrators</a>
-                <a href="products/ai-crop-detection.html"><i class="fas fa-robot"></i> AI Crop Detection</a>
-                <a href="thermal-storage.html"><i class="fas fa-thermometer-half"></i> Thermal Storage</a>
-                <a href="microgreen-systems.html"><i class="fas fa-leaf"></i> Microgreen Systems</a>
-              </div>
-            </li>
-            <li><a href="innovation-lab.html">Innovation Lab</a></li>
-            <li><a href="clients-partnerships.html">Clients</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html" class="cta-button">Contact</a></li>
-          </ul>
-          <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-          </div>
-        </nav>
-      </div>
-    </header>
+   <div id="header"></div>
+
 
     <section class="hero-section">
       <div class="hero-video-container">
@@ -1238,60 +1064,8 @@
       </div>
     </section>
 
-    <footer class="main-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h3 style="color:white;">KVB Green Energies</h3>
-            <p style="margin: 20px 0; color: #bcd0c5;">Innovating Energy. Transforming Agriculture.</p>
-            <div style="display:flex; gap:20px;">
-              <a href="https://www.instagram.com/kvbgreenenergies/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com/people/KVB-green-Energies/100075492057443/"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@kvbgreenenergies"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/kvb-green-energies/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="footer-col">
-            <h4>Solutions</h4>
-            <ul>
-              <li><a href="solutions/solar-thermal-systems.html">Solar Thermal</a></li>
-              <li><a href="solutions/energy-storage.html">Energy Storage</a></li>
-              <li><a href="solutions/smart-agriculture.html">Smart Agriculture</a></li>
-              <li><a href="solutions/innovation-lab.html">Innovation Lab</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="clients-partnerships.html">Clients</a></li>
-              <li><a href="certifications.html">Certifications</a></li>
-              <li><a href="case-studies.html">Case Studies</a></li>
-              <li><a href="knowledge-center.html">Knowledge Center</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-              <li><i class="fas fa-map-marker-alt"></i>  R16, KSIDC, 3rd Cross Belur Industrial Estate Dharwad-580011</li>
-              <li><i class="fas fa-phone"></i>  +91 9545529950</li>
-              <li><i class="fas fa-envelope"></i> hello@kvbgreen.com</li>
-            </ul>
-            <div style="margin-top: 30px;">
-              <h5>Subscribe</h5>
-              <form style="display:flex; margin-top: 12px;">
-                <input type="email" placeholder="Your email" style="padding: 10px 16px; border: none; border-radius: 30px 0 0 30px; width: 70%;">
-                <button type="submit" style="background: var(--solar-yellow); border: none; padding: 10px 20px; border-radius: 0 30px 30px 0;"><i class="fas fa-paper-plane"></i></button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex; justify-content:space-between; padding: 40px 0 20px; border-top:1px solid #3f5e59; margin-top: 40px;">
-          <p>&copy; <span id="current-year"></span> KVB Green Energies. All rights reserved.</p>
-          <div><a href="#" style="color:#bcd0c5; margin-right: 20px;">Privacy</a><a href="#" style="color:#bcd0c5; margin-right: 20px;">Terms</a><a href="#" style="color:#bcd0c5;">Sitemap</a></div>
-        </div>
-      </div>
-    </footer>
+   <div id="footer"></div>
+
 
     <div class="whatsapp-float"><a href="https://wa.me/9545529950" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
   </div>
@@ -1405,3 +1179,33 @@
   </script>
 </body>
 </html>
+<script>
+function loadComponent(id, paths) {
+  const tryPath = (index) => {
+    if (index >= paths.length) return;
+
+    fetch(paths[index])
+      .then(res => {
+        if (!res.ok) throw new Error();
+        return res.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+      })
+      .catch(() => tryPath(index + 1));
+  };
+
+  tryPath(0);
+}
+
+// Try both possible paths automatically
+loadComponent("header", [
+  "components/header.html",
+  "../components/header.html"
+]);
+
+loadComponent("footer", [
+  "components/footer.html",
+  "../components/footer.html"
+]);
+</script>
