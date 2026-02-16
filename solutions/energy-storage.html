@@ -5,32 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Energy Storage | Thermal & Battery Solutions | KVB Green Energies</title>
     
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons (Apple-inspired: Inter, Montserrat for headings) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lightbox2 for image gallery -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     
     <style>
-        /* ===== BASE STYLES & VARIABLES ===== */
+        /* ===== BASE STYLES – Apple/Tesla Inspired, Light & Minimal ===== */
         :root {
-            --primary: #2E7D32;
-            --primary-light: #4CAF50;
-            --primary-dark: #1B5E20;
-            --storage-color: #3F51B5;      /* Indigo – reliable, tech, energy */
-            --storage-light: #5C6BC0;
-            --storage-dark: #283593;
-            --text-dark: #212121;
-            --text-muted: #757575;
-            --text-light: #9E9E9E;
-            --bg-light: #F5F7FA;
-            --white: #FFFFFF;
-            --border: #E0E0E0;
-            --shadow-sm: 0 5px 15px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
+            --background: #FFFFFF;
+            --background-alt: #F9F9FB;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --text-tertiary: #A1A1A6;
+            --border: #E6E6E8;
+            --accent: #3F51B5;           /* Indigo – subtle but tech */
+            --accent-light: #E8EAF6;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -41,217 +40,177 @@
 
         body {
             font-family: var(--font-body);
-            color: var(--text-dark);
-            background: var(--white);
-            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.5;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
 
         h1, h2, h3, h4, h5 {
             font-family: var(--font-heading);
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
-        h1 { font-size: 3.2rem; margin-bottom: 1rem; }
-        h2 { font-size: 2.5rem; margin-bottom: 2rem; position: relative; }
-        h3 { font-size: 1.8rem; margin-bottom: 1.2rem; }
-        h4 { font-size: 1.3rem; margin-bottom: 0.8rem; }
-        p { color: var(--text-muted); margin-bottom: 1.2rem; }
+        h1 { font-size: 3.2rem; margin-bottom: 1.2rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 600; }
+        h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 500; }
+        h4 { font-size: 1.3rem; margin-bottom: 0.8rem; font-weight: 500; }
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
         .section-title:after {
             content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--storage-color), var(--primary));
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto 0;
             border-radius: 2px;
         }
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
+            color: var(--text-secondary);
+            max-width: 600px;
             margin: -1rem auto 3rem;
         }
 
-      
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
             padding: 0.8rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 40px;
+            font-weight: 500;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
             border: none;
             cursor: pointer;
+            font-size: 1rem;
+            background: transparent;
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--storage-color), var(--storage-dark));
+            background: var(--accent);
             color: white;
-            box-shadow: 0 4px 15px rgba(63,81,181,0.3);
+            box-shadow: 0 4px 12px rgba(63,81,181,0.2);
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(63,81,181,0.4);
+            background: #2A3A8C;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(63,81,181,0.3);
         }
         .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+            background: var(--background);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
         }
         .btn-secondary:hover {
-            background: white;
-            color: var(--storage-dark);
+            background: var(--background-alt);
+            border-color: var(--text-secondary);
+            transform: scale(1.02);
         }
         .btn-outline {
+            border: 1px solid var(--accent);
+            color: var(--accent);
             background: transparent;
-            color: var(--storage-color);
-            border: 2px solid var(--storage-color);
         }
         .btn-outline:hover {
-            background: var(--storage-color);
-            color: white;
-        }
-        .btn-link {
-            color: var(--storage-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-link:hover {
-            gap: 12px;
-        }
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-        /* Dropdown */
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 240px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            border-radius: 12px;
-            padding: 0.8rem 0;
-            z-index: 1000;
-            animation: dropdownFade 0.3s ease;
-            border: 1px solid rgba(63,81,181,0.1);
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        .dropdown-menu a {
-            padding: 0.8rem 1.5rem;
-            display: block;
-            border-left: 3px solid transparent;
-        }
-        .dropdown-menu a:hover,
-        .dropdown-menu a.active {
-            background: rgba(63,81,181,0.05);
-            border-left-color: var(--storage-color);
-            padding-left: 1.8rem;
-        }
-        @keyframes dropdownFade {
-            from { opacity: 0; transform: translateY(-10px); }
-            to   { opacity: 1; transform: translateY(0); }
+            background: var(--accent-light);
         }
 
-        /* ===== HERO SECTION ===== */
+        /* ===== HEADER (component will be loaded) ===== */
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ===== HERO – Clean, minimal ===== */
         .product-hero {
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(63,81,181,0.9) 0%, rgba(40,53,147,0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding-top: 80px;
-            color: white;
+            background: var(--background-alt);
+            padding: 80px 0 40px;
+            border-bottom: 1px solid var(--border);
         }
         .breadcrumb {
             margin-bottom: 2rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
         .breadcrumb a {
-            color: rgba(255,255,255,0.8);
+            color: var(--text-secondary);
             text-decoration: none;
+            transition: color 0.2s;
         }
-        .breadcrumb span {
-            color: white;
-            font-weight: 600;
+        .breadcrumb a:hover {
+            color: var(--accent);
         }
-        .product-header h1 {
-            color: white;
-            animation: fadeInUp 1s;
+        .product-header {
+            max-width: 800px;
+        }
+        .product-intro h1 {
+            color: var(--text-primary);
         }
         .product-tagline {
             font-size: 1.4rem;
-            color: rgba(255,255,255,0.9);
+            color: var(--text-secondary);
+            font-weight: 300;
             margin-bottom: 2rem;
         }
         .product-highlights {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 2.5rem 0;
+            gap: 1rem;
+            margin: 2rem 0 2.5rem;
         }
         .highlight-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s;
+            gap: 0.6rem;
+            background: var(--background);
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: all 0.2s;
         }
         .highlight-item:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
         }
         .highlight-item i {
-            font-size: 1.2rem;
+            color: var(--accent);
+            font-size: 1.1rem;
         }
         .hero-cta {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1.2rem;
+            flex-wrap: wrap;
         }
 
-        /* ===== PROBLEM / SOLUTION ===== */
+        /* ===== PROBLEM / SOLUTION – side by side cards ===== */
         .problem-solution {
             padding: 5rem 0;
-            background: var(--bg-light);
+            background: var(--background);
         }
         .ps-grid {
             display: grid;
@@ -259,81 +218,78 @@
             gap: 2rem;
         }
         .problem-box, .solution-box {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.4s, opacity 0.6s;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
-        .problem-box.visible, .solution-box.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .solution-box {
+            background: var(--background);
+            border-color: var(--accent-light);
+        }
+        .problem-box:hover, .solution-box:hover {
+            box-shadow: var(--shadow-md);
         }
         .box-header {
-            padding: 1.5rem;
-            color: white;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-        .problem-box .box-header {
-            background: linear-gradient(135deg, #D32F2F, #B71C1C);
-        }
-        .solution-box .box-header {
-            background: linear-gradient(135deg, var(--storage-color), var(--storage-dark));
+        .box-header i {
+            font-size: 2rem;
+            color: var(--accent);
         }
         .box-header h3 {
-            color: white;
             margin: 0;
-        }
-        .box-content {
-            padding: 2rem;
+            color: var(--text-primary);
         }
         .box-content ul {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         .box-content li {
             padding: 0.4rem 0;
             padding-left: 1.5rem;
             position: relative;
+            color: var(--text-secondary);
         }
         .box-content li:before {
-            content: '▹';
+            content: '✓';
             position: absolute;
             left: 0;
-            color: var(--storage-color);
+            color: var(--accent);
             font-weight: bold;
         }
 
-        /* ===== TECHNOLOGIES SECTION ===== */
+        /* ===== TECHNOLOGIES SECTION – clean cards ===== */
         .technologies-section {
             padding: 5rem 0;
+            background: var(--background-alt);
         }
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         .tech-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--background);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
-        }
-        .tech-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
         .tech-card:hover {
-            transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
         .tech-img {
             height: 240px;
@@ -346,259 +302,265 @@
             transition: transform 0.6s;
         }
         .tech-card:hover .tech-img img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         .tech-content {
             padding: 2rem;
         }
         .tech-content h3 {
-            color: var(--storage-dark);
-            margin-bottom: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
         }
         .tech-specs {
             list-style: none;
             margin: 1.5rem 0;
         }
         .tech-specs li {
-            padding: 0.6rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: baseline;
+            color: var(--text-secondary);
         }
         .tech-specs li strong {
             min-width: 120px;
-            color: var(--text-dark);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .btn-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 1rem;
+        }
+        .btn-link:hover {
+            gap: 10px;
         }
 
-        /* ===== HOW IT WORKS ===== */
+        /* ===== HOW IT WORKS – simple steps ===== */
         .how-it-works {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            background: var(--background);
         }
         .process-steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
         .process-step {
             text-align: center;
-            position: relative;
+            padding: 2rem 1.5rem;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
-        .process-step.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .process-step:hover {
+            background: var(--background);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
         }
         .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--storage-color);
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
             color: white;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 600;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 8px 15px rgba(63,81,181,0.2);
+            margin: 0 auto 1.2rem;
         }
-        .step-icon {
-            font-size: 3rem;
-            color: var(--storage-dark);
+        .step-icon i {
+            font-size: 2.2rem;
+            color: var(--accent);
             margin-bottom: 1rem;
         }
         .process-step h4 {
             margin-bottom: 0.8rem;
+            color: var(--text-primary);
         }
-        .process-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            right: -30px;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--storage-light), var(--storage-color));
-            opacity: 0.3;
-        }
-        @media (max-width: 992px) {
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .process-step:after {
-                display: none;
-            }
-        }
-        @media (max-width: 576px) {
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
+        .process-step p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
         /* ===== TECHNICAL SPECIFICATIONS ===== */
         .technical-specs {
             padding: 5rem 0;
+            background: var(--background-alt);
         }
         .specs-wrapper {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 3rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         .specs-table {
-            overflow-x: auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
-            padding: 1rem;
+            background: var(--background);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            padding: 0;
         }
         .specs-table table {
             width: 100%;
             border-collapse: collapse;
         }
         .specs-table th {
-            background: linear-gradient(135deg, var(--storage-color), var(--storage-dark));
-            color: white;
-            padding: 1rem;
+            background: var(--accent-light);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 1.2rem 1.5rem;
             text-align: left;
         }
         .specs-table td {
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
         }
         .specs-table tr:last-child td {
             border-bottom: none;
         }
         .specs-table tr:hover td {
-            background: rgba(63,81,181,0.05);
+            background: var(--background-alt);
         }
         .specs-features {
-            background: white;
-            border-radius: 16px;
-            box-shadow: var(--shadow-md);
+            background: var(--background);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             padding: 2rem;
+        }
+        .specs-features h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
         }
         .feature-list {
             list-style: none;
-            margin-top: 1.5rem;
         }
         .feature-list li {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             margin-bottom: 1.5rem;
+            align-items: flex-start;
         }
         .feature-list i {
-            color: var(--storage-color);
-            font-size: 1.4rem;
-            flex-shrink: 0;
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-top: 0.2rem;
+        }
+        .feature-list div strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .feature-list div p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
         }
 
-        /* ===== APPLICATIONS GRID ===== */
+        /* ===== APPLICATIONS ===== */
         .applications {
             padding: 5rem 0;
-            background: var(--bg-light);
+            background: var(--background);
         }
         .applications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         .application-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem 1.5rem;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 1.8rem;
             text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid transparent;
-            transition: all 0.4s;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
-        }
-        .application-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
         .application-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--storage-color);
+            border-color: var(--accent);
             box-shadow: var(--shadow-md);
+            background: var(--background);
         }
         .app-icon {
-            font-size: 3.5rem;
-            color: var(--storage-color);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, rgba(63,81,181,0.1), rgba(92,107,192,0.2));
-            width: 90px;
-            height: 90px;
-            line-height: 90px;
-            border-radius: 50%;
-            display: inline-block;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+        }
+        .application-card h4 {
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+        .application-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
         }
 
         /* ===== PERFORMANCE IMPACT ===== */
         .performance-impact {
             padding: 5rem 0;
+            background: var(--background-alt);
         }
         .impact-metrics {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         .metric-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem 1.5rem;
+            background: var(--background);
+            border-radius: var(--radius-md);
+            padding: 2rem;
             text-align: center;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 4px solid var(--storage-color);
-            transition: transform 0.3s;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
-        }
-        .metric-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
         .metric-card:hover {
-            transform: translateY(-5px);
+            border-color: var(--accent);
             box-shadow: var(--shadow-md);
         }
         .metric-value {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--storage-dark);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
             line-height: 1;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
         .metric-value span {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            color: var(--text-tertiary);
         }
         .metric-label {
             font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
-        @media (max-width: 992px) {
-            .impact-metrics {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 576px) {
-            .impact-metrics {
-                grid-template-columns: 1fr;
-            }
+        .metric-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
-        /* ===== CASE STUDY ===== */
+        /* ===== CASE STUDY PREVIEW ===== */
         .case-study-preview {
             padding: 5rem 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            background: var(--background);
         }
         .case-study-content {
             display: grid;
@@ -607,14 +569,19 @@
             align-items: center;
         }
         .case-image {
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
         }
         .case-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+        }
+        .case-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
         }
         .case-results {
             display: grid;
@@ -626,147 +593,93 @@
             text-align: center;
         }
         .result-value {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--storage-dark);
+            color: var(--accent);
         }
         .result-label {
             font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        @media (max-width: 768px) {
-            .case-study-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== FAQ SECTION ===== */
-        .faq-section {
-            padding: 5rem 0;
-        }
-        .faq-accordion {
-            max-width: 800px;
-            margin: 3rem auto 0;
-        }
-        .faq-item {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s;
-        }
-        .faq-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .faq-question {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        .faq-question h4 {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-        .faq-question i {
-            color: var(--storage-color);
-            transition: transform 0.3s;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 1.5rem;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-        .faq-answer.active {
-            max-height: 200px;
-            padding-bottom: 1.5rem;
+            color: var(--text-secondary);
         }
 
         /* ===== CONTACT FORM ===== */
         .product-contact {
             padding: 5rem 0;
-            background: linear-gradient(135deg, var(--storage-color), var(--storage-dark));
-            color: white;
+            background: var(--background-alt);
         }
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 3rem;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
+            background: var(--background);
+            border-radius: var(--radius-lg);
             padding: 3rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
         }
         .contact-info h3 {
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
         .contact-info p {
-            color: rgba(255,255,255,0.9);
+            color: var(--text-secondary);
         }
         .info-points {
             margin-top: 2rem;
         }
         .info-item {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
         .info-item i {
             font-size: 1.8rem;
-            color: rgba(255,255,255,0.9);
+            color: var(--accent);
         }
         .info-item h5 {
-            color: white;
-            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+            font-weight: 600;
         }
         .info-item p {
             margin-bottom: 0;
         }
         .contact-form {
-            background: white;
-            border-radius: 16px;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
             padding: 2rem;
+            border: 1px solid var(--border);
         }
         .contact-form h4 {
-            color: var(--storage-dark);
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
         }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         .form-group label {
             display: block;
             margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: var(--text-dark);
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95rem;
         }
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
             padding: 0.8rem 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             font-family: var(--font-body);
-            transition: all 0.3s;
+            transition: all 0.2s;
+            background: var(--background);
         }
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--storage-color);
+            border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(63,81,181,0.1);
         }
         .form-submit {
@@ -775,109 +688,85 @@
         }
         .form-note {
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--text-tertiary);
             margin-top: 1rem;
+            text-align: center;
         }
 
         /* ===== RELATED PRODUCTS ===== */
         .related-products {
             padding: 5rem 0;
+            background: var(--background);
         }
         .related-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            margin-top: 2rem;
         }
         .related-card {
-            background: white;
-            border-radius: 16px;
+            background: var(--background-alt);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
             transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
-        }
-        .related-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
         .related-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-md);
         }
         .related-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
         .related-content {
             padding: 1.5rem;
         }
         .related-content h4 {
-            color: var(--storage-dark);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
         .related-content p {
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
-        @media (max-width: 992px) {
-            .related-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 576px) {
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-      
-        @media (max-width: 768px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .specs-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
 
         /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== RESPONSIVE NAV ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: left 0.3s;
-            }
-            .nav-menu.active {
-                left: 0;
-            }
-            .mobile-toggle {
-                display: block;
-            }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .ps-grid { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .specs-wrapper { grid-template-columns: 1fr; }
+            .impact-metrics { grid-template-columns: repeat(2, 1fr); }
+            .case-study-content { grid-template-columns: 1fr; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .product-highlights { flex-direction: column; align-items: flex-start; }
+            .hero-cta { flex-direction: column; }
+            .process-steps { grid-template-columns: 1fr; }
+            .impact-metrics { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
-   <div id="header"></div>
+    <!-- Header will be loaded from component -->
+    <div id="header"></div>
+
     <!-- ========== HERO SECTION ========== -->
     <section class="product-hero">
         <div class="container">
@@ -930,7 +819,7 @@
             <div class="ps-grid">
                 <div class="problem-box">
                     <div class="box-header">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 1.8rem;"></i>
+                        <i class="fas fa-exclamation-triangle"></i>
                         <h3>The Challenge</h3>
                     </div>
                     <div class="box-content">
@@ -947,7 +836,7 @@
 
                 <div class="solution-box">
                     <div class="box-header">
-                        <i class="fas fa-lightbulb" style="font-size: 1.8rem;"></i>
+                        <i class="fas fa-lightbulb"></i>
                         <h3>Our Solution</h3>
                     </div>
                     <div class="box-content">
@@ -1047,36 +936,28 @@
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-sun"></i></div>
                     <h4>Energy Capture</h4>
                     <p>Excess solar/wind energy is captured during peak production hours</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <i class="fas fa-battery-charging"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-battery-charging"></i></div>
                     <h4>Storage</h4>
                     <p>Energy is stored in thermal or battery systems at optimal conditions</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-clock"></i></div>
                     <h4>Retention</h4>
                     <p>Stored energy is preserved with minimal losses (hours to days)</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">4</div>
-                    <div class="step-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
+                    <div class="step-icon"><i class="fas fa-bolt"></i></div>
                     <h4>Dispatch</h4>
                     <p>Stored energy is released when needed for continuous operation</p>
                 </div>
@@ -1193,49 +1074,37 @@
             
             <div class="applications-grid">
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-industry"></i></div>
                     <h4>Industrial Process Heat</h4>
                     <p>Continuous thermal energy for manufacturing processes</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-solar-panel"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-solar-panel"></i></div>
                     <h4>Solar Plant Integration</h4>
                     <p>Extend solar power availability beyond daylight hours</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-building"></i></div>
                     <h4>Commercial Buildings</h4>
                     <p>Peak shaving and backup power for offices, malls</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-hospital"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-hospital"></i></div>
                     <h4>Healthcare Facilities</h4>
                     <p>Critical backup power for hospitals and clinics</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-school"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-school"></i></div>
                     <h4>Educational Institutions</h4>
                     <p>Reliable power for universities and schools</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="app-icon">
-                        <i class="fas fa-tower-cell"></i>
-                    </div>
+                    <div class="app-icon"><i class="fas fa-tower-cell"></i></div>
                     <h4>Telecom Towers</h4>
                     <p>Backup power for uninterrupted telecom services</p>
                 </div>
@@ -1276,7 +1145,7 @@
         </div>
     </section>
 
-    <!-- ========== CASE STUDY ========== -->
+    <!-- ========== CASE STUDY PREVIEW ========== -->
     <section class="case-study-preview">
         <div class="container">
             <h2 class="section-title">Success Stories</h2>
@@ -1296,7 +1165,7 @@
                             <div class="result-label">LPG Reduction</div>
                         </div>
                         <div class="result-item">
-                            <div class="result-value">₹850,000</div>
+                            <div class="result-value">₹850k</div>
                             <div class="result-label">Annual Savings</div>
                         </div>
                         <div class="result-item">
@@ -1311,57 +1180,75 @@
         </div>
     </section>
 
-    <!-- ========== FAQ SECTION ========== -->
-    <section class="faq-section">
+    <!-- ========== CONTACT FORM ========== -->
+    <section class="product-contact" id="contact-form">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What is the typical lifespan of energy storage systems?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Thermal storage systems: 20+ years, Battery systems: 10-15 years, Sand battery: 25+ years. Regular maintenance can extend these lifespans.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>How much space is required for installation?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Space requirements vary by capacity. Typically, 10-50 sq.m for commercial systems. We conduct site surveys to determine exact requirements.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>Are there government subsidies available?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, various state and central government schemes offer subsidies for energy storage systems. We assist with subsidy applications and documentation.</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Ready to secure your energy future?</h3>
+                    <p>Our storage specialists will analyze your site and provide a customized proposal with ROI analysis.</p>
+                    <div class="info-points">
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h5>Call us</h5>
+                                <p>+91 95455 29950</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p>storage@kvbgreen.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Visit</h5>
+                                <p>Dharwad, Karnataka, India</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h4>What maintenance is required?</h4>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Battery systems: Quarterly inspection, Thermal systems: Annual maintenance, Monitoring: Continuous remote monitoring included.</p>
-                    </div>
+                <div class="contact-form">
+                    <h4>Request a consultation</h4>
+                    <form id="product-inquiry-form">
+                        <div class="form-group">
+                            <label>Name*</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email*</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone*</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Application</label>
+                            <select>
+                                <option>Industrial Process Heat</option>
+                                <option>Solar Plant Integration</option>
+                                <option>Commercial Building</option>
+                                <option>Healthcare</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="3" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Submit Inquiry</button>
+                        </div>
+                        <div class="form-note">Your data is secure. We never share your information.</div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- ========== CONTACT FORM ========== -->
-    
 
     <!-- ========== RELATED PRODUCTS ========== -->
     <section class="related-products">
@@ -1399,8 +1286,8 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-     <div id="footer"></div>
+    <!-- Footer placeholder -->
+    <div id="footer"></div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
@@ -1431,104 +1318,62 @@
             "components/footer.html",
             "../components/footer.html"
         ]);
-        </script>
 
-    <!-- ========== SCRIPTS ========== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        // ----- Mobile Navigation Toggle -----
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+        // Mobile Navigation (if header contains hamburger)
+        setTimeout(() => {
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        const icon = mobileToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
             }
-        });
+        }, 500);
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = mobileToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-
-        // ----- Scroll Animations (Intersection Observer) -----
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Observe elements for scroll animation
-        document.querySelectorAll('.problem-box, .solution-box, .tech-card, .process-step, .application-card, .metric-card, .related-card, .faq-item').forEach(el => {
+        document.querySelectorAll('.problem-box, .solution-box, .tech-card, .process-step, .application-card, .metric-card, .related-card').forEach(el => {
             observer.observe(el);
         });
 
-        // ----- FAQ Accordion -----
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                // Close other answers
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    if (ans !== answer && ans.classList.contains('active')) {
-                        ans.classList.remove('active');
-                        ans.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
-                        ans.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
-                    }
-                });
-                
-                answer.classList.toggle('active');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            });
-        });
-
-        // ----- Form Submission -----
+        // Form submission (simulated)
         document.getElementById('product-inquiry-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            
-            // Simulate form submission
             setTimeout(() => {
-                alert('Thank you for your inquiry! Our energy storage specialist will contact you within 24 hours.');
+                alert('Thank you! Our energy storage specialist will contact you within 24 hours.');
                 this.reset();
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
             }, 1500);
         });
 
-        // ----- Parallax Effect on Hero -----
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.product-hero');
-            if (hero) {
-                hero.style.backgroundPositionY = window.pageYOffset * 0.5 + 'px';
-            }
-        });
-
-        // ----- Smooth Scroll for Anchor Links -----
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1543,11 +1388,13 @@
         });
 
         // Lightbox settings
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'albumLabel': 'Image %1 of %2'
-        });
+        if (typeof lightbox !== 'undefined') {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': 'Image %1 of %2'
+            });
+        }
     </script>
 </body>
 </html>
