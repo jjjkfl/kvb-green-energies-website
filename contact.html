@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS (required for map) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
@@ -932,57 +934,6 @@
             content: '🌿';
         }
 
-        .regional-offices h3 {
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-        }
-
-        .office-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .office-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-soft);
-            border: var(--border-nature);
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .office-card h4 {
-            margin-bottom: 12px;
-        }
-
-        .office-card p {
-            font-size: 0.9rem;
-            color: var(--sage-green);
-            margin: 5px 0;
-        }
-
-        .office-contact {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--earth-green);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .office-contact:hover {
-            color: var(--wheat);
-            transform: translateX(5px);
-        }
-
         /* ===== MAP STYLING ===== */
         .location-map {
             position: relative;
@@ -1727,17 +1678,9 @@
                     </div>
                     
                     <!-- File upload note (EmailJS cannot handle files) -->
-                    <div class="form-group">
-                        <label>Attach Files (Optional)</label>
-                        <p class="file-hint">For file attachments, please send via email directly after submitting this form.</p>
-                    </div>
                     
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="newsletter" checked>
-                            <span>Subscribe to KVB's seasonal newsletter for updates on renewable energy and sustainable farming</span>
-                        </label>
-                    </div>
+                    
+                    
                     <div class="form-group">
                         <label class="checkbox-label">
                             <input type="checkbox" name="privacy" required>
@@ -1793,7 +1736,7 @@
         </div>
     </section>
 
-    <!-- ===== OFFICE LOCATION & MAP ===== -->
+    <!-- ===== OFFICE LOCATION & MAP (Only Dharwad Headquarters) ===== -->
     <section class="office-location" id="visit-us">
         <div class="container">
             <h2 class="section-title">Visit Our Sustainable Fields</h2>
@@ -1830,21 +1773,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="regional-offices">
-                        <h3>Regional Offices</h3>
-                        <div class="office-cards">
-                            <div class="office-card">
-                                <h4>Bengaluru Office</h4>
-                                <p>#123, Green Tech Park, Bengaluru, Karnataka - 560001</p>
-                                <a href="tel:+919545529950" class="office-contact"><i class="fas fa-phone"></i> +91-9545529950</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Regional Offices section removed as requested -->
                 </div>
                 <div class="location-map">
                     <div id="officeMap"></div>
                     <div class="map-instructions">
-                        <p><i class="fas fa-info-circle"></i> Click on markers for office details and directions</p>
+                        <p><i class="fas fa-info-circle"></i> Click on the marker for office details and directions</p>
                     </div>
                 </div>
             </div>
@@ -1905,7 +1839,7 @@
                     <p>Download our comprehensive partnership information kit</p>
                     <div class="cta-actions">
                         <a href="#" class="btn btn-primary" download><i class="fas fa-download"></i> Download Kit</a>
-                        <a href="#contact-form" class="btn btn-outline-light"><i class="fas fa-envelope"></i> Send Inquiry</a>
+                        <a href="#contact-form" class="btn btn-primary"><i class="fas fa-envelope"></i> Send Inquiry</a>
                     </div>
                 </div>
             </div>
@@ -1948,9 +1882,9 @@
                 <h2>Still Have Cultivation Questions?</h2>
                 <p>Our team of green energy cultivators is ready to help you grow your sustainable projects.</p>
                 <div class="cta-buttons">
-                    <a href="tel:+919545529950" class="btn btn-primary"><i class="fas fa-phone"></i> Call Our Fields</a>
+                    <a href="tel:+919545529950" class="btn btn-success"><i class="fas fa-phone"></i> Call Our Fields</a>
                     <a href="https://wa.me/919545529950" target="_blank" class="btn btn-success"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
-                    <a href="mailto:info@kvbgreenenergies.com" class="btn btn-outline-light"><i class="fas fa-envelope"></i> Send Email</a>
+                    <a href="mailto:info@kvbgreenenergies.com" class="btn btn-success"><i class="fas fa-envelope"></i> Send Email</a>
                 </div>
             </div>
         </div>
@@ -2175,27 +2109,41 @@
                 });
             });
 
-            // ===== MAP INIT (Leaflet) =====
+            // ===== MAP INIT (Leaflet) - ONLY DHARWAD HEADQUARTERS =====
             window.addEventListener('load', function() {
                 const mapEl = document.getElementById('officeMap');
                 if (!mapEl) return;
-                const map = L.map('officeMap').setView([15.4589, 75.0078], 10);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap', maxZoom: 18 }).addTo(map);
+                
+                // Coordinates for Dharwad headquarters (approximate)
+                const hqCoords = [15.4589, 75.0078];
+                
+                // Initialize map centered on Dharwad with zoom level 13 for a clear view
+                const map = L.map('officeMap').setView(hqCoords, 13);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+                    attribution: '© OpenStreetMap', 
+                    maxZoom: 18 
+                }).addTo(map);
 
-                const offices = [
-                    { name:'KVB Headquarters', coords:[15.4589,75.0078], addr:'R16, KSIDC, 3rd Cross Belur Industrial Estate, Dharwad - 580011', phone:'+91-9545529950', hours:'Mon-Sat 9AM-6PM' },
-                    { name:'Bengaluru Office', coords:[12.9716,77.5946], addr:'#123, Green Tech Park, Bengaluru - 560001', phone:'+91-9545529950', hours:'Mon-Fri 9AM-5PM' }
-                ];
-
-                const icon = L.divIcon({ className:'office-marker', html:'<div class="map-marker"><i class="fas fa-map-marker-alt"></i></div>', iconSize:[45,45], iconAnchor:[22.5,45] });
-
-                offices.forEach(o => {
-                    L.marker(o.coords, { icon }).addTo(map).bindPopup(`
-                        <div class="map-popup"><h4>${o.name}</h4><p>${o.addr}</p><p>📞 ${o.phone}</p><p>🕒 ${o.hours}</p><a href="https://maps.google.com/?q=${o.coords[0]},${o.coords[1]}" target="_blank" class="popup-link"><i class="fas fa-directions"></i> Directions</a></div>
-                    `);
+                // Custom marker icon
+                const icon = L.divIcon({ 
+                    className: 'office-marker', 
+                    html: '<div class="map-marker"><i class="fas fa-map-marker-alt"></i></div>', 
+                    iconSize: [45, 45], 
+                    iconAnchor: [22.5, 45] 
                 });
 
-                map.fitBounds(L.latLngBounds(offices.map(o => o.coords)), { padding: [50,50] });
+                // Add single marker for headquarters
+                L.marker(hqCoords, { icon }).addTo(map)
+                    .bindPopup(`
+                        <div class="map-popup">
+                            <h4>KVB Green Energies Headquarters</h4>
+                            <p>R16, KSIDC, 3rd Cross Belur Industrial Estate<br>Dharwad, Karnataka - 580011</p>
+                            <p>📞 +91-9545529950</p>
+                            <p>🕒 Mon-Sat: 9AM-6PM</p>
+                            <a href="https://maps.google.com/?q=15.4589,75.0078" target="_blank" class="popup-link"><i class="fas fa-directions"></i> Directions</a>
+                        </div>
+                    `);
             });
 
             // ===== ACTIVE LINK HIGHLIGHT =====
