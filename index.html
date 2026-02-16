@@ -731,18 +731,25 @@
       width: max-content;
       animation: scrollMarquee 40s linear infinite;
     }
-    .client-badge {
-      background: white;
-      padding: 12px 28px;
-      border-radius: 40px;
-      box-shadow: 0 4px 12px rgba(58,125,68,0.06);
-      font-weight: 600;
-      color: var(--eco-green);
-      border: 1px solid rgba(58,125,68,0.1);
-      white-space: nowrap;
-      font-size: 1rem;
-      transition: 0.2s;
-    }
+   .client-badge {
+  background: white;
+  padding: 12px 28px;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(58,125,68,0.06);
+  border: 1px solid rgba(58,125,68,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 70px;
+}
+
+.client-badge img {
+  max-height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
     .client-badge:hover {
       background: var(--eco-green);
       color: white;
@@ -1098,40 +1105,32 @@
         <h2 class="section-title" data-aos="fade-up">Trusted Nationally</h2>
         <p class="section-subtitle" data-aos="fade-up">Our technologies are deployed where reliability is critical</p>
         
-        <div class="marquee-wrapper">
-          <div class="marquee-track">
-            <span class="client-badge">Indian Army – Chennai</span>
-            <span class="client-badge">INS Mandovi – Goa</span>
-            <span class="client-badge">YASHADA – Pune</span>
-            <span class="client-badge">Coffee Board – Balehonnur</span>
-            <span class="client-badge">NABARD – Bagalkot</span>
-            <span class="client-badge">ICAR – Goa</span>
-            <span class="client-badge">UHS Bagalkot</span>
-            <span class="client-badge">UAS Bengaluru</span>
-            <span class="client-badge">Dantiwada Agriculture University</span>
-            <span class="client-badge">Keladi University Shivamogga</span>
-            <span class="client-badge">Sri Siddharodhmath – Hubli</span>
-            <span class="client-badge">Sri Siddaganga Math – Tumkur</span>
-            <span class="client-badge">Prakruti – Karwar</span>
-            <span class="client-badge">Sugati Ingredients – Challakere</span>
-            <span class="client-badge">Nithya Foods – Puttur</span>
-            <span class="client-badge">Indian Army – Chennai</span>
-            <span class="client-badge">INS Mandovi – Goa</span>
-            <span class="client-badge">YASHADA – Pune</span>
-            <span class="client-badge">Coffee Board – Balehonnur</span>
-            <span class="client-badge">NABARD – Bagalkot</span>
-            <span class="client-badge">ICAR – Goa</span>
-            <span class="client-badge">UHS Bagalkot</span>
-            <span class="client-badge">UAS Bengaluru</span>
-            <span class="client-badge">Dantiwada Agriculture University</span>
-            <span class="client-badge">Keladi University Shivamogga</span>
-            <span class="client-badge">Sri Siddharodhmath – Hubli</span>
-            <span class="client-badge">Sri Siddaganga Math – Tumkur</span>
-            <span class="client-badge">Prakruti – Karwar</span>
-            <span class="client-badge">Sugati Ingredients – Challakere</span>
-            <span class="client-badge">Nithya Foods – Puttur</span>
-          </div>
-        </div>
+       <div class="marquee-track">
+  <div class="client-badge">
+    <img src="images/clients/indian-army.png" alt="Indian Army">
+  </div>
+
+  <div class="client-badge">
+    <img src="images/clients/ins-mandovi.png" alt="INS Mandovi">
+  </div>
+
+  <div class="client-badge">
+    <img src="images/clients/yashada.png" alt="YASHADA">
+  </div>
+
+  <div class="client-badge">
+    <img src="images/clients/coffee-board.png" alt="Coffee Board">
+  </div>
+
+  <div class="client-badge">
+    <img src="images/clients/nabard.png" alt="NABARD">
+  </div>
+
+  <div class="client-badge">
+    <img src="images/clients/icar.png" alt="ICAR">
+  </div>
+</div>
+
 
         <div style="margin-top: 60px; text-align: center;" data-aos="fade-up">
           <h3 style="color: var(--eco-green); margin-bottom: 24px;">Government & Institutional Partners</h3>
