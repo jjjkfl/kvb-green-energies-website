@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Crop Quality Detection System | KVB Green Energies</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Fonts & Icons – Apple-inspired -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- EmailJS SDK -->
+    <!-- EmailJS SDK (kept for functionality) -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
-        /* ----- ALL YOUR EXISTING STYLES – KEEP THEM ----- */
+        /* ===== BASE STYLES – Apple/Tesla inspired, light & minimal ===== */
         :root {
-            --primary-color: #2E7D32;
-            --primary-light: #4CAF50;
-            --primary-dark: #1B5E20;
-            --ai-color: #2196F3;
-            --ai-light: #64B5F6;
-            --ai-dark: #1976D2;
-            --text-primary: #212121;
-            --text-secondary: #757575;
-            --text-light: #9E9E9E;
-            --bg-light: #F5F7FA;
-            --bg-white: #FFFFFF;
-            --border-color: #E0E0E0;
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.15);
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
+            --background: #FFFFFF;
+            --background-alt: #F9F9FB;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --text-tertiary: #A1A1A6;
+            --border: #E6E6E8;
+            --accent: #007AFF;             /* Apple blue */
+            --accent-light: #E3F2FD;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -41,748 +39,607 @@
         body {
             font-family: var(--font-body);
             color: var(--text-primary);
-            background-color: var(--bg-white);
-            line-height: 1.6;
+            background: var(--background);
+            line-height: 1.5;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            padding-top: 80px;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 80px; /* for fixed header */
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
 
-      
-        .cta-button {
-            background: linear-gradient(135deg, var(--ai-color), var(--ai-dark));
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 8px;
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
             font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-primary);
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 280px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            border-radius: 12px;
-            padding: 0.8rem 0;
-            z-index: 1000;
-            animation: dropdownFade 0.3s ease;
-            border: 1px solid rgba(33,150,243,0.1);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
+            line-height: 1.2;
+            letter-spacing: -0.02em;
             color: var(--text-primary);
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 500;
-            transition: all 0.2s;
-            border-left: 3px solid transparent;
         }
 
-        .dropdown-content a:hover {
-            background: rgba(33,150,243,0.05);
-            border-left-color: var(--ai-color);
-            padding-left: 1.8rem;
-        }
-
-        .dropdown-content i {
-            width: 20px;
-            color: var(--ai-color);
-            font-size: 1.1rem;
-        }
-
-        @keyframes dropdownFade {
-            from { opacity: 0; transform: translateY(-10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ----- PRODUCT HERO (unchanged) ----- */
-        .product-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.95) 0%, rgba(66, 165, 245, 0.95) 100%);
-            padding-top: 80px;
-        }
-
-        .product-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            opacity: 0.15;
-            animation: backgroundZoom 20s infinite alternate;
-        }
-
-        @keyframes backgroundZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .product-branding {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 2.5rem;
-        }
-
-        .product-branding img {
-            height: 80px;
-            border-radius: 12px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-            50% { box-shadow: 0 10px 40px rgba(255,255,255,0.2); }
-            100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        }
-
-        .product-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideInLeft 1s ease-out;
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-
-        .product-badge img {
-            height: 35px;
-            border-radius: 6px;
-        }
-
-        .product-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .tag:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 1.5rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* ----- PRODUCT MAIN CONTENT (unchanged) ----- */
-        .product-content {
-            padding: 6rem 0;
-        }
+        h1 { font-size: 3.2rem; margin-bottom: 1.2rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; font-weight: 600; }
+        h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 500; }
+        h4 { font-size: 1.3rem; margin-bottom: 0.8rem; font-weight: 500; }
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
-
         .section-title:after {
-            left: 50%;
-            transform: translateX(-50%);
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+            border-radius: 2px;
         }
 
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .spec-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.1);
-            border: 1px solid rgba(33, 150, 243, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .spec-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .spec-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.15);
-            border-color: var(--ai-light);
-        }
-
-        .spec-card i {
-            font-size: 3rem;
-            color: var(--ai-color);
-            margin-bottom: 1.5rem;
+        /* ===== BUTTONS ===== */
+        .btn {
             display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            background: transparent;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,122,255,0.2);
+        }
+        .btn-primary:hover {
+            background: #0051D5;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,122,255,0.3);
+        }
+        .btn-secondary {
+            background: var(--background);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            background: var(--background-alt);
+            border-color: var(--text-secondary);
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--accent-light);
         }
 
-        .applications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+        /* ===== HEADER (placeholder) ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .app-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            border: 2px solid transparent;
-            transition: all 0.4s;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .app-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .app-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(33, 150, 243, 0.15);
-            border-color: var(--ai-color);
-        }
-
-        .app-card i {
-            font-size: 3.5rem;
-            color: var(--ai-color);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, rgba(33,150,243,0.1), rgba(100,181,246,0.2));
-            width: 90px;
-            height: 90px;
-            line-height: 90px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 5rem 0;
-        }
-
-        .gallery-item {
-            border-radius: 16px;
-            overflow: hidden;
+        /* ===== HERO – Clean, minimal ===== */
+        .product-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: var(--background-alt);
+            padding: 80px 0 40px;
+            border-bottom: 1px solid var(--border);
             position: relative;
-            height: 300px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .product-branding {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .product-branding img {
+            height: 70px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: white;
+            padding: 4px;
+        }
+        .product-branding h1 {
+            margin-bottom: 0;
+            font-size: 2.8rem;
+        }
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        .tag {
+            background: var(--background);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .tag i {
+            color: var(--accent);
         }
 
-        .gallery-item.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ===== PRODUCT MAIN CONTENT ===== */
+        .product-content {
+            padding: 5rem 0;
+            background: var(--background);
         }
-
-        .gallery-item img {
+        .product-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+        .product-image-gallery {
+            position: sticky;
+            top: 100px;
+        }
+        .main-image {
+            width: 100%;
+            height: 450px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 1.5rem;
+        }
+        .main-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s;
+        }
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .thumbnail {
+            height: 100px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .thumbnail.active {
+            border-color: var(--accent);
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding-top: 1rem;
+        }
+        .product-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        .product-badge img {
+            height: 30px;
+            border-radius: 6px;
+        }
+        .product-specs-highlight {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .spec-highlight-card {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+        .spec-highlight-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .spec-highlight-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .spec-highlight-card h4 {
+            margin-bottom: 0.3rem;
+        }
+        .spec-highlight-card p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .feature-list i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        .feature-list span strong {
+            color: var(--text-primary);
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        /* ===== APPLICATIONS ===== */
+        .applications-section {
+            margin-top: 5rem;
         }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .application-card {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
             padding: 2rem;
-            transform: translateY(100%);
-            transition: transform 0.4s;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .application-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .app-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .application-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        .application-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        /* ===== TECHNICAL SPECIFICATIONS ===== */
+        .technical-specs {
+            margin-top: 5rem;
         }
-
         .tech-table-container {
-            background: var(--bg-light);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 5rem 0;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            background: var(--background-alt);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            padding: 2rem;
         }
-
         .tech-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 2rem;
         }
-
         .tech-table th {
-            background: linear-gradient(135deg, var(--ai-color), var(--ai-dark));
-            color: white;
-            padding: 1.2rem 1.5rem;
             text-align: left;
+            padding: 1rem 1.5rem;
+            background: var(--accent-light);
+            color: var(--text-primary);
             font-weight: 600;
-            position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
-
-        .tech-table th:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shine 2s infinite;
-        }
-
-        @keyframes shine {
-            100% { left: 100%; }
-        }
-
         .tech-table td {
-            padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid rgba(33,150,243,0.1);
-            transition: background-color 0.3s;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
         }
-
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
         .tech-table tr:hover td {
-            background-color: rgba(33,150,243,0.05);
+            background: var(--background);
         }
 
-        /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST (SAME AS SOLAR STEAM) ===== */
-       /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST ===== */
-.premium-wrapper {
-    margin: 6rem auto;
-    position: relative;
-    max-width: 900px;
-}
-
-.lock-container {
-    margin: 0 auto;
-    max-width: 800px;
-    text-align: center;
-}
-
-.lock-container h3,
-.lock-container p,
-.lock-container span {
-    text-align: center;
-    display: block;
-}
-
+        /* ===== PREMIUM UNLOCK – Apple style card ===== */
+        .premium-wrapper {
+            margin: 6rem auto;
+            max-width: 900px;
+        }
         .lock-container {
-            background: white;
-            border-radius: 40px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             padding: 3rem;
-            box-shadow: var(--shadow-hover);
             text-align: center;
-            border: 2px dashed rgba(58,125,68,0.3);
-            transition: all 0.4s ease;
+            box-shadow: var(--shadow-lg);
             cursor: pointer;
-            background: white;
+            transition: all 0.2s;
         }
         .lock-container:hover {
-            transform: scale(1.02);
-            border-color: var(--ai-color);
-            box-shadow: 0 30px 60px rgba(33,150,243,0.2);
+            border-color: var(--accent);
+            box-shadow: 0 12px 40px rgba(0,122,255,0.1);
         }
         .lock-icon-big {
-            font-size: 5rem;
-            color: var(--ai-color);
+            font-size: 4rem;
+            color: var(--accent);
             margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%,100% { transform: scale(1); text-shadow: 0 0 20px rgba(33,150,243,0.3); }
-            50% { transform: scale(1.1); text-shadow: 0 0 40px rgba(33,150,243,0.6); }
         }
         .lock-container h3 {
-            font-size: 2rem;
-            color: var(--ai-dark);
             margin-bottom: 1rem;
         }
         .lock-container p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 500px;
+            margin: 0 auto 2rem;
         }
-
         .unlock-form-container {
-            background: white;
-            border-radius: 40px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             padding: 3rem;
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-lg);
             margin-top: 2rem;
             display: none;
-            animation: slideDown 0.6s ease;
         }
         .unlock-form-container.visible {
             display: block;
         }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
         .unlock-header {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
         .unlock-header i {
-            font-size: 3rem;
-            color: var(--ai-color);
-            background: rgba(33,150,243,0.1);
-            padding: 1rem;
-            border-radius: 50%;
+            font-size: 2.5rem;
+            color: var(--accent);
         }
         .unlock-header h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            color: var(--ai-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
         }
-
         .unlock-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-        .form-group { margin-bottom: 0.5rem; }
-        .form-group.full-width { grid-column: span 2; }
+        .form-group {
+            margin-bottom: 0.5rem;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
         .form-group label {
-            display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95rem;
         }
         .form-group input,
         .form-group select,
         .form-group textarea {
-            width: 100%; padding: 1rem 1.2rem; border: 2px solid #e0e0e0; border-radius: 12px;
-            font-family: 'Open Sans', sans-serif; font-size: 1rem; transition: all 0.3s ease;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            transition: all 0.2s;
+            background: var(--background-alt);
         }
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            outline: none; border-color: var(--ai-color); box-shadow: 0 0 0 4px rgba(33,150,243,0.1);
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,122,255,0.1);
         }
-
         .hidden-content {
             display: none;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
             margin-top: 2rem;
         }
         .hidden-content.visible {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
         }
-
+        .success-message {
+            background: #E8F5E9;
+            color: #1D7A3F;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
         .premium-card {
-            background: linear-gradient(145deg, #f8fafc, #edf7ed);
-            padding: 2.5rem;
-            border-radius: 30px;
-            border-left: 8px solid var(--ai-color);
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
         }
         .premium-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         .premium-item {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-sm);
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
             text-align: center;
         }
         .premium-item i {
-            font-size: 2.5rem;
-            color: var(--ai-color);
+            font-size: 2rem;
+            color: var(--accent);
             margin-bottom: 1rem;
         }
-        .premium-item h4 { color: var(--ai-dark); margin-bottom: 0.8rem; }
-        .btn-small { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-
-        .success-message {
-            background: #d4edda; color: #155724; padding: 1.2rem; border-radius: 12px;
-            margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; font-weight: 600;
+        .premium-item h4 {
+            margin-bottom: 0.5rem;
+        }
+        .btn-small {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
         }
 
-        .btn {
-            padding: 1.2rem 3rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem;
-            display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94); cursor: pointer; border: none;
-            font-family: 'Montserrat', sans-serif; position: relative; overflow: hidden;
-        }
-        .btn::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s;
-        }
-        .btn:hover::before { left: 100%; }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--ai-color), var(--ai-dark)); color: white;
-            box-shadow: 0 10px 30px rgba(33,150,243,0.4);
-        }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(33,150,243,0.5); }
-        .btn-secondary {
-            background: white; color: var(--ai-color); border: 2px solid var(--ai-color);
-            box-shadow: 0 5px 20px rgba(33,150,243,0.2);
-        }
-        .btn-secondary:hover { background: var(--ai-color); color: white; transform: translateY(-5px); box-shadow: 0 15px 35px rgba(33,150,243,0.4); }
-
-        @media (max-width: 768px) {
-            .unlock-form { grid-template-columns: 1fr; }
-            .form-group.full-width { grid-column: span 1; }
-        }
-
-      
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .nav-menu {
-                position: fixed; top: 80px; left: -100%; flex-direction: column;
-                background: white; width: 100%; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                transition: left 0.3s; z-index: 999;
+            .product-main-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            .nav-menu.active { left: 0; }
-            .hamburger { display: flex; }
-            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px,6px); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px,-6px); }
+            .product-image-gallery {
+                position: static;
+            }
+            .unlock-form {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            h1 { font-size: 2.5rem; }
+            .product-specs-highlight {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-   <DIV ID="header"></DIV>
+    <div id="header"></div>
 
-    <!-- ===== PRODUCT HERO ===== -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="product-hero">
         <div class="container">
             <div class="hero-content">
                 <div class="product-branding">
                     <img src="../images/products/kvb.jpeg" alt="KVB Logo">
-                    <div>
-                        <h1>AI Crop Quality Detection System</h1>
-                        <p style="font-size: 1.3rem; color: rgba(255,255,255,0.95);">
-                            Revolutionary computer vision technology for automated crop grading and sorting
-                        </p>
-                    </div>
+                    <h1>AI Crop Quality Detection System</h1>
                 </div>
-                <div class="product-badge">
-                    <img src="../images/products/kvb.jpeg" alt="KVB Logo">
-                    <span style="font-weight: 600;">Product Code: KVB-AIC-2024 | Smart Agriculture Technology</span>
-                </div>
-                <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); max-width: 700px;">
-                    Transform your agricultural produce grading with our AI-powered computer vision system. 
-                    Automatically detect size, color, defects, and quality parameters with 99% accuracy. 
-                    Increase productivity by 300% while reducing manual labor costs by 70%.
+                <p style="font-size:1.2rem; color:var(--text-secondary); max-width:700px;">
+                    Revolutionary computer vision technology for automated crop grading and sorting. 
+                    Transform your agricultural produce grading with 99% accuracy.
                 </p>
                 <div class="product-tags">
                     <span class="tag"><i class="fas fa-brain"></i> AI/ML Powered</span>
                     <span class="tag"><i class="fas fa-eye"></i> 99% Accuracy</span>
-                    <span class="tag"><i class="fas fa-robot"></i> 1000+ items/minute</span>
+                    <span class="tag"><i class="fas fa-robot"></i> 1000+ items/min</span>
                     <span class="tag"><i class="fas fa-chart-line"></i> 70% Cost Reduction</span>
-                    <span class="tag"><i class="fas fa-bolt"></i> Real-time Processing</span>
-                    <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile App Control</span>
+                    <span class="tag"><i class="fas fa-bolt"></i> Real-time</span>
+                    <span class="tag"><i class="fas fa-mobile-alt"></i> Mobile App</span>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
     <!-- ===== PRODUCT MAIN CONTENT ===== -->
     <section class="product-content">
         <div class="container">
-            <!-- Product Main Grid -->
-            <div class="product-main-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 5rem;">
+            <div class="product-main-grid">
+                <!-- Left: Image Gallery -->
                 <div class="product-image-gallery">
-                    <div class="main-image" style="width: 100%; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-hover); margin-bottom: 2rem;">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:100%; object-fit: cover;" id="mainImage">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" id="mainImage" alt="AI Crop Detection">
                     </div>
-                    <div class="thumbnail-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;">
-                        <div class="thumbnail active" onclick="changeImage('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)" style="height:110px; border-radius:15px; overflow:hidden; cursor:pointer; border:3px solid transparent; transition:all 0.4s;">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="thumbnail-grid">
+                        <div class="thumbnail active" onclick="changeImage('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)" style="height:110px; border-radius:15px; overflow:hidden; cursor:pointer; border:3px solid transparent;">
-                            <img src="https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1558449028-b53a39d10009?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)" style="height:110px; border-radius:15px; overflow:hidden; cursor:pointer; border:3px solid transparent;">
-                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
                         </div>
-                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)" style="height:110px; border-radius:15px; overflow:hidden; cursor:pointer; border:3px solid transparent;">
-                            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" style="width:100%; height:100%; object-fit:cover;">
+                        <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', this)">
+                            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="">
                         </div>
                     </div>
                 </div>
+
+                <!-- Right: Product Info -->
                 <div class="product-info">
-                    <div class="product-badge" style="background: rgba(33,150,243,0.15); border-color: rgba(33,150,243,0.3); display: inline-flex; align-items: center; gap: 12px; padding: 0.8rem 1.5rem; border-radius: 50px; margin-bottom: 2rem;">
-                        <img src="../images/products/kvb.jpeg" style="height:40px;"> <span style="color:var(--ai-dark);">KVB Certified Premium Product</span>
+                    <div class="product-badge">
+                        <img src="../images/products/kvb.jpeg" alt="">
+                        <span>KVB Certified Premium Product</span>
                     </div>
-                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: var(--ai-dark); margin-bottom: 1.5rem;">Revolutionary AI Detection Solution</h2>
-                    <p style="font-size:1.15rem; line-height:1.9; color:#555;">
-                        The KVB AI Crop Quality Detection System harnesses advanced computer vision and deep learning to automatically grade and sort agricultural produce. Our multi-spectral camera array and NVIDIA Jetson edge AI processor deliver 99% accuracy at 1000+ items per minute.
-                    </p>
-                    <div class="product-specs-highlight" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 3rem 0;">
-                        <div class="spec-highlight-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border-left: 5px solid var(--ai-color);">
-                            <i class="fas fa-tachometer-alt" style="font-size:2.5rem; color:var(--ai-color); margin-bottom:1rem;"></i>
+                    <h2 style="font-size:2rem;">Revolutionary AI Detection</h2>
+                    <p>The KVB AI Crop Quality Detection System harnesses advanced computer vision and deep learning to automatically grade and sort agricultural produce. Multi‑spectral camera array and NVIDIA Jetson edge AI deliver 99% accuracy at 1000+ items per minute.</p>
+                    
+                    <div class="product-specs-highlight">
+                        <div class="spec-highlight-card">
+                            <i class="fas fa-tachometer-alt"></i>
                             <h4>Processing Speed</h4>
                             <p>1000+ items/min</p>
                         </div>
-                        <div class="spec-highlight-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border-left: 5px solid var(--ai-color);">
-                            <i class="fas fa-crosshairs" style="font-size:2.5rem; color:var(--ai-color); margin-bottom:1rem;"></i>
+                        <div class="spec-highlight-card">
+                            <i class="fas fa-crosshairs"></i>
                             <h4>Accuracy</h4>
-                            <p>98% - 99.5%</p>
+                            <p>98% – 99.5%</p>
                         </div>
-                        <div class="spec-highlight-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border-left: 5px solid var(--ai-color);">
-                            <i class="fas fa-camera" style="font-size:2.5rem; color:var(--ai-color); margin-bottom:1rem;"></i>
+                        <div class="spec-highlight-card">
+                            <i class="fas fa-camera"></i>
                             <h4>Vision System</h4>
-                            <p>6-Camera Array</p>
+                            <p>6‑Camera Array</p>
                         </div>
-                        <div class="spec-highlight-card" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm); border-left: 5px solid var(--ai-color);">
-                            <i class="fas fa-microchip" style="font-size:2.5rem; color:var(--ai-color); margin-bottom:1rem;"></i>
+                        <div class="spec-highlight-card">
+                            <i class="fas fa-microchip"></i>
                             <h4>AI Processor</h4>
                             <p>NVIDIA Jetson AGX</p>
                         </div>
                     </div>
-                    <h3 style="font-size:1.8rem; margin:3rem 0 2rem; color:var(--ai-dark);">Key Features & Benefits</h3>
-                    <ul class="feature-list" style="list-style: none; margin: 3rem 0;">
-                        <li style="padding: 1.5rem 0; border-bottom: 1px solid rgba(33,150,243,0.1); display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color:var(--ai-color); margin-right:20px; font-size:1.3rem;"></i>
-                            <span><strong>99% Detection Accuracy:</strong> Computer vision with deep learning models</span>
-                        </li>
-                        <li style="padding: 1.5rem 0; border-bottom: 1px solid rgba(33,150,243,0.1); display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color:var(--ai-color); margin-right:20px; font-size:1.3rem;"></i>
-                            <span><strong>Multi-Spectral Imaging:</strong> RGB, NIR, and thermal for defect detection</span>
-                        </li>
-                        <li style="padding: 1.5rem 0; border-bottom: 1px solid rgba(33,150,243,0.1); display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color:var(--ai-color); margin-right:20px; font-size:1.3rem;"></i>
-                            <span><strong>Real-time Sorting:</strong> 1000+ items per minute with automated grading</span>
-                        </li>
-                        <li style="padding: 1.5rem 0; border-bottom: 1px solid rgba(33,150,243,0.1); display: flex; align-items: flex-start;">
-                            <i class="fas fa-check-circle" style="color:var(--ai-color); margin-right:20px; font-size:1.3rem;"></i>
-                            <span><strong>Cloud Connectivity:</strong> Remote monitoring and performance analytics</span>
-                        </li>
+
+                    <h3>Key Features</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>99% Detection Accuracy:</strong> Computer vision with deep learning</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Multi‑Spectral Imaging:</strong> RGB, NIR, thermal for defect detection</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Real‑time Sorting:</strong> 1000+ items per minute</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Cloud Connectivity:</strong> Remote monitoring & analytics</span></li>
                     </ul>
-                    <div class="product-actions" style="display: flex; gap: 2rem; margin-top: 3rem;">
-                        <a href="../contact.html?product=ai-crop" class="btn btn-primary"><i class="fas fa-file-invoice"></i> Request Custom Quote</a>
-                        <a href="tel:+911234567890" class="btn btn-secondary"><i class="fas fa-phone"></i> Schedule Demo Call</a>
+
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+                        <a href="../contact.html?product=ai-crop" class="btn btn-primary"><i class="fas fa-file-invoice"></i> Request Quote</a>
+                        <a href="tel:+911234567890" class="btn btn-secondary"><i class="fas fa-phone"></i> Schedule Demo</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Applications Section -->
-            <div class="applications-section" style="margin-top: 5rem;">
+            <!-- Applications -->
+            <div class="applications-section">
                 <h2 class="section-title">Detectable Parameters</h2>
                 <div class="applications-grid">
                     <div class="application-card"><div class="app-icon"><i class="fas fa-ruler-combined"></i></div><h4>Size & Shape</h4><p>Precise dimensional analysis</p></div>
@@ -792,8 +649,8 @@
                 </div>
             </div>
 
-            <!-- Technical Specifications Table -->
-            <div class="technical-specs" style="margin-top: 5rem;">
+            <!-- Technical Specifications -->
+            <div class="technical-specs">
                 <h2 class="section-title">Technical Specifications</h2>
                 <div class="tech-table-container">
                     <table class="tech-table">
@@ -803,7 +660,7 @@
                             <tr><td><strong>Processing Unit</strong></td><td>NVIDIA Jetson AGX</td><td>32GB RAM, 512GB SSD</td></tr>
                             <tr><td><strong>AI Model</strong></td><td>Custom CNN</td><td>Trained on 500,000+ images</td></tr>
                             <tr><td><strong>Processing Speed</strong></td><td>1000+ items/min</td><td>Real-time sorting</td></tr>
-                            <tr><td><strong>Accuracy</strong></td><td>98% - 99.5%</td><td>Varies by crop type</td></tr>
+                            <tr><td><strong>Accuracy</strong></td><td>98% – 99.5%</td><td>Varies by crop type</td></tr>
                             <tr><td><strong>Power Requirement</strong></td><td>1.5 kW</td><td>220V AC</td></tr>
                         </tbody>
                     </table>
@@ -812,38 +669,28 @@
         </div>
     </section>
 
-    <!-- ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST (SAME AS SOLAR STEAM) ===== -->
+    <!-- ===== PREMIUM UNLOCK – Apple style ===== -->
     <div class="container premium-wrapper">
-        <!-- LOCK ICON (visible initially, unless already unlocked) -->
         <div id="lockContainer" class="lock-container">
-            <div class="lock-icon-big">
-                <i class="fas fa-lock"></i>
-            </div>
+            <div class="lock-icon-big"><i class="fas fa-lock"></i></div>
             <h3>Unlock Premium Technical Library</h3>
             <p>Get detailed technical documentation, case studies, ROI calculator, and implementation guides for the AI Crop Detection System.</p>
-            <div style="margin-top: 2rem;">
-                <span style="background: rgba(33,150,243,0.1); padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 600;">
-                    <i class="fas fa-click"></i> Click the lock to begin
-                </span>
-            </div>
+            <span style="background:var(--accent-light); padding:0.5rem 1.5rem; border-radius:40px; font-weight:500;">Click to unlock</span>
         </div>
 
-        <!-- FORM CONTAINER (hidden initially) – MATCHES EMAILJS TEMPLATES -->
         <div id="unlockFormContainer" class="unlock-form-container">
             <div class="unlock-header">
                 <i class="fas fa-file-alt"></i>
                 <div>
                     <h2>Access Premium Content</h2>
-                    <p style="color: #666;">Enter your details – we'll send you the download link immediately.</p>
+                    <p style="color:var(--text-secondary);">Enter your details – we'll send you the download link immediately.</p>
                 </div>
             </div>
             <form id="premiumForm" class="unlock-form">
-                <!-- Full Name – matches {{from_name}} -->
                 <div class="form-group">
                     <label for="from_name">Full Name *</label>
                     <input type="text" id="from_name" name="from_name" placeholder="Dr. A. Sharma" required>
                 </div>
-                <!-- Email – matches {{reply_to}} -->
                 <div class="form-group">
                     <label for="reply_to">Email Address *</label>
                     <input type="email" id="reply_to" name="reply_to" placeholder="director@institution.edu" required>
@@ -854,12 +701,12 @@
                 </div>
                 <div class="form-group">
                     <label for="organization">Organization</label>
-                    <input type="text" id="organization" name="organization" placeholder="Indian Army / IIT Dharwad / etc.">
+                    <input type="text" id="organization" name="organization" placeholder="Indian Army / IIT Dharwad">
                 </div>
                 <div class="form-group">
                     <label for="cropType">Primary Crop Type</label>
                     <select id="cropType" name="cropType">
-                        <option value="">Select crop type</option>
+                        <option value="">Select</option>
                         <option value="fruits">Fruits</option>
                         <option value="vegetables">Vegetables</option>
                         <option value="spices">Spices</option>
@@ -872,77 +719,70 @@
                     <textarea id="message" name="message" rows="3" placeholder="I'm interested in a system for processing mangoes..."></textarea>
                 </div>
                 
-                <!-- Hidden fields – EMAILJS TEMPLATE VARIABLES -->
                 <input type="hidden" name="product" value="AI Crop Quality Detection System">
-                <!-- ⚠️ CHANGE THIS TO YOUR ADMIN EMAIL -->
                 <input type="hidden" id="admin_email" name="to_email" value="siddappagout@gmail.com">
                 
                 <div class="form-group full-width">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" style="width:100%;">
                         <i class="fas fa-unlock-alt"></i> Unlock Premium Content
                     </button>
                 </div>
-                <p style="grid-column: span 2; text-align: center; color: #666; font-size: 0.9rem; margin-top: 1rem;">
-                    We respect your privacy. Your information will only be used to serve you better.
-                </p>
+                <p style="grid-column:span2; text-align:center; font-size:0.85rem; color:var(--text-tertiary);">Your data is secure. We never share your information.</p>
             </form>
         </div>
 
-        <!-- PREMIUM CONTENT (hidden initially) -->
         <div id="hiddenPremiumContent" class="hidden-content">
-            <div class="success-message" id="successMessage" style="display: none;">
-                <i class="fas fa-check-circle" style="font-size: 1.8rem;"></i>
-                <span style="font-size: 1.2rem;">Thank you! Your premium content is now unlocked.</span>
+            <div class="success-message" id="successMessage" style="display:none;">
+                <i class="fas fa-check-circle" style="font-size:1.8rem;"></i>
+                <span style="font-size:1.2rem;">Thank you! Your premium content is now unlocked.</span>
             </div>
             <div class="premium-card">
-                <h3 style="display: flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-file-alt" style="color: var(--ai-color);"></i> 
-                    Premium Technical Library
+                <h3 style="display:flex; align-items:center; gap:15px;">
+                    <i class="fas fa-file-alt" style="color:var(--accent);"></i> Premium Technical Library
                 </h3>
                 <div class="premium-grid">
                     <div class="premium-item">
                         <i class="fas fa-file-pdf"></i>
-                        <h4>Technical Documentation</h4>
-                        <p>Complete specifications, installation guide, and maintenance manual.</p>
-                        <a href="#" class="btn btn-small btn-secondary" style="margin-top: 1rem;">Download (ZIP)</a>
+                        <h4>Technical Docs</h4>
+                        <p>Complete specs & manuals.</p>
+                        <a href="#" class="btn btn-small btn-outline" style="margin-top:1rem;">Download</a>
                     </div>
                     <div class="premium-item">
                         <i class="fas fa-chart-line"></i>
                         <h4>ROI Calculator</h4>
-                        <p>Interactive Excel tool with real crop price inputs.</p>
-                        <a href="#" class="btn btn-small btn-secondary">Download</a>
+                        <p>Interactive Excel tool.</p>
+                        <a href="#" class="btn btn-small btn-outline">Download</a>
                     </div>
                     <div class="premium-item">
                         <i class="fas fa-video"></i>
                         <h4>Installation Videos</h4>
-                        <p>Step-by-step setup, calibration, and operation guides.</p>
-                        <a href="#" class="btn btn-small btn-secondary">Watch</a>
+                        <p>Step‑by‑step guides.</p>
+                        <a href="#" class="btn btn-small btn-outline">Watch</a>
                     </div>
                     <div class="premium-item">
                         <i class="fas fa-flask"></i>
                         <h4>Performance Reports</h4>
-                        <p>Third-party test reports from ICAR and IIT Dharwad.</p>
-                        <a href="#" class="btn btn-small btn-secondary">View</a>
+                        <p>ICAR & IIT test reports.</p>
+                        <a href="#" class="btn btn-small btn-outline">View</a>
                     </div>
                 </div>
-                <div style="margin-top: 2.5rem; padding: 1.5rem; background: white; border-radius: 20px;">
-                    <h4 style="color: var(--ai-dark); margin-bottom: 1rem;">📘 Confidential Case Studies</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--ai-color); margin-right: 12px;"></i> Coffee Board, Balehonnur – 98% defect detection accuracy, 40% labor cost reduction</li>
-                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--ai-color); margin-right: 12px;"></i> UHS Bagalkot – Mango grading system, 1000+ fruits/minute</li>
-                        <li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--ai-color); margin-right: 12px;"></i> NABARD, Bagalkot – Chilli quality detection, ROI 2.8 years</li>
+                <div style="margin-top:2rem; padding:1.5rem; background:white; border-radius:var(--radius-md); border:1px solid var(--border);">
+                    <h4 style="color:var(--accent); margin-bottom:1rem;">📘 Confidential Case Studies</h4>
+                    <ul style="list-style:none;">
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> Coffee Board, Balehonnur – 98% defect detection, 40% labor cost reduction</li>
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> UHS Bagalkot – Mango grading, 1000+ fruits/minute</li>
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> NABARD, Bagalkot – Chilli quality detection, ROI 2.8 years</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-  <div id="footer"></div>
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <div id="footer"></div>
+
+    <!-- Scripts (unchanged functionality) -->
     <script>
-        // Load header and footer components
+        // Load header/footer components (same as original)
         function loadComponent(id, paths) {
             const tryPath = (index) => {
                 if (index >= paths.length) return;
@@ -958,32 +798,23 @@
             };
             tryPath(0);
         }
+        loadComponent("header", ["components/header.html", "../components/header.html"]);
+        loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
 
-        loadComponent("header", [
-            "components/header.html",
-            "../components/header.html"
-        ]);
+        // Image gallery function
+        window.changeImage = function(src, element) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        };
 
-        loadComponent("footer", [
-            "components/footer.html",
-            "../components/footer.html"
-        ]);
-    </script>
-
-    <!-- ===== SCRIPTS – EMAILJS INTEGRATION (SAME CREDENTIALS AS SOLAR STEAM) ===== -->
-    <script>
-        // ===== ✅ EMAILJS INIT – USING SAME CREDENTIALS AS SOLAR STEAM =====
+        // EmailJS config (same credentials)
         (function() {
-            // 🔐 REUSING your existing Solar Steam Cooking credentials
-             const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';     // Your public key
-            const EMAILJS_SERVICE_ID = 'service_t3i4ttm';        // Your service ID
-            const EMAILJS_ADMIN_TEMPLATE_ID = 'template_q9aciqa'; // Your admin template ID
-
-            // ⚠️ IMPORTANT: REPLACE THIS WITH YOUR ACTUAL AUTO-REPLY TEMPLATE ID
-            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim'; // 🔁 REPLACE 
-
+            const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';
+            const EMAILJS_SERVICE_ID = 'service_t3i4ttm';
+            const EMAILJS_ADMIN_TEMPLATE_ID = 'template_q9aciqa';
+            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim'; // REPLACE with your actual auto-reply template ID
             emailjs.init(EMAILJS_PUBLIC_KEY);
-            
             window.EMAILJS_CONFIG = {
                 serviceId: EMAILJS_SERVICE_ID,
                 adminTemplateId: EMAILJS_ADMIN_TEMPLATE_ID,
@@ -991,58 +822,7 @@
             };
         })();
 
-        // ===== HEADER & MOBILE MENU =====
-        (function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            if (hamburger) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-                document.querySelectorAll('.nav-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    });
-                });
-            }
-            const header = document.querySelector('.header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(255,255,255,0.95)';
-                    header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
-                } else {
-                    header.style.background = 'rgba(255,255,255,0.8)';
-                    header.style.boxShadow = 'none';
-                }
-            });
-        })();
-
-        // ===== IMAGE GALLERY =====
-        window.changeImage = function(src, element) {
-            document.getElementById('mainImage').src = src;
-            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
-            element.classList.add('active');
-        };
-
-        // ===== SCROLL ANIMATIONS =====
-        (function() {
-            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            document.querySelectorAll('.spec-card, .app-card, .gallery-item').forEach(el => {
-                observer.observe(el);
-            });
-        })();
-
-        // ===== 🔓 PREMIUM UNLOCK – SAME FLOW AS SOLAR STEAM =====
+        // Premium unlock logic
         (function() {
             const lockContainer = document.getElementById('lockContainer');
             const formContainer = document.getElementById('unlockFormContainer');
@@ -1050,7 +830,6 @@
             const successMsg = document.getElementById('successMessage');
             const unlockForm = document.getElementById('premiumForm');
 
-            // Check sessionStorage – if already unlocked, show premium content directly
             if (sessionStorage.getItem('premiumUnlocked') === 'true') {
                 lockContainer.style.display = 'none';
                 formContainer.style.display = 'none';
@@ -1058,161 +837,54 @@
                 successMsg.style.display = 'flex';
             }
 
-            // Click on lock → hide lock, show form
             lockContainer.addEventListener('click', function() {
                 lockContainer.style.display = 'none';
                 formContainer.classList.add('visible');
                 formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
 
-            // ===== FORM SUBMISSION – SEND EMAILS =====
             unlockForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-
-                // SAFE GETTERS
-                const nameEl = document.getElementById('from_name');
-                const emailEl = document.getElementById('reply_to');
-                const phoneEl = document.getElementById('phone');
-                const orgEl = document.getElementById('organization');
-                const cropEl = document.getElementById('cropType');
-                const msgEl = document.getElementById('message');
-                const adminEmailEl = document.getElementById('admin_email');
-
-                if (!nameEl || !emailEl) {
-                    alert('Form error: Missing required fields.');
-                    return;
-                }
-
-                const name = nameEl.value.trim();
-                const email = emailEl.value.trim();
-                
+                const name = document.getElementById('from_name').value.trim();
+                const email = document.getElementById('reply_to').value.trim();
                 if (!name || !email) {
-                    alert('Please enter your full name and email address.');
+                    alert('Please enter your name and email.');
                     return;
                 }
-
-                const phone = phoneEl ? phoneEl.value.trim() || 'Not provided' : 'Not provided';
-                const organization = orgEl ? orgEl.value.trim() || 'Not provided' : 'Not provided';
-                const cropType = cropEl ? cropEl.value || 'Not specified' : 'Not specified';
-                const message = msgEl ? msgEl.value.trim() || 'No additional requirements' : 'No additional requirements';
-                const adminEmail = adminEmailEl ? adminEmailEl.value : 'siddappagout@gmail.com';
-
+                const phone = document.getElementById('phone').value.trim() || 'Not provided';
+                const organization = document.getElementById('organization').value.trim() || 'Not provided';
+                const cropType = document.getElementById('cropType').value || 'Not specified';
+                const message = document.getElementById('message').value.trim() || 'No additional requirements';
+                const adminEmail = document.getElementById('admin_email').value;
                 const product = 'AI Crop Quality Detection System';
 
-                // Admin email parameters
-                const adminParams = {
-                    from_name: name,
-                    reply_to: email,
-                    phone: phone,
-                    organization: organization,
-                    cropType: cropType,
-                    message: message,
-                    product: product,
-                    to_email: adminEmail
-                };
-
-                // Customer auto-reply parameters
-                const customerParams = {
-                    from_name: name,
-                    reply_to: email,
-                    phone: phone,
-                    organization: organization,
-                    cropType: cropType,
-                    message: message,
-                    product: product,
-                    to_email: email
-                };
+                const adminParams = { from_name: name, reply_to: email, phone, organization, cropType, message, product, to_email: adminEmail };
+                const customerParams = { from_name: name, reply_to: email, phone, organization, cropType, message, product, to_email: email };
 
                 const submitBtn = unlockForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-                // Send admin email first, then customer auto-reply
-                emailjs.send(
-                    window.EMAILJS_CONFIG.serviceId,
-                    window.EMAILJS_CONFIG.adminTemplateId,
-                    adminParams
-                )
-                .then(function(adminResponse) {
-                    console.log('✅ Admin email sent:', adminResponse.status);
-                    return emailjs.send(
-                        window.EMAILJS_CONFIG.serviceId,
-                        window.EMAILJS_CONFIG.autoTemplateId,
-                        customerParams
-                    );
-                })
-                .then(function(customerResponse) {
-                    console.log('✅ Customer auto-reply sent:', customerResponse.status);
-                    
-                    sessionStorage.setItem('premiumUnlocked', 'true');
-
-                    formContainer.style.opacity = '0';
-                    formContainer.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
+                emailjs.send(window.EMAILJS_CONFIG.serviceId, window.EMAILJS_CONFIG.adminTemplateId, adminParams)
+                    .then(() => emailjs.send(window.EMAILJS_CONFIG.serviceId, window.EMAILJS_CONFIG.autoTemplateId, customerParams))
+                    .then(() => {
+                        sessionStorage.setItem('premiumUnlocked', 'true');
                         formContainer.style.display = 'none';
-                        formContainer.style.opacity = '1';
-                        formContainer.style.transform = 'translateY(0)';
-
-                        successMsg.style.display = 'flex';
                         hiddenContent.classList.add('visible');
-                        hiddenContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
+                        successMsg.style.display = 'flex';
                         unlockForm.reset();
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalText;
-                    }, 400);
-                })
-                .catch(function(error) {
-                    console.error('❌ EmailJS error:', error);
-                    let errorMsg = 'There was a problem sending your information. ';
-                    if (error.text) {
-                        errorMsg += `Error: ${error.text}`;
-                    } else {
-                        errorMsg += 'Please try again or contact us directly at info@kvbgreenenergies.com.';
-                    }
-                    alert(errorMsg);
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                });
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert('Error sending request. Please try again or contact us directly.');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    });
             });
         })();
-
-        // ===== PARALLAX EFFECT =====
-        window.addEventListener('scroll', function() {
-            const hero = document.querySelector('.product-hero');
-            if (hero) {
-                hero.style.backgroundPositionY = window.pageYOffset * 0.5 + 'px';
-            }
-        });
-
-        // ===== HOVER EFFECTS =====
-        document.querySelectorAll('.spec-card, .app-card, .feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = this.classList.contains('spec-card') ? 
-                                      'translateY(-10px)' : 'translateY(-5px)';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId !== '#') {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
     </script>
 </body>
 </html>
