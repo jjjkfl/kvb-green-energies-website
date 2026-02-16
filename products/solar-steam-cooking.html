@@ -519,10 +519,25 @@
         }
 
         /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST (SAME AS OTHER PRODUCTS) ===== */
-        .premium-wrapper {
-            margin: 6rem 0;
-            position: relative;
-        }
+       /* ===== 🔒 PREMIUM UNLOCK SECTION – LOCK FIRST ===== */
+.premium-wrapper {
+    margin: 6rem auto;
+    position: relative;
+    max-width: 900px;
+}
+
+.lock-container {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.lock-container h3,
+.lock-container p,
+.lock-container span {
+    text-align: center;
+    display: block;
+}
 
         .lock-container {
             background: white;
@@ -1052,10 +1067,12 @@
         // ===== ✅ EMAILJS INIT – REUSING YOUR EXISTING CREDENTIALS =====
         (function() {
             // 🔐 These are the SAME credentials used in your other product pages
-            const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';      // Same Public Key
-            const EMAILJS_SERVICE_ID = 'service_t3i4ttm';        // Same Service ID
-            const EMAILJS_ADMIN_TEMPLATE_ID = 'template_ktit236'; // Same Admin Template ID
-            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim';  // Same Auto-Reply Template ID
+              const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';     // Your public key
+            const EMAILJS_SERVICE_ID = 'service_t3i4ttm';        // Your service ID
+            const EMAILJS_ADMIN_TEMPLATE_ID = 'template_q9aciqa'; // Your admin template ID
+
+            // ⚠️ IMPORTANT: REPLACE THIS WITH YOUR ACTUAL AUTO-REPLY TEMPLATE ID
+            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim'; // 🔁 REPLACE 
 
             emailjs.init(EMAILJS_PUBLIC_KEY);
             
