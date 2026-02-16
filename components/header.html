@@ -104,27 +104,35 @@
     transform: translateY(0);
   }
 
-  /* Shared item style */
-  .mega-item {
-    text-decoration: none;
-    color: #111;
-  }
+.mega-item {
+  text-decoration: none;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .mega-item img {
-    height: 70px;
-    object-fit: contain;
-    margin-bottom: 10px;
-  }
+/* Clean Tesla-style image */
+.mega-item img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 8px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
 
-  .mega-item span {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
+/* Subtle hover */
+.mega-item:hover img {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
 
-  .mega-item:hover span {
-    text-decoration: underline;
-  }
+.mega-item span {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+
 
   /* ===== SOLUTIONS GRID (3 items) ===== */
   .mega-solutions {
@@ -227,7 +235,7 @@
         <div class="mega-menu">
           <div class="mega-solutions">
             <a href="../solutions/solar-thermal-systems.html" class="mega-item">
-              <img src="../images/icons/solar.png" alt="">
+              <img src="../images/products/parabolic-cooker1.jpg" alt="">
               <span>Solar Thermal</span>
             </a>
             <a href="../solutions/energy-storage.html" class="mega-item">
