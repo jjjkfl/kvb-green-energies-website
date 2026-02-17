@@ -3,53 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clients & Partnerships | KVB Green Energies</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Clients & Partnerships – KVB Green Energies</title>
+    <!-- Apple-inspired fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet for map (optional, kept for reference) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #FFFFFF;
+            --background-alt: #F9F9FB;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --text-tertiary: #A1A1A6;
+            --border: #E6E6E8;
+            --accent: #2E7D32;             /* KVB green */
+            --accent-light: #E8F5E9;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h4 { font-size: 1.3rem; margin-bottom: 0.8rem; font-weight: 500; }
+
+        p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            background: transparent;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(46,125,50,0.2);
+        }
+        .btn-primary:hover {
+            background: #1E5F24;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(46,125,50,0.3);
+        }
+        .btn-outline {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: var(--accent-light);
+        }
+        .btn-outline-light {
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* ===== HEADER (placeholder) ===== */
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ===== HERO ===== */
+        .clients-hero {
+            padding: 120px 0 60px;
+            background: var(--background-alt);
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+            animation: fadeUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .stat:nth-child(1) { animation-delay: 0.1s; }
+        .stat:nth-child(2) { animation-delay: 0.2s; }
+        .stat:nth-child(3) { animation-delay: 0.3s; }
+        .stat:nth-child(4) { animation-delay: 0.4s; }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== CLIENT CATEGORIES (TABS ONLY) ===== */
+        .client-categories {
+            padding: 5rem 0 2rem;
+            background: var(--background);
+        }
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem 0 0;
+        }
+        .category-tab {
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+        .category-tab:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .category-tab.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* ===== CLIENTS GRID ===== */
+        .prestigious-clients {
+            padding: 2rem 0 3rem;
+            background: var(--background);
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .client-card {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
+            display: flex;
+            flex-direction: column;
+        }
+        .client-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .client-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+        }
+        .client-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .client-location {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .client-project {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .client-impact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .impact-stat {
+            background: var(--background);
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .client-link {
+            margin-top: auto;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+        }
+        .client-link:hover {
+            gap: 0.8rem;
+        }
+
+        .view-all-clients {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ===== NATIONAL PRESENCE (MAP) ===== */
+        .national-presence {
+            padding: 3rem 0 5rem;
+            background: var(--background-alt);
+        }
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+        #indiaMap {
+            height: 400px;
+            border-radius: var(--radius-md);
+            background: #e5e5e5; /* fallback */
+        }
+        .map-legend {
+            padding: 1rem;
+        }
+        .legend-items {
+            margin-top: 1rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .legend-icon.solar { background: #FF9500; }
+        .legend-icon.drying { background: #007AFF; }
+        .legend-icon.smart { background: #26A69A; }
+        .legend-icon.multiple { background: #9C27B0; }
+
+        /* ===== TESTIMONIAL SLIDER ===== */
+        .partnership-statements {
+            padding: 5rem 0;
+            background: var(--background);
+        }
+        .statement-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .statement-slide {
+            display: none;
+        }
+        .statement-slide.active {
+            display: block;
+            animation: fadeIn 0.6s;
+        }
+        .statement-content {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+        }
+        .statement-text {
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+        .statement-text i {
+            color: var(--accent);
+            opacity: 0.3;
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+        .statement-text i.fa-quote-right {
+            margin-left: 0.5rem;
+        }
+        .statement-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        .author-info p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+        .author-org {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .slider-prev, .slider-next {
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+        .slider-prev:hover, .slider-next:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
+
+        /* ===== PARTNERSHIP OPPORTUNITIES ===== */
+        .partnership-opportunities {
+            padding: 5rem 0;
+            background: var(--background-alt);
+        }
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .opportunity-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
+        }
+        .opportunity-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .opportunity-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .opportunity-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        .opportunity-list li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .opportunity-list li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .opportunity-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ===== CLIENT LOGOS MARQUEE ===== */
+        .client-logos-marquee {
+            padding: 4rem 0;
+            background: var(--background);
+            overflow: hidden;
+        }
+        .client-logos-marquee h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: var(--text-tertiary);
+        }
+        .logos-track {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+        }
+        .logos-container {
+            display: flex;
+            gap: 3rem;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
+        }
+        .logo-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .logo-item:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== BECOME PARTNER CTA ===== */
+        .become-partner {
+            padding: 5rem 0;
+            background: var(--accent);
+            color: white;
+            text-align: center;
+        }
+        .partner-cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .become-partner h2 {
+            color: white;
+        }
+        .partner-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .benefit i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            opacity: 0.9;
+        }
+        .benefit h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .benefit p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+        .partner-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #1E5F24;
+            transform: scale(1.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            .clients-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            h1 { font-size: 2.5rem; }
+            .hero-stats { gap: 1.5rem; }
+            .category-tabs { gap: 0.5rem; }
+            .category-tab { padding: 0.4rem 1.2rem; }
+            .partner-benefits { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Navigation -->
     <div id="header"></div>
-    
 
-    <!-- Clients Hero -->
+    <!-- HERO SECTION -->
     <section class="clients-hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Clients & Partnerships</h1>
                 <p class="hero-subtitle">Trusted by India's Leading Institutions & Organizations</p>
-                <p class="hero-description">KVB technologies are deployed across India where reliability and performance are critical. Our prestigious client portfolio demonstrates national-scale trust in our renewable energy and smart agriculture solutions.</p>
-                
+                <p style="max-width: 600px; margin: 0 auto;">KVB technologies are deployed across India where reliability and performance are critical. Our prestigious client portfolio demonstrates national‑scale trust in our renewable energy and smart agriculture solutions.</p>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">50<span>+</span></div>
-                        <div class="stat-label">Prestigious Clients</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">15</div>
-                        <div class="stat-label">States Across India</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">100<span>+</span></div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">University Collaborations</div>
-                    </div>
+                    <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Prestigious Clients</div></div>
+                    <div class="stat"><div class="stat-number">15</div><div class="stat-label">States Across India</div></div>
+                    <div class="stat"><div class="stat-number">100+</div><div class="stat-label">Projects Completed</div></div>
+                    <div class="stat"><div class="stat-number">25</div><div class="stat-label">University Collaborations</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Client Categories -->
+    <!-- CLIENT ECOSYSTEM (TABS ONLY) -->
     <section class="client-categories">
         <div class="container">
             <h2 class="section-title">Our Client Ecosystem</h2>
-            <p class="section-subtitle">Serving diverse sectors with renewable energy and smart agriculture solutions</p>
+            <p class="section-subtitle" style="text-align:center; max-width:700px; margin:0 auto 2rem;">Serving diverse sectors with renewable energy and smart agriculture solutions</p>
             
             <div class="category-tabs">
                 <button class="category-tab active" data-category="all">All Clients</button>
@@ -59,538 +683,254 @@
                 <button class="category-tab" data-category="agriculture">Agriculture Organizations</button>
                 <button class="category-tab" data-category="industry">Food Industries</button>
             </div>
-            
-            <!-- Interactive India Map -->
-            <div class="india-map-section">
-                <h3>National Presence Across India</h3>
-                <div class="map-container">
-                    <div id="indiaMap"></div>
-                    <div class="map-legend">
-                        <h4>Project Locations</h4>
-                        <div class="legend-items">
-                            <div class="legend-item">
-                                <span class="legend-icon solar"></span>
-                                <span>Solar Cooking</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-icon drying"></span>
-                                <span>Solar Drying</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-icon smart"></span>
-                                <span>Smart Agriculture</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-icon multiple"></span>
-                                <span>Multiple Systems</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Prestigious Clients Grid -->
+    <!-- PRESTIGIOUS CLIENTS GRID -->
     <section class="prestigious-clients">
         <div class="container">
-            <h2 class="section-title">Prestigious Clients</h2>
-            
-            <div class="clients-grid">
+            <div class="clients-grid" id="clientsGrid">
                 <!-- Government & Defense -->
-                <div class="client-card category-government" data-category="government">
-                    <div class="client-logo">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Indian Army</h3>
-                        <p class="client-location">Chennai, Tamil Nadu</p>
-                        <p class="client-project">Solar Steam Cooking System for army kitchen</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">70% LPG savings</span>
-                            <span class="impact-stat">8 tons CO₂ reduction/year</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#indian-army" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="government">
+                    <div class="client-logo"><i class="fas fa-shield-alt"></i></div>
+                    <div class="client-info"><h3>Indian Army</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Chennai, TN</p><p class="client-project">Solar Steam Cooking System for army kitchen</p><div class="client-impact"><span class="impact-stat">70% LPG savings</span><span class="impact-stat">8 tons CO₂/year</span></div></div>
+                    <a href="#" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-government" data-category="government">
-                    <div class="client-logo">
-                        <i class="fas fa-ship"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>INS Mandovi</h3>
-                        <p class="client-location">Goa</p>
-                        <p class="client-project">Solar thermal system for naval base</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Solar cooking installation</span>
-                            <span class="impact-stat">Defense application</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#ins-mandovi" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="government">
+                    <div class="client-logo"><i class="fas fa-ship"></i></div>
+                    <div class="client-info"><h3>INS Mandovi</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Goa</p><p class="client-project">Solar thermal system for naval base</p><div class="client-impact"><span class="impact-stat">Solar cooking</span><span class="impact-stat">Defense</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <!-- Universities & Research -->
-                <div class="client-card category-education" data-category="education">
-                    <div class="client-logo">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>YASHADA</h3>
-                        <p class="client-location">Pune, Maharashtra</p>
-                        <p class="client-project">Government training institute solar kitchen</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Training demonstration</span>
-                            <span class="impact-stat">Government institution</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#yashada" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="education">
+                    <div class="client-logo"><i class="fas fa-university"></i></div>
+                    <div class="client-info"><h3>YASHADA</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Pune, MH</p><p class="client-project">Government training institute solar kitchen</p><div class="client-impact"><span class="impact-stat">Training demo</span><span class="impact-stat">Govt institution</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-education" data-category="education">
-                    <div class="client-logo">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>UAS Bengaluru</h3>
-                        <p class="client-location">Bengaluru, Karnataka</p>
-                        <p class="client-project">University hostel solar cooking & research</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Research collaboration</span>
-                            <span class="impact-stat">Student training</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#uas-bengaluru" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="education">
+                    <div class="client-logo"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="client-info"><h3>UAS Bengaluru</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Bengaluru, KA</p><p class="client-project">University hostel solar cooking & research</p><div class="client-impact"><span class="impact-stat">Research</span><span class="impact-stat">Student training</span></div></div>
+                    <a href="#" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-education" data-category="education">
-                    <div class="client-logo">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>UHS Bagalkot</h3>
-                        <p class="client-location">Bagalkot, Karnataka</p>
-                        <p class="client-project">Performance testing & research center</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Certification testing</span>
-                            <span class="impact-stat">Research partnership</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#uhs-bagalkot" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="education">
+                    <div class="client-logo"><i class="fas fa-flask"></i></div>
+                    <div class="client-info"><h3>UHS Bagalkot</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Bagalkot, KA</p><p class="client-project">Performance testing & research center</p><div class="client-impact"><span class="impact-stat">Certification</span><span class="impact-stat">Research</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-education" data-category="education">
-                    <div class="client-logo">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>IIT Dharwad</h3>
-                        <p class="client-location">Dharwad, Karnataka</p>
-                        <p class="client-project">Research collaboration on thermal storage</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Joint research</span>
-                            <span class="impact-stat">Innovation lab</span>
-                        </div>
-                    </div>
-                    <a href="innovation-lab.html#iit-dharwad" class="client-link">View Research <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="education">
+                    <div class="client-logo"><i class="fas fa-atom"></i></div>
+                    <div class="client-info"><h3>IIT Dharwad</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Dharwad, KA</p><p class="client-project">Research collaboration on thermal storage</p><div class="client-impact"><span class="impact-stat">Joint research</span><span class="impact-stat">Innovation lab</span></div></div>
+                    <a href="#" class="client-link">View Research <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <!-- Religious Institutions -->
-                <div class="client-card category-religious" data-category="religious">
-                    <div class="client-logo">
-                        <i class="fas fa-temple"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Sri Siddharodhmath</h3>
-                        <p class="client-location">Hubli, Karnataka</p>
-                        <p class="client-project">Large-scale temple kitchen solar system</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">2000+ meals/day</span>
-                            <span class="impact-stat">65% fuel savings</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#siddharodhmath" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="religious">
+                    <div class="client-logo"><i class="fas fa-temple"></i></div>
+                    <div class="client-info"><h3>Sri Siddharodhmath</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Hubli, KA</p><p class="client-project">Large‑scale temple kitchen solar system</p><div class="client-impact"><span class="impact-stat">2000+ meals/day</span><span class="impact-stat">65% fuel savings</span></div></div>
+                    <a href="#" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-religious" data-category="religious">
-                    <div class="client-logo">
-                        <i class="fas fa-place-of-worship"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Sri Siddaganga Math</h3>
-                        <p class="client-location">Tumkur, Karnataka</p>
-                        <p class="client-project">Community kitchen solar cooking system</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Community service</span>
-                            <span class="impact-stat">Sustainable cooking</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#siddaganga" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="religious">
+                    <div class="client-logo"><i class="fas fa-place-of-worship"></i></div>
+                    <div class="client-info"><h3>Sri Siddaganga Math</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Tumkur, KA</p><p class="client-project">Community kitchen solar cooking system</p><div class="client-impact"><span class="impact-stat">Community</span><span class="impact-stat">Sustainable</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <!-- Agriculture Organizations -->
-                <div class="client-card category-agriculture" data-category="agriculture">
-                    <div class="client-logo">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Coffee Board</h3>
-                        <p class="client-location">Balehonnur, Karnataka</p>
-                        <p class="client-project">Solar coffee drying demonstration unit</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Coffee processing</span>
-                            <span class="impact-stat">Quality improvement</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#coffee-board" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="agriculture">
+                    <div class="client-logo"><i class="fas fa-seedling"></i></div>
+                    <div class="client-info"><h3>Coffee Board</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Balehonnur, KA</p><p class="client-project">Solar coffee drying demonstration unit</p><div class="client-impact"><span class="impact-stat">Coffee processing</span><span class="impact-stat">Quality</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-agriculture" data-category="agriculture">
-                    <div class="client-logo">
-                        <i class="fas fa-tractor"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>NABARD</h3>
-                        <p class="client-location">Bagalkot, Karnataka</p>
-                        <p class="client-project">Farmer training & demonstration projects</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Farmer empowerment</span>
-                            <span class="impact-stat">Rural development</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#nabard" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="agriculture">
+                    <div class="client-logo"><i class="fas fa-tractor"></i></div>
+                    <div class="client-info"><h3>NABARD</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Bagalkot, KA</p><p class="client-project">Farmer training & demonstration projects</p><div class="client-impact"><span class="impact-stat">Farmer empowerment</span><span class="impact-stat">Rural</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-agriculture" data-category="agriculture">
-                    <div class="client-logo">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>ICAR - Goa</h3>
-                        <p class="client-location">Goa</p>
-                        <p class="client-project">Agricultural research institute</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Research partnership</span>
-                            <span class="impact-stat">Agri-tech testing</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#icar-goa" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="agriculture">
+                    <div class="client-logo"><i class="fas fa-leaf"></i></div>
+                    <div class="client-info"><h3>ICAR - Goa</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Goa</p><p class="client-project">Agricultural research institute</p><div class="client-impact"><span class="impact-stat">Research</span><span class="impact-stat">Testing</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
                 <!-- Food Industries -->
-                <div class="client-card category-industry" data-category="industry">
-                    <div class="client-logo">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Sugati Ingredients</h3>
-                        <p class="client-location">Challakere, Karnataka</p>
-                        <p class="client-project">Solar drying for food processing</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Industrial scale</span>
-                            <span class="impact-stat">Process heating</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#sugati" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="industry">
+                    <div class="client-logo"><i class="fas fa-industry"></i></div>
+                    <div class="client-info"><h3>Sugati Ingredients</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Challakere, KA</p><p class="client-project">Solar drying for food processing</p><div class="client-impact"><span class="impact-stat">Industrial scale</span><span class="impact-stat">Process heating</span></div></div>
+                    <a href="#" class="client-link">View Case Study <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-industry" data-category="industry">
-                    <div class="client-logo">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Nithya Foods</h3>
-                        <p class="client-location">Puttur, Karnataka</p>
-                        <p class="client-project">Food processing solar thermal system</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Commercial application</span>
-                            <span class="impact-stat">Cost reduction</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#nithya-foods" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="industry">
+                    <div class="client-logo"><i class="fas fa-utensils"></i></div>
+                    <div class="client-info"><h3>Nithya Foods</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Puttur, KA</p><p class="client-project">Food processing solar thermal system</p><div class="client-impact"><span class="impact-stat">Commercial</span><span class="impact-stat">Cost reduction</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
-                
-                <div class="client-card category-industry" data-category="industry">
-                    <div class="client-logo">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
-                    <div class="client-info">
-                        <h3>Prakruti</h3>
-                        <p class="client-location">Karwar, Karnataka</p>
-                        <p class="client-project">Organic food processing with solar energy</p>
-                        <div class="client-impact">
-                            <span class="impact-stat">Sustainable processing</span>
-                            <span class="impact-stat">Organic certification</span>
-                        </div>
-                    </div>
-                    <a href="case-studies.html#prakruti" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
+                <div class="client-card" data-category="industry">
+                    <div class="client-logo"><i class="fas fa-apple-alt"></i></div>
+                    <div class="client-info"><h3>Prakruti</h3><p class="client-location"><i class="fas fa-map-marker-alt"></i> Karwar, KA</p><p class="client-project">Organic food processing with solar energy</p><div class="client-impact"><span class="impact-stat">Sustainable</span><span class="impact-stat">Organic</span></div></div>
+                    <a href="#" class="client-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            
-            <!-- View All Button -->
+
             <div class="view-all-clients">
-                <button id="loadMoreClients" class="btn btn-outline">
-                    <i class="fas fa-plus"></i> Load More Clients
-                </button>
+                <button id="loadMoreClients" class="btn btn-outline"><i class="fas fa-plus"></i> Load More Clients</button>
             </div>
         </div>
     </section>
 
-    <!-- Partnership Statements -->
+    <!-- NATIONAL PRESENCE (MAP) -->
+    <section class="national-presence">
+        <div class="container">
+            <h2 class="section-title">National Presence Across India</h2>
+            <div class="map-container">
+                <div id="indiaMap" style="height:400px;"></div>
+                <div class="map-legend">
+                    <h4>Project Locations</h4>
+                    <div class="legend-items">
+                        <div class="legend-item"><span class="legend-icon solar"></span> Solar Cooking</div>
+                        <div class="legend-item"><span class="legend-icon drying"></span> Solar Drying</div>
+                        <div class="legend-item"><span class="legend-icon smart"></span> Smart Agriculture</div>
+                        <div class="legend-item"><span class="legend-icon multiple"></span> Multiple Systems</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIP TESTIMONIALS -->
     <section class="partnership-statements">
         <div class="container">
             <h2 class="section-title">Partnership Testimonials</h2>
-            <p class="section-subtitle">What our institutional partners say about working with KVB</p>
-            
             <div class="statement-slider">
                 <div class="statement-slide active">
                     <div class="statement-content">
-                        <div class="statement-text">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"Our collaboration with KVB has been instrumental in advancing solar thermal research at our university. Their practical engineering expertise combined with our academic research has produced innovative solutions with real-world impact."</p>
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <div class="statement-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Dr. Rajesh Kumar</h4>
-                                <p>Head of Renewable Energy Department</p>
-                                <p class="author-org">IIT Dharwad</p>
-                            </div>
-                        </div>
+                        <div class="statement-text"><i class="fas fa-quote-left"></i> Our collaboration with KVB has been instrumental in advancing solar thermal research at our university. Their practical engineering expertise combined with our academic research has produced innovative solutions with real-world impact. <i class="fas fa-quote-right"></i></div>
+                        <div class="statement-author"><div class="author-avatar"><i class="fas fa-user-tie"></i></div><div class="author-info"><h4>Dr. Rajesh Kumar</h4><p>Head of Renewable Energy Department</p><p class="author-org">IIT Dharwad</p></div></div>
                     </div>
                 </div>
-                
                 <div class="statement-slide">
                     <div class="statement-content">
-                        <div class="statement-text">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"KVB's solar cooking systems have transformed our community kitchen operations. The reliability and performance have exceeded our expectations, and the cost savings have allowed us to serve more people in need."</p>
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <div class="statement-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Swami Prasad</h4>
-                                <p>Administrator</p>
-                                <p class="author-org">Sri Siddharodhmath, Hubli</p>
-                            </div>
-                        </div>
+                        <div class="statement-text"><i class="fas fa-quote-left"></i> KVB's solar cooking systems have transformed our community kitchen operations. The reliability and performance have exceeded our expectations, and the cost savings have allowed us to serve more people in need. <i class="fas fa-quote-right"></i></div>
+                        <div class="statement-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div class="author-info"><h4>Swami Prasad</h4><p>Administrator</p><p class="author-org">Sri Siddharodhmath, Hubli</p></div></div>
                     </div>
                 </div>
-                
                 <div class="statement-slide">
                     <div class="statement-content">
-                        <div class="statement-text">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"As a government training institute, we needed a reliable demonstration of renewable technology. KVB's system has become a key training tool for our officers learning about sustainable development solutions."</p>
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <div class="statement-author">
-                            <div class="author-avatar">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Ms. Anjali Sharma</h4>
-                                <p>Director of Training</p>
-                                <p class="author-org">YASHADA, Pune</p>
-                            </div>
-                        </div>
+                        <div class="statement-text"><i class="fas fa-quote-left"></i> As a government training institute, we needed a reliable demonstration of renewable technology. KVB's system has become a key training tool for our officers learning about sustainable development solutions. <i class="fas fa-quote-right"></i></div>
+                        <div class="statement-author"><div class="author-avatar"><i class="fas fa-user-graduate"></i></div><div class="author-info"><h4>Ms. Anjali Sharma</h4><p>Director of Training</p><p class="author-org">YASHADA, Pune</p></div></div>
                     </div>
                 </div>
-                
                 <div class="slider-controls">
                     <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-                    <div class="slider-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
+                    <div class="slider-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
                     <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partnership Opportunities -->
+    <!-- PARTNERSHIP OPPORTUNITIES -->
     <section class="partnership-opportunities">
         <div class="container">
             <h2 class="section-title">Partnership Opportunities</h2>
-            
             <div class="opportunities-grid">
                 <div class="opportunity-card">
-                    <div class="opportunity-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
+                    <div class="opportunity-icon"><i class="fas fa-handshake"></i></div>
                     <h3>Government Partnerships</h3>
                     <p>Collaborate on government schemes, subsidies, and public infrastructure projects</p>
-                    <ul class="opportunity-list">
-                        <li>MNRE empanelment projects</li>
-                        <li>State government schemes</li>
-                        <li>Public institution deployments</li>
-                        <li>Defense establishment projects</li>
-                    </ul>
-                    <a href="contact.html?type=government" class="btn btn-outline">Explore Government Partnerships</a>
+                    <ul class="opportunity-list"><li>MNRE empanelment projects</li><li>State government schemes</li><li>Public institution deployments</li><li>Defense projects</li></ul>
+                    <a href="#" class="btn btn-outline">Explore Government</a>
                 </div>
-                
                 <div class="opportunity-card">
-                    <div class="opportunity-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
+                    <div class="opportunity-icon"><i class="fas fa-university"></i></div>
                     <h3>University Collaborations</h3>
                     <p>Research partnerships, student projects, and technology development</p>
-                    <ul class="opportunity-list">
-                        <li>Joint research projects</li>
-                        <li>Student internships</li>
-                        <li>Technology testing</li>
-                        <li>Knowledge exchange</li>
-                    </ul>
-                    <a href="contact.html?type=university" class="btn btn-outline">Explore Research Collaborations</a>
+                    <ul class="opportunity-list"><li>Joint research projects</li><li>Student internships</li><li>Technology testing</li><li>Knowledge exchange</li></ul>
+                    <a href="#" class="btn btn-outline">Explore University</a>
                 </div>
-                
                 <div class="opportunity-card">
-                    <div class="opportunity-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
+                    <div class="opportunity-icon"><i class="fas fa-industry"></i></div>
                     <h3>Industry Partnerships</h3>
                     <p>Technology implementation, distribution, and commercial projects</p>
-                    <ul class="opportunity-list">
-                        <li>Technology licensing</li>
-                        <li>Distribution partnerships</li>
-                        <li>Joint ventures</li>
-                        <li>Supply chain collaboration</li>
-                    </ul>
-                    <a href="contact.html?type=industry" class="btn btn-outline">Explore Industry Partnerships</a>
+                    <ul class="opportunity-list"><li>Technology licensing</li><li>Distribution partnerships</li><li>Joint ventures</li><li>Supply chain</li></ul>
+                    <a href="#" class="btn btn-outline">Explore Industry</a>
                 </div>
-                
                 <div class="opportunity-card">
-                    <div class="opportunity-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
+                    <div class="opportunity-icon"><i class="fas fa-globe"></i></div>
                     <h3>International Partnerships</h3>
                     <p>Global technology transfer, export, and international projects</p>
-                    <ul class="opportunity-list">
-                        <li>Technology export</li>
-                        <li>International distribution</li>
-                        <li>Global research collaboration</li>
-                        <li>Development projects</li>
-                    </ul>
-                    <a href="contact.html?type=international" class="btn btn-outline">Explore International Partnerships</a>
+                    <ul class="opportunity-list"><li>Technology export</li><li>International distribution</li><li>Global research</li><li>Development projects</li></ul>
+                    <a href="#" class="btn btn-outline">Explore International</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Client Logos Marquee -->
+    <!-- CLIENT LOGOS MARQUEE -->
     <section class="client-logos-marquee">
         <div class="container">
             <h3>Trusted by Leading Organizations Across India</h3>
             <div class="logos-track">
                 <div class="logos-container">
-                    <!-- Logos would be repeated for seamless scrolling -->
-                    <div class="logo-item">
-                        <div class="logo-img">Indian Army</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">INS Mandovi</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">YASHADA</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Coffee Board</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">NABARD</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">ICAR</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">UHS Bagalkot</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">UAS Bengaluru</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Dantiwada Agriculture University</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Keladi University</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Sri Siddharodhmath</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Sri Siddaganga Math</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Prakruti</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Sugati Ingredients</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-img">Nithya Foods</div>
-                    </div>
+                    <span class="logo-item">Indian Army</span>
+                    <span class="logo-item">INS Mandovi</span>
+                    <span class="logo-item">YASHADA</span>
+                    <span class="logo-item">Coffee Board</span>
+                    <span class="logo-item">NABARD</span>
+                    <span class="logo-item">ICAR</span>
+                    <span class="logo-item">UHS Bagalkot</span>
+                    <span class="logo-item">UAS Bengaluru</span>
+                    <span class="logo-item">Dantiwada University</span>
+                    <span class="logo-item">Keladi University</span>
+                    <span class="logo-item">Sri Siddharodhmath</span>
+                    <span class="logo-item">Sri Siddaganga Math</span>
+                    <span class="logo-item">Prakruti</span>
+                    <span class="logo-item">Sugati Ingredients</span>
+                    <span class="logo-item">Nithya Foods</span>
+                    <!-- duplicated for seamless loop -->
+                    <span class="logo-item">Indian Army</span>
+                    <span class="logo-item">INS Mandovi</span>
+                    <span class="logo-item">YASHADA</span>
+                    <span class="logo-item">Coffee Board</span>
+                    <span class="logo-item">NABARD</span>
+                    <span class="logo-item">ICAR</span>
+                    <span class="logo-item">UHS Bagalkot</span>
+                    <span class="logo-item">UAS Bengaluru</span>
+                    <span class="logo-item">Dantiwada University</span>
+                    <span class="logo-item">Keladi University</span>
+                    <span class="logo-item">Sri Siddharodhmath</span>
+                    <span class="logo-item">Sri Siddaganga Math</span>
+                    <span class="logo-item">Prakruti</span>
+                    <span class="logo-item">Sugati Ingredients</span>
+                    <span class="logo-item">Nithya Foods</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Become a Partner CTA -->
+    <!-- BECOME PARTNER CTA -->
     <section class="become-partner">
         <div class="container">
             <div class="partner-cta-content">
                 <h2>Become a KVB Partner</h2>
                 <p>Join our network of institutions, organizations, and businesses driving sustainable change across India.</p>
-                
                 <div class="partner-benefits">
-                    <div class="benefit">
-                        <i class="fas fa-award"></i>
-                        <h4>Technology Leadership</h4>
-                        <p>Access to cutting-edge renewable technologies</p>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Growth Opportunities</h4>
-                        <p>Expand your services with sustainable solutions</p>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Government Support</h4>
-                        <p>Assistance with subsidies and government schemes</p>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h4>Training & Support</h4>
-                        <p>Comprehensive training and technical support</p>
-                    </div>
+                    <div class="benefit"><i class="fas fa-award"></i><h4>Technology Leadership</h4><p>Access to cutting-edge renewable technologies</p></div>
+                    <div class="benefit"><i class="fas fa-chart-line"></i><h4>Growth Opportunities</h4><p>Expand your services with sustainable solutions</p></div>
+                    <div class="benefit"><i class="fas fa-handshake"></i><h4>Government Support</h4><p>Assistance with subsidies and government schemes</p></div>
+                    <div class="benefit"><i class="fas fa-graduation-cap"></i><h4>Training & Support</h4><p>Comprehensive training and technical support</p></div>
                 </div>
-                
                 <div class="partner-actions">
-                    <a href="contact.html?type=partner" class="btn btn-primary">
-                        <i class="fas fa-user-plus"></i> Become a Partner
-                    </a>
-                    <a href="downloads/partnership-brochure.pdf" class="btn btn-outline-light" download>
-                        <i class="fas fa-download"></i> Download Partnership Kit
-                    </a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-user-plus"></i> Become a Partner</a>
+                    <a href="#" class="btn btn-outline-light"><i class="fas fa-download"></i> Download Partnership Kit</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-   
     <div id="footer"></div>
 
-    <!-- Scripts (unchanged functionality, with address added to email parameters) -->
+    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Load header/footer components
+        // Load header/footer (same as before)
         function loadComponent(id, paths) {
             const tryPath = (index) => {
                 if (index >= paths.length) return;
@@ -608,16 +948,124 @@
         }
         loadComponent("header", ["components/header.html", "../components/header.html"]);
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
-    </script>   
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        // Initialize map
+        var map = L.map('indiaMap').setView([20.5937, 78.9629], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="js/clients-partnerships.js"></script>
+        // Add some sample markers (you can add more)
+        var locations = [
+            { lat: 13.0827, lng: 80.2707, name: 'Chennai', type: 'solar' },
+            { lat: 15.2993, lng: 74.1240, name: 'Goa', type: 'solar' },
+            { lat: 18.5204, lng: 73.8567, name: 'Pune', type: 'multiple' },
+            { lat: 12.9716, lng: 77.5946, name: 'Bengaluru', type: 'smart' },
+            { lat: 16.1743, lng: 75.6969, name: 'Bagalkot', type: 'drying' },
+            { lat: 15.4589, lng: 75.0078, name: 'Hubli', type: 'multiple' },
+            { lat: 13.3409, lng: 77.1010, name: 'Tumkur', type: 'solar' },
+        ];
+        locations.forEach(loc => {
+            let color = '#FF9500';
+            if (loc.type === 'solar') color = '#FF9500';
+            else if (loc.type === 'drying') color = '#007AFF';
+            else if (loc.type === 'smart') color = '#26A69A';
+            else color = '#9C27B0';
+            L.circleMarker([loc.lat, loc.lng], {
+                radius: 8,
+                fillColor: color,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map).bindPopup(loc.name);
+        });
+
+        // Category filtering
+        const tabs = document.querySelectorAll('.category-tab');
+        const cards = document.querySelectorAll('.client-card');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const category = tab.dataset.category;
+                cards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Load more (simple simulation)
+        let visibleCount = 6;
+        const allCards = Array.from(cards);
+        function updateVisibility() {
+            allCards.forEach((card, index) => {
+                card.style.display = index < visibleCount ? 'flex' : 'none';
+            });
+        }
+        updateVisibility();
+        document.getElementById('loadMoreClients').addEventListener('click', () => {
+            visibleCount += 6;
+            if (visibleCount >= allCards.length) {
+                visibleCount = allCards.length;
+                document.getElementById('loadMoreClients').style.display = 'none';
+            }
+            updateVisibility();
+            // reapply filter
+            const activeTab = document.querySelector('.category-tab.active');
+            const category = activeTab.dataset.category;
+            allCards.forEach(card => {
+                if (category !== 'all' && card.dataset.category !== category) {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Testimonial slider
+        const slides = document.querySelectorAll('.statement-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.slider-prev');
+        const nextBtn = document.querySelector('.slider-next');
+        let currentSlide = 0;
+        function showSlide(index) {
+            slides.forEach((s, i) => {
+                s.classList.toggle('active', i === index);
+            });
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === index);
+            });
+        }
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentSlide = i;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
