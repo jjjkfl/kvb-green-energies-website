@@ -895,22 +895,30 @@
             padding: 100px 0;
             background: linear-gradient(rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.9)), url('https://www.transparenttextures.com/patterns/leaf.png') repeat;
         }
+.partnership-type {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+    border: var(--border-nature);
 
-        .partnership-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 50px;
-        }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.partnership-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 50px;
+}
 
-        .partnership-type {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s ease;
-            border: var(--border-nature);
-        }
+
+.partnership-type:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
 
         .partnership-type:hover {
             transform: translateY(-10px);
@@ -943,9 +951,18 @@
             font-size: 1.4rem;
         }
 
-        .type-content {
-            padding: 30px;
-        }
+       
+.type-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Push button to bottom while keeping box */
+.type-content .btn {
+    margin-top: auto;
+}
 
         .type-content p {
             color: var(--sage-green);
@@ -1775,42 +1792,62 @@
                 });
             });
 
-            // ===== MAP INIT (Leaflet) - ONLY VIDYA NAGAR, HUBBALLI HEADQUARTERS =====
-            window.addEventListener('load', function() {
-                const mapEl = document.getElementById('officeMap');
-                if (!mapEl) return;
-                
-                // Coordinates for Vidya Nagar, Hubballi (approximate: 15.355, 75.130)
-                const hqCoords = [15.355, 75.130];
-                
-                // Initialize map centered on Vidya Nagar with zoom level 14
-                const map = L.map('officeMap').setView(hqCoords, 14);
-                
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-                    attribution: '© OpenStreetMap', 
-                    maxZoom: 18 
-                }).addTo(map);
+          // ===== MAP INIT (Leaflet) - HEADQUARTERS + FACTORY =====
+window.addEventListener('load', function() {
+    const mapEl = document.getElementById('officeMap');
+    if (!mapEl) return;
+    
+    // Headquarters coordinates (Vidya Nagar, Hubballi)
+    const hqCoords = [15.370883318923394, 75.12227886687761];
+    
+    // Factory coordinates (Belur Industrial Area, Dharwad)
+    const factoryCoords = [15.507592247668278, 74.9234778806391];
+    
+    // Center map between both locations
+    const map = L.map('officeMap').setView([15.43, 75.02], 11);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap',
+        maxZoom: 18
+    }).addTo(map);
 
-                // Custom marker icon
-                const icon = L.divIcon({ 
-                    className: 'office-marker', 
-                    html: '<div class="map-marker"><i class="fas fa-map-marker-alt"></i></div>', 
-                    iconSize: [45, 45], 
-                    iconAnchor: [22.5, 45] 
-                });
+    // Custom marker icon
+    const icon = L.divIcon({
+        className: 'office-marker',
+        html: '<div class="map-marker"><i class="fas fa-map-marker-alt"></i></div>',
+        iconSize: [45, 45],
+        iconAnchor: [22.5, 45]
+    });
 
-                // Add single marker for headquarters
-                L.marker(hqCoords, { icon }).addTo(map)
-                    .bindPopup(`
-                        <div class="map-popup">
-                            <h4>KVB Green Energies Headquarters</h4>
-                            <p>94CC+7X2, Vidya Nagar<br>Hubballi, Karnataka - 580031</p>
-                            <p>📞 +91-9545529950</p>
-                            <p>🕒 Mon-Sat: 9AM-6PM</p>
-                            <a href="https://maps.google.com/?q=15.355,75.130" target="_blank" class="popup-link"><i class="fas fa-directions"></i> Directions</a>
-                        </div>
-                    `);
-            });
+    // ===== HEADQUARTERS MARKER =====
+    L.marker(hqCoords, { icon }).addTo(map)
+        .bindPopup(`
+            <div class="map-popup">
+                <h4>KVB Green Energies Headquarters</h4>
+                <p>94CC+7X2, Vidya Nagar<br>Hubballi, Karnataka - 580031</p>
+                <p>📞 +91-9545529950</p>
+                <p>🕒 Mon-Sat: 9AM-6PM</p>
+                <a href="https://maps.google.com/?q=15.370883318923394,75.12227886687761" target="_blank" class="popup-link">
+                    <i class="fas fa-directions"></i> Directions
+                </a>
+            </div>
+        `);
+
+    // ===== FACTORY MARKER =====
+    L.marker(factoryCoords, { icon }).addTo(map)
+        .bindPopup(`
+            <div class="map-popup">
+                <h4>KVB Green Energies Factory</h4>
+                <p>3rd Main Road, KSSIDC<br>
+                Belur Industrial Area<br>
+                Dharwad, Karnataka - 580011</p>
+                <a href="https://maps.google.com/?q=15.507592247668278,74.9234778806391" target="_blank" class="popup-link">
+                    <i class="fas fa-directions"></i> Directions
+                </a>
+            </div>
+        `);
+});
+
 
             // ===== ACTIVE LINK HIGHLIGHT =====
             const current = window.location.pathname.split('/').pop() || 'index.html';
