@@ -83,43 +83,44 @@
   }
 
   /* ===== MEGA DROPDOWN BASE ===== */
-  .mega-menu {
-    position: fixed;
-    left: 0;
-    top: 74px;
-    width: 100%;
-    background: white;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    padding: 40px 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: 0.25s ease;
-  }
+ /* ===== SIMPLE DROPDOWN ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  min-width: 200px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.2s ease;
+  z-index: 999;
+}
 
-  .dropdown:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-.mega-item {
-  text-decoration: none;
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.9rem;
   color: #111;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-/* Clean Tesla-style image */
-.mega-item img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 8px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+.dropdown-menu a:hover {
+  background: #f5f5f5;
 }
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 
 /* Subtle hover */
 .mega-item:hover img {
@@ -229,66 +230,29 @@
       <li><a href="../index.html">Home</a></li>
       <li><a href="../about.html">About</a></li>
 
-      <!-- Solutions -->
-      <li class="dropdown">
-        <a href="#">Solutions</a>
-        <div class="mega-menu">
-          <div class="mega-solutions">
-            <a href="../solutions/solar-thermal-systems.html" class="mega-item">
-              <img src="../images/products/parabolic-cooker1.jpg" alt="">
-              <span>Solar Thermal</span>
-            </a>
-            <a href="../solutions/energy-storage.html" class="mega-item">
-              <img src="../images/icons/battery.png" alt="">
-              <span>Energy Storage</span>
-            </a>
-            <a href="../solutions/smart-agriculture.html" class="mega-item">
-              <img src="../images/icons/farm.png" alt="">
-              <span>Smart Agriculture</span>
-            </a>
-          </div>
-        </div>
-      </li>
+   <!-- Solutions -->
+<li class="dropdown">
+  <a href="#">Solutions</a>
+  <div class="dropdown-menu">
+    <a href="../solutions/solar-thermal-systems.html">Solar Thermal</a>
+    <a href="../solutions/energy-storage.html">Energy Storage</a>
+    <a href="../solutions/smart-agriculture.html">Smart Agriculture</a>
+  </div>
+</li>
 
-      <!-- Products -->
-      <li class="dropdown">
-        <a href="#">Products</a>
-        <div class="mega-menu">
-          <div class="mega-products">
+<!-- Products -->
+<li class="dropdown">
+  <a href="#">Products</a>
+  <div class="dropdown-menu">
+    <a href="../products/solar-steam-cooking.html">Solar Steam Cooking</a>
+    <a href="../products/solar-dryers.html">Solar Dryers</a>
+    <a href="../products/scheffler-concentrators.html">Scheffler Concentrators</a>
+    <a href="../products/ai-crop-detection.html">AI Crop Detection</a>
+    <a href="../products/microgreen-systems.html">Microgreen Systems</a>
+    <a href="../products/thermal-storage.html">Thermal Storage</a>
+  </div>
+</li>
 
-            <a href="../products/solar-steam-cooking.html" class="mega-item">
-              <img src="../images/icons/steam.png" alt="">
-              <span>Solar Steam Cooking</span>
-            </a>
-
-            <a href="../products/solar-dryers.html" class="mega-item">
-              <img src="../images/icons/dryer.png" alt="">
-              <span>Solar Dryers</span>
-            </a>
-
-            <a href="../products/scheffler-concentrators.html" class="mega-item">
-              <img src="../images/icons/dish.png" alt="">
-              <span>Scheffler Concentrators</span>
-            </a>
-
-            <a href="../products/ai-crop-detection.html" class="mega-item">
-              <img src="../images/icons/ai.png" alt="">
-              <span>AI Crop Detection</span>
-            </a>
-
-            <a href="../products/microgreen-systems.html" class="mega-item">
-              <img src="../images/icons/farm.png" alt="">
-              <span>Microgreen Systems</span>
-            </a>
-
-            <a href="../products/thermal-storage.html" class="mega-item">
-              <img src="../images/icons/battery.png" alt="">
-              <span>Thermal Storage</span>
-            </a>
-
-          </div>
-        </div>
-      </li>
 
       <li><a href="../innovation-lab.html">Innovation Lab</a></li>
       <li><a href="../clients-partnerships.html">Clients</a></li>
