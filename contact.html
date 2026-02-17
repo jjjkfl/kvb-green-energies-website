@@ -1492,8 +1492,8 @@
                         <h3><i class="fas fa-map-marker-alt"></i> Headquarters</h3>
                         <div class="address-details">
                             <p><strong>KVB Green Energies Pvt. Ltd.</strong></p>
-                            <p>R16, KSIDC, 3rd Cross Belur Industrial Estate</p>
-                            <p>Dharwad, Karnataka - 580011</p>
+                            <p>94CC+7X2, Vidya Nagar</p>
+                            <p>Hubballi, Karnataka - 580031</p>
                             <p>India</p>
                         </div>
                         <div class="contact-details">
@@ -1775,16 +1775,16 @@
                 });
             });
 
-            // ===== MAP INIT (Leaflet) - ONLY DHARWAD HEADQUARTERS =====
+            // ===== MAP INIT (Leaflet) - ONLY VIDYA NAGAR, HUBBALLI HEADQUARTERS =====
             window.addEventListener('load', function() {
                 const mapEl = document.getElementById('officeMap');
                 if (!mapEl) return;
                 
-                // Coordinates for Dharwad headquarters (approximate)
-                const hqCoords = [15.4589, 75.0078];
+                // Coordinates for Vidya Nagar, Hubballi (approximate: 15.355, 75.130)
+                const hqCoords = [15.355, 75.130];
                 
-                // Initialize map centered on Dharwad with zoom level 13 for a clear view
-                const map = L.map('officeMap').setView(hqCoords, 13);
+                // Initialize map centered on Vidya Nagar with zoom level 14
+                const map = L.map('officeMap').setView(hqCoords, 14);
                 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
                     attribution: '© OpenStreetMap', 
@@ -1804,10 +1804,10 @@
                     .bindPopup(`
                         <div class="map-popup">
                             <h4>KVB Green Energies Headquarters</h4>
-                            <p>R16, KSIDC, 3rd Cross Belur Industrial Estate<br>Dharwad, Karnataka - 580011</p>
+                            <p>94CC+7X2, Vidya Nagar<br>Hubballi, Karnataka - 580031</p>
                             <p>📞 +91-9545529950</p>
                             <p>🕒 Mon-Sat: 9AM-6PM</p>
-                            <a href="https://maps.google.com/?q=15.4589,75.0078" target="_blank" class="popup-link"><i class="fas fa-directions"></i> Directions</a>
+                            <a href="https://maps.google.com/?q=15.355,75.130" target="_blank" class="popup-link"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                     `);
             });
