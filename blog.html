@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Center | Solar Energy & Smart Agriculture Resources | KVB Green Energies</title>
+    <title>Knowledge Center – KVB Green Energies</title>
+    <!-- Fonts: Huawei typically uses sans-serif with clean lines -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base Styles */
+        /* ===== RESET & VARIABLES (HUAWEI INSPIRED) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -15,1083 +16,768 @@
         }
 
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2d9cdb;
-            --accent-color: #27ae60;
-            --light-color: #f8f9fa;
-            --dark-color: #2c3e50;
-            --gray-light: #e0e6ed;
-            --gray-medium: #8c98a4;
-            --gray-dark: #5a6772;
-            --text-color: #333;
-            --text-light: #6c757d;
-            --border-color: #e0e0e0;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --border-radius: 8px;
-            --font-serif: 'Source Serif Pro', serif;
-            --font-sans: 'Inter', sans-serif;
+            --background: #FFFFFF;
+            --background-alt: #F5F7FA;
+            --text-primary: #1D1D1F;
+            --text-secondary: #5A6772;
+            --text-tertiary: #8C98A4;
+            --border: #E6E9F0;
+            --accent: #0055A4;             /* Huawei signature blue */
+            --accent-light: #E6F0FF;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         body {
             font-family: var(--font-sans);
-            color: var(--text-color);
-            background-color: #f9fafc;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-serif);
-            font-weight: 600;
-            line-height: 1.3;
-            color: var(--dark-color);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
 
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+        h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+        p { color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; }
 
         .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 0.75rem;
         }
-
-        .section-title::after {
+        .section-title:after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            display: block;
             width: 60px;
             height: 3px;
-            background-color: var(--secondary-color);
-            border-radius: 3px;
+            background: var(--accent);
+            margin-top: 0.8rem;
+            border-radius: 2px;
         }
 
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius);
+            gap: 8px;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
             font-weight: 500;
-            cursor: pointer;
+            text-decoration: none;
             transition: var(--transition);
             border: none;
-            font-family: var(--font-sans);
+            cursor: pointer;
+            font-size: 0.95rem;
+            background: transparent;
         }
-
         .btn-primary {
-            background-color: var(--secondary-color);
+            background: var(--accent);
             color: white;
+            box-shadow: 0 4px 12px rgba(0,85,164,0.2);
         }
-
         .btn-primary:hover {
-            background-color: #2388c7;
-            transform: translateY(-2px);
+            background: #004088;
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,85,164,0.3);
         }
-
         .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--secondary-color);
-            color: var(--secondary-color);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
         }
-
         .btn-outline:hover {
-            background-color: var(--secondary-color);
-            color: white;
+            background: var(--accent-light);
         }
 
-     
-
-        /* Hero Section */
-        .blog-hero {
-            background: linear-gradient(135deg, #1a365d 0%, #2d9cdb 100%);
-            color: white;
-            padding: 4rem 0;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease;
+        /* ===== HEADER (placeholder) ===== */
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
+        /* ===== HERO ===== */
+        .knowledge-hero {
+            padding: 100px 0 60px;
+            background: linear-gradient(145deg, #F5F7FA 0%, #FFFFFF 100%);
+            border-bottom: 1px solid var(--border);
+        }
         .hero-content {
-            text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
-
-        .blog-hero h1 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-            animation: slideUp 0.8s ease;
-        }
-
         .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-            animation: slideUp 0.8s ease 0.2s both;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 1rem;
         }
-
         .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            animation: slideUp 0.8s ease 0.4s both;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-tertiary);
         }
-
         .hero-search {
-            animation: slideUp 0.8s ease 0.6s both;
+            max-width: 600px;
+            margin: 2rem auto 0;
         }
-
         .search-form {
             display: flex;
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            overflow: hidden;
+            transition: var(--transition);
         }
-
+        .search-form:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,85,164,0.1);
+        }
         .search-input {
             flex: 1;
             padding: 1rem 1.5rem;
             border: none;
-            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            outline: none;
             font-family: var(--font-sans);
             font-size: 1rem;
         }
-
         .search-btn {
-            background-color: var(--accent-color);
+            background: var(--accent);
             color: white;
             border: none;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            padding: 0 1.5rem;
+            width: 60px;
             cursor: pointer;
-            font-size: 1.2rem;
+            transition: var(--transition);
         }
-
         .search-btn:hover {
-            background-color: #219653;
+            background: #004088;
         }
-
         .search-tags {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 0.5rem;
-        }
-
-        .search-tags span {
-            opacity: 0.8;
-        }
-
-        .search-tags a {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            margin-top: 1rem;
             font-size: 0.9rem;
+            color: var(--text-tertiary);
         }
-
+        .search-tags a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
         .search-tags a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
-        /* Category Tabs */
+        /* ===== CATEGORY TABS ===== */
         .blog-categories {
-            margin-bottom: 2rem;
+            padding: 2rem 0 0;
         }
-
         .category-tabs {
             display: flex;
             overflow-x: auto;
-            gap: 0.5rem;
+            gap: 0.8rem;
             padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
         }
-
         .category-tab {
-            padding: 0.75rem 1.5rem;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 40px;
             white-space: nowrap;
-            cursor: pointer;
             font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
             transition: var(--transition);
         }
-
         .category-tab:hover {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
+            border-color: var(--accent);
+            color: var(--accent);
         }
-
         .category-tab.active {
-            background-color: var(--secondary-color);
+            background: var(--accent);
             color: white;
-            border-color: var(--secondary-color);
+            border-color: var(--accent);
         }
 
-        /* Featured Articles */
+        /* ===== FEATURED ARTICLES ===== */
         .featured-articles {
-            margin-bottom: 3rem;
+            padding: 3rem 0;
         }
-
         .featured-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
         }
-
         .featured-card {
-            background-color: white;
-            border-radius: var(--border-radius);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--card-shadow);
             transition: var(--transition);
         }
-
         .featured-card:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
         }
-
         .main-featured {
             grid-row: span 2;
         }
-
         .article-image {
-            height: 300px;
-            overflow: hidden;
+            height: 280px;
+            background: linear-gradient(145deg, #E6F0FF, #D4E4FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 2rem;
+            position: relative;
         }
-
-        .main-featured .article-image {
-            height: 400px;
-        }
-
-        .article-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .featured-card:hover .article-image img {
-            transform: scale(1.05);
-        }
-
         .article-badge {
             position: absolute;
             top: 1rem;
             left: 1rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
             font-size: 0.8rem;
             font-weight: 600;
-            color: white;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border);
         }
-
-        .article-badge.featured {
-            background-color: var(--accent-color);
-        }
-
-        .article-badge.guide {
-            background-color: #9b51e0;
-        }
-
-        .article-badge.tutorial {
-            background-color: #f2994a;
-        }
-
-        .article-badge.innovation {
-            background-color: #eb5757;
-        }
-
         .article-content {
             padding: 1.5rem;
         }
-
         .article-meta {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: var(--gray-medium);
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
         }
-
         .article-meta .category {
+            color: var(--accent);
             font-weight: 600;
-            color: var(--secondary-color);
         }
-
         .article-title {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
+            margin-bottom: 0.8rem;
         }
-
         .main-featured .article-title {
             font-size: 1.8rem;
         }
-
         .article-excerpt {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-
         .article-stats {
             display: flex;
             gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--gray-medium);
-            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
         }
-
         .sidebar-card {
-            background-color: white;
-            border-radius: var(--border-radius);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 1rem;
             transition: var(--transition);
+            margin-bottom: 1rem;
         }
-
         .sidebar-card:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-sm);
         }
-
         .sidebar-card .article-image {
             height: 150px;
         }
-
         .sidebar-card .article-content {
             padding: 1rem;
         }
-
         .sidebar-card .article-title {
             font-size: 1.1rem;
-            margin-bottom: 0.5rem;
         }
 
-        .article-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        .article-link:hover {
-            color: var(--primary-color);
-        }
-
-        /* Articles Grid */
+        /* ===== ARTICLES GRID ===== */
         .articles-grid {
-            margin-bottom: 3rem;
+            padding: 2rem 0 3rem;
+            background: var(--background-alt);
         }
-
         .grid-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
-
         .sort-options {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
-
         .sort-select {
             padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            background: white;
             font-family: var(--font-sans);
+            outline: none;
         }
-
         .articles-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
-
         .article-card {
-            background-color: white;
-            border-radius: var(--border-radius);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--card-shadow);
             transition: var(--transition);
-            animation: fadeInUp 0.6s ease both;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s forwards;
         }
-
-        .article-card:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
-        }
-
-        .article-card .article-image {
-            height: 200px;
-        }
-
-        .article-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tag {
-            padding: 0.25rem 0.75rem;
-            background-color: var(--gray-light);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--gray-dark);
-        }
-
-        .article-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .author {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-dark);
-        }
-
-        .author-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .author-role {
-            font-size: 0.8rem;
-            color: var(--gray-medium);
-        }
-
-        .article-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .read-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        .read-link:hover {
-            color: var(--primary-color);
-        }
-
-        .save-article {
-            background: none;
-            border: none;
-            color: var(--gray-medium);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .save-article:hover {
-            color: var(--accent-color);
-        }
-
-        .resources {
-            background-color: #f8fafc;
-            padding: 1rem;
-            border-radius: var(--border-radius);
-            margin: 1rem 0;
-        }
-
-        .resources h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .resource-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .resource-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
-
-        .resource-link:hover {
-            color: var(--primary-color);
-        }
-
-        .download-info {
-            background-color: #e8f4fc;
-            padding: 0.75rem;
-            border-radius: var(--border-radius);
-            margin: 1rem 0;
-            font-size: 0.9rem;
-        }
-
-        .video-preview {
-            margin: 1rem 0;
-        }
-
-        .video-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #eb5757;
-            font-weight: 500;
-        }
-
-        .case-study-link {
-            margin: 1rem 0;
-        }
-
-        .case-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .load-more-articles {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* Resource Library */
-        .resource-library {
-            background-color: white;
-            padding: 3rem 0;
-            margin-bottom: 3rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .resource-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .resource-category h3 {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .resource-list {
-            list-style: none;
-        }
-
-        .resource-list li {
-            margin-bottom: 0.75rem;
-        }
-
-        .resource-list a {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background-color: #f8fafc;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .resource-list a:hover {
-            background-color: #e8f4fc;
-        }
-
-        .resource-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .resource-title {
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .resource-meta {
-            font-size: 0.85rem;
-            color: var(--gray-medium);
-        }
-
-        .download-all {
-            text-align: center;
-        }
-
-        /* Newsletter */
-        .newsletter-section {
-            background-color: white;
-            padding: 3rem 0;
-            margin-bottom: 3rem;
-        }
-
-        .newsletter-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .newsletter-info h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-benefits {
-            margin-top: 1.5rem;
-        }
-
-        .benefit {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .benefit i {
-            color: var(--accent-color);
-        }
-
-        .newsletter-form {
-            background-color: #f8fafc;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-        }
-
-        .newsletter-form h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            background-color: white;
-        }
-
-        .interest-checkboxes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-
-        .privacy-note {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        /* Expert Contributors */
-        .expert-contributors {
-            margin-bottom: 3rem;
-        }
-
-        .contributors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .contributor-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-
-        .contributor-card:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
-        }
-
-        .contributor-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: var(--secondary-color);
-        }
-
-        .contributor-info h3 {
-            margin-bottom: 0.25rem;
-        }
-
-        .contributor-role {
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .contributor-expertise {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .contributor-stats {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--gray-medium);
-        }
-
-        /* CTA Section */
-        .knowledge-cta {
-            background: linear-gradient(135deg, #1a365d 0%, #2d9cdb 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .knowledge-cta h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .knowledge-cta p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-outline-light {
-            background-color: transparent;
-            border: 1px solid white;
-            color: white;
-        }
-
-        .btn-outline-light:hover {
-            background-color: white;
-            color: var(--primary-color);
-        }
-
-      
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Delayed animations for articles */
         .article-card:nth-child(1) { animation-delay: 0.1s; }
         .article-card:nth-child(2) { animation-delay: 0.2s; }
         .article-card:nth-child(3) { animation-delay: 0.3s; }
         .article-card:nth-child(4) { animation-delay: 0.4s; }
         .article-card:nth-child(5) { animation-delay: 0.5s; }
         .article-card:nth-child(6) { animation-delay: 0.6s; }
+        .article-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .article-card .article-image {
+            height: 180px;
+            font-size: 1.8rem;
+        }
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tag {
+            padding: 0.2rem 0.8rem;
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--background-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+        .author-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .author-role {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+        .article-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .read-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .save-article {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .save-article:hover {
+            color: var(--accent);
+        }
+        .load-more {
+            text-align: center;
+            margin-top: 3rem;
+        }
 
-        /* Responsive Styles */
+        /* ===== RESOURCE LIBRARY ===== */
+        .resource-library {
+            padding: 4rem 0;
+            background: white;
+        }
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .resource-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent);
+        }
+        .resource-list {
+            list-style: none;
+        }
+        .resource-list li {
+            margin-bottom: 0.8rem;
+        }
+        .resource-list a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            background: var(--background-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        .resource-list a:hover {
+            border-color: var(--accent);
+            background: white;
+            transform: translateX(4px);
+        }
+        .resource-info {
+            flex: 1;
+        }
+        .resource-title {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+        .resource-meta {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter-section {
+            padding: 4rem 0;
+            background: linear-gradient(145deg, #F5F7FA, #FFFFFF);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .newsletter-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .newsletter-info h2 {
+            margin-bottom: 1rem;
+        }
+        .newsletter-benefits {
+            margin-top: 1.5rem;
+        }
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .benefit i {
+            color: var(--accent);
+        }
+        .newsletter-form {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .newsletter-form h3 {
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,85,164,0.1);
+        }
+        .interest-checkboxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .privacy-note {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .knowledge-cta {
+            padding: 4rem 0;
+            background: var(--accent);
+            color: white;
+            text-align: center;
+        }
+        .knowledge-cta h2 {
+            color: white;
+        }
+        .knowledge-cta p {
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .btn-outline-light {
+            border: 1px solid white;
+            color: white;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--accent);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: #004088;
+            transform: scale(1.1);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .featured-grid {
                 grid-template-columns: 1fr;
             }
-            
             .newsletter-content {
                 grid-template-columns: 1fr;
             }
-            
-            .blog-hero h1 {
-                font-size: 2.5rem;
-            }
         }
-
         @media (max-width: 768px) {
-            .articles-container {
-                grid-template-columns: 1fr;
-            }
-            
+            .container { padding: 0 20px; }
+            h1 { font-size: 2.5rem; }
             .grid-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
-            
-            .nav-links {
-                display: none;
+            .articles-container {
+                grid-template-columns: 1fr;
             }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .blog-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
             .interest-checkboxes {
                 grid-template-columns: 1fr;
             }
-            
-            .cta-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .article-meta {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            
-            .article-stats {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .article-footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .article-actions {
-                width: 100%;
-                justify-content: space-between;
-            }
-            
-            .resource-categories {
-                grid-template-columns: 1fr;
-            }
-            
-            .contributors-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            cursor: pointer;
-        }
-
-        /* Active states for interactive elements */
-        .save-article.active {
-            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
-   <div id="header"></div>
+    <div id="header"></div>
 
-    <!-- Blog Hero -->
-    <section class="blog-hero">
+    <!-- HERO SECTION -->
+    <section class="knowledge-hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Knowledge Center</h1>
                 <p class="hero-subtitle">Expert Insights on Renewable Energy & Smart Agriculture</p>
                 <p class="hero-description">Access technical articles, research papers, case studies, and educational resources on solar thermal technology, energy storage, and intelligent farming solutions.</p>
-                
                 <div class="hero-search">
-                    <form class="search-form" id="blog-search">
-                        <input type="text" placeholder="Search articles, guides, or research papers..." class="search-input">
-                        <button type="submit" class="search-btn">
-                            <i class="fas fa-search"></i>
-                        </button>
+                    <form class="search-form">
+                        <input type="text" class="search-input" placeholder="Search articles, guides, research papers...">
+                        <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
                     </form>
                     <div class="search-tags">
-                        <span>Popular searches:</span>
-                        <a href="#solar-cooking">solar cooking</a>
-                        <a href="#solar-drying">solar drying</a>
-                        <a href="#energy-storage">energy storage</a>
-                        <a href="#smart-agriculture">smart agriculture</a>
+                        <span>Popular:</span>
+                        <a href="#">solar cooking</a>
+                        <a href="#">solar drying</a>
+                        <a href="#">energy storage</a>
+                        <a href="#">smart agriculture</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Categories -->
+    <!-- CATEGORY TABS -->
     <section class="blog-categories">
         <div class="container">
             <div class="category-tabs">
-                <button class="category-tab active" data-category="all">All Topics</button>
-                <button class="category-tab" data-category="solar-cooking">Solar Cooking</button>
-                <button class="category-tab" data-category="solar-drying">Solar Drying</button>
-                <button class="category-tab" data-category="energy-storage">Energy Storage</button>
-                <button class="category-tab" data-category="smart-agri">Smart Agriculture</button>
-                <button class="category-tab" data-category="farmer-education">Farmer Education</button>
-                <button class="category-tab" data-category="technical">Technical Articles</button>
-                <button class="category-tab" data-category="policy">Government Policy</button>
+                <button class="category-tab active">All Topics</button>
+                <button class="category-tab">Solar Cooking</button>
+                <button class="category-tab">Solar Drying</button>
+                <button class="category-tab">Energy Storage</button>
+                <button class="category-tab">Smart Agriculture</button>
+                <button class="category-tab">Farmer Education</button>
+                <button class="category-tab">Technical Articles</button>
+                <button class="category-tab">Policy & Subsidy</button>
             </div>
         </div>
     </section>
 
-    <!-- Featured Articles -->
+    <!-- FEATURED ARTICLES -->
     <section class="featured-articles">
         <div class="container">
             <h2 class="section-title">Featured Articles</h2>
-            
             <div class="featured-grid">
+                <!-- Main featured -->
                 <div class="featured-card main-featured">
                     <div class="article-image">
-                        <div class="placeholder-image" style="background-color: #2d9cdb; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                            <i class="fas fa-solar-panel"></i> Solar Cooking Innovation
-                        </div>
-                        <div class="article-badge featured">Featured</div>
+                        <i class="fas fa-solar-panel"></i>
+                        <div class="article-badge">Featured</div>
                     </div>
                     <div class="article-content">
                         <div class="article-meta">
-                            <span class="category solar-cooking">Solar Cooking</span>
-                            <span class="date"><i class="far fa-calendar"></i> March 15, 2024</span>
-                            <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                            <span class="category">Solar Cooking</span>
+                            <span>Mar 15, 2024</span>
+                            <span>8 min read</span>
                         </div>
                         <h3 class="article-title">The Future of Solar Cooking in India: Scaling Sustainable Community Kitchens</h3>
                         <p class="article-excerpt">How large-scale solar cooking systems are transforming institutional kitchens across India, with case studies from army bases, temples, and educational institutions.</p>
                         <div class="article-stats">
-                            <span class="stat"><i class="far fa-eye"></i> 2,450 views</span>
-                            <span class="stat"><i class="far fa-comment"></i> 42 comments</span>
-                            <span class="stat"><i class="fas fa-download"></i> 315 downloads</span>
+                            <span><i class="far fa-eye"></i> 2,450 views</span>
+                            <span><i class="far fa-comment"></i> 42 comments</span>
+                            <span><i class="fas fa-download"></i> 315 downloads</span>
                         </div>
                         <a href="#" class="btn btn-outline">Read Article</a>
                     </div>
                 </div>
-                
+                <!-- Sidebar cards -->
                 <div class="featured-sidebar">
                     <div class="sidebar-card">
-                        <div class="article-image">
-                            <div class="placeholder-image" style="background-color: #27ae60; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">
-                                <i class="fas fa-wind"></i> Solar Drying Tech
-                            </div>
-                        </div>
+                        <div class="article-image"><i class="fas fa-wind"></i></div>
                         <div class="article-content">
-                            <div class="article-meta">
-                                <span class="category solar-drying">Solar Drying</span>
-                                <span class="date">March 10, 2024</span>
-                            </div>
+                            <div class="article-meta"><span class="category">Solar Drying</span><span>Mar 10</span></div>
                             <h4 class="article-title">Advanced Solar Drying Technologies for Agricultural Value Addition</h4>
-                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
                     <div class="sidebar-card">
+                        <div class="article-image"><i class="fas fa-battery-full"></i></div>
                         <div class="article-content">
-                            <div class="article-meta">
-                                <span class="category energy-storage">Energy Storage</span>
-                                <span class="date">March 5, 2024</span>
-                            </div>
-                            <h4 class="article-title">Sand Battery Technology: Low-Cost Thermal Energy Storage Solutions</h4>
-                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="article-meta"><span class="category">Energy Storage</span><span>Mar 5</span></div>
+                            <h4 class="article-title">Sand Battery Technology: Low-Cost Thermal Energy Storage</h4>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
-                    
                     <div class="sidebar-card">
+                        <div class="article-image"><i class="fas fa-seedling"></i></div>
                         <div class="article-content">
-                            <div class="article-meta">
-                                <span class="category smart-agri">Smart Agriculture</span>
-                                <span class="date">Feb 28, 2024</span>
-                            </div>
+                            <div class="article-meta"><span class="category">Smart Agriculture</span><span>Feb 28</span></div>
                             <h4 class="article-title">AI-Powered Crop Quality Detection: Revolutionizing Agricultural Grading</h4>
-                            <a href="#" class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="read-link">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1099,590 +785,233 @@
         </div>
     </section>
 
-    <!-- Articles Grid -->
+    <!-- ARTICLES GRID -->
     <section class="articles-grid">
         <div class="container">
             <div class="grid-header">
                 <h2 class="section-title">Latest Articles & Resources</h2>
                 <div class="sort-options">
-                    <label for="sort-by">Sort by:</label>
-                    <select id="sort-by" class="sort-select">
-                        <option value="latest">Latest</option>
-                        <option value="popular">Most Popular</option>
-                        <option value="trending">Trending</option>
-                        <option value="oldest">Oldest</option>
+                    <label for="sort">Sort by:</label>
+                    <select id="sort" class="sort-select">
+                        <option>Latest</option>
+                        <option>Most Popular</option>
+                        <option>Trending</option>
                     </select>
                 </div>
             </div>
-            
             <div class="articles-container">
-                <!-- Article 1 -->
-                <article class="article-card" data-category="solar-cooking" data-tags="technology, community, sustainable">
-                    <div class="article-image">
-                        <div class="placeholder-image" style="background-color: #9b51e0; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">
-                            <i class="fas fa-fire"></i> Solar Steam Systems
-                        </div>
-                        <div class="article-badge guide">Guide</div>
-                    </div>
+                <!-- Article cards (simplified) -->
+                <div class="article-card">
+                    <div class="article-image"><i class="fas fa-fire"></i></div>
                     <div class="article-content">
-                        <div class="article-meta">
-                            <span class="category solar-cooking">Solar Cooking</span>
-                            <span class="date">Feb 20, 2024</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <h3 class="article-title">Complete Guide to Solar Steam Cooking Systems: Design, Installation & Maintenance</h3>
-                        <p class="article-excerpt">Detailed technical guide covering everything from system design principles to installation best practices and long-term maintenance protocols.</p>
-                        
-                        <div class="article-tags">
-                            <span class="tag">Technology</span>
-                            <span class="tag">Installation</span>
-                            <span class="tag">Maintenance</span>
-                        </div>
-                        
+                        <div class="article-meta"><span class="category">Solar Cooking</span><span>Feb 20</span><span>6 min</span></div>
+                        <h3>Complete Guide to Solar Steam Cooking Systems</h3>
+                        <div class="article-tags"><span class="tag">Technology</span><span class="tag">Installation</span><span class="tag">Maintenance</span></div>
+                        <p class="article-excerpt">Detailed technical guide covering system design, installation, and maintenance.</p>
                         <div class="article-footer">
                             <div class="author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-user-engineering"></i>
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-name">Dr. Rajesh Kumar</span>
-                                    <span class="author-role">Chief Technology Officer</span>
-                                </div>
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <div><div class="author-name">Dr. Rajesh Kumar</div><div class="author-role">CTO</div></div>
                             </div>
                             <div class="article-actions">
                                 <a href="#" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-                                <button class="save-article" title="Save for later">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
+                                <button class="save-article"><i class="far fa-bookmark"></i></button>
                             </div>
                         </div>
                     </div>
-                </article>
-                
-                <!-- Article 2 -->
-                <article class="article-card" data-category="farmer-education" data-tags="training, agriculture, solar">
-                    <div class="article-image">
-                        <div class="placeholder-image" style="background-color: #f2994a; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">
-                            <i class="fas fa-graduation-cap"></i> Farmer Training
-                        </div>
-                        <div class="article-badge tutorial">Tutorial</div>
-                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image"><i class="fas fa-graduation-cap"></i></div>
                     <div class="article-content">
-                        <div class="article-meta">
-                            <span class="category farmer-education">Farmer Education</span>
-                            <span class="date">Feb 15, 2024</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <h3 class="article-title">Solar Drying Training Program: Empowering Farmers with Practical Skills</h3>
-                        <p class="article-excerpt">Step-by-step training curriculum for farmers on operating and maintaining solar drying systems, including troubleshooting common issues.</p>
-                        
-                        <div class="article-tags">
-                            <span class="tag">Training</span>
-                            <span class="tag">Farmers</span>
-                            <span class="tag">Practical Guide</span>
-                        </div>
-                        
+                        <div class="article-meta"><span class="category">Farmer Education</span><span>Feb 15</span><span>5 min</span></div>
+                        <h3>Solar Drying Training Program: Empowering Farmers</h3>
+                        <div class="article-tags"><span class="tag">Training</span><span class="tag">Farmers</span><span class="tag">Guide</span></div>
+                        <p class="article-excerpt">Step‑by‑step training curriculum for operating and maintaining solar dryers.</p>
                         <div class="article-footer">
                             <div class="author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-name">Ms. Anjali Sharma</span>
-                                    <span class="author-role">Training Director</span>
-                                </div>
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <div><div class="author-name">Ms. Anjali Sharma</div><div class="author-role">Training Director</div></div>
                             </div>
                             <div class="article-actions">
                                 <a href="#" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-                                <button class="save-article" title="Save for later">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
+                                <button class="save-article"><i class="far fa-bookmark"></i></button>
                             </div>
                         </div>
                     </div>
-                </article>
-                
-                <!-- Article 3 -->
-                <article class="article-card" data-category="policy" data-tags="government, subsidy, renewable">
-                    <div class="article-image">
-                        <div class="placeholder-image" style="background-color: #2d9cdb; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">
-                            <i class="fas fa-landmark"></i> Government Policy
-                        </div>
-                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image"><i class="fas fa-landmark"></i></div>
                     <div class="article-content">
-                        <div class="article-meta">
-                            <span class="category policy">Government Policy</span>
-                            <span class="date">Feb 5, 2024</span>
-                            <span class="read-time">7 min read</span>
-                        </div>
-                        <h3 class="article-title">Complete Guide to Government Subsidies for Solar Thermal Systems in India (2024)</h3>
-                        <p class="article-excerpt">Updated guide covering MNRE and state government subsidies, eligibility criteria, application process, and documentation requirements.</p>
-                        
-                        <div class="article-tags">
-                            <span class="tag">Subsidy</span>
-                            <span class="tag">Government</span>
-                            <span class="tag">Funding</span>
-                        </div>
-                        
-                        <div class="download-info">
-                            <p><i class="fas fa-download"></i> <strong>Updated for 2024</strong> - Includes latest subsidy rates and schemes</p>
-                        </div>
-                        
+                        <div class="article-meta"><span class="category">Policy</span><span>Feb 5</span><span>7 min</span></div>
+                        <h3>Government Subsidies for Solar Thermal Systems (2024)</h3>
+                        <div class="article-tags"><span class="tag">Subsidy</span><span class="tag">Government</span><span class="tag">Funding</span></div>
+                        <p class="article-excerpt">Updated guide covering MNRE and state subsidies, eligibility, and application.</p>
                         <div class="article-footer">
                             <div class="author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-landmark"></i>
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-name">Policy Team</span>
-                                    <span class="author-role">Government Relations</span>
-                                </div>
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <div><div class="author-name">Policy Team</div><div class="author-role">Govt Relations</div></div>
                             </div>
                             <div class="article-actions">
-                                <a href="#" class="read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
-                                <a href="#" class="download-link" download>
-                                    <i class="fas fa-download"></i> Template
-                                </a>
+                                <a href="#" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+                                <button class="save-article"><i class="far fa-bookmark"></i></button>
                             </div>
                         </div>
                     </div>
-                </article>
-                
-                <!-- Article 4 -->
-                <article class="article-card" data-category="smart-agri" data-tags="technology, innovation, farming">
-                    <div class="article-image">
-                        <div class="placeholder-image" style="background-color: #eb5757; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem;">
-                            <i class="fas fa-seedling"></i> Microgreen Farming
-                        </div>
-                        <div class="article-badge innovation">Innovation</div>
-                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image"><i class="fas fa-seedling"></i></div>
                     <div class="article-content">
-                        <div class="article-meta">
-                            <span class="category smart-agri">Smart Agriculture</span>
-                            <span class="date">Jan 30, 2024</span>
-                            <span class="read-time">9 min read</span>
-                        </div>
-                        <h3 class="article-title">Automated Microgreen Farming Systems: Technology for Urban Agriculture</h3>
-                        <p class="article-excerpt">Exploring automated vertical farming technologies for high-value microgreen production in urban environments with limited space.</p>
-                        
-                        <div class="article-tags">
-                            <span class="tag">Urban Farming</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">Vertical Farming</span>
-                        </div>
-                        
-                        <div class="video-preview">
-                            <a href="#" class="video-link" target="_blank">
-                                <i class="fas fa-play-circle"></i> Watch System Demonstration
-                            </a>
-                        </div>
-                        
+                        <div class="article-meta"><span class="category">Smart Agriculture</span><span>Jan 30</span><span>9 min</span></div>
+                        <h3>Automated Microgreen Farming Systems</h3>
+                        <div class="article-tags"><span class="tag">Urban Farming</span><span class="tag">Automation</span></div>
+                        <p class="article-excerpt">Exploring automated vertical farming for high‑value microgreens in urban environments.</p>
                         <div class="article-footer">
                             <div class="author">
-                                <div class="author-avatar">
-                                    <i class="fas fa-robot"></i>
-                                </div>
-                                <div class="author-info">
-                                    <span class="author-name">Innovation Team</span>
-                                    <span class="author-role">Automation Division</span>
-                                </div>
+                                <div class="author-avatar"><i class="fas fa-robot"></i></div>
+                                <div><div class="author-name">Innovation Team</div><div class="author-role">Automation Div.</div></div>
                             </div>
                             <div class="article-actions">
-                                <a href="#" class="read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+                                <button class="save-article"><i class="far fa-bookmark"></i></button>
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
             </div>
-            
-            <div class="load-more-articles">
-                <button id="loadMoreArticles" class="btn btn-outline">
-                    <i class="fas fa-plus"></i> Load More Articles
-                </button>
+            <div class="load-more">
+                <button class="btn btn-outline"><i class="fas fa-plus"></i> Load More Articles</button>
             </div>
         </div>
     </section>
 
-    <!-- Resource Library -->
+    <!-- RESOURCE LIBRARY -->
     <section class="resource-library">
         <div class="container">
             <h2 class="section-title">Resource Library</h2>
-            <p class="section-subtitle">Download technical documents, guides, and research papers</p>
-            
+            <p style="color: var(--text-tertiary); margin-bottom: 2rem;">Download technical documents, guides, and research papers</p>
             <div class="resource-categories">
                 <div class="resource-category">
                     <h3><i class="fas fa-file-pdf"></i> Technical Documents</h3>
                     <ul class="resource-list">
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Solar Cooking System Technical Specifications</span>
-                                    <span class="resource-meta">PDF • 2.4 MB • Updated: March 2024</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Solar Drying System Design Guide</span>
-                                    <span class="resource-meta">PDF • 3.1 MB • Updated: Feb 2024</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">System Installation & Commissioning Manual</span>
-                                    <span class="resource-meta">PDF • 4.2 MB • Version 3.0</span>
-                                </div>
-                            </a>
-                        </li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Solar Cooking System Specs</span><span class="resource-meta">PDF • 2.4 MB • Mar 2024</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Solar Drying Design Guide</span><span class="resource-meta">PDF • 3.1 MB • Feb 2024</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Installation Manual</span><span class="resource-meta">PDF • 4.2 MB • v3.0</span></div></a></li>
                     </ul>
                 </div>
-                
                 <div class="resource-category">
                     <h3><i class="fas fa-chart-bar"></i> Research & Data</h3>
                     <ul class="resource-list">
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Annual Performance Analysis Report 2023</span>
-                                    <span class="resource-meta">PDF • 5.8 MB • Comprehensive Data</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Case Studies Database (Excel)</span>
-                                    <span class="resource-meta">XLSX • 1.2 MB • 50+ Projects</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">ROI Calculator Tool (Excel)</span>
-                                    <span class="resource-meta">XLSX • 850 KB • Interactive</span>
-                                </div>
-                            </a>
-                        </li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Annual Performance Report 2023</span><span class="resource-meta">PDF • 5.8 MB</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Case Studies Database</span><span class="resource-meta">XLSX • 1.2 MB • 50+ projects</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">ROI Calculator Tool</span><span class="resource-meta">XLSX • 850 KB</span></div></a></li>
                     </ul>
                 </div>
-                
                 <div class="resource-category">
                     <h3><i class="fas fa-graduation-cap"></i> Training Materials</h3>
                     <ul class="resource-list">
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">System Operator Training Manual</span>
-                                    <span class="resource-meta">PDF • 2.8 MB • Complete Guide</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Preventive Maintenance Checklist</span>
-                                    <span class="resource-meta">PDF • 1.1 MB • Monthly/Yearly</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-download"></i>
-                                <div class="resource-info">
-                                    <span class="resource-title">Troubleshooting & Repair Guide</span>
-                                    <span class="resource-meta">PDF • 3.5 MB • Step-by-step</span>
-                                </div>
-                            </a>
-                        </li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Operator Training Manual</span><span class="resource-meta">PDF • 2.8 MB</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Maintenance Checklist</span><span class="resource-meta">PDF • 1.1 MB</span></div></a></li>
+                        <li><a href="#"><i class="fas fa-download"></i><div class="resource-info"><span class="resource-title">Troubleshooting Guide</span><span class="resource-meta">PDF • 3.5 MB</span></div></a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="download-all">
-                <a href="#" class="btn btn-primary">
-                    <i class="fas fa-download"></i> Download Complete Resource Library (ZIP, 45.2 MB)
-                </a>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Complete Library (ZIP, 45.2 MB)</a>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter Subscription -->
+    <!-- NEWSLETTER -->
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
                 <div class="newsletter-info">
                     <h2>Stay Updated with Latest Knowledge</h2>
                     <p>Subscribe to our Knowledge Center newsletter for monthly updates on new articles, research papers, and technical resources.</p>
-                    
                     <div class="newsletter-benefits">
-                        <div class="benefit">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Monthly curated articles</span>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Latest research papers</span>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Technical updates</span>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Industry insights</span>
-                        </div>
+                        <div class="benefit"><i class="fas fa-check-circle"></i> <span>Monthly curated articles</span></div>
+                        <div class="benefit"><i class="fas fa-check-circle"></i> <span>Latest research papers</span></div>
+                        <div class="benefit"><i class="fas fa-check-circle"></i> <span>Technical updates</span></div>
+                        <div class="benefit"><i class="fas fa-check-circle"></i> <span>Industry insights</span></div>
                     </div>
                 </div>
-                
                 <div class="newsletter-form">
-                    <form id="knowledge-newsletter">
-                        <h3>Subscribe to Knowledge Center</h3>
-                        
-                        <div class="form-group">
-                            <label for="newsletter-name">Full Name</label>
-                            <input type="text" id="newsletter-name" name="name" placeholder="Enter your name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="newsletter-email">Email Address</label>
-                            <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interest-areas">Areas of Interest</label>
+                    <h3>Subscribe to Knowledge Center</h3>
+                    <form>
+                        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Enter your name"></div>
+                        <div class="form-group"><label>Email Address</label><input type="email" placeholder="Enter your email"></div>
+                        <div class="form-group"><label>Areas of Interest</label>
                             <div class="interest-checkboxes">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="interests" value="solar-cooking">
-                                    <span>Solar Cooking</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="interests" value="solar-drying">
-                                    <span>Solar Drying</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="interests" value="energy-storage">
-                                    <span>Energy Storage</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="interests" value="smart-agri">
-                                    <span>Smart Agriculture</span>
-                                </label>
+                                <label class="checkbox-label"><input type="checkbox"> Solar Cooking</label>
+                                <label class="checkbox-label"><input type="checkbox"> Solar Drying</label>
+                                <label class="checkbox-label"><input type="checkbox"> Energy Storage</label>
+                                <label class="checkbox-label"><input type="checkbox"> Smart Agriculture</label>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="user-type">I am a</label>
-                            <select id="user-type" name="user-type">
-                                <option value="">Select category</option>
-                                <option value="farmer">Farmer / Agri Business</option>
-                                <option value="institution">Institution / Organization</option>
-                                <option value="industry">Industry Professional</option>
-                                <option value="student">Student / Researcher</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="privacy-note">
-                            <input type="checkbox" id="privacy-agree" required>
-                            <label for="privacy-agree">I agree to receive newsletters and accept the <a href="#">privacy policy</a></label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Subscribe to Newsletter
-                        </button>
+                        <div class="form-group"><label>I am a</label><select><option>Farmer / Agri Business</option><option>Institution</option><option>Industry Professional</option><option>Student</option></select></div>
+                        <div class="privacy-note"><input type="checkbox" id="privacy"><label for="privacy">I agree to receive newsletters and accept the privacy policy</label></div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Subscribe to Newsletter</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Knowledge Center CTA -->
+    <!-- CTA -->
     <section class="knowledge-cta">
         <div class="container">
-            <div class="cta-content">
-                <h2>Looking for Specific Information?</h2>
-                <p>Can't find what you're looking for? Request custom research or schedule a consultation with our technical team.</p>
-                
-                <div class="cta-actions">
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-file-alt"></i> Request Custom Research
-                    </a>
-                    <a href="#" class="btn btn-outline-light">
-                        <i class="fas fa-user-graduate"></i> Schedule Technical Consultation
-                    </a>
-                </div>
+            <h2>Looking for Specific Information?</h2>
+            <p>Can't find what you're looking for? Request custom research or schedule a consultation with our technical team.</p>
+            <div class="cta-actions" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn btn-primary"><i class="fas fa-file-alt"></i> Request Custom Research</a>
+                <a href="#" class="btn btn-outline-light"><i class="fas fa-user-graduate"></i> Schedule Technical Consultation</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-   
     <div id="footer"></div>
+    <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- Scripts (unchanged functionality, with address added to email parameters) -->
     <script>
-        // Load header/footer components
+        // Load header/footer
         function loadComponent(id, paths) {
             const tryPath = (index) => {
                 if (index >= paths.length) return;
                 fetch(paths[index])
-                    .then(res => {
-                        if (!res.ok) throw new Error();
-                        return res.text();
-                    })
-                    .then(data => {
-                        document.getElementById(id).innerHTML = data;
-                    })
+                    .then(res => { if (!res.ok) throw new Error(); return res.text(); })
+                    .then(data => { document.getElementById(id).innerHTML = data; })
                     .catch(() => tryPath(index + 1));
             };
             tryPath(0);
         }
         loadComponent("header", ["components/header.html", "../components/header.html"]);
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
-    </script>   
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Category tabs functionality
-            const categoryTabs = document.querySelectorAll('.category-tab');
-            const articleCards = document.querySelectorAll('.article-card');
-            
-            categoryTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    categoryTabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    // Filter articles
-                    articleCards.forEach(card => {
-                        if (category === 'all' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'block';
-                            // Add fade in animation
-                            card.style.animation = 'fadeInUp 0.6s ease both';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
+        // Simple category toggle
+        const tabs = document.querySelectorAll('.category-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
             });
-            
-            // Save article functionality
-            const saveButtons = document.querySelectorAll('.save-article');
-            saveButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const icon = this.querySelector('i');
-                    
-                    if (this.classList.contains('active')) {
-                        icon.classList.remove('far', 'fa-bookmark');
-                        icon.classList.add('fas', 'fa-bookmark');
-                        // Add a subtle animation
-                        this.style.transform = 'scale(1.2)';
-                        setTimeout(() => {
-                            this.style.transform = 'scale(1)';
-                        }, 300);
-                    } else {
-                        icon.classList.remove('fas', 'fa-bookmark');
-                        icon.classList.add('far', 'fa-bookmark');
-                    }
-                });
-            });
-            
-            // Load more articles
-            const loadMoreBtn = document.getElementById('loadMoreArticles');
-            let articlesLoaded = 4;
-            
-            loadMoreBtn.addEventListener('click', function() {
-                // In a real implementation, this would load more articles from a server
-                // For demo, we'll just show an alert
-                alert('Loading more articles... In a real implementation, this would fetch additional articles from the server.');
-                
-                // Simulate loading with a button animation
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-                this.disabled = true;
-                
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-plus"></i> Load More Articles';
-                    this.disabled = false;
-                }, 1500);
-            });
-            
-            // Newsletter form submission
-            const newsletterForm = document.getElementById('knowledge-newsletter');
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(this);
-                const name = formData.get('name');
-                const email = formData.get('email');
-                
-                // In a real implementation, this would send data to a server
-                // For demo, we'll just show a success message
-                alert(`Thank you ${name}! You have successfully subscribed to our newsletter. A confirmation email has been sent to ${email}.`);
-                
-                // Reset form
-                this.reset();
-            });
-            
-            // Search form submission
-            const searchForm = document.getElementById('blog-search');
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const searchInput = this.querySelector('.search-input');
-                const searchTerm = searchInput.value.trim();
-                
-                if (searchTerm) {
-                    alert(`Searching for: "${searchTerm}"... In a real implementation, this would filter articles based on the search term.`);
-                }
-            });
-            
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                this.innerHTML = navLinks.style.display === 'flex' ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Update nav links display on window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    navLinks.style.display = 'flex';
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                } else {
-                    navLinks.style.display = 'none';
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-            
-            // Initialize with mobile menu hidden on small screens
-            if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
-            }
         });
+
+        // Save article toggle
+        document.querySelectorAll('.save-article').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far'); icon.classList.add('fas');
+                } else {
+                    icon.classList.remove('fas'); icon.classList.add('far');
+                }
+            });
+        });
+
+        // Back to top
+        const backTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backTop.classList.toggle('active', window.scrollY > 500));
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 </html>
