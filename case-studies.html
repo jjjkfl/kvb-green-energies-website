@@ -180,88 +180,7 @@
             transform: translateX(3px);
         }
         
-        /* =========== HEADER =========== */
-        .case-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: var(--white);
-            box-shadow: var(--shadow-sm);
-            transform: translateY(0);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .case-header.hidden {
-            transform: translateY(-100%);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--primary-green);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: fadeIn 0.8s ease;
-        }
-        
-        .logo span {
-            color: var(--accent-gold);
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-        
-        .nav-menu a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            position: relative;
-            padding: 5px 0;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover {
-            color: var(--primary-green);
-        }
-        
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-green);
-            transition: width 0.3s;
-        }
-        
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-menu a.active {
-            color: var(--primary-green);
-        }
-        
-        .nav-menu a.active::after {
-            width: 100%;
-        }
-        
+      
         /* =========== HERO SECTION =========== */
         .case-hero {
             padding: 180px 0 100px;
@@ -924,65 +843,7 @@
             margin-bottom: 10px;
         }
         
-        /* =========== FOOTER =========== */
-        .case-footer {
-            background: var(--dark-bg);
-            color: var(--white);
-            padding: 80px 0 40px;
-            position: relative;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .footer-column h4 {
-            color: var(--white);
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-gold);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-column a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: var(--accent-gold);
-        }
-        
-        .footer-bottom {
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: #bbb;
-            font-size: 0.9rem;
-        }
-        
+      
         /* =========== RESPONSIVE =========== */
         @media (max-width: 992px) {
             .case-hero h1 { font-size: 3rem; }
@@ -1012,7 +873,7 @@
     </style>
 </head>
 <body>
-   <script src="js/header.js"></script>
+   <div id="header"></div>
 
     <!-- Hero Section -->
     <section class="case-hero">
@@ -1169,47 +1030,36 @@
     </section>
 
     <!-- Footer -->
-    <footer class="case-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>KVB Green Energies</h4>
-                    <p style="color: #bbb; margin-bottom: 20px;">Engineering the Future of Renewable Energy & Smart Agriculture</p>
-                     <div style="display:flex; gap:20px;"> 
-                       
- <a href="https://www.instagram.com/kvbgreenenergies/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com/people/KVB-green-Energies/100075492057443/"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@kvbgreenenergies"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/kvb-green-energies/posts/?feedView=all"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Our Solutions</a></li>
-                        <li><a href="clients.html">Our Clients</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 9545529950</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@kvbgreenenergies.com</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> R16, KSIDC, 3rd Cross Belur Industrial Estate Dharwad-580011</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 KVB Green Energies. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+   
+    <div id="footer"></div>
+
+    <!-- Scripts (unchanged functionality, with address added to email parameters) -->
+    <script>
+        // Load header/footer components
+        function loadComponent(id, paths) {
+            const tryPath = (index) => {
+                if (index >= paths.length) return;
+                fetch(paths[index])
+                    .then(res => {
+                        if (!res.ok) throw new Error();
+                        return res.text();
+                    })
+                    .then(data => {
+                        document.getElementById(id).innerHTML = data;
+                    })
+                    .catch(() => tryPath(index + 1));
+            };
+            tryPath(0);
+        }
+        loadComponent("header", ["components/header.html", "../components/header.html"]);
+        loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
+    </script>   
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
 
     <!-- Case Detail Modal -->
     <div class="case-modal" id="caseModal">

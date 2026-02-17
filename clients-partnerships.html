@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Header Navigation -->
-    <script src="js/header.js"></script>
+    <div id="header"></div>
     
 
     <!-- Clients Hero -->
@@ -585,9 +585,35 @@
     </section>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <!-- Footer component would be included here -->
-    </footer>
+   
+    <div id="footer"></div>
+
+    <!-- Scripts (unchanged functionality, with address added to email parameters) -->
+    <script>
+        // Load header/footer components
+        function loadComponent(id, paths) {
+            const tryPath = (index) => {
+                if (index >= paths.length) return;
+                fetch(paths[index])
+                    .then(res => {
+                        if (!res.ok) throw new Error();
+                        return res.text();
+                    })
+                    .then(data => {
+                        document.getElementById(id).innerHTML = data;
+                    })
+                    .catch(() => tryPath(index + 1));
+            };
+            tryPath(0);
+        }
+        loadComponent("header", ["components/header.html", "../components/header.html"]);
+        loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
+    </script>   
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
