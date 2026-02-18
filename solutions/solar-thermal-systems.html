@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Thermal Systems | Industrial Heating & Cooking | KVB Green Energies</title>
     
-    <!-- Fonts & Icons (Apple-inspired: SF Pro via system, Montserrat for headings) -->
+    <!-- Fonts: Montserrat (headings) + Inter (body) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Lightbox2 for image gallery -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     
     <style>
-        /* ===== BASE STYLES & VARIABLES – Light, Apple/Tesla inspired ===== */
+        /* ===== BASE STYLES & VARIABLES – Green, Apple/Tesla inspired ===== */
         :root {
-            --primary: #2E7D32;
-            --primary-light: #E8F5E9;
-            --accent: #007AFF;              /* Tesla/Apple blue accent */
-            --accent-light: #E3F2FD;
-            --solar: #FF9500;                /* Warm orange for highlights */
-            --solar-light: #FFF2E0;
+            --primary: #4A8B4A;                /* main green */
+            --primary-dark: #2F5E2F;            /* darker green */
+            --primary-light: #E9F3EA;           /* very light green */
+            --primary-glow: rgba(74, 139, 74, 0.15);
+            --solar: #F5A623;                    /* subtle warm accent – used sparingly */
             --text-dark: #1D1D1F;
             --text-muted: #86868B;
             --text-light: #F5F5F7;
@@ -27,11 +26,14 @@
             --bg-offwhite: #F9F9FB;
             --border: #E6E6E8;
             --white: #FFFFFF;
+
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
+
             --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
             --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 28px;
@@ -81,7 +83,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: var(--accent);
+            background: var(--primary);
             margin: 1rem auto 0;
             border-radius: 2px;
         }
@@ -100,21 +102,21 @@
             border-radius: 40px;
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             border: none;
             cursor: pointer;
             font-size: 1rem;
             background: transparent;
         }
         .btn-primary {
-            background: var(--accent);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.2);
+            box-shadow: 0 4px 12px rgba(74, 139, 74, 0.2);
         }
         .btn-primary:hover {
-            background: #0051D5;
+            background: var(--primary-dark);
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0,122,255,0.3);
+            box-shadow: 0 8px 20px rgba(74, 139, 74, 0.3);
         }
         .btn-secondary {
             background: var(--white);
@@ -127,15 +129,14 @@
             transform: scale(1.02);
         }
         .btn-outline {
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            border: 1px solid var(--primary);
+            color: var(--primary);
         }
         .btn-outline:hover {
-            background: var(--accent-light);
+            background: var(--primary-light);
         }
 
-        /* ===== HEADER (included via component, but we add fallback) ===== */
-        /* We'll keep minimal style for header placeholder, but actual header loads from component */
+        /* ===== HEADER placeholder (component) ===== */
         #header {
             position: sticky;
             top: 0;
@@ -151,7 +152,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(145deg, #FFFFFF 0%, #F9F9FB 100%);
-            padding: 80px 0 40px;
+            padding: 100px 0 40px;   /* increased vertical padding */
             border-bottom: 1px solid var(--border);
         }
         .breadcrumb {
@@ -165,7 +166,7 @@
             transition: color 0.2s;
         }
         .breadcrumb a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         .product-header {
             display: grid;
@@ -203,11 +204,11 @@
             transition: all 0.2s;
         }
         .highlight-item:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .highlight-item i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.1rem;
         }
         .hero-cta {
@@ -241,7 +242,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
             padding: 0.8rem 1.8rem;
             border-radius: 40px;
@@ -250,8 +251,8 @@
             transition: all 0.2s;
         }
         .video-play-btn:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
+            background: var(--primary-light);
+            border-color: var(--primary);
         }
 
         /* ===== PROBLEM / SOLUTION – side by side cards ===== */
@@ -266,20 +267,22 @@
         }
         .problem-box, .solution-box {
             background: var(--bg-offwhite);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);   /* larger radius */
             padding: 2.5rem;
             border: 1px solid var(--border);
             transition: all 0.3s;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
+            box-shadow: var(--shadow-sm);
         }
         .solution-box {
             background: var(--white);
-            border-color: var(--accent-light);
+            border-color: var(--primary-light);
         }
         .problem-box:hover, .solution-box:hover {
             box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
         .box-header {
             display: flex;
@@ -289,7 +292,7 @@
         }
         .box-header i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--primary);
         }
         .box-header h3 {
             margin: 0;
@@ -309,7 +312,7 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--primary);
             font-weight: bold;
         }
 
@@ -333,10 +336,12 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
+            box-shadow: var(--shadow-sm);
         }
         .tech-card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-4px);
+            border-color: var(--primary);
         }
         .tech-img {
             height: 240px;
@@ -390,22 +395,23 @@
             text-align: center;
             padding: 2rem 1.5rem;
             background: var(--bg-offwhite);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             transition: all 0.3s;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
+            box-shadow: var(--shadow-sm);
         }
         .process-step:hover {
             background: var(--white);
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .step-number {
             width: 48px;
             height: 48px;
-            background: var(--accent);
+            background: var(--primary);
             color: white;
             font-size: 1.5rem;
             font-weight: 600;
@@ -417,7 +423,7 @@
         }
         .step-icon i {
             font-size: 2.2rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         .process-step h4 {
@@ -457,16 +463,17 @@
         }
         .specs-table {
             background: var(--white);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
         .specs-table table {
             width: 100%;
             border-collapse: collapse;
         }
         .specs-table th {
-            background: var(--accent-light);
+            background: var(--primary-light);
             color: var(--text-dark);
             font-weight: 600;
             padding: 1.2rem 1.5rem;
@@ -485,9 +492,10 @@
         }
         .specs-features {
             background: var(--white);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             padding: 2rem;
+            box-shadow: var(--shadow-sm);
         }
         .specs-features h3 {
             font-size: 1.4rem;
@@ -503,7 +511,7 @@
             align-items: flex-start;
         }
         .feature-list i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.3rem;
             margin-top: 0.2rem;
         }
@@ -526,7 +534,7 @@
         }
         .application-card {
             background: var(--bg-offwhite);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             padding: 2.5rem 1.8rem;
             text-align: center;
             border: 1px solid var(--border);
@@ -534,15 +542,16 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
+            box-shadow: var(--shadow-sm);
         }
         .application-card:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
             background: var(--white);
         }
         .app-icon {
             font-size: 2.5rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1.2rem;
         }
         .application-card h4 {
@@ -585,7 +594,7 @@
         }
         .info-item i {
             font-size: 1.8rem;
-            color: var(--accent);
+            color: var(--primary);
         }
         .info-item h5 {
             color: var(--text-dark);
@@ -597,7 +606,7 @@
         }
         .contact-form {
             background: var(--bg-offwhite);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             padding: 2rem;
             border: 1px solid var(--border);
         }
@@ -621,7 +630,7 @@
             width: 100%;
             padding: 0.8rem 1rem;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
             font-family: var(--font-body);
             transition: all 0.2s;
             background: var(--white);
@@ -630,11 +639,11 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0,122,255,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
         }
 
-        /* ===== FOOTER placeholder (component) ===== */
+        /* ===== FOOTER placeholder ===== */
         #footer {
             margin-top: 0;
         }
@@ -684,9 +693,7 @@
     </style>
 </head>
 <body>
-    <!-- Particle Background removed for cleaner look -->
-
-    <!-- Header will be loaded from component -->
+    <!-- Header placeholder (loaded from component) -->
     <div id="header"></div>
 
     <!-- ========== HERO SECTION ========== -->
@@ -967,7 +974,7 @@
         </div>
     </section>
 
-    <!-- ========== CONTACT FORM (FAQ removed) ========== -->
+    <!-- ========== CONTACT FORM ========== -->
     <section class="product-contact" id="contact-form">
         <div class="container">
             <div class="contact-wrapper">
@@ -1067,10 +1074,7 @@
             "../components/footer.html"
         ]);
 
-        // Mobile Navigation Toggle (if needed inside header)
-        // Not implemented here because header is loaded dynamically – 
-        // but we keep the original toggle script if header includes a menu.
-        // We'll add a small fallback for mobile toggle after header loads.
+        // Mobile Navigation Toggle (fallback)
         setTimeout(() => {
             const mobileToggle = document.querySelector('.mobile-toggle');
             const navMenu = document.querySelector('.nav-menu');

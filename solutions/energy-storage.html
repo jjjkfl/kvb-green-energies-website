@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     
     <style>
-        /* ===== BASE STYLES – Apple/Tesla Inspired, Light & Minimal ===== */
+        /* ===== BASE STYLES – Apple/Tesla Inspired, Light & Minimal, GREEN brand ===== */
         :root {
             --background: #FFFFFF;
             --background-alt: #F9F9FB;
@@ -20,8 +20,10 @@
             --text-secondary: #86868B;
             --text-tertiary: #A1A1A6;
             --border: #E6E6E8;
-            --accent: #3F51B5;           /* Indigo – subtle but tech */
-            --accent-light: #E8EAF6;
+            --primary: #4A8B4A;               /* main green */
+            --primary-dark: #2F5E2F;           /* darker green */
+            --primary-light: #E9F3EA;           /* very light green */
+            --primary-glow: rgba(74, 139, 74, 0.15);
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
@@ -76,7 +78,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: var(--accent);
+            background: var(--primary);
             margin: 1rem auto 0;
             border-radius: 2px;
         }
@@ -102,14 +104,14 @@
             background: transparent;
         }
         .btn-primary {
-            background: var(--accent);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(63,81,181,0.2);
+            box-shadow: 0 4px 12px rgba(74, 139, 74, 0.2);
         }
         .btn-primary:hover {
-            background: #2A3A8C;
+            background: var(--primary-dark);
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(63,81,181,0.3);
+            box-shadow: 0 8px 20px rgba(74, 139, 74, 0.3);
         }
         .btn-secondary {
             background: var(--background);
@@ -122,12 +124,12 @@
             transform: scale(1.02);
         }
         .btn-outline {
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            border: 1px solid var(--primary);
+            color: var(--primary);
             background: transparent;
         }
         .btn-outline:hover {
-            background: var(--accent-light);
+            background: var(--primary-light);
         }
 
         /* ===== HEADER (component will be loaded) ===== */
@@ -160,7 +162,7 @@
             transition: color 0.2s;
         }
         .breadcrumb a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
         .product-header {
             max-width: 800px;
@@ -194,11 +196,11 @@
             transition: all 0.2s;
         }
         .highlight-item:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .highlight-item i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.1rem;
         }
         .hero-cta {
@@ -229,7 +231,7 @@
         }
         .solution-box {
             background: var(--background);
-            border-color: var(--accent-light);
+            border-color: var(--primary-light);
         }
         .problem-box:hover, .solution-box:hover {
             box-shadow: var(--shadow-md);
@@ -242,7 +244,7 @@
         }
         .box-header i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--primary);
         }
         .box-header h3 {
             margin: 0;
@@ -262,7 +264,7 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--primary);
             font-weight: bold;
         }
 
@@ -290,6 +292,7 @@
         .tech-card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-4px);
+            border-color: var(--primary);
         }
         .tech-img {
             height: 240px;
@@ -328,7 +331,7 @@
             font-weight: 500;
         }
         .btn-link {
-            color: var(--accent);
+            color: var(--primary);
             text-decoration: none;
             font-weight: 500;
             display: inline-flex;
@@ -364,13 +367,13 @@
         }
         .process-step:hover {
             background: var(--background);
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .step-number {
             width: 48px;
             height: 48px;
-            background: var(--accent);
+            background: var(--primary);
             color: white;
             font-size: 1.5rem;
             font-weight: 600;
@@ -382,7 +385,7 @@
         }
         .step-icon i {
             font-size: 2.2rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         .process-step h4 {
@@ -417,7 +420,7 @@
             border-collapse: collapse;
         }
         .specs-table th {
-            background: var(--accent-light);
+            background: var(--primary-light);
             color: var(--text-primary);
             font-weight: 600;
             padding: 1.2rem 1.5rem;
@@ -454,7 +457,7 @@
             align-items: flex-start;
         }
         .feature-list i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.3rem;
             margin-top: 0.2rem;
         }
@@ -491,13 +494,13 @@
             animation: fadeUp 0.6s forwards;
         }
         .application-card:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
             background: var(--background);
         }
         .app-icon {
             font-size: 2.5rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1.2rem;
         }
         .application-card h4 {
@@ -533,13 +536,13 @@
             animation: fadeUp 0.6s forwards;
         }
         .metric-card:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .metric-value {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary);
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -595,7 +598,7 @@
         .result-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--primary);
         }
         .result-label {
             font-size: 0.9rem;
@@ -634,7 +637,7 @@
         }
         .info-item i {
             font-size: 1.8rem;
-            color: var(--accent);
+            color: var(--primary);
         }
         .info-item h5 {
             color: var(--text-primary);
@@ -679,8 +682,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(63,81,181,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
         }
         .form-submit {
             text-align: center;
@@ -717,6 +720,7 @@
         .related-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
         .related-card img {
             width: 100%;
