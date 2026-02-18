@@ -17,14 +17,15 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       overflow-x: hidden;
+      background-color: #ffffff;
     }
 
-    /* ===== CINEMATIC INTRO (REDESIGNED) ===== */
+    /* ===== CINEMATIC INTRO (unchanged) ===== */
     .intro-container {
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: #000; /* fallback */
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,7 +42,6 @@
       display: none;
     }
 
-    /* cinematic video background */
     .intro-video-bg {
       position: absolute;
       top: 0;
@@ -60,7 +60,6 @@
       100% { transform: scale(1.1); }
     }
 
-    /* dark gradient overlay for cinematic depth */
     .intro-overlay {
       position: absolute;
       inset: 0;
@@ -157,7 +156,6 @@
       backdrop-filter: blur(2px);
     }
 
-    /* elegant animated progress bar (cinematic loader) */
     .intro-loader {
       width: 200px;
       height: 2px;
@@ -186,7 +184,6 @@
       100% { left: 100%; }
     }
 
-    /* floating particles for cinematic depth */
     .intro-particles {
       position: absolute;
       inset: 0;
@@ -211,7 +208,6 @@
       100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
     }
 
-    /* generate multiple particles */
     .intro-particles span:nth-child(1) { left: 10%; width: 6px; height: 6px; animation-duration: 18s; animation-delay: 0s; }
     .intro-particles span:nth-child(2) { left: 30%; width: 3px; height: 3px; animation-duration: 12s; animation-delay: 2s; }
     .intro-particles span:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 22s; animation-delay: 1s; }
@@ -221,7 +217,7 @@
     .intro-particles span:nth-child(7) { left: 15%; width: 5px; height: 5px; animation-duration: 13s; animation-delay: 1.5s; }
     .intro-particles span:nth-child(8) { left: 85%; width: 6px; height: 6px; animation-duration: 19s; animation-delay: 2.5s; }
 
-    /* ----- MAIN WEBSITE (unchanged, keep existing styles) ----- */
+    /* ----- MAIN WEBSITE ----- */
     #mainWebsite {
       display: none;
       opacity: 0;
@@ -236,143 +232,18 @@
       to { opacity: 1; }
     }
 
-   
-    .cta-button {
-      background: #3A7D44;
-      color: white !important;
-      padding: 12px 24px !important;
-      border-radius: 50px;
+    /* header placeholder (will be loaded) */
+    #header {
+      min-height: 80px;
     }
 
-    .cta-button:hover {
-      background: #2d5a33;
-      transform: scale(1.02);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #3A7D44;
-      margin: 4px;
-      border-radius: 10px;
-    }
-
-    /* ----- HERO (LIGHT REDESIGN) ----- */
-    .hero-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: #f9f9fb;
-      overflow: hidden;
-      padding-top: 80px; /* account for fixed header */
-    }
-
-    .hero-video-container {
-      position: absolute;
-      inset: 0;
-      opacity: 0.15;
-    }
-
-    .hero-video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 800px;
+    /* general styles */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
       padding: 0 2rem;
     }
 
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: #1d1d1f;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: #86868b;
-      margin-bottom: 2rem;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 30px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .btn-primary {
-      background: #4a8b4a;
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #2d5a33;
-      transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(74, 139, 74, 0.2);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid #4a8b4a;
-      color: #4a8b4a;
-    }
-
-    .btn-secondary:hover {
-      background: #4a8b4a;
-      color: white;
-      transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(74, 139, 74, 0.1);
-    }
-
-    .trust-text {
-      margin-top: 2rem;
-      color: #86868b;
-      font-size: 0.95rem;
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #86868b;
-      font-size: 1.5rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%,20%,50%,80%,100% { transform: translateY(0) translateX(-50%); }
-      40% { transform: translateY(-10px) translateX(-50%); }
-      60% { transform: translateY(-5px) translateX(-50%); }
-    }
-
-    /* ----- SECTION STYLES (LIGHT) ----- */
     .section {
       padding: 6rem 0;
     }
@@ -394,13 +265,135 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
+    /* ----- HERO SECTION – SPLIT LAYOUT ----- */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-color: #f9f9fb; /* fallback */
+      overflow: hidden;
+      padding: 100px 0; /* top/bottom spacing */
     }
 
-    /* ----- PILLARS (LIGHT CARDS) ----- */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #1d1d1f;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #86868b;
+      margin-bottom: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .btn-primary {
+      background: #4a8b4a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2d5a33;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.15);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #4a8b4a;
+      color: #4a8b4a;
+    }
+
+    .btn-secondary:hover {
+      background: #4a8b4a;
+      color: white;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.1);
+    }
+
+    .trust-text {
+      color: #86868b;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+    }
+
+    .hero-visual video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-visual .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%);
+      pointer-events: none;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #86868b;
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-10px) translateX(-50%); }
+      60% { transform: translateY(-5px) translateX(-50%); }
+    }
+
+    /* ----- PILLARS ----- */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -442,7 +435,7 @@
       line-height: 1.6;
     }
 
-    /* ----- SOLUTIONS (LIGHT) ----- */
+    /* ----- SOLUTIONS ----- */
     .solutions-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -458,12 +451,11 @@
       transition: box-shadow 0.3s, border-color 0.2s;
     }
 
-   a.solution-item:hover {
-  border-color: #4a8b4a;
-  box-shadow: 0 8px 20px rgba(74, 139, 74, 0.05);
-  cursor: pointer;
-}
-
+    .solution-item:hover {
+      border-color: #4a8b4a;
+      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.05);
+      cursor: pointer;
+    }
 
     .solution-item i {
       font-size: 2rem;
@@ -477,46 +469,47 @@
       color: #1d1d1f;
     }
 
-    /* ===== TRUST SECTION – 3 IN A ROW & BIG ===== */
+    /* ===== TRUST SECTION – REDESIGNED ===== */
     .trust-section {
-      background: #f9f9fb;
-      padding: 4rem 0;
+      background: #f7f8f9;  /* very soft neutral */
+      padding: 6rem 0;
     }
 
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 3rem 0;
+      gap: 2.5rem;
+      margin: 4rem 0;
       align-items: center;
       justify-items: center;
     }
 
     .client-badge {
       width: 100%;
-      max-width: 340px;
-      height: 240px;
+      max-width: 420px;
+      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.03);
-      border: 1px solid #f0f0f0;
-      padding: 1rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.04), 0 5px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.02);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .client-badge:hover {
-      border-color: #4a8b4a;
-      box-shadow: 0 12px 24px rgba(74, 139, 74, 0.08);
+      transform: scale(1.03);
+      box-shadow: 0 30px 45px -12px rgba(74, 139, 74, 0.12);
+      border-color: rgba(74, 139, 74, 0.1);
     }
 
     .client-badge img {
-      max-height: 200px;
-      max-width: 300px;
+      max-height: 220px;
+      max-width: 320px;
       object-fit: contain;
-      opacity: 0.85;
+      opacity: 0.9;
       transition: opacity 0.2s;
     }
 
@@ -540,6 +533,7 @@
       font-weight: 500;
       font-size: 0.9rem;
       transition: background 0.2s, color 0.2s;
+      background: white;
     }
 
     .partner-badge:hover {
@@ -547,7 +541,7 @@
       color: white;
     }
 
-    /* ----- IMPACT, INNOVATION, CERTIFICATIONS, ETC (unchanged) ----- */
+    /* ----- IMPACT ----- */
     .impact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -558,6 +552,7 @@
     .stat-message h3 { font-size: 1.5rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
     .stat-message p { color: #86868b; }
 
+    /* ----- INNOVATION ----- */
     .innovation-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -567,64 +562,44 @@
       background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1rem; text-align: center;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    a.innovation-item:hover {
-  border-color: #4a8b4a;
-  box-shadow: 0 8px 20px rgba(74,139,74,0.03);
-  cursor: pointer;
-}
+    .innovation-item:hover {
+      border-color: #4a8b4a;
+      box-shadow: 0 8px 20px rgba(74,139,74,0.03);
+      cursor: pointer;
+    }
     .innovation-item i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
     .innovation-item h4 { font-weight: 500; font-size: 1rem; color: #1d1d1f; }
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2.5rem;
-  margin-top: 4rem;
-  justify-content: center;
-}
 
-.cert-card {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 2.8rem 1.8rem;
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: #1d1d1f;
+    /* ----- CERTIFICATIONS ----- */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+      justify-content: center;
+    }
+    .cert-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 1.8rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #1d1d1f;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f1f1;
+    }
+    @media (max-width: 1200px) {
+      .cert-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .cert-grid { grid-template-columns: 1fr; }
+    }
 
-  /* soft premium shadow */
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.04),
-    0 2px 6px rgba(0, 0, 0, 0.03);
-
-  /* subtle border */
-  border: 1px solid #f1f1f1;
-}
-@media (max-width: 1200px) {
-  .cert-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .cert-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-   a.cert-badge:hover {
-  border-color: #4a8b4a;
-  cursor: pointer;
-}
-
-    .cert-badge i { color: #4a8b4a; }
-
+    /* ----- SUSTAINABILITY MESSAGE ----- */
     .sustainability-message {
       background: #f9f9fb; padding: 5rem 0; text-align: center;
     }
@@ -634,6 +609,7 @@
     }
     .fa-quote-left, .fa-quote-right { color: #4a8b4a; opacity: 0.2; font-size: 2rem; }
 
+    /* ----- AUDIENCE GRID ----- */
     .audience-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
     }
@@ -646,7 +622,33 @@
     .audience-card h3 { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
     .audience-card p { color: #86868b; font-size: 0.9rem; }
 
-   
+    /* ----- CTA BANNER ----- */
+    .cta-banner {
+      background: #4a8b4a; padding: 5rem 0; color: white; text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: white;
+    }
+    .cta-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .cta-buttons .btn {
+      background: white; color: #4a8b4a; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 500;
+    }
+    .cta-buttons .btn-outline {
+      background: transparent; color: white; border: 1px solid white;
+    }
+    .cta-buttons .btn-outline:hover {
+      background: white; color: #4a8b4a;
+    }
+    .cta-buttons .btn-gold {
+      background: #FDB813; color: #1d1d1f;
+    }
+    .cta-buttons .btn-gold:hover {
+      background: #e5a800;
+    }
+
+    /* ----- WHATSAPP FLOAT ----- */
     .whatsapp-float {
       position: fixed; bottom: 30px; right: 30px; background: #25d366; border-radius: 50%;
       width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
@@ -655,46 +657,102 @@
     }
     .whatsapp-float:hover { transform: scale(1.05); }
 
+    /* ----- RESPONSIVE ----- */
     @media (max-width: 1024px) {
-      .nav-menu { position: fixed; top: 80px; left: -100%; flex-direction: column; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); width: 100%; padding: 40px; transition: left 0.4s; }
-      .nav-menu.active { left: 0; }
-      .hamburger { display: flex; }
-      .hero-title { font-size: 2.8rem; }
-      .logo-grid { gap: 1.5rem; }
-      .client-badge { max-width: 280px; height: 200px; }
-      .client-badge img { max-height: 160px; max-width: 240px; }
+      .hero-grid {
+        gap: 40px;
+      }
+      .hero-title {
+        font-size: 3rem;
+      }
+      .logo-grid {
+        gap: 2rem;
+      }
+      .client-badge {
+        max-width: 340px;
+        height: 260px;
+      }
+      .client-badge img {
+        max-height: 200px;
+        max-width: 280px;
+      }
     }
+
     @media (max-width: 768px) {
-      .hero-title { font-size: 2.2rem; }
-      .section-title { font-size: 2rem; }
-      .sustainability-message h2 { font-size: 1.8rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-      .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .client-badge { max-width: 300px; height: 200px; }
-      .client-badge img { max-height: 160px; max-width: 260px; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .trust-text {
+        justify-content: center;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-visual {
+        height: 50vh;
+        min-height: 300px;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .sustainability-message h2 {
+        font-size: 1.8rem;
+      }
+      .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      .client-badge {
+        max-width: 300px;
+        height: 240px;
+      }
+      .client-badge img {
+        max-height: 180px;
+        max-width: 260px;
+      }
     }
+
     @media (max-width: 480px) {
-      .logo-grid { grid-template-columns: 1fr; }
-      .client-badge { max-width: 320px; height: 200px; }
-      .client-badge img { max-height: 160px; max-width: 280px; }
+      .logo-grid {
+        grid-template-columns: 1fr;
+      }
+      .client-badge {
+        max-width: 340px;
+        height: 260px;
+      }
+      .client-badge img {
+        max-height: 200px;
+        max-width: 280px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- CINEMATIC INTRO (REDESIGNED) -->
+  <!-- CINEMATIC INTRO -->
   <div class="intro-container" id="introScreen">
-    <!-- background video (free cinematic solar farm timelapse) -->
     <video class="intro-video-bg" autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2021/08/09/84269-589985131_large.mp4" type="video/mp4">
-      <!-- fallback if video fails -->
     </video>
     <div class="intro-overlay"></div>
-    
-    <!-- floating particles for cinematic depth -->
     <div class="intro-particles">
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
-
     <div class="intro-content">
       <div class="intro-logo">
         <div class="intro-logo-circle">
@@ -707,66 +765,193 @@
     </div>
   </div>
 
-  <!-- MAIN WEBSITE (unchanged, including hero text correction) -->
+  <!-- MAIN WEBSITE -->
   <div id="mainWebsite">
-    <!-- HEADER -->
-   <div id="header"></div>
+    <!-- header placeholder (loaded via JS) -->
+    <div id="header"></div>
 
-    <!-- HERO (corrected title) -->
+    <!-- HERO SECTION – SPLIT LAYOUT -->
     <section class="hero-section">
-      <div class="hero-video-container">
-        <video autoplay muted loop playsinline>
-          <source src="videos/232561_small.mp4" type="video/mp4">
-        </video>
-      </div>
       <div class="container">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-          <h1 class="hero-title">Agriculture Processing for Indian Farmers</h1>
-          <p class="hero-subtitle">Hybrid Solar Tunnel Dryers • AI Crop Quality Detection • Microgreen Systems</p>
-          <div class="hero-buttons">
-            <a href="contact.html" class="btn btn-primary">Explore Smart Agriculture</a>
-            <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+        <div class="hero-grid">
+          <!-- left: text -->
+          <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title">Agriculture Processing for Indian Farmers</h1>
+            <p class="hero-subtitle">Hybrid Solar Tunnel Dryers • AI Crop Quality Detection • Microgreen Systems</p>
+            <div class="hero-buttons">
+              <a href="contact.html" class="btn btn-primary">Explore Smart Agriculture</a>
+              <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+            </div>
+            <p class="trust-text"><i class="fas fa-shield-alt"></i> Empowering farmers across India</p>
           </div>
-          <p class="trust-text"><i class="fas fa-shield-alt"></i> Empowering farmers across India</p>
+          <!-- right: visual (video) -->
+          <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+            <video autoplay muted loop playsinline>
+              <source src="videos/232561_small.mp4" type="video/mp4">
+              <!-- fallback: use a royalty-free solar farm video if local file missing -->
+              <source src="https://cdn.pixabay.com/video/2021/08/09/84269-589985131_large.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+          </div>
         </div>
       </div>
       <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- PILLARS, SOLUTIONS, TRUST, etc (all unchanged) -->
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">What We Do</h2><p class="section-subtitle">Three pillars of our sustainable technology ecosystem</p><div class="pillars-grid"><div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><div class="pillar-icon"><i class="fas fa-solar-panel"></i></div><h3>Next-Generation Clean Energy Solutions</h3><p>Solar thermal and steam technologies replacing fossil fuels in large-scale cooking and industrial heat applications.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><div class="pillar-icon"><i class="fas fa-seedling"></i></div><h3>Smart Agriculture Technologies</h3><p>Advanced solar drying, crop processing, and intelligent quality systems that increase farmer income.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="300"><div class="pillar-icon"><i class="fas fa-flask"></i></div><h3>Advanced Research & Innovation</h3><p>Next-generation energy storage, AI crop systems, and integrated soil-to-sale agriculture platforms.</p></div></div></div></section>
+    <!-- PILLARS SECTION -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-subtitle">Three pillars of our sustainable technology ecosystem</p>
+        <div class="pillars-grid">
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pillar-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3>Next-Generation Clean Energy Solutions</h3>
+            <p>Solar thermal and steam technologies replacing fossil fuels in large-scale cooking and industrial heat applications.</p>
+          </div>
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pillar-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Smart Agriculture Technologies</h3>
+            <p>Advanced solar drying, crop processing, and intelligent quality systems that increase farmer income.</p>
+          </div>
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pillar-icon"><i class="fas fa-flask"></i></div>
+            <h3>Advanced Research & Innovation</h3>
+            <p>Next-generation energy storage, AI crop systems, and integrated soil-to-sale agriculture platforms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="section" style="background:#f9f9fb;" data-aos="fade-up"><div class="container"><h2 class="section-title">Solutions Ecosystem</h2><p class="section-subtitle">Complete renewable energy and smart agriculture solutions</p><div class="solutions-grid"><div class="solution-item" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-fire"></i><h4>Solar Steam Cooking Systems</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-satellite-dish"></i><h4>Scheffler Solar Concentrators</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-wind"></i><h4>Hybrid Solar Tunnel Dryers</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-battery-full"></i><h4>PTC & Sand Battery Storage</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-leaf"></i><h4>Biomass Thermal Integration</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-robot"></i><h4>AI Crop Quality Detection</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-microchip"></i><h4>Microgreen Automation Systems</h4></div></div></div></section>
+    <!-- SOLUTIONS ECOSYSTEM -->
+    <section class="section" style="background:#f9f9fb;" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Solutions Ecosystem</h2>
+        <p class="section-subtitle">Complete renewable energy and smart agriculture solutions</p>
+        <div class="solutions-grid">
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-fire"></i><h4>Solar Steam Cooking Systems</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-satellite-dish"></i><h4>Scheffler Solar Concentrators</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-wind"></i><h4>Hybrid Solar Tunnel Dryers</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-battery-full"></i><h4>PTC & Sand Battery Storage</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-leaf"></i><h4>Biomass Thermal Integration</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-robot"></i><h4>AI Crop Quality Detection</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-microchip"></i><h4>Microgreen Automation Systems</h4></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="trust-section" data-aos="fade-up"><div class="container"><h2 class="section-title">Trusted Nationally</h2><p class="section-subtitle">Our technologies are deployed where reliability is critical</p><div class="logo-grid"><div class="client-badge"><img src="images/certificates/1.png" alt="Indian Army"></div><div class="client-badge"><img src="images/certificates/2.png" alt="University of Agricultural Sciences, Bangalore"></div><div class="client-badge"><img src="images/certificates/5.png" alt="University of Horticultural Sciences, Bagalkot"></div><div class="client-badge"><img src="images/certificates/6.png" alt="University of Agriculture and Horticultural Sciences, Shimoga"></div><div class="client-badge"><img src="images/certificates/11 (1).png" alt="IIT Dharwad"></div><div class="client-badge"><img src="images/certificates/11 (2).png" alt="YASHADA"></div></div><div class="partner-strip"><span class="partner-badge">UNIDO</span><span class="partner-badge">MNRE</span><span class="partner-badge">UHS Bagalkot</span><span class="partner-badge">Karnataka Horticulture Dept</span><span class="partner-badge">GEDA Goa</span><span class="partner-badge">IIT Dharwad</span></div></div></section>
+    <!-- TRUSTED NATIONALLY (REDESIGNED) -->
+    <section class="trust-section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Trusted Nationally</h2>
+        <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
+        <div class="logo-grid">
+          <div class="client-badge"><img src="images\certificates\indian army.png" alt="Indian Army"></div>
+          <div class="client-badge"><img src="images\certificates\uas b.jpeg" alt="University of Agricultural Sciences, Bangalore"></div>
+          <div class="client-badge"><img src="images\certificates\uhs bagalkot.jpeg" alt="University of Horticultural Sciences, Bagalkot"></div>
+          <div class="client-badge"><img src="images\certificates\shivmoga uahs.jpeg" alt="University of Agriculture and Horticultural Sciences, Shimoga"></div>
+          <div class="client-badge"><img src="images\certificates\iitd.png" alt="IIT Dharwad"></div>
+          <div class="client-badge"><img src="images\certificates\yashada.jpeg" alt="YASHADA"></div>
+        </div>
+        <div class="partner-strip">
+          <span class="partner-badge">UNIDO</span>
+          <span class="partner-badge">MNRE</span>
+          <span class="partner-badge">UHS Bagalkot</span>
+          <span class="partner-badge">Karnataka Horticulture Dept</span>
+          <span class="partner-badge">GEDA Goa</span>
+          <span class="partner-badge">IIT Dharwad</span>
+        </div>
+      </div>
+    </section>
 
-    <!-- REMAINING SECTIONS (impact, innovation, certs, sustainability, audience, cta, footer) – exactly as before -->
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">Real Impact, Measurable Results</h2><div class="impact-grid"><div class="stat-message"><i class="fas fa-smog"></i><h3>thousands of tons</h3><p>CO₂ emissions reduced</p></div><div class="stat-message"><i class="fas fa-gas-pump"></i><h3>large‑scale LPG</h3><p>replaced with solar thermal</p></div><div class="stat-message"><i class="fas fa-tree"></i><h3>firewood saved</h3><p>community kitchens & industries</p></div><div class="stat-message"><i class="fas fa-users"></i><h3>farmer livelihoods</h3><p>strengthened through smart agriculture</p></div></div></div></section>
+    <!-- REAL IMPACT -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Real Impact, Measurable Results</h2>
+        <div class="impact-grid">
+          <div class="stat-message"><i class="fas fa-smog"></i><h3>Thousands of tons</h3><p>CO₂ emissions reduced</p></div>
+          <div class="stat-message"><i class="fas fa-gas-pump"></i><h3>Large‑scale LPG</h3><p>replaced with solar thermal</p></div>
+          <div class="stat-message"><i class="fas fa-tree"></i><h3>Firewood saved</h3><p>community kitchens & industries</p></div>
+          <div class="stat-message"><i class="fas fa-users"></i><h3>Farmer livelihoods</h3><p>strengthened through smart agriculture</p></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="section" style="background:#f9f9fb;" data-aos="fade-up"><div class="container"><h2 class="section-title">Building Tomorrow's Infrastructure Today</h2><p style="font-size:1.2rem;color:#86868b;max-width:700px;margin-bottom:3rem;">KVB is actively developing future technologies that will transform energy and agriculture systems.</p><div class="innovation-grid"><div class="innovation-item"><i class="fas fa-thermometer-half"></i><h4>Thermal Energy Storage</h4></div><div class="innovation-item"><i class="fas fa-digital-tachograph"></i><h4>Soil‑to‑Sale Platforms</h4></div><div class="innovation-item"><i class="fas fa-brain"></i><h4>AI Crop Grading Systems</h4></div><div class="innovation-item"><i class="fas fa-robot"></i><h4>Microgreen Smart Farms</h4></div><div class="innovation-item"><i class="fas fa-bolt"></i><h4>Hybrid Renewable Heat</h4></div></div><div style="text-align:center;margin-top:3rem;"></div></div></section>
+    <!-- INNOVATION LAB -->
+    <section class="section" style="background:#f9f9fb;" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Building Tomorrow's Infrastructure Today</h2>
+        <p style="font-size:1.2rem;color:#86868b;max-width:700px;margin-bottom:3rem;">KVB is actively developing future technologies that will transform energy and agriculture systems.</p>
+        <div class="innovation-grid">
+          <div class="innovation-item"><i class="fas fa-thermometer-half"></i><h4>Thermal Energy Storage</h4></div>
+          <div class="innovation-item"><i class="fas fa-digital-tachograph"></i><h4>Soil‑to‑Sale Platforms</h4></div>
+          <div class="innovation-item"><i class="fas fa-brain"></i><h4>AI Crop Grading Systems</h4></div>
+          <div class="innovation-item"><i class="fas fa-robot"></i><h4>Microgreen Smart Farms</h4></div>
+          <div class="innovation-item"><i class="fas fa-bolt"></i><h4>Hybrid Renewable Heat</h4></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">Certifications & Accreditations</h2><div class="cert-strip">
- <div class="cert-grid">
-  <div class="cert-card">UNIDO Empanelment</div>
-  <div class="cert-card">MNRE Certification</div>
-  <div class="cert-card">UHS Performance Tested</div>
-  <div class="cert-card">University MoUs</div>
-  <div class="cert-card">Govt Empanelments</div>
-</div>
+    <!-- CERTIFICATIONS -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Certifications & Accreditations</h2>
+        <div class="cert-grid">
+          <div class="cert-card">UNIDO Empanelment</div>
+          <div class="cert-card">MNRE Certification</div>
+          <div class="cert-card">UHS Performance Tested</div>
+          <div class="cert-card">University MoUs</div>
+          <div class="cert-card">Govt Empanelments</div>
+        </div>
+      </div>
+    </section>
 
-</div></section>
+    <!-- SUSTAINABILITY MESSAGE -->
+    <section class="sustainability-message" data-aos="fade-up">
+      <div class="container">
+        <i class="fas fa-quote-left"></i>
+        <h2>Every kilogram of firewood and LPG burned releases harmful CO₂. Our mission is to replace fossil fuel dependency with renewable thermal energy and intelligent agricultural systems that protect the environment while strengthening livelihoods.</h2>
+        <i class="fas fa-quote-right"></i>
+      </div>
+    </section>
 
-    <section class="sustainability-message" data-aos="fade-up"><div class="container"><i class="fas fa-quote-left"></i><h2>Every kilogram of firewood and LPG burned releases harmful CO₂. Our mission is to replace fossil fuel dependency with renewable thermal energy and intelligent agricultural systems that protect the environment while strengthening livelihoods.</h2><i class="fas fa-quote-right"></i></div></section>
+    <!-- AUDIENCE GRID -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">How Can We Help You?</h2>
+        <p class="section-subtitle">Select your path for tailored solutions</p>
+        <div class="audience-grid">
+          <a href="#" class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></a>
+          <a href="#" class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></a>
+          <a href="#" class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></a>
+          <a href="#" class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></a>
+        </div>
+      </div>
+    </section>
 
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">How Can We Help You?</h2><p class="section-subtitle">Select your path for tailored solutions</p><div class="audience-grid"><a href="#" class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></a><a href="#" class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></a><a href="#" class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></a><a href="#" class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></a></div></div></section>
+    <!-- CTA BANNER -->
+    <section class="cta-banner" data-aos="fade-up">
+      <div class="container">
+        <h2>Ready to switch to renewable energy?</h2>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn">Request a Site Visit</a>
+          <a href="contact.html" class="btn btn-outline">Talk to Experts</a>
+          <a href="contact.html" class="btn btn-gold">Partner with KVB</a>
+        </div>
+      </div>
+    </section>
 
-    <section style="background:#4a8b4a;padding:5rem 0;color:white;text-align:center;" data-aos="fade-up"><div class="container"><h2 style="font-size:2.5rem;font-weight:600;margin-bottom:1rem;color:white;">Ready to switch to renewable energy?</h2><div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;"><a href="contact.html" class="btn" style="background:white;color:#4a8b4a;padding:0.8rem 2rem;border-radius:30px;font-weight:500;">Request a Site Visit</a><a href="contact.html" class="btn" style="background:transparent;color:white;border:1px solid white;padding:0.8rem 2rem;border-radius:30px;font-weight:500;">Talk to Experts</a><a href="contact.html" class="btn" style="background:#FDB813;color:#1d1d1f;padding:0.8rem 2rem;border-radius:30px;font-weight:500;">Partner with KVB</a></div></div></section>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer"></div>
 
-   <div id="footer"></div>
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     (function() {
+      // intro screen handling
       if (sessionStorage.getItem('introShown') === 'true') {
         document.getElementById('introScreen').classList.add('hidden');
         document.getElementById('mainWebsite').classList.add('show');
@@ -783,63 +968,47 @@
         }, 3000);
       }
 
-      const hamburger = document.getElementById('hamburger');
-      const navMenu = document.getElementById('navMenu');
-      if (hamburger) {
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
+      // header and footer loader (with fallback paths)
+      function loadComponent(id, paths) {
+        const tryPath = (index) => {
+          if (index >= paths.length) return;
+          fetch(paths[index])
+            .then(res => {
+              if (!res.ok) throw new Error();
+              return res.text();
+            })
+            .then(data => {
+              document.getElementById(id).innerHTML = data;
+            })
+            .catch(() => tryPath(index + 1));
+        };
+        tryPath(0);
       }
 
-      document.getElementById('current-year').innerText = new Date().getFullYear();
+      loadComponent("header", [
+        "components/header.html",
+        "../components/header.html"
+      ]);
 
+      loadComponent("footer", [
+        "components/footer.html",
+        "../components/footer.html"
+      ]);
+
+      // simple scroll effect for header (if needed)
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
-        if (window.scrollY > 50) {
-          header.style.background = 'rgba(255,255,255,0.95)';
-          header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
-        } else {
-          header.style.background = 'rgba(255,255,255,0.8)';
-          header.style.boxShadow = 'none';
+        if (header) {
+          if (window.scrollY > 50) {
+            header.style.background = 'rgba(255,255,255,0.95)';
+            header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
+          } else {
+            header.style.background = 'rgba(255,255,255,0.8)';
+            header.style.boxShadow = 'none';
+          }
         }
       });
     })();
   </script>
 </body>
 </html>
-<script>
-function loadComponent(id, paths) {
-  const tryPath = (index) => {
-    if (index >= paths.length) return;
-
-    fetch(paths[index])
-      .then(res => {
-        if (!res.ok) throw new Error();
-        return res.text();
-      })
-      .then(data => {
-        document.getElementById(id).innerHTML = data;
-      })
-      .catch(() => tryPath(index + 1));
-  };
-
-  tryPath(0);
-}
-
-loadComponent("header", [
-  "components/header.html",
-  "../components/header.html"
-]);
-
-loadComponent("footer", [
-  "components/footer.html",
-  "../components/footer.html"
-]);
-</script>
