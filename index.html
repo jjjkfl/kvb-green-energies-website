@@ -475,14 +475,38 @@
       padding: 6rem 0;
     }
 
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      margin: 4rem 0;
-      align-items: center;
-      justify-items: center;
-    }
+   .logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin: 4rem 0;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.client-logo img {
+  max-height: 120px;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1rem;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+.client-logo img:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+.client-logo p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: 0.02em;
+}
+
 
     .client-badge {
       width: 100%;
@@ -795,7 +819,7 @@
           </div>
         </div>
       </div>
-      <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+     
     </section>
 
     <!-- PILLARS SECTION -->
@@ -845,23 +869,39 @@
       <div class="container">
         <h2 class="section-title">Trusted Nationally</h2>
         <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
-        <div class="logo-grid">
-          <div class="client-badge"><img src="images\certificates\indian army.png" alt="Indian Army"></div>
-          <div class="client-badge"><img src="images\certificates\uas b.jpeg" alt="University of Agricultural Sciences, Bangalore"></div>
-          <div class="client-badge"><img src="images\certificates\uhs bagalkot.jpeg" alt="University of Horticultural Sciences, Bagalkot"></div>
-          <div class="client-badge"><img src="images\certificates\shivmoga uahs.jpeg" alt="University of Agriculture and Horticultural Sciences, Shimoga"></div>
-          <div class="client-badge"><img src="images\certificates\iitd.png" alt="IIT Dharwad"></div>
-          <div class="client-badge"><img src="images\certificates\yashada.jpeg" alt="YASHADA"></div>
-        </div>
-        <div class="partner-strip">
-          <span class="partner-badge">UNIDO</span>
-          <span class="partner-badge">MNRE</span>
-          <span class="partner-badge">UHS Bagalkot</span>
-          <span class="partner-badge">Karnataka Horticulture Dept</span>
-          <span class="partner-badge">GEDA Goa</span>
-          <span class="partner-badge">IIT Dharwad</span>
-        </div>
-      </div>
+       <div class="logo-grid">
+  <div class="client-logo">
+    <img src="images/certificates/indian army.png" alt="Indian Army">
+    <p>Indian Army</p>
+  </div>
+
+  <div class="client-logo">
+    <img src="images/certificates/uas b.jpeg" alt="University of Agricultural Sciences, Bangalore">
+    <p>UAS Bangalore</p>
+  </div>
+
+  <div class="client-logo">
+    <img src="images\certificates\uhs b.jpeg" alt="UHS Bagalkot">
+    <p>UHS Bagalkot</p>
+  </div>
+
+  <div class="client-logo">
+    <img src="images/certificates/uahs.png" alt="UAHS Shimoga">
+    <p>UAHS Shimoga</p>
+  </div>
+
+  <div class="client-logo">
+    <img src="images/certificates/iit.png" alt="IIT Dharwad">
+    <p>IIT Dharwad</p>
+  </div>
+
+  <div class="client-logo">
+    <img src="images/certificates/yashada.jpeg" alt="YASHADA">
+    <p>YASHADA</p>
+  </div>
+</div>
+
+       
     </section>
 
     <!-- REAL IMPACT -->
