@@ -10,7 +10,7 @@
     <!-- EmailJS SDK (kept for functionality) -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
-        /* ===== BASE STYLES – Apple/Tesla inspired, light & minimal ===== */
+        /* ===== BASE STYLES – Apple/Tesla inspired, GREEN brand ===== */
         :root {
             --background: #FFFFFF;
             --background-alt: #F9F9FB;
@@ -18,8 +18,10 @@
             --text-secondary: #86868B;
             --text-tertiary: #A1A1A6;
             --border: #E6E6E8;
-            --accent: #007AFF;             /* Apple blue */
-            --accent-light: #E3F2FD;
+            --primary: #4A8B4A;               /* main green */
+            --primary-dark: #2F5E2F;           /* darker green */
+            --primary-light: #E9F3EA;           /* very light green */
+            --primary-glow: rgba(74, 139, 74, 0.15);
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.06);
@@ -76,7 +78,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: var(--accent);
+            background: var(--primary);
             margin: 1rem auto 0;
             border-radius: 2px;
         }
@@ -95,14 +97,14 @@
             background: transparent;
         }
         .btn-primary {
-            background: var(--accent);
+            background: var(--primary);
             color: white;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.2);
+            box-shadow: 0 4px 12px rgba(74, 139, 74, 0.2);
         }
         .btn-primary:hover {
-            background: #0051D5;
+            background: var(--primary-dark);
             transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0,122,255,0.3);
+            box-shadow: 0 8px 20px rgba(74, 139, 74, 0.3);
         }
         .btn-secondary {
             background: var(--background);
@@ -115,12 +117,12 @@
             transform: scale(1.02);
         }
         .btn-outline {
-            border: 1px solid var(--accent);
-            color: var(--accent);
+            border: 1px solid var(--primary);
+            color: var(--primary);
             background: transparent;
         }
         .btn-outline:hover {
-            background: var(--accent-light);
+            background: var(--primary-light);
         }
 
         /* ===== HEADER (placeholder) ===== */
@@ -153,13 +155,7 @@
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        .product-branding img {
-            height: 70px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            background: white;
-            padding: 4px;
-        }
+        /* Logo removed */
         .product-branding h1 {
             margin-bottom: 0;
             font-size: 2.8rem;
@@ -183,7 +179,7 @@
             box-shadow: var(--shadow-sm);
         }
         .tag i {
-            color: var(--accent);
+            color: var(--primary);
         }
 
         /* ===== PRODUCT MAIN CONTENT ===== */
@@ -229,7 +225,7 @@
             transition: border-color 0.2s;
         }
         .thumbnail.active {
-            border-color: var(--accent);
+            border-color: var(--primary);
         }
         .thumbnail img {
             width: 100%;
@@ -250,9 +246,9 @@
             margin-bottom: 2rem;
             font-size: 0.9rem;
         }
-        .product-badge img {
-            height: 30px;
-            border-radius: 6px;
+        /* Logo removed from product badge */
+        .product-badge span {
+            color: var(--text-secondary);
         }
         .product-specs-highlight {
             display: grid;
@@ -268,12 +264,12 @@
             transition: all 0.2s;
         }
         .spec-highlight-card:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .spec-highlight-card i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         .spec-highlight-card h4 {
@@ -295,7 +291,7 @@
             border-bottom: 1px solid var(--border);
         }
         .feature-list i {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.2rem;
             margin-top: 0.2rem;
         }
@@ -322,12 +318,12 @@
             transition: all 0.2s;
         }
         .application-card:hover {
-            border-color: var(--accent);
+            border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
         .app-icon {
             font-size: 2.5rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         .application-card h4 {
@@ -356,7 +352,7 @@
         .tech-table th {
             text-align: left;
             padding: 1rem 1.5rem;
-            background: var(--accent-light);
+            background: var(--primary-light);
             color: var(--text-primary);
             font-weight: 600;
             border-bottom: 1px solid var(--border);
@@ -373,7 +369,7 @@
             background: var(--background);
         }
 
-        /* ===== PREMIUM UNLOCK – Apple style card (redesigned form) ===== */
+        /* ===== PREMIUM UNLOCK – Apple style card ===== */
         .premium-wrapper {
             margin: 6rem auto;
             max-width: 900px;
@@ -389,12 +385,12 @@
             transition: all 0.2s;
         }
         .lock-container:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(0,122,255,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(74, 139, 74, 0.1);
         }
         .lock-icon-big {
             font-size: 4rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1.5rem;
         }
         .lock-container h3 {
@@ -461,8 +457,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0,122,255,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
         }
         .form-group textarea {
             resize: vertical;
@@ -471,7 +467,7 @@
         .btn-submit {
             width: 100%;
             padding: 1rem;
-            background: var(--accent);
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 40px;
@@ -479,13 +475,13 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0,122,255,0.2);
+            box-shadow: 0 4px 12px rgba(74, 139, 74, 0.2);
             margin-top: 0.5rem;
         }
         .btn-submit:hover {
-            background: #0051D5;
+            background: var(--primary-dark);
             transform: scale(1.01);
-            box-shadow: 0 8px 20px rgba(0,122,255,0.3);
+            box-shadow: 0 8px 20px rgba(74, 139, 74, 0.3);
         }
         .btn-submit i {
             margin-right: 8px;
@@ -506,8 +502,8 @@
             display: block;
         }
         .success-message {
-            background: #E8F5E9;
-            color: #1D7A3F;
+            background: var(--primary-light);
+            color: var(--primary-dark);
             padding: 1rem;
             border-radius: var(--radius-md);
             display: flex;
@@ -536,7 +532,7 @@
         }
         .premium-item i {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
         .premium-item h4 {
@@ -587,7 +583,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="product-branding">
-                    <img src="../images/products/kvb.jpeg" alt="KVB Logo">
+                    <!-- Logo removed -->
                     <h1>AI Crop Quality Detection System</h1>
                 </div>
                 <p style="font-size:1.2rem; color:var(--text-secondary); max-width:700px;">
@@ -634,7 +630,7 @@
                 <!-- Right: Product Info -->
                 <div class="product-info">
                     <div class="product-badge">
-                        <img src="../images/products/kvb.jpeg" alt="">
+                        <!-- Logo removed from badge -->
                         <span>KVB Certified Premium Product</span>
                     </div>
                     <h2 style="font-size:2rem;">Revolutionary AI Detection</h2>
@@ -715,7 +711,7 @@
             <div class="lock-icon-big"><i class="fas fa-lock"></i></div>
             <h3>Unlock Premium Technical Library</h3>
             <p>Get detailed technical documentation, case studies, ROI calculator, and implementation guides for the AI Crop Detection System.</p>
-            <span style="background:var(--accent-light); padding:0.5rem 1.5rem; border-radius:40px; font-weight:500;">Click to unlock</span>
+            <span style="background:var(--primary-light); padding:0.5rem 1.5rem; border-radius:40px; font-weight:500;">Click to unlock</span>
         </div>
 
         <div id="unlockFormContainer" class="unlock-form-container">
@@ -788,7 +784,7 @@
             </div>
             <div class="premium-card">
                 <h3 style="display:flex; align-items:center; gap:15px;">
-                    <i class="fas fa-file-alt" style="color:var(--accent);"></i> Premium Technical Library
+                    <i class="fas fa-file-alt" style="color:var(--primary);"></i> Premium Technical Library
                 </h3>
                 <div class="premium-grid">
                     <div class="premium-item">
@@ -817,11 +813,11 @@
                     </div>
                 </div>
                 <div style="margin-top:2rem; padding:1.5rem; background:white; border-radius:var(--radius-md); border:1px solid var(--border);">
-                    <h4 style="color:var(--accent); margin-bottom:1rem;">📘 Confidential Case Studies</h4>
+                    <h4 style="color:var(--primary); margin-bottom:1rem;">📘 Confidential Case Studies</h4>
                     <ul style="list-style:none;">
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> Coffee Board, Balehonnur – 98% defect detection, 40% labor cost reduction</li>
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> UHS Bagalkot – Mango grading, 1000+ fruits/minute</li>
-                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:12px;"></i> NABARD, Bagalkot – Chilli quality detection, ROI 2.8 years</li>
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--primary); margin-right:12px;"></i> Coffee Board, Balehonnur – 98% defect detection, 40% labor cost reduction</li>
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--primary); margin-right:12px;"></i> UHS Bagalkot – Mango grading, 1000+ fruits/minute</li>
+                        <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--primary); margin-right:12px;"></i> NABARD, Bagalkot – Chilli quality detection, ROI 2.8 years</li>
                     </ul>
                 </div>
             </div>
@@ -830,9 +826,9 @@
 
     <div id="footer"></div>
 
-    <!-- Scripts (unchanged functionality, with address added to email parameters) -->
+    <!-- Scripts (unchanged functionality) -->
     <script>
-        // Load header/footer components (same as original)
+        // Load header/footer components
         function loadComponent(id, paths) {
             const tryPath = (index) => {
                 if (index >= paths.length) return;
