@@ -458,10 +458,12 @@
       transition: box-shadow 0.3s, border-color 0.2s;
     }
 
-    .solution-item:hover {
-      border-color: #4a8b4a;
-      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.05);
-    }
+   a.solution-item:hover {
+  border-color: #4a8b4a;
+  box-shadow: 0 8px 20px rgba(74, 139, 74, 0.05);
+  cursor: pointer;
+}
+
 
     .solution-item i {
       font-size: 2rem;
@@ -565,18 +567,62 @@
       background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1rem; text-align: center;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .innovation-item:hover { border-color: #4a8b4a; box-shadow: 0 8px 20px rgba(74,139,74,0.03); }
+    a.innovation-item:hover {
+  border-color: #4a8b4a;
+  box-shadow: 0 8px 20px rgba(74,139,74,0.03);
+  cursor: pointer;
+}
     .innovation-item i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
     .innovation-item h4 { font-weight: 500; font-size: 1rem; color: #1d1d1f; }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+  justify-content: center;
+}
 
-    .cert-strip {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
-    }
-    .cert-badge {
-      padding: 0.6rem 1.5rem; border: 1px solid #eaeaea; border-radius: 40px; color: #1d1d1f; font-weight: 500; font-size: 0.9rem;
-      display: inline-flex; align-items: center; gap: 0.5rem; transition: border-color 0.2s; background: white;
-    }
-    .cert-badge:hover { border-color: #4a8b4a; }
+.cert-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 2.8rem 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1d1d1f;
+
+  /* soft premium shadow */
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.04),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+
+  /* subtle border */
+  border: 1px solid #f1f1f1;
+}
+@media (max-width: 1200px) {
+  .cert-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+   a.cert-badge:hover {
+  border-color: #4a8b4a;
+  cursor: pointer;
+}
+
     .cert-badge i { color: #4a8b4a; }
 
     .sustainability-message {
@@ -688,7 +734,7 @@
     </section>
 
     <!-- PILLARS, SOLUTIONS, TRUST, etc (all unchanged) -->
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">What We Do</h2><p class="section-subtitle">Three pillars of our sustainable technology ecosystem</p><div class="pillars-grid"><div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><div class="pillar-icon"><i class="fas fa-solar-panel"></i></div><h3>Clean Energy Systems</h3><p>Solar thermal and steam technologies replacing fossil fuels in large-scale cooking and industrial heat applications.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><div class="pillar-icon"><i class="fas fa-seedling"></i></div><h3>Smart Agriculture Technologies</h3><p>Advanced solar drying, crop processing, and intelligent quality systems that increase farmer income.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="300"><div class="pillar-icon"><i class="fas fa-flask"></i></div><h3>Research & Innovation</h3><p>Next-generation energy storage, AI crop systems, and integrated soil-to-sale agriculture platforms.</p></div></div></div></section>
+    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">What We Do</h2><p class="section-subtitle">Three pillars of our sustainable technology ecosystem</p><div class="pillars-grid"><div class="pillar-card" data-aos="zoom-in" data-aos-delay="100"><div class="pillar-icon"><i class="fas fa-solar-panel"></i></div><h3>Next-Generation Clean Energy Solutions</h3><p>Solar thermal and steam technologies replacing fossil fuels in large-scale cooking and industrial heat applications.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="200"><div class="pillar-icon"><i class="fas fa-seedling"></i></div><h3>Smart Agriculture Technologies</h3><p>Advanced solar drying, crop processing, and intelligent quality systems that increase farmer income.</p></div><div class="pillar-card" data-aos="zoom-in" data-aos-delay="300"><div class="pillar-icon"><i class="fas fa-flask"></i></div><h3>Advanced Research & Innovation</h3><p>Next-generation energy storage, AI crop systems, and integrated soil-to-sale agriculture platforms.</p></div></div></div></section>
 
     <section class="section" style="background:#f9f9fb;" data-aos="fade-up"><div class="container"><h2 class="section-title">Solutions Ecosystem</h2><p class="section-subtitle">Complete renewable energy and smart agriculture solutions</p><div class="solutions-grid"><div class="solution-item" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-fire"></i><h4>Solar Steam Cooking Systems</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-satellite-dish"></i><h4>Scheffler Solar Concentrators</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-wind"></i><h4>Hybrid Solar Tunnel Dryers</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-battery-full"></i><h4>PTC & Sand Battery Storage</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-leaf"></i><h4>Biomass Thermal Integration</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-robot"></i><h4>AI Crop Quality Detection</h4></div><div class="solution-item" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-microchip"></i><h4>Microgreen Automation Systems</h4></div></div></div></section>
 
@@ -697,9 +743,18 @@
     <!-- REMAINING SECTIONS (impact, innovation, certs, sustainability, audience, cta, footer) – exactly as before -->
     <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">Real Impact, Measurable Results</h2><div class="impact-grid"><div class="stat-message"><i class="fas fa-smog"></i><h3>thousands of tons</h3><p>CO₂ emissions reduced</p></div><div class="stat-message"><i class="fas fa-gas-pump"></i><h3>large‑scale LPG</h3><p>replaced with solar thermal</p></div><div class="stat-message"><i class="fas fa-tree"></i><h3>firewood saved</h3><p>community kitchens & industries</p></div><div class="stat-message"><i class="fas fa-users"></i><h3>farmer livelihoods</h3><p>strengthened through smart agriculture</p></div></div></div></section>
 
-    <section class="section" style="background:#f9f9fb;" data-aos="fade-up"><div class="container"><h2 class="section-title">Building Tomorrow's Infrastructure Today</h2><p style="font-size:1.2rem;color:#86868b;max-width:700px;margin-bottom:3rem;">KVB is actively developing future technologies that will transform energy and agriculture systems.</p><div class="innovation-grid"><div class="innovation-item"><i class="fas fa-thermometer-half"></i><h4>Thermal Energy Storage</h4></div><div class="innovation-item"><i class="fas fa-digital-tachograph"></i><h4>Soil‑to‑Sale Platforms</h4></div><div class="innovation-item"><i class="fas fa-brain"></i><h4>AI Crop Grading Systems</h4></div><div class="innovation-item"><i class="fas fa-robot"></i><h4>Microgreen Smart Farms</h4></div><div class="innovation-item"><i class="fas fa-bolt"></i><h4>Hybrid Renewable Heat</h4></div></div><div style="text-align:center;margin-top:3rem;"><a href="innovation-lab.html" class="btn btn-primary">Explore Innovation Lab</a></div></div></section>
+    <section class="section" style="background:#f9f9fb;" data-aos="fade-up"><div class="container"><h2 class="section-title">Building Tomorrow's Infrastructure Today</h2><p style="font-size:1.2rem;color:#86868b;max-width:700px;margin-bottom:3rem;">KVB is actively developing future technologies that will transform energy and agriculture systems.</p><div class="innovation-grid"><div class="innovation-item"><i class="fas fa-thermometer-half"></i><h4>Thermal Energy Storage</h4></div><div class="innovation-item"><i class="fas fa-digital-tachograph"></i><h4>Soil‑to‑Sale Platforms</h4></div><div class="innovation-item"><i class="fas fa-brain"></i><h4>AI Crop Grading Systems</h4></div><div class="innovation-item"><i class="fas fa-robot"></i><h4>Microgreen Smart Farms</h4></div><div class="innovation-item"><i class="fas fa-bolt"></i><h4>Hybrid Renewable Heat</h4></div></div><div style="text-align:center;margin-top:3rem;"></div></div></section>
 
-    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">Certifications & Accreditations</h2><div class="cert-strip"><span class="cert-badge"><i class="fas fa-globe"></i> UNIDO Empanelment</span><span class="cert-badge"><i class="fas fa-landmark"></i> MNRE Certification</span><span class="cert-badge"><i class="fas fa-flask"></i> UHS Performance Tested</span><span class="cert-badge"><i class="fas fa-university"></i> University MoUs</span><span class="cert-badge"><i class="fas fa-seedling"></i> Govt Empanelments</span></div></div></section>
+    <section class="section" data-aos="fade-up"><div class="container"><h2 class="section-title">Certifications & Accreditations</h2><div class="cert-strip">
+ <div class="cert-grid">
+  <div class="cert-card">UNIDO Empanelment</div>
+  <div class="cert-card">MNRE Certification</div>
+  <div class="cert-card">UHS Performance Tested</div>
+  <div class="cert-card">University MoUs</div>
+  <div class="cert-card">Govt Empanelments</div>
+</div>
+
+</div></section>
 
     <section class="sustainability-message" data-aos="fade-up"><div class="container"><i class="fas fa-quote-left"></i><h2>Every kilogram of firewood and LPG burned releases harmful CO₂. Our mission is to replace fossil fuel dependency with renewable thermal energy and intelligent agricultural systems that protect the environment while strengthening livelihoods.</h2><i class="fas fa-quote-right"></i></div></section>
 
