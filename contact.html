@@ -97,17 +97,25 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--earth-green);
-            color: var(--earth-green);
-        }
+      .btn-outline {
+    margin-top: auto;
 
-        .btn-outline:hover {
-            background: var(--earth-green);
-            color: white;
-            transform: translateY(-3px);
-        }
+    border: 1.5px solid var(--earth-green);
+    background: transparent;
+    color: var(--earth-green);
+
+    padding: 12px 26px;
+    border-radius: 999px;
+
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+    background: var(--earth-green);
+    color: #fff;
+}
+
 
         .btn-success {
             background: var(--wheat);
@@ -348,16 +356,29 @@
             margin-top: 50px;
         }
 
-        .inquiry-card {
-            background: white;
-            border: var(--border-nature);
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+       .inquiry-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 320px;
+
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+
+    transition: all 0.3s ease;
+}
+
+/* Apple-style hover */
+.inquiry-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
 
         .inquiry-card::before {
             content: '';
@@ -882,17 +903,23 @@
             background: linear-gradient(rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.9)), url('https://www.transparenttextures.com/patterns/leaf.png') repeat;
         }
 
-        .partnership-type {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.4s ease;
-            border: var(--border-nature);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+       .partnership-type {
+    background: #fff;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+
+    transition: 0.3s ease;
+}
+
+.partnership-type:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
 
         .partnership-types {
             display: grid;
