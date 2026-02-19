@@ -188,7 +188,7 @@
             background: var(--background);
         }
 
-        /* Key specs cards */
+        /* Key specs cards – hover removed */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -205,17 +205,13 @@
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
         }
-        .spec-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
         .spec-card i {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1.2rem;
         }
 
-        /* Applications cards */
+        /* Applications cards – no hover effect originally, so fine */
         .applications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -233,17 +229,14 @@
             transform: translateY(20px);
             animation: fadeUp 0.6s forwards;
         }
-        .app-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
+       
         .app-card i {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        /* Image gallery */
+        /* Image gallery – hover effects removed (no zoom, no overlay slide) */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -264,10 +257,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.03);
+            transition: none; /* no hover zoom */
         }
         .gallery-overlay {
             position: absolute;
@@ -277,14 +267,11 @@
             background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
             color: white;
             padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+            transform: translateY(0); /* always visible */
+            transition: none; /* no slide on hover */
         }
 
-        /* Technical table */
+        /* Technical table – row hover removed */
         .tech-table-container {
             background: var(--background-alt);
             border: 1px solid var(--border);
@@ -312,9 +299,7 @@
         .tech-table tr:last-child td {
             border-bottom: none;
         }
-        .tech-table tr:hover td {
-            background: var(--background);
-        }
+        /* No hover effect on rows */
 
         /* Business showcase – light card */
         .business-showcase {
@@ -630,7 +615,7 @@
                 <div class="app-card"><i class="fas fa-mobile-alt"></i><h3>App Control</h3><p>Monitor & manage your farm from anywhere.</p></div>
             </div>
 
-            <!-- Image Gallery -->
+            <!-- Image Gallery – overlay always visible, no hover effects -->
             <h2 class="section-title">System in Action</h2>
             <div class="image-gallery">
                 <div class="gallery-item">
@@ -647,7 +632,7 @@
                 </div>
             </div>
 
-            <!-- Technical Specifications -->
+            <!-- Technical Specifications – row hover removed -->
             <div class="tech-table-container">
                 <h2 style="color: var(--text-primary); margin-bottom: 2rem;">Technical Specifications</h2>
                 <table class="tech-table">

@@ -271,9 +271,9 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background-color: #f9f9fb; /* fallback */
+      background-color: #f9f9fb;
       overflow: hidden;
-      padding: 100px 0; /* top/bottom spacing */
+      padding: 100px 0;
     }
 
     .hero-grid {
@@ -409,10 +409,7 @@
       transition: box-shadow 0.3s, border-color 0.2s;
     }
 
-    .pillar-card:hover {
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-      border-color: #e0e0e0;
-    }
+   
 
     .pillar-icon i {
       font-size: 2.5rem;
@@ -451,7 +448,6 @@
       transition: box-shadow 0.3s, border-color 0.2s;
     }
 
-   
     .solution-item i {
       font-size: 2rem;
       color: #4a8b4a;
@@ -464,76 +460,37 @@
       color: #1d1d1f;
     }
 
-    /* ===== TRUST SECTION – REDESIGNED ===== */
+    /* ===== TRUST SECTION ===== */
     .trust-section {
-      background: #f7f8f9;  /* very soft neutral */
+      background: #f7f8f9;
       padding: 6rem 0;
     }
 
-   .logo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin: 4rem 0;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-}
-
-.client-logo img {
-  max-height: 120px;
-  max-width: 180px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto 1rem;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  opacity: 0.9;
-}
-
-.client-logo img:hover {
-  transform: scale(1.08);
-  opacity: 1;
-}
-
-.client-logo p {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #1d1d1f;
-  letter-spacing: 0.02em;
-}
-
-
-    .client-badge {
-      width: 100%;
-      max-width: 420px;
-      height: 300px;
-      display: flex;
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin: 4rem 0;
       align-items: center;
-      justify-content: center;
-      background: white;
-      border-radius: 28px;
-      box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.04), 0 5px 12px rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(0, 0, 0, 0.02);
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      justify-items: center;
+      text-align: center;
     }
 
-    .client-badge:hover {
-      transform: scale(1.03);
-      box-shadow: 0 30px 45px -12px rgba(74, 139, 74, 0.12);
-      border-color: rgba(74, 139, 74, 0.1);
-    }
-
-    .client-badge img {
-      max-height: 220px;
-      max-width: 320px;
+    .client-logo img {
+      max-height: 120px;
+      max-width: 180px;
       object-fit: contain;
+      display: block;
+      margin: 0 auto 1rem;
       opacity: 0.9;
-      transition: opacity 0.2s;
+      transition: none;           /* remove hover effect – not clickable */
     }
 
-    .client-badge img:hover {
-      opacity: 1;
+    .client-logo p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1d1d1f;
+      letter-spacing: 0.02em;
     }
 
     .partner-strip {
@@ -551,13 +508,9 @@
       color: #4a8b4a;
       font-weight: 500;
       font-size: 0.9rem;
-      transition: background 0.2s, color 0.2s;
       background: white;
-    }
-
-    .partner-badge:hover {
-      background: #4a8b4a;
-      color: white;
+      transition: none;           /* remove hover effect – not clickable */
+      cursor: default;
     }
 
     /* ----- IMPACT ----- */
@@ -581,7 +534,6 @@
       background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1rem; text-align: center;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    
     .innovation-item i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
     .innovation-item h4 { font-weight: 500; font-size: 1rem; color: #1d1d1f; }
 
@@ -603,6 +555,7 @@
       color: #1d1d1f;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
       border: 1px solid #f1f1f1;
+      cursor: default;             /* not clickable */
     }
     @media (max-width: 1200px) {
       .cert-grid { grid-template-columns: repeat(3, 1fr); }
@@ -624,15 +577,15 @@
     }
     .fa-quote-left, .fa-quote-right { color: #4a8b4a; opacity: 0.2; font-size: 2rem; }
 
-    /* ----- AUDIENCE GRID ----- */
+    /* ----- AUDIENCE GRID – now using <div> not <a> ----- */
     .audience-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
     }
     .audience-card {
       background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
-      text-decoration: none; color: #1d1d1f; transition: border-color 0.2s, box-shadow 0.2s;
+      color: #1d1d1f; transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;           /* not clickable */
     }
-    .audience-card:hover { border-color: #4a8b4a; box-shadow: 0 8px 20px rgba(74,139,74,0.03); }
     .audience-card i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
     .audience-card h3 { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
     .audience-card p { color: #86868b; font-size: 0.9rem; }
@@ -683,14 +636,6 @@
       .logo-grid {
         gap: 2rem;
       }
-      .client-badge {
-        max-width: 340px;
-        height: 260px;
-      }
-      .client-badge img {
-        max-height: 200px;
-        max-width: 280px;
-      }
     }
 
     @media (max-width: 768px) {
@@ -725,27 +670,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
       }
-      .client-badge {
-        max-width: 300px;
-        height: 240px;
-      }
-      .client-badge img {
-        max-height: 180px;
-        max-width: 260px;
-      }
     }
 
     @media (max-width: 480px) {
       .logo-grid {
         grid-template-columns: 1fr;
-      }
-      .client-badge {
-        max-width: 340px;
-        height: 260px;
-      }
-      .client-badge img {
-        max-height: 200px;
-        max-width: 280px;
       }
       .hero-buttons {
         flex-direction: column;
@@ -810,7 +739,6 @@
           </div>
         </div>
       </div>
-     
     </section>
 
     <!-- PILLARS SECTION -->
@@ -856,45 +784,39 @@
     </section>
 
     <!-- TRUSTED NATIONALLY (REDESIGNED) -->
-  <!-- TRUSTED NATIONALLY (REDESIGNED) -->
     <section class="trust-section" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title">Trusted Nationally</h2>
         <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
-       <div class="logo-grid">
-  <div class="client-logo">
-    <img src="images/certificates/indian army.png" alt="Indian Army">
-    <p>Indian Army</p>
-  </div>
-
-  <div class="client-logo">
-    <img src="images/certificates/uas b.jpeg" alt="University of Agricultural Sciences, Bangalore">
-    <p>UAS Bangalore</p>
-  </div>
-
-  <div class="client-logo">
-    <img src="images\certificates\uhs b.jpeg" alt="UHS Bagalkot">
-    <p>UHS Bagalkot</p>
-  </div>
-
-  <div class="client-logo">
-    <img src="images/certificates/uahs.png" alt="UAHS Shimoga">
-    <p>UAHS Shimoga</p>
-  </div>
-
-  <div class="client-logo">
-    <img src="images/certificates/iit.png" alt="IIT Dharwad">
-    <p>IIT Dharwad</p>
-  </div>
-
-  <div class="client-logo">
-    <img src="images/certificates/yashada.jpeg" alt="YASHADA">
-    <p>YASHADA</p>
-  </div>
-</div>
-
-       
+        <div class="logo-grid">
+          <div class="client-logo">
+            <img src="images/certificates/indian army.png" alt="Indian Army">
+            <p>Indian Army</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/uas b.jpeg" alt="University of Agricultural Sciences, Bangalore">
+            <p>UAS Bangalore</p>
+          </div>
+          <div class="client-logo">
+            <img src="images\certificates\uhs b.jpeg" alt="UHS Bagalkot">
+            <p>UHS Bagalkot</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/uahs.png" alt="UAHS Shimoga">
+            <p>UAHS Shimoga</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/iit.png" alt="IIT Dharwad">
+            <p>IIT Dharwad</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/yashada.jpeg" alt="YASHADA">
+            <p>YASHADA</p>
+          </div>
+        </div>
+      </div>
     </section>
+
     <!-- REAL IMPACT -->
     <section class="section" data-aos="fade-up">
       <div class="container">
@@ -946,16 +868,16 @@
       </div>
     </section>
 
-    <!-- AUDIENCE GRID -->
+    <!-- AUDIENCE GRID – now using <div> instead of empty <a> -->
     <section class="section" data-aos="fade-up">
       <div class="container">
         <h2 class="section-title">How Can We Help You?</h2>
         <p class="section-subtitle">Select your path for tailored solutions</p>
         <div class="audience-grid">
-          <a href="#" class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></a>
-          <a href="#" class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></a>
-          <a href="#" class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></a>
-          <a href="#" class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></a>
+          <div class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></div>
+          <div class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></div>
+          <div class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></div>
+          <div class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></div>
         </div>
       </div>
     </section>
