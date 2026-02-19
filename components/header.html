@@ -1,287 +1,238 @@
-<!-- TESLA STYLE HEADER WITH SEPARATE MEGA MENUS -->
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KVB Header – Refined</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-  :root {
-    --eco-green: #3A7D44;
-  }
-
-  .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    z-index: 1000;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .navbar {
-    max-width: 1400px;
-    margin: auto;
-    padding: 14px 40px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
-
-  /* Bigger logo */
-  .logo img {
-    height: 52px;
-  }
-
-  /* Center nav */
-  .nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-menu > li {
-    position: relative;
-  }
-
-  .nav-menu a {
-    position: relative;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: #111;
-    padding: 6px 0;
-  }
-
-  /* Underline hover */
-  .nav-menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background: #111;
-    transition: width 0.25s ease;
-  }
-
-  .nav-menu a:hover::after {
-    width: 100%;
-  }
-
-  /* Contact button */
-  .cta-button {
-    background: var(--eco-green);
-    color: white;
-    padding: 9px 22px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-  }
-
-  /* ===== MEGA DROPDOWN BASE ===== */
- /* ===== SIMPLE DROPDOWN ===== */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  border-radius: 6px;
-  min-width: 200px;
-  padding: 10px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: 0.2s ease;
-  z-index: 999;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 18px;
-  font-size: 0.9rem;
-  color: #111;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.dropdown-menu a:hover {
-  background: #f5f5f5;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-
-/* Subtle hover */
-.mega-item:hover img {
-  transform: scale(1.06);
-  opacity: 0.9;
-}
-
-.mega-item span {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-
-
-  /* ===== SOLUTIONS GRID (3 items) ===== */
-  .mega-solutions {
-    max-width: 700px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    text-align: center;
-  }
-
-  /* ===== PRODUCTS GRID (6 items) ===== */
-  .mega-products {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
-    text-align: center;
-  }
-
-  /* Mobile */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-
-  .hamburger span {
-    width: 24px;
-    height: 3px;
-    background: #111;
-    margin: 4px 0;
-  }
-
-  @media (max-width: 1000px) {
-    .mega-products {
-      grid-template-columns: repeat(3, 1fr);
+    :root {
+      --eco-green: #3A7D44;
     }
-    .mega-solutions {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
 
-  @media (max-width: 900px) {
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+    }
+
     .navbar {
-      grid-template-columns: auto auto;
+      max-width: 1400px;
+      margin: auto;
+      padding: 14px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo img {
+      height: 52px;
+      display: block;
     }
 
     .nav-menu {
-      position: fixed;
-      top: 70px;
-      left: -100%;
-      flex-direction: column;
-      background: white;
-      width: 100%;
-      padding: 30px;
-      gap: 24px;
-      transition: 0.3s;
-      text-align: center;
-    }
-
-    .nav-menu.active {
-      left: 0;
-    }
-
-    .mega-menu {
-      display: none;
-    }
-
-    .hamburger {
       display: flex;
-      justify-self: end;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu > li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      position: relative;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #111;
+      padding: 6px 0;
+      white-space: nowrap;
+      line-height: 1.5;
+    }
+
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #111;
+      transition: width 0.25s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-radius: 6px;
+      min-width: 200px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: 0.2s ease;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      color: #111;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f5f5f5;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .cta-button {
+      background: var(--eco-green);
+      color: white;
+      padding: 8px 22px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.5;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .hamburger {
       display: none;
+      flex-direction: column;
+      cursor: pointer;
     }
-  }
-</style>
 
-<header class="header">
-  <div class="navbar">
-
-    <!-- Logo -->
-    <div class="logo">
-      <a href="../index.html">
-        <img src="../images/products/kvb.jpeg" alt="KVB Logo">
-      </a>
-    </div>
-
-    <!-- Navigation -->
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-
-   <!-- Solutions -->
-<li class="dropdown">
-  <a href="#">Solutions</a>
-  <div class="dropdown-menu">
-    <a href="../solutions/solar-thermal-systems.html">Solar Thermal</a>
-    <a href="../solutions/energy-storage.html">Energy Storage</a>
-    <a href="../solutions/smart-agriculture.html">Smart Agriculture</a>
-  </div>
-</li>
-
-<!-- Products -->
-<li class="dropdown">
-  <a href="#">Products</a>
-  <div class="dropdown-menu">
-    <a href="../products/solar-steam-cooking.html">Solar Steam Cooking</a>
-    <a href="../products/solar-dryers.html">Solar Dryers</a>
-    <a href="../products/scheffler-concentrators.html">Scheffler Concentrators</a>
-    <a href="../products/ai-crop-detection.html">AI Crop Detection</a>
-    <a href="../products/microgreen-systems.html">Microgreen Systems</a>
-    <a href="../products/thermal-storage.html">Thermal Storage</a>
-  </div>
-</li>
-
-
-      <li><a href="../innovation-lab.html">Innovation Lab</a></li>
-      <li><a href="../clients-partnerships.html">Clients</a></li>
-      <li><a href="../case-studies.html">Case Studies</a></li>
-      <li><a href="../blog.html">Blog</a></li>
-    </ul>
-
-    <!-- Contact -->
-    <a href="../contact.html" class="cta-button">Contact</a>
-
-    <!-- Mobile -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-  </div>
-</header>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById("hamburger");
-    const navMenu = document.getElementById("navMenu");
-
-    if (hamburger) {
-      hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: #111;
+      margin: 4px 0;
     }
-  });
-</script>
+
+    @media (max-width: 900px) {
+      .navbar {
+        grid-template-columns: auto auto;
+        gap: 1rem;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 30px;
+        gap: 24px;
+        transition: 0.3s;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .cta-button {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+        justify-self: end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="navbar">
+
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../images/products/kvb.jpeg" alt="KVB Logo">
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+
+        <!-- Products Dropdown -->
+        <li class="dropdown">
+          <a href="#">Products</a>
+          <div class="dropdown-menu">
+            <a href="../products/solar-steam-cooking.html">Solar Steam Cooking</a>
+            <a href="../products/solar-dryers.html">Solar Dryers</a>
+            <a href="../products/scheffler-concentrators.html">Scheffler Concentrators</a>
+            <a href="../products/ai-crop-detection.html">AI Crop Detection</a>
+            <a href="../products/microgreen-systems.html">Microgreen Systems</a>
+            <a href="../products/thermal-storage.html">Thermal Storage</a>
+          </div>
+        </li>
+        <!-- Other items (commented for later use) -->
+      </ul>
+
+      <!-- Contact button -->
+      <a href="../contact.html" class="cta-button">Contact</a>
+
+      <!-- Mobile Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("navMenu");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
+      }
+    });
+  </script>
+
+  <!-- Your page content starts here -->
+</body>
+</html>
