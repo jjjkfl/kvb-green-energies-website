@@ -114,7 +114,6 @@
             color: white;
         }
 
-      
         @keyframes dropdownFade {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -290,11 +289,7 @@
             background: var(--wheat);
         }
 
-        .channel-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-
+        /* Hover removed – not clickable */
         .channel-icon {
             background: var(--gradient-nature);
             color: white;
@@ -375,16 +370,7 @@
             transition: all 0.3s ease;
         }
 
-        .inquiry-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--earth-green);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .inquiry-card:hover::before {
-            background: var(--wheat);
-        }
-
+        /* Hover removed – not clickable */
         .inquiry-card.selected {
             border-color: var(--earth-green);
             background: rgba(58, 90, 64, 0.03);
@@ -895,36 +881,27 @@
             padding: 100px 0;
             background: linear-gradient(rgba(254, 250, 224, 0.9), rgba(254, 250, 224, 0.9)), url('https://www.transparenttextures.com/patterns/leaf.png') repeat;
         }
-.partnership-type {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.4s ease;
-    border: var(--border-nature);
 
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.partnership-types {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-    margin-top: 50px;
-}
-
-
-.partnership-type:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
-
-        .partnership-type:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+        .partnership-type {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            border: var(--border-nature);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
+        .partnership-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        /* Hover removed – not clickable */
         .type-header {
             background: var(--gradient-nature);
             color: white;
@@ -951,18 +928,12 @@
             font-size: 1.4rem;
         }
 
-       
-.type-content {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-/* Push button to bottom while keeping box */
-.type-content .btn {
-    margin-top: auto;
-}
+        .type-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
         .type-content p {
             color: var(--sage-green);
@@ -1137,7 +1108,6 @@
             flex-wrap: wrap;
         }
 
-      
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .nav-menu {
