@@ -234,7 +234,66 @@
             color: var(--primary);
             margin-bottom: 1rem;
         }
+ .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
 
+.hero-left p {
+    font-size: 1.2rem;
+}
+
+.hero-right {
+    position: relative;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f0f10, #1c1c1e);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+}
+
+.hero-right::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.hero-right iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.hero-right .shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.15),
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 6s infinite linear;
+}
+
+@keyframes shineMove {
+    from { transform: translateX(-50%) rotate(25deg); }
+    to { transform: translateX(50%) rotate(25deg); }
+}
+
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+}   
         /* Image gallery – hover effects removed (no zoom, overlay always visible) */
         .image-gallery {
             display: grid;
@@ -504,30 +563,48 @@
 </head>
 <body>
     <div id="header"></div>
+   
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="product-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="product-branding">
-                    <!-- Logo removed -->
-                    <h1>Scheffler Solar Concentrators</h1>
-                </div>
-                <p style="font-size:1.2rem; color:var(--text-secondary); max-width:700px;">
-                    Fixed‑focus solar thermal systems for industrial process heat, steam generation, and thermal applications up to 250°C.
+   <section class="product-hero">
+    <div class="container">
+        <div class="hero-grid">
+
+            <!-- LEFT -->
+            <div class="hero-left">
+                <h1>Scheffler Solar Concentrators</h1>
+
+                <p>
+                    Fixed-focus solar thermal systems for industrial process heat, steam generation, 
+                    and thermal applications up to 250°C.
                 </p>
+
                 <div class="product-tags">
                     <span class="tag"><i class="fas fa-satellite-dish"></i> Fixed Focus Design</span>
                     <span class="tag"><i class="fas fa-industry"></i> Industrial Grade</span>
                     <span class="tag"><i class="fas fa-fire"></i> Up to 250°C</span>
                     <span class="tag"><i class="fas fa-cogs"></i> Low Maintenance</span>
                     <span class="tag"><i class="fas fa-leaf"></i> Zero Emissions</span>
-                    <span class="tag"><i class="fas fa-chart-line"></i> 4‑6 Year ROI</span>
+                    <span class="tag"><i class="fas fa-chart-line"></i> 4-6 Year ROI</span>
                 </div>
             </div>
-        </div>
-    </section>
 
+            <!-- RIGHT VIDEO -->
+            <div class="hero-right">
+
+                <div class="shine"></div>
+<iframe
+    src="https://www.youtube.com/embed/SuYSjfcq3QY?autoplay=1&mute=1&loop=1&playlist=SuYSjfcq3QY&controls=0&rel=0&modestbranding=1"
+    title="Scheffler Solar Demo"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+</iframe>
+
+            </div>
+
+        </div>
+    </div>
+</section>  
     <!-- ===== PRODUCT CONTENT ===== -->
     <section class="product-content">
         <div class="container">

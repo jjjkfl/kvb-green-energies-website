@@ -349,7 +349,68 @@
             height: auto;
             display: block;
         }
+/* ===== HERO VIDEO GRID ===== */
 
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-left p {
+    font-size: 1.2rem;
+}
+
+.hero-right {
+    position: relative;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f0f10, #1c1c1e);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+}
+
+.hero-right::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.hero-right iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.hero-right .shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.15),
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 6s infinite linear;
+}
+
+@keyframes shineMove {
+    from { transform: translateX(-50%) rotate(25deg); }
+    to { transform: translateX(50%) rotate(25deg); }
+}
+
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
         /* ===== PREMIUM UNLOCK – Apple style card ===== */
         .premium-wrapper {
             margin: 6rem auto;
@@ -563,27 +624,47 @@
     <div id="header"></div>
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="product-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="product-branding">
-                    <!-- Logo removed -->
-                    <h1>Automated Microgreen Farming Systems</h1>
-                </div>
-                <p style="font-size:1.2rem; color:var(--text-secondary); max-width:700px;">
-                    Vertical farming technology for urban agriculture & premium markets. Grow premium microgreens year‑round with fully automated systems.
+   <section class="product-hero">
+    <div class="container">
+        <div class="hero-grid">
+
+            <!-- LEFT -->
+            <div class="hero-left">
+                <h1>Microgreen Systems</h1>
+
+                <p>
+                    Advanced agricultural drying with solar & biomass backup. 
+                    Transform your produce drying with precise temperature control 
+                    and hygienic conditions.
                 </p>
+
                 <div class="product-tags">
-                    <span class="tag"><i class="fas fa-robot"></i> Fully Automated</span>
-                    <span class="tag"><i class="fas fa-seedling"></i> 10‑14 Day Cycle</span>
-                    <span class="tag"><i class="fas fa-arrows-alt-v"></i> Vertical Farming</span>
-                    <span class="tag"><i class="fas fa-tint"></i> 90% Less Water</span>
-                    <span class="tag"><i class="fas fa-leaf"></i> Zero Pesticides</span>
-                    <span class="tag"><i class="fas fa-chart-line"></i> 12‑18 Month ROI</span>
+                    <span class="tag"><i class="fas fa-sun"></i> Solar + Biomass</span>
+                    <span class="tag"><i class="fas fa-leaf"></i> Preserves Nutrients</span>
+                    <span class="tag"><i class="fas fa-rupee-sign"></i> 2-3 Year ROI</span>
+                    <span class="tag"><i class="fas fa-shield-alt"></i> 15+ Year Lifespan</span>
+                    <span class="tag"><i class="fas fa-wind"></i> Forced Air</span>
+                    <span class="tag"><i class="fas fa-trophy"></i> NABARD Approved</span>
                 </div>
             </div>
+
+            <!-- RIGHT VIDEO -->
+            <div class="hero-right">
+
+                <div class="shine"></div>
+
+                <iframe
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=0&rel=0&modestbranding=1"
+                    title="Hybrid Solar Tunnel Dryer Demo"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ===== PRODUCT CONTENT ===== -->
     <section class="product-content">

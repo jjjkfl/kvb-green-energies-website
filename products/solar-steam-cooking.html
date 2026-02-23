@@ -136,36 +136,49 @@
             border-bottom: 1px solid var(--border);
         }
 
-        /* ===== HERO – Clean, minimal ===== */
-        .product-hero {
-            min-height: 80vh;
-            display: flex;
+        /* ===== HERO – TWO COLUMN LAYOUT (left text, right video) ===== */
+       .product-hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(74,139,74,0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(74,139,74,0.06), transparent 40%),
+        #F9F9FB;
+    padding: 100px 0 60px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            background: var(--background-alt);
-            padding: 80px 0 40px;
-            border-bottom: 1px solid var(--border);
-            position: relative;
         }
-        .hero-content {
-            max-width: 800px;
+
+        .hero-left {
+            max-width: 600px;
         }
-        .product-branding {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+
+        .hero-left h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-left p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
         }
-        /* Logo removed */
-        .product-branding h1 {
-            margin-bottom: 0;
-            font-size: 2.8rem;
-        }
+
         .product-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
-            margin-top: 2rem;
         }
+
         .tag {
             background: var(--background);
             border: 1px solid var(--border);
@@ -178,17 +191,100 @@
             color: var(--text-primary);
             box-shadow: var(--shadow-sm);
         }
+
         .tag i {
             color: var(--primary);
         }
 
-        /* ===== PRODUCT MAIN CONTENT ===== */
+     .hero-right {
+    position: relative;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+
+    background: linear-gradient(135deg, #0f0f10, #1c1c1e);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 40px 80px rgba(0,0,0,0.18),
+        0 20px 40px rgba(0,0,0,0.12),
+        0 8px 20px rgba(0,0,0,0.08);
+
+    transition: transform 0.5s cubic-bezier(.22,.61,.36,1),
+                box-shadow 0.5s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Hover cinematic lift */
+.hero-right:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+        0 60px 120px rgba(0,0,0,0.22),
+        0 30px 60px rgba(0,0,0,0.16),
+        0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* Perfect 16:9 ratio */
+.hero-right::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+/* Video */
+.hero-right video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Soft glow aura */
+.hero-right::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: radial-gradient(circle at center, rgba(74,139,74,0.25), transparent 60%);
+    opacity: 0.35;
+    pointer-events: none;
+}
+.hero-right iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.hero-right .shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.15),
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 6s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes shineMove {
+    from { transform: translateX(-50%) rotate(25deg); }
+    to { transform: translateX(50%) rotate(25deg); }
+}   
+        /* ===== PRODUCT MAIN CONTENT (unchanged) ===== */
         .product-content {
             padding: 5rem 0;
             background: var(--background);
         }
 
-        /* Key specs cards – hover removed */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -211,7 +307,6 @@
             margin-bottom: 1.2rem;
         }
 
-        /* Applications cards (also used for How It Works) – hover removed */
         .applications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -235,7 +330,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Image gallery – hover effects removed (no zoom, overlay always visible) */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -256,7 +350,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: none; /* no zoom */
+            transition: none;
         }
         .gallery-overlay {
             position: absolute;
@@ -266,11 +360,10 @@
             background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
             color: white;
             padding: 1.5rem;
-            transform: translateY(0); /* always visible */
+            transform: translateY(0);
             transition: none;
         }
 
-        /* Technical table – row hover removed */
         .tech-table-container {
             background: var(--background-alt);
             border: 1px solid var(--border);
@@ -298,9 +391,8 @@
         .tech-table tr:last-child td {
             border-bottom: none;
         }
-        /* No hover effect on rows */
 
-        /* ===== PREMIUM UNLOCK – Apple style card ===== */
+        /* ===== PREMIUM UNLOCK ===== */
         .premium-wrapper {
             margin: 6rem auto;
             max-width: 900px;
@@ -478,6 +570,25 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+           .hero-left {
+    animation: heroFade 1s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes heroFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+            .hero-right video {
+                width: 100%;
+            }
             .unlock-form {
                 grid-template-columns: 1fr;
                 gap: 1.2rem;
@@ -492,10 +603,6 @@
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             h1 { font-size: 2.5rem; }
-            .product-branding {
-                flex-direction: column;
-                align-items: flex-start;
-            }
             .unlock-form-container {
                 padding: 1.8rem;
             }
@@ -505,30 +612,42 @@
 <body>
     <div id="header"></div>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO SECTION – two columns ===== -->
     <section class="product-hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="product-branding">
-                    <!-- Logo removed -->
+            <div class="hero-grid">
+                <!-- left: text -->
+                <div class="hero-left">
                     <h1>Parabolic Solar Cooker</h1>
+                    <p>High‑temperature solar concentration for cooking, pasteurization & industrial heating. Zero‑fuel, zero‑emission, and ideal for institutions and communities.</p>
+                    <div class="product-tags">
+                        <span class="tag"><i class="fas fa-temperature-high"></i> Up to 250°C</span>
+                        <span class="tag"><i class="fas fa-sun"></i> Zero Fuel Cost</span>
+                        <span class="tag"><i class="fas fa-leaf"></i> Carbon Neutral</span>
+                        <span class="tag"><i class="fas fa-rupee-sign"></i> 3‑4 Year ROI</span>
+                        <span class="tag"><i class="fas fa-cogs"></i> Manual / Auto Tracking</span>
+                        <span class="tag"><i class="fas fa-flask"></i> Multiple Applications</span>
+                    </div>
                 </div>
-                <p style="font-size:1.2rem; color:var(--text-secondary); max-width:700px;">
-                    High‑temperature solar concentration for cooking, pasteurization & industrial heating. Zero‑fuel, zero‑emission, and ideal for institutions and communities.
-                </p>
-                <div class="product-tags">
-                    <span class="tag"><i class="fas fa-temperature-high"></i> Up to 250°C</span>
-                    <span class="tag"><i class="fas fa-sun"></i> Zero Fuel Cost</span>
-                    <span class="tag"><i class="fas fa-leaf"></i> Carbon Neutral</span>
-                    <span class="tag"><i class="fas fa-rupee-sign"></i> 3‑4 Year ROI</span>
-                    <span class="tag"><i class="fas fa-cogs"></i> Manual / Auto Tracking</span>
-                    <span class="tag"><i class="fas fa-flask"></i> Multiple Applications</span>
-                </div>
+                <!-- right: product video -->
+             <div class="hero-right">
+
+    <div class="shine"></div>
+
+    <iframe
+        src="https://www.youtube.com/embed/wCM_D2bMMRY?autoplay=1&mute=1&loop=1&playlist=wCM_D2bMMRY&controls=0&rel=0&modestbranding=1"
+        title="Parabolic Solar Cooker Demo"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== PRODUCT CONTENT ===== -->
+    <!-- ===== PRODUCT CONTENT (all sections unchanged) ===== -->
     <section class="product-content">
         <div class="container">
             <!-- Key Specifications -->
@@ -569,7 +688,7 @@
                 <div class="app-card"><i class="fas fa-flask"></i><h3>Sterilization</h3><p>Sterilize medical instruments or laboratory equipment in remote locations.</p></div>
             </div>
 
-            <!-- Image Gallery (placeholder images – replace with actual product images) -->
+            <!-- Image Gallery -->
             <h2 class="section-title">System in Action</h2>
             <div class="image-gallery">
                 <div class="gallery-item">
@@ -606,7 +725,7 @@
         </div>
     </section>
 
-    <!-- ===== PREMIUM UNLOCK – Beautifully aligned Apple‑style form ===== -->
+    <!-- ===== PREMIUM UNLOCK (unchanged) ===== -->
     <div class="container premium-wrapper">
         <div id="lockContainer" class="lock-container">
             <div class="lock-icon-big"><i class="fas fa-lock"></i></div>
@@ -621,7 +740,6 @@
                 <p>Enter your details – we'll send you the download link immediately.</p>
             </div>
             <form id="premiumForm" class="unlock-form">
-                <!-- Row 1: Full Name + Email -->
                 <div class="form-group">
                     <label for="from_name">Full Name *</label>
                     <input type="text" id="from_name" name="from_name" placeholder="Dr. A. Sharma" required>
@@ -630,8 +748,6 @@
                     <label for="reply_to">Email Address *</label>
                     <input type="email" id="reply_to" name="reply_to" placeholder="director@institution.edu" required>
                 </div>
-
-                <!-- Row 2: Phone + Organization -->
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
@@ -640,8 +756,6 @@
                     <label for="organization">Organization</label>
                     <input type="text" id="organization" name="organization" placeholder="Institution / Company name">
                 </div>
-
-                <!-- Row 3: Address + Application -->
                 <div class="form-group">
                     <label for="address">Address</label>
                     <input type="text" id="address" name="address" placeholder="Street, city, state">
@@ -657,18 +771,12 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-
-                <!-- Row 4: Message (full width) -->
                 <div class="form-group full-width">
                     <label for="message">Specific Requirements</label>
                     <textarea id="message" name="message" rows="3" placeholder="Tell us about your cooking or heating needs..."></textarea>
                 </div>
-
-                <!-- Hidden fields -->
                 <input type="hidden" name="product" value="Parabolic Solar Cooker">
                 <input type="hidden" id="admin_email" name="to_email" value="siddappagout@gmail.com">
-
-                <!-- Submit button -->
                 <div class="form-group full-width">
                     <button type="submit" class="btn-submit">
                         <i class="fas fa-unlock-alt"></i> Unlock Premium Content
@@ -727,9 +835,8 @@
 
     <div id="footer"></div>
 
-    <!-- Scripts (unchanged functionality) -->
+    <!-- Scripts (unchanged) -->
     <script>
-        // Load header/footer components
         function loadComponent(id, paths) {
             const tryPath = (index) => {
                 if (index >= paths.length) return;
@@ -748,22 +855,18 @@
         loadComponent("header", ["components/header.html", "../components/header.html"]);
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
 
-        // EmailJS config (same credentials)
         (function() {
             const EMAILJS_PUBLIC_KEY = 'dU0o-KrI0m49D4wqR';
             const EMAILJS_SERVICE_ID = 'service_t3i4ttm';
             const EMAILJS_ADMIN_TEMPLATE_ID = 'template_q9aciqa';
-            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim'; // REPLACE with your actual auto-reply template ID
+            const EMAILJS_AUTO_TEMPLATE_ID = 'template_tcleyim';
             emailjs.init(EMAILJS_PUBLIC_KEY);
             window.EMAILJS_CONFIG = {
                 serviceId: EMAILJS_SERVICE_ID,
                 adminTemplateId: EMAILJS_ADMIN_TEMPLATE_ID,
                 autoTemplateId: EMAILJS_AUTO_TEMPLATE_ID
             };
-        })();
 
-        // Premium unlock logic
-        (function() {
             const lockContainer = document.getElementById('lockContainer');
             const formContainer = document.getElementById('unlockFormContainer');
             const hiddenContent = document.getElementById('hiddenPremiumContent');
@@ -847,7 +950,6 @@
             });
         })();
 
-        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
