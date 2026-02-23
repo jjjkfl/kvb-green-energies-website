@@ -1,746 +1,1005 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications & Accreditations | KVB Green Energies</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KVB Green Energies – Engineering the Future</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: #ffffff;
+    }
+
+    /* ===== CINEMATIC INTRO (unchanged) ===== */
+    .intro-container {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1.5s cubic-bezier(0.77,0,0.175,1), visibility 1.5s ease;
+    }
+
+    .intro-container.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-container.hidden {
+      display: none;
+    }
+
+    .intro-video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      filter: brightness(0.7) saturate(1.2);
+      transform: scale(1.02);
+      animation: slowZoom 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes slowZoom {
+      0% { transform: scale(1.02); }
+      100% { transform: scale(1.1); }
+    }
+
+    .intro-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 2;
+    }
+
+    .intro-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: white;
+      max-width: 1000px;
+      padding: 40px;
+      animation: contentFadeIn 2s ease-out forwards;
+    }
+
+    @keyframes contentFadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-logo {
+      margin-bottom: 30px;
+      animation: logoPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes logoPulse {
+      0% { filter: drop-shadow(0 0 20px rgba(58, 125, 68, 0.5)); }
+      50% { filter: drop-shadow(0 0 40px rgba(58, 125, 68, 0.9)); }
+      100% { filter: drop-shadow(0 0 20px rgba(58, 125, 68, 0.5)); }
+    }
+
+    .intro-logo-circle {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 25px;
+      background: linear-gradient(145deg, #3A7D44, #1e4a2a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 80px rgba(58, 125, 68, 0.8);
+      border: 2px solid rgba(255,255,255,0.2);
+      animation: rotateSlow 20s linear infinite;
+    }
+
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .intro-logo-circle i {
+      font-size: 90px;
+      color: #fff;
+      animation: leafFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes leafFloat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .intro-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-shadow: 0 5px 30px rgba(0,0,0,0.5);
+      background: linear-gradient(to right, #f0f0f0, #c8e6c9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 30px rgba(58,125,68,0.5); }
+      100% { text-shadow: 0 0 60px rgba(58,125,68,0.9); }
+    }
+
+    .intro-subtitle {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      backdrop-filter: blur(2px);
+    }
+
+    .intro-loader {
+      width: 200px;
+      height: 2px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-loader::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #3A7D44, #FDB813, #3A7D44, transparent);
+      animation: loadingBar 2.5s infinite cubic-bezier(0.45, 0, 0.55, 1);
+      border-radius: 4px;
+      box-shadow: 0 0 15px #3A7D44;
+    }
+
+    @keyframes loadingBar {
+      0% { left: -40%; }
+      100% { left: 100%; }
+    }
+
+    .intro-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .intro-particles span {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+      box-shadow: 0 0 10px #3A7D44;
+      animation: floatParticle 15s infinite linear;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+    }
+
+    .intro-particles span:nth-child(1) { left: 10%; width: 6px; height: 6px; animation-duration: 18s; animation-delay: 0s; }
+    .intro-particles span:nth-child(2) { left: 30%; width: 3px; height: 3px; animation-duration: 12s; animation-delay: 2s; }
+    .intro-particles span:nth-child(3) { left: 50%; width: 8px; height: 8px; animation-duration: 22s; animation-delay: 1s; }
+    .intro-particles span:nth-child(4) { left: 70%; width: 5px; height: 5px; animation-duration: 14s; animation-delay: 3s; }
+    .intro-particles span:nth-child(5) { left: 90%; width: 4px; height: 4px; animation-duration: 16s; animation-delay: 0.5s; }
+    .intro-particles span:nth-child(6) { left: 45%; width: 7px; height: 7px; animation-duration: 20s; animation-delay: 4s; }
+    .intro-particles span:nth-child(7) { left: 15%; width: 5px; height: 5px; animation-duration: 13s; animation-delay: 1.5s; }
+    .intro-particles span:nth-child(8) { left: 85%; width: 6px; height: 6px; animation-duration: 19s; animation-delay: 2.5s; }
+
+    /* ----- MAIN WEBSITE ----- */
+    #mainWebsite {
+      display: none;
+      opacity: 0;
+    }
+
+    #mainWebsite.show {
+      display: block;
+      animation: websiteFadeIn 1s ease forwards;
+    }
+
+    @keyframes websiteFadeIn {
+      to { opacity: 1; }
+    }
+
+    /* header placeholder (will be loaded) */
+    #header {
+      min-height: 80px;
+    }
+
+    /* general styles */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #1d1d1f;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #86868b;
+      max-width: 600px;
+      margin-bottom: 3rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    /* ===== HERO SECTION – two videos side by side with text overlay ===== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero-videos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      z-index: 0;
+    }
+
+    .video-half {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .video-half video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay for text readability */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      color: white;
+    }
+
+    .hero-content .hero-title,
+    .hero-content .hero-subtitle,
+    .hero-content .trust-text {
+      color: white;
+    }
+
+    .hero-content .btn-secondary {
+      border-color: white;
+      color: white;
+    }
+
+    .hero-content .btn-secondary:hover {
+      background: white;
+      color: #4a8b4a;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-left {
+      text-align: left;
+    }
+
+    .hero-right {
+      text-align: left;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .btn-primary {
+      background: #4a8b4a;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2d5a33;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.15);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #4a8b4a;
+      color: #4a8b4a;
+    }
+
+    .btn-secondary:hover {
+      background: #4a8b4a;
+      color: white;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(74, 139, 74, 0.1);
+    }
+
+    .trust-text {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* scroll indicator (optional) – you can keep or remove */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #86868b;
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-10px) translateX(-50%); }
+      60% { transform: translateY(-5px) translateX(-50%); }
+    }
+
+    /* ----- PILLARS ----- */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .pillar-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.02);
+      border: 1px solid #f0f0f0;
+      transition: box-shadow 0.3s, border-color 0.2s;
+    }
+
+    .pillar-icon i {
+      font-size: 2.5rem;
+      color: #4a8b4a;
+      margin-bottom: 1.5rem;
+      background: rgba(74, 139, 74, 0.05);
+      padding: 1rem;
+      border-radius: 50%;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .pillar-card p {
+      color: #86868b;
+      line-height: 1.6;
+    }
+
+    /* ----- SOLUTIONS ----- */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .solution-item {
+      background: white;
+      border: 1px solid #f0f0f0;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: box-shadow 0.3s, border-color 0.2s;
+    }
+
+    .solution-item i {
+      font-size: 2rem;
+      color: #4a8b4a;
+      margin-bottom: 1rem;
+    }
+
+    .solution-item h4 {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1d1d1f;
+    }
+
+    /* ===== TRUST SECTION ===== */
+    .trust-section {
+      background: #f7f8f9;
+      padding: 6rem 0;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin: 4rem 0;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .client-logo img {
+      max-height: 120px;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 1rem;
+      opacity: 0.9;
+      transition: none;
+    }
+
+    .client-logo p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1d1d1f;
+      letter-spacing: 0.02em;
+    }
+
+    .partner-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .partner-badge {
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #4a8b4a;
+      border-radius: 40px;
+      color: #4a8b4a;
+      font-weight: 500;
+      font-size: 0.9rem;
+      background: white;
+      transition: none;
+      cursor: default;
+    }
+
+    /* ----- IMPACT ----- */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .stat-message { text-align: center; }
+    .stat-message i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; background: rgba(74,139,74,0.05); padding: 1rem; border-radius: 50%; }
+    .stat-message h3 { font-size: 1.5rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
+    .stat-message p { color: #86868b; }
+
+    /* ----- INNOVATION ----- */
+    .innovation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .innovation-item {
+      background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1rem; text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .innovation-item i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
+    .innovation-item h4 { font-weight: 500; font-size: 1rem; color: #1d1d1f; }
+
+    /* ----- CERTIFICATIONS ----- */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+      justify-content: center;
+    }
+    .cert-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 1.8rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #1d1d1f;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f1f1;
+      cursor: default;
+    }
+    @media (max-width: 1200px) {
+      .cert-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .cert-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ----- SUSTAINABILITY MESSAGE ----- */
+    .sustainability-message {
+      background: #f9f9fb; padding: 5rem 0; text-align: center;
+    }
+    .sustainability-message h2 {
+      font-size: 2.2rem; font-weight: 500; max-width: 900px; margin: 2rem auto; line-height: 1.4; color: #1d1d1f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .fa-quote-left, .fa-quote-right { color: #4a8b4a; opacity: 0.2; font-size: 2rem; }
+
+    /* ----- AUDIENCE GRID – now using <div> not <a> ----- */
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
+    }
+    .audience-card {
+      background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
+      color: #1d1d1f; transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .audience-card i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
+    .audience-card h3 { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
+    .audience-card p { color: #86868b; font-size: 0.9rem; }
+
+    /* ----- CTA BANNER ----- */
+    .cta-banner {
+      background: #4a8b4a; padding: 5rem 0; color: white; text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: white;
+    }
+    .cta-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .cta-buttons .btn {
+      background: white; color: #4a8b4a; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 500;
+    }
+    .cta-buttons .btn-outline {
+      background: transparent; color: white; border: 1px solid white;
+    }
+    .cta-buttons .btn-outline:hover {
+      background: white; color: #4a8b4a;
+    }
+    .cta-buttons .btn-gold {
+      background: #FDB813; color: #1d1d1f;
+    }
+    .cta-buttons .btn-gold:hover {
+      background: #e5a800;
+    }
+
+    /* ----- WHATSAPP FLOAT ----- */
+    .whatsapp-float {
+      position: fixed; bottom: 30px; right: 30px; background: #25d366; border-radius: 50%;
+      width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+      font-size: 32px; color: white; box-shadow: 0 10px 25px rgba(37,211,102,0.3);
+      z-index: 999; transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.05); }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        gap: 40px;
+      }
+      .hero-title {
+        font-size: 3rem;
+      }
+      .logo-grid {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-videos {
+        flex-direction: column;
+      }
+      .video-half {
+        flex: 1;
+        height: 50%;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      .hero-left, .hero-right {
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .sustainability-message h2 {
+        font-size: 1.8rem;
+      }
+      .logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header class="header">
-        <!-- Navigation component would be included here -->
-    </header>
-
-    <!-- Certifications Hero -->
-    <section class="certifications-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Certifications & Accreditations</h1>
-                <p class="hero-subtitle">Government Recognized • Institutionally Validated • Industry Certified</p>
-                <p class="hero-description">KVB Green Energies maintains the highest standards of quality and reliability, validated through rigorous testing and certification by national institutions and government bodies.</p>
-                
-                <div class="cert-stats">
-                    <div class="stat">
-                        <div class="stat-number">15<span>+</span></div>
-                        <div class="stat-label">Certifications</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">10</div>
-                        <div class="stat-label">Government Empanelments</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">University MoUs</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">100<span>%</span></div>
-                        <div class="stat-label">Quality Compliance</div>
-                    </div>
-                </div>
-            </div>
+  <!-- CINEMATIC INTRO -->
+  <div class="intro-container" id="introScreen">
+    <video class="intro-video-bg" autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2021/08/09/84269-589985131_large.mp4" type="video/mp4">
+    </video>
+    <div class="intro-overlay"></div>
+    <div class="intro-particles">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="intro-content">
+      <div class="intro-logo">
+        <div class="intro-logo-circle">
+          <i class="fas fa-leaf"></i>
         </div>
+      </div>
+      <h1 class="intro-title">KVB GREEN ENERGIES</h1>
+      <p class="intro-subtitle">Engineering the Future</p>
+      <div class="intro-loader"></div>
+    </div>
+  </div>
+
+  <!-- MAIN WEBSITE -->
+  <div id="mainWebsite">
+    <!-- header placeholder (loaded via JS) -->
+    <div id="header"></div>
+
+    <!-- HERO SECTION – two videos side by side with text overlay -->
+    <section class="hero-section">
+      <!-- video background: two videos side by side -->
+      <div class="hero-videos">
+        <div class="video-half video-agri">
+          <video autoplay muted loop playsinline>
+            <source src="videos/DJI_0958_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-half video-renew">
+          <video autoplay muted loop playsinline>
+            <source src="videos/232561_small.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="overlay"></div>
+      </div>
+
+      <!-- text content overlaid on videos -->
+      <div class="container hero-content">
+        <div class="hero-grid">
+          <div class="hero-left" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title">Agriculture Processing for Indian Farmers</h1>
+          </div>
+          <div class="hero-right" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <p class="hero-subtitle">Hybrid Solar Tunnel Dryers • AI Crop Quality Detection • Microgreen Systems</p>
+            <div class="hero-buttons">
+              <a href="contact.html" class="btn btn-primary">Explore Smart Agriculture</a>
+              <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+            </div>
+            <p class="trust-text"><i class="fas fa-shield-alt"></i> Empowering farmers across India</p>
+          </div>
+        </div>
+      </div>
+      <!-- optional scroll indicator -->
+      <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
     </section>
 
-    <!-- Certification Categories -->
-    <section class="cert-categories">
-        <div class="container">
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="all">All Certifications</button>
-                <button class="category-tab" data-category="government">Government Certifications</button>
-                <button class="category-tab" data-category="international">International Recognitions</button>
-                <button class="category-tab" data-category="testing">Performance Testing</button>
-                <button class="category-tab" data-category="university">University Collaborations</button>
-            </div>
+    <!-- PILLARS SECTION -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-subtitle">Three pillars of our sustainable technology ecosystem</p>
+        <div class="pillars-grid">
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pillar-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3>Next-Generation Clean Energy Solutions</h3>
+            <p>Solar thermal and steam technologies replacing fossil fuels in large-scale cooking and industrial heat applications.</p>
+          </div>
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pillar-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Smart Agriculture Technologies</h3>
+            <p>Advanced solar drying, crop processing, and intelligent quality systems that increase farmer income.</p>
+          </div>
+          <div class="pillar-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pillar-icon"><i class="fas fa-flask"></i></div>
+            <h3>Advanced Research & Innovation</h3>
+            <p>Next-generation energy storage, AI crop systems, and integrated soil-to-sale agriculture platforms.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Certifications Grid -->
-    <section class="certifications-grid">
-        <div class="container">
-            <!-- UNIDO Empanelment -->
-            <div class="cert-card" data-category="international">
-                <div class="cert-badge">
-                    <span class="badge-text">International</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-globe-europe"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>UNIDO Technology Empanelment</h3>
-                        <p class="cert-issuer">United Nations Industrial Development Organization</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">KVB is empaneled as a technology partner by UNIDO for renewable energy solutions, recognizing our innovative solar thermal technologies for sustainable development.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Issued</span>
-                                <span class="detail-value">2015</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">Certificate No.</span>
-                                <span class="detail-value">UNIDO/TECH/2015/SE-045</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/unido-certificate.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View Certificate
-                        </a>
-                        <a href="downloads/unido-technical-report.pdf" class="btn btn-outline" download>
-                            <i class="fas fa-download"></i> Technical Report
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MNRE Certification -->
-            <div class="cert-card" data-category="government">
-                <div class="cert-badge">
-                    <span class="badge-text">Government</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>MNRE Certification</h3>
-                        <p class="cert-issuer">Ministry of New and Renewable Energy, Government of India</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">Certification for solar thermal systems under the Ministry of New and Renewable Energy, making KVB systems eligible for government subsidies and schemes.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Issued</span>
-                                <span class="detail-value">2010 (Renewed 2023)</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">Certificate No.</span>
-                                <span class="detail-value">MNRE/ST/2010/C-128</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-scope">
-                        <h4>Scope of Certification:</h4>
-                        <ul class="scope-list">
-                            <li>Solar Steam Cooking Systems</li>
-                            <li>Solar Scheffler Dish Systems</li>
-                            <li>Solar Tunnel Dryers</li>
-                            <li>Parabolic Solar Cookers</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/mnre-certificate.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View Certificate
-                        </a>
-                        <a href="downloads/mnre-subsidy-guide.pdf" class="btn btn-outline" download>
-                            <i class="fas fa-download"></i> Subsidy Guide
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- UHS Performance Testing -->
-            <div class="cert-card" data-category="testing">
-                <div class="cert-badge">
-                    <span class="badge-text">Performance Testing</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>UHS Bagalkot Performance Testing</h3>
-                        <p class="cert-issuer">University of Horticultural Sciences, Bagalkot</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">Independent performance testing and validation of KVB solar thermal systems by a leading agricultural university, confirming efficiency and reliability metrics.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Issued</span>
-                                <span class="detail-value">2018</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">Report No.</span>
-                                <span class="detail-value">UHS/RPT/2018/ST-022</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="performance-metrics">
-                        <h4>Key Performance Metrics:</h4>
-                        <div class="metrics-grid">
-                            <div class="metric">
-                                <div class="metric-value">72<span>%</span></div>
-                                <div class="metric-label">Thermal Efficiency</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">68<span>%</span></div>
-                                <div class="metric-label">Average Fuel Savings</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">25<span>+</span></div>
-                                <div class="metric-label">Years Design Life</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/uhs-test-report.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View Test Report
-                        </a>
-                        <a href="downloads/performance-data.pdf" class="btn btn-outline" download>
-                            <i class="fas fa-download"></i> Performance Data
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Karnataka Horticulture Department -->
-            <div class="cert-card" data-category="government">
-                <div class="cert-badge">
-                    <span class="badge-text">Government</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>Karnataka Horticulture Department</h3>
-                        <p class="cert-issuer">Department of Horticulture, Government of Karnataka</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">Empanelment as technology provider for solar drying systems under various horticulture development schemes and farmer subsidy programs.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Issued</span>
-                                <span class="detail-value">2019</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">Empanelment No.</span>
-                                <span class="detail-value">KHD/TECH/2019/SD-015</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-benefits">
-                        <h4>Benefits:</h4>
-                        <ul class="benefits-list">
-                            <li>Eligible for 50-60% subsidy for farmers</li>
-                            <li>Approved for government horticulture projects</li>
-                            <li>Training programs for farmers</li>
-                            <li>Technical support through department</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/horticulture-empanelment.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View Certificate
-                        </a>
-                        <a href="downloads/farmer-subsidy-guide.pdf" class="btn btn-outline" download>
-                            <i class="fas fa-download"></i> Subsidy Guide
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IIT Dharwad MoU -->
-            <div class="cert-card" data-category="university">
-                <div class="cert-badge">
-                    <span class="badge-text">University Collaboration</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>IIT Dharwad MoU</h3>
-                        <p class="cert-issuer">Indian Institute of Technology, Dharwad</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">Memorandum of Understanding for joint research and development in thermal energy storage and advanced solar thermal technologies.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Signed</span>
-                                <span class="detail-value">2021</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">MoU No.</span>
-                                <span class="detail-value">IITD/MOU/2021/RES-008</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="collaboration-areas">
-                        <h4>Collaboration Areas:</h4>
-                        <ul class="areas-list">
-                            <li>Thermal energy storage research</li>
-                            <li>Material science for solar applications</li>
-                            <li>Student internship programs</li>
-                            <li>Joint patent applications</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/iit-mou.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View MoU
-                        </a>
-                        <a href="innovation-lab.html" class="btn btn-outline">
-                            <i class="fas fa-flask"></i> View Research
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GEDA Goa Empanelment -->
-            <div class="cert-card" data-category="government">
-                <div class="cert-badge">
-                    <span class="badge-text">Government</span>
-                </div>
-                <div class="cert-header">
-                    <div class="cert-logo">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="cert-title">
-                        <h3>GEDA Goa Empanelment</h3>
-                        <p class="cert-issuer">Goa Energy Development Agency</p>
-                    </div>
-                </div>
-                <div class="cert-content">
-                    <p class="cert-description">Empanelment as approved vendor for solar thermal systems under Goa state renewable energy programs and subsidies.</p>
-                    
-                    <div class="cert-details">
-                        <div class="detail">
-                            <i class="fas fa-calendar-alt"></i>
-                            <div>
-                                <span class="detail-label">Issued</span>
-                                <span class="detail-value">2020</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-id-card"></i>
-                            <div>
-                                <span class="detail-label">Empanelment No.</span>
-                                <span class="detail-value">GEDA/ST/2020/V-042</span>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <span class="detail-label">Status</span>
-                                <span class="detail-value active">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-actions">
-                        <a href="downloads/geda-certificate.pdf" class="btn btn-outline" target="_blank" download>
-                            <i class="fas fa-eye"></i> View Certificate
-                        </a>
-                        <a href="downloads/goa-subsidy-details.pdf" class="btn btn-outline" download>
-                            <i class="fas fa-download"></i> Subsidy Details
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <!-- SOLUTIONS ECOSYSTEM -->
+    <section class="section" style="background:#f9f9fb;" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Solutions Ecosystem</h2>
+        <p class="section-subtitle">Complete renewable energy and smart agriculture solutions</p>
+        <div class="solutions-grid">
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="50"><i class="fas fa-fire"></i><h4>Solar Steam Cooking Systems</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="100"><i class="fas fa-satellite-dish"></i><h4>Scheffler Solar Concentrators</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="150"><i class="fas fa-wind"></i><h4>Hybrid Solar Tunnel Dryers</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-battery-full"></i><h4>PTC & Sand Battery Storage</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="250"><i class="fas fa-leaf"></i><h4>Biomass Thermal Integration</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="300"><i class="fas fa-robot"></i><h4>AI Crop Quality Detection</h4></div>
+          <div class="solution-item" data-aos="flip-left" data-aos-delay="350"><i class="fas fa-microchip"></i><h4>Microgreen Automation Systems</h4></div>
         </div>
+      </div>
     </section>
 
-    <!-- Certification Benefits -->
-    <section class="cert-benefits-section">
-        <div class="container">
-            <h2 class="section-title">Benefits of KVB Certifications</h2>
-            <p class="section-subtitle">Why certifications matter for your investment in renewable energy</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3>Subsidy Eligibility</h3>
-                    <p>Access government subsidies up to 60% for eligible projects through MNRE and state government schemes.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Quality Assurance</h3>
-                    <p>Independent testing and certification ensure reliable performance and long system lifespan.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Bank Financing</h3>
-                    <p>Certified systems qualify for bank loans and financing through priority sector lending.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Technical Validation</h3>
-                    <p>University testing and research validation ensure scientific accuracy of performance claims.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>International Recognition</h3>
-                    <p>UNIDO empanelment opens doors for international projects and collaborations.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Trust & Credibility</h3>
-                    <p>Multiple certifications build institutional trust and confidence in technology adoption.</p>
-                </div>
-            </div>
+    <!-- TRUSTED NATIONALLY -->
+    <section class="trust-section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Trusted Nationally</h2>
+        <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
+        <div class="logo-grid">
+          <div class="client-logo">
+            <img src="images/certificates/indian army.png" alt="Indian Army">
+            <p>Indian Army</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/uas b.jpeg" alt="University of Agricultural Sciences, Bangalore">
+            <p>UAS Bangalore</p>
+          </div>
+          <div class="client-logo">
+            <img src="images\certificates\uhs b.jpeg" alt="UHS Bagalkot">
+            <p>UHS Bagalkot</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/uahs.png" alt="UAHS Shimoga">
+            <p>UAHS Shimoga</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/iit.png" alt="IIT Dharwad">
+            <p>IIT Dharwad</p>
+          </div>
+          <div class="client-logo">
+            <img src="images/certificates/yashada.jpeg" alt="YASHADA">
+            <p>YASHADA</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Subsidy Calculator -->
-    <section class="subsidy-calculator">
-        <div class="container">
-            <div class="calculator-wrapper">
-                <div class="calculator-info">
-                    <h2>Subsidy Eligibility Calculator</h2>
-                    <p>Check your eligibility for government subsidies on KVB solar thermal systems based on your location and project type.</p>
-                    
-                    <div class="subsidy-info">
-                        <h4>Available Subsidy Schemes:</h4>
-                        <ul class="scheme-list">
-                            <li>
-                                <i class="fas fa-rupee-sign"></i>
-                                <div>
-                                    <strong>MNRE Central Subsidy</strong>
-                                    <p>30-40% subsidy on solar cooking systems</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-rupee-sign"></i>
-                                <div>
-                                    <strong>State Government Schemes</strong>
-                                    <p>Additional 20-30% state subsidies</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-rupee-sign"></i>
-                                <div>
-                                    <strong>Farmer Subsidies</strong>
-                                    <p>Up to 60% for agricultural applications</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-rupee-sign"></i>
-                                <div>
-                                    <strong>Institutional Grants</strong>
-                                    <p>Special schemes for educational/religious institutions</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="calculator-form">
-                    <form id="subsidyCalculator">
-                        <h3>Calculate Your Subsidy</h3>
-                        
-                        <div class="form-group">
-                            <label for="project-type">Project Type</label>
-                            <select id="project-type" name="project-type" required>
-                                <option value="">Select project type</option>
-                                <option value="cooking">Solar Cooking System</option>
-                                <option value="drying">Solar Drying System</option>
-                                <option value="processing">Food Processing System</option>
-                                <option value="heating">Industrial Process Heating</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="client-type">Client Type</label>
-                            <select id="client-type" name="client-type" required>
-                                <option value="">Select client type</option>
-                                <option value="farmer">Farmer/Agriculture</option>
-                                <option value="institution">Educational Institution</option>
-                                <option value="religious">Religious Institution</option>
-                                <option value="industry">Industry/Commercial</option>
-                                <option value="government">Government/Defense</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="state">State</label>
-                            <select id="state" name="state" required>
-                                <option value="">Select state</option>
-                                <option value="karnataka">Karnataka</option>
-                                <option value="tamil-nadu">Tamil Nadu</option>
-                                <option value="goa">Goa</option>
-                                <option value="maharashtra">Maharashtra</option>
-                                <option value="other">Other States</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="system-cost">Estimated System Cost (₹)</label>
-                            <input type="number" id="system-cost" name="system-cost" placeholder="e.g., 500000" required>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-calculator"></i> Calculate Subsidy
-                            </button>
-                        </div>
-                        
-                        <div class="calculator-results" id="subsidy-results">
-                            <!-- Results will be displayed here -->
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <!-- REAL IMPACT -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Real Impact, Measurable Results</h2>
+        <div class="impact-grid">
+          <div class="stat-message"><i class="fas fa-smog"></i><h3>Thousands of tons</h3><p>CO₂ emissions reduced</p></div>
+          <div class="stat-message"><i class="fas fa-gas-pump"></i><h3>Large‑scale LPG</h3><p>replaced with solar thermal</p></div>
+          <div class="stat-message"><i class="fas fa-tree"></i><h3>Firewood saved</h3><p>community kitchens & industries</p></div>
+          <div class="stat-message"><i class="fas fa-users"></i><h3>Farmer livelihoods</h3><p>strengthened through smart agriculture</p></div>
         </div>
+      </div>
     </section>
 
-    <!-- Certification Process -->
-    <section class="cert-process">
-        <div class="container">
-            <h2 class="section-title">Our Certification Process</h2>
-            <p class="section-subtitle">Rigorous testing and validation for every KVB system</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Design Validation</h3>
-                        <p>Engineering designs reviewed against national and international standards</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Prototype Testing</h3>
-                        <p>Prototypes undergo rigorous performance testing at partner institutions</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Field Testing</h3>
-                        <p>Systems installed in real-world conditions for extended performance monitoring</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Certification Application</h3>
-                        <p>Submission to relevant authorities with comprehensive test data</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Ongoing Compliance</h3>
-                        <p>Regular audits and renewals to maintain certification status</p>
-                    </div>
-                </div>
-            </div>
+    <!-- INNOVATION LAB -->
+    <section class="section" style="background:#f9f9fb;" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Building Tomorrow's Infrastructure Today</h2>
+        <p style="font-size:1.2rem;color:#86868b;max-width:700px;margin-bottom:3rem;">KVB is actively developing future technologies that will transform energy and agriculture systems.</p>
+        <div class="innovation-grid">
+          <div class="innovation-item"><i class="fas fa-thermometer-half"></i><h4>Thermal Energy Storage</h4></div>
+          <div class="innovation-item"><i class="fas fa-digital-tachograph"></i><h4>Soil‑to‑Sale Platforms</h4></div>
+          <div class="innovation-item"><i class="fas fa-brain"></i><h4>AI Crop Grading Systems</h4></div>
+          <div class="innovation-item"><i class="fas fa-robot"></i><h4>Microgreen Smart Farms</h4></div>
+          <div class="innovation-item"><i class="fas fa-bolt"></i><h4>Hybrid Renewable Heat</h4></div>
         </div>
+      </div>
     </section>
 
-    <!-- Download Center -->
-    <section class="download-center">
-        <div class="container">
-            <h2 class="section-title">Certification Documents Center</h2>
-            
-            <div class="download-categories">
-                <div class="download-category">
-                    <h3><i class="fas fa-file-certificate"></i> Certificates</h3>
-                    <ul class="doc-list">
-                        <li>
-                            <a href="downloads/unido-certificate.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>UNIDO Empanelment Certificate</span>
-                                <span class="file-size">PDF, 2.4 MB</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="downloads/mnre-certificate.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>MNRE Certification</span>
-                                <span class="file-size">PDF, 1.8 MB</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="downloads/geda-certificate.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>GEDA Goa Certificate</span>
-                                <span class="file-size">PDF, 1.2 MB</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="download-category">
-                    <h3><i class="fas fa-file-alt"></i> Test Reports</h3>
-                    <ul class="doc-list">
-                        <li>
-                            <a href="downloads/uhs-test-report.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>UHS Performance Test Report</span>
-                                <span class="file-size">PDF, 3.1 MB</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="downloads/thermal-efficiency-report.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>Thermal Efficiency Analysis</span>
-                                <span class="file-size">PDF, 2.7 MB</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="download-category">
-                    <h3><i class="fas fa-handshake"></i> Agreements</h3>
-                    <ul class="doc-list">
-                        <li>
-                            <a href="downloads/iit-mou.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>IIT Dharwad MoU</span>
-                                <span class="file-size">PDF, 1.5 MB</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="downloads/university-collaborations.pdf" download>
-                                <i class="fas fa-file-pdf"></i>
-                                <span>University Collaborations List</span>
-                                <span class="file-size">PDF, 0.8 MB</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="download-all">
-                <a href="downloads/kvb-certifications-pack.zip" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Download All Certifications (ZIP, 15.2 MB)
-                </a>
-            </div>
+    <!-- CERTIFICATIONS -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Certifications & Accreditations</h2>
+        <div class="cert-grid">
+          <div class="cert-card">UNIDO Empanelment</div>
+          <div class="cert-card">MNRE Certification</div>
+          <div class="cert-card">UHS Performance Tested</div>
+          <div class="cert-card">University MoUs</div>
+          <div class="cert-card">Govt Empanelments</div>
         </div>
+      </div>
     </section>
 
-    <!-- Certification CTA -->
-    <section class="cert-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Need Certified Documentation for Your Project?</h2>
-                <p>Our team can provide certified documentation for tenders, subsidies, financing, and compliance requirements.</p>
-                
-                <div class="cta-actions">
-                    <a href="contact.html?request=certification" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Request Certified Documents
-                    </a>
-                    <a href="tel:+911234567890" class="btn btn-outline-light">
-                        <i class="fas fa-phone"></i> Call for Certification Support
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- SUSTAINABILITY MESSAGE -->
+    <section class="sustainability-message" data-aos="fade-up">
+      <div class="container">
+        <i class="fas fa-quote-left"></i>
+        <h2>Every kilogram of firewood and LPG burned releases harmful CO₂. Our mission is to replace fossil fuel dependency with renewable thermal energy and intelligent agricultural systems that protect the environment while strengthening livelihoods.</h2>
+        <i class="fas fa-quote-right"></i>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <!-- Footer component would be included here -->
-    </footer>
+    <!-- AUDIENCE GRID – now using <div> -->
+    <section class="section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">How Can We Help You?</h2>
+        <p class="section-subtitle">Select your path for tailored solutions</p>
+        <div class="audience-grid">
+          <div class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></div>
+          <div class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></div>
+          <div class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></div>
+          <div class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/certifications.js"></script>
+    <!-- CTA BANNER -->
+    <section class="cta-banner" data-aos="fade-up">
+      <div class="container">
+        <h2>Ready to switch to renewable energy?</h2>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn">Request a Site Visit</a>
+          <a href="contact.html" class="btn btn-outline">Talk to Experts</a>
+          <a href="contact.html" class="btn btn-gold">Partner with KVB</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer"></div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/yournumber" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    (function() {
+      // intro screen handling
+      if (sessionStorage.getItem('introShown') === 'true') {
+        document.getElementById('introScreen').classList.add('hidden');
+        document.getElementById('mainWebsite').classList.add('show');
+        AOS.init({ duration: 800, once: true, offset: 30 });
+      } else {
+        setTimeout(() => {
+          document.getElementById('introScreen').classList.add('fade-out');
+          sessionStorage.setItem('introShown', 'true');
+          setTimeout(() => {
+            document.getElementById('introScreen').classList.add('hidden');
+            document.getElementById('mainWebsite').classList.add('show');
+            AOS.init({ duration: 800, once: true, offset: 30 });
+          }, 1500);
+        }, 3000);
+      }
+
+      // header and footer loader (with fallback paths)
+      function loadComponent(id, paths) {
+        const tryPath = (index) => {
+          if (index >= paths.length) return;
+          fetch(paths[index])
+            .then(res => {
+              if (!res.ok) throw new Error();
+              return res.text();
+            })
+            .then(data => {
+              document.getElementById(id).innerHTML = data;
+            })
+            .catch(() => tryPath(index + 1));
+        };
+        tryPath(0);
+      }
+
+      loadComponent("header", [
+        "components/header.html",
+        "../components/header.html"
+      ]);
+
+      loadComponent("footer", [
+        "components/footer.html",
+        "../components/footer.html"
+      ]);
+
+      // simple scroll effect for header (if needed)
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (header) {
+          if (window.scrollY > 50) {
+            header.style.background = 'rgba(255,255,255,0.95)';
+            header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
+          } else {
+            header.style.background = 'rgba(255,255,255,0.8)';
+            header.style.boxShadow = 'none';
+          }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
