@@ -830,6 +830,73 @@
       color: #2d3e40;
     }
 
+    /* ===== NEW SECTIONS ADDED ===== */
+    .content-section {
+      padding: 80px 0;
+    }
+    .content-section.bg-alt {
+      background: var(--soft-white);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: var(--border-radius-sm);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(58,125,68,0.1);
+      transition: var(--transition);
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    .card i {
+      font-size: 2.5rem;
+      color: var(--eco-green);
+      margin-bottom: 20px;
+    }
+    .list-check {
+      list-style: none;
+      margin-top: 15px;
+    }
+    .list-check li {
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+    .list-check li::before {
+      content: "✔";
+      color: var(--eco-green);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .highlight-box {
+      background: linear-gradient(145deg, var(--primary-light), white);
+      border-radius: var(--border-radius);
+      padding: 50px;
+      text-align: center;
+      border: 1px solid var(--solar-yellow);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--eco-green);
+      line-height: 1.4;
+    }
+    .highlight-box small {
+      font-size: 1rem;
+      color: var(--dark-charcoal);
+      display: block;
+      margin-top: 20px;
+    }
+
   
     .whatsapp-float {
       position: fixed;
@@ -898,14 +965,16 @@
       .nav-menu.active { left: 0; }
       .hamburger { display: flex; }
       .hero-title { font-size: 2.8rem; }
-      .story-grid, .founder-profile { grid-template-columns: 1fr; }
+      .story-grid, .founder-profile, .grid-2 { grid-template-columns: 1fr; }
       .story-image { order: -1; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
       .timeline-step { width: calc(100% / 5); }
       .timeline-step:nth-child(6), .timeline-step:nth-child(7) { display: none; }
     }
     @media (max-width: 768px) {
       .page-hero h1 { font-size: 2.2rem; }
       .section-title { font-size: 2rem; }
+      .grid-3 { grid-template-columns: 1fr; }
       .timeline-step { width: calc(100% / 4); }
       .timeline-step:nth-child(5) { display: none; }
       .timeline-content { padding: 30px; }
@@ -920,29 +989,27 @@
 <body>
 
   <!-- ===== HEADER – FIXED PATHS FOR PRODUCTS ===== -->
- <div id="header"></div>
+  <div id="header"></div>
+
   <!-- ===== ABOUT HERO ===== -->
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
         <h1 data-aos="fade-up">About KVB Green Energies</h1>
-        <p data-aos="fade-up" data-aos-delay="100">Engineering sustainable infrastructure for community cooking, industrial heating, and agricultural value addition with three decades of solar expertise.</p>
-       
-          
-        </div>
+        <p data-aos="fade-up" data-aos-delay="100">Engineering the Future of Clean Industry & Regenerative Agriculture</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== COMPANY STORY ===== -->
+  <!-- ===== COMPANY STORY (updated) ===== -->
   <section class="story-section">
     <div class="container">
       <div class="story-grid">
         <div class="story-content" data-aos="fade-right">
           <h2>Our Story</h2>
-          <p>KVB Green Energies is a renewable energy and smart agriculture technology company focused on designing sustainable infrastructure for community cooking, industrial heating, and agricultural value addition.</p>
-          <p>Founded with over three decades of solar expertise, the company bridges engineering innovation with real-world applications. Our work integrates solar thermal technology, energy storage, and intelligent agricultural systems to build scalable solutions for institutions and farmers.</p>
-          <p>What began as a research initiative in solar thermal applications has now evolved into a national-scale operation, impacting thousands of lives across India while significantly reducing carbon emissions.</p>
+          <p>KVB Green Energies is a next-generation Cleantech and Agritech company pioneering intelligent renewable thermal systems and deep-tech agricultural intelligence platforms.</p>
+          <p>With over 30+ years of solar thermal expertise, we are expanding beyond clean industrial heat into precision agriculture, regenerative farming intelligence, and autonomous water optimization systems — delivering an integrated solution from:</p>
+          <p style="font-size: 1.5rem; font-weight: 600; color: var(--eco-green);">🌱 Soil → Crop → Energy → Processing → Sale</p>
         </div>
         <div class="story-image" data-aos="fade-left">
           <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Solar thermal research">
@@ -951,25 +1018,118 @@
     </div>
   </section>
 
-  <!-- ===== VISION & MISSION ===== -->
+  <!-- ===== DUAL CORE EXPERTISE (new) ===== -->
+  <section class="content-section bg-alt">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Dual Core Expertise</h2>
+      <div class="grid-2">
+        <div class="card" data-aos="fade-right">
+          <i class="fas fa-solar-panel"></i>
+          <h3>♻ CLEANTECH – Industrial Renewable Thermal Systems</h3>
+          <p>We design and deploy:</p>
+          <ul class="list-check">
+            <li>Parabolic Trough Solar Thermal (PTC) Systems</li>
+            <li>Concentrated Solar Technology (CST)</li>
+            <li>Hybrid Solar + Boiler Integration</li>
+            <li>Thermal Energy Storage</li>
+            <li>Industrial Process Heat Optimization</li>
+          </ul>
+          <p style="margin-top: 20px;"><strong>Serving:</strong> Textile • Dairy • Food Processing • Pharma • Chemical • Paper • Leather • Automobile • Agro Processing</p>
+          <p style="margin-top: 10px;"><span style="background: var(--primary-light); padding: 5px 10px; border-radius: 20px;">✔ 20–60% fuel reduction · 2–5 year ROI</span></p>
+        </div>
+        <div class="card" data-aos="fade-left">
+          <i class="fas fa-microchip"></i>
+          <h3>🌾 AGRITECH – Deep Tech Precision Farming Platform</h3>
+          <p>Intelligent agricultural systems combining soil science, climate analytics, automation, AI-driven crop protection, and regenerative performance measurement.</p>
+          <p><strong>Digital & Precision Solutions from Soil to Sale.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AGRITECH INTELLIGENCE STACK (new) ===== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Agritech Intelligence Stack</h2>
+      <div class="grid-3">
+        <div class="card" data-aos="zoom-in"><i class="fas fa-water"></i><h4>Smart Irrigation</h4><p>Closed‑loop autonomous water optimization: real‑time soil moisture, weather integration, automated control. <strong>30–50% water savings.</strong></p></div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-flask"></i><h4>Soil Nutrient Intelligence</h4><p>NPK modeling, EC tracking, salinity mapping, deficiency prediction, data‑driven fertigation.</p></div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-chart-line"></i><h4>Land Regeneration Index</h4><p>Quantifiable soil health: organic carbon, moisture retention, nutrient density, biological activity, long‑term regeneration score.</p></div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="150"><i class="fas fa-bacteria"></i><h4>Soil Microbiome Intelligence</h4><p>Proxy‑based biological monitoring using moisture, carbon, nutrient balance, crop stress signals.</p></div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-shield-virus"></i><h4>Predictive Crop Immunity</h4><p>Disease prevention before infection: climate modeling + plant stress signals for early outbreak prediction.</p></div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-globe"></i><h4>Climate Ledger</h4><p>Measurable regenerative performance: carbon impact, water efficiency, soil carbon trends, energy optimization, regenerative score benchmarking.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY KVB IS UNIQUE (new) ===== -->
+  <section class="content-section bg-alt">
+    <div class="container">
+      <div class="grid-2">
+        <div data-aos="fade-right">
+          <h2>Why KVB Green Energies is Unique</h2>
+          <p>Most companies do either solar energy OR agriculture technology. KVB integrates both.</p>
+          <p>We connect:</p>
+          <ul class="list-check">
+            <li>🌞 Renewable Energy</li>
+            <li>🌱 Soil Intelligence</li>
+            <li>💧 Water Automation</li>
+            <li>📊 Climate Analytics</li>
+            <li>🏭 Industrial Process Heat</li>
+          </ul>
+          <p style="margin-top: 20px;">Creating a unified ecosystem of <strong>Cleantech + Agritech Intelligence</strong>.</p>
+        </div>
+        <div class="card" data-aos="fade-left">
+          <h3>Our Strategic Positioning</h3>
+          <p>We operate at the intersection of:</p>
+          <ul style="list-style: none; padding-left: 0;">
+            <li>• Industrial Decarbonization</li>
+            <li>• Regenerative Agriculture</li>
+            <li>• Climate Accountability</li>
+            <li>• Deep Tech Automation</li>
+            <li>• Precision Intelligence</li>
+          </ul>
+          <p style="margin-top: 20px; font-weight: 600;">Climate Infrastructure Company · Industrial Thermal Engineering · Agri Deep Tech Platform · Regenerative Systems Architect</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FROM SOIL TO STEAM (new) ===== -->
+  <section class="content-section">
+    <div class="container">
+      <div class="highlight-box" data-aos="flip-up">
+        “KVB Green Energies integrates Solar Thermal Cleantech with Regenerative Agritech Intelligence — powering industries and transforming agriculture from soil to sale.”
+        <small>– Our Positioning Statement</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION & MISSION (updated with document text) ===== -->
   <section class="vision-mission">
     <div class="container">
       <div class="vm-grid">
         <div class="vm-card" data-aos="zoom-in" data-aos-delay="100">
           <div class="vm-icon"><i class="fas fa-eye"></i></div>
           <h3>Our Vision</h3>
-          <p>To engineer a future where clean energy and intelligent agriculture form the backbone of sustainable development, creating self-reliant communities and carbon-neutral industries.</p>
+          <p>To build a carbon‑reduced industrial ecosystem and a regenerative agricultural future through intelligent renewable systems.</p>
         </div>
         <div class="vm-card" data-aos="zoom-in" data-aos-delay="200">
           <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
           <h3>Our Mission</h3>
-          <p>To reduce fossil fuel dependence by 50% in community cooking and industrial heating, empower 1 million farmers through technology, and deliver reliable renewable solutions for large-scale impact by 2030.</p>
+          <ul style="text-align: left; list-style: none; padding-left: 0;">
+            <li>✔ Replace fossil fuel heat with renewable thermal systems</li>
+            <li>✔ Increase farm profitability through deep‑tech intelligence</li>
+            <li>✔ Restore soil health using measurable regenerative metrics</li>
+            <li>✔ Optimize water use through automation</li>
+            <li>✔ Enable climate‑resilient agriculture and industry</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOUNDER PROFILE ===== -->
+  <!-- ===== FOUNDER PROFILE (unchanged) ===== -->
   <section class="founder-section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Leadership</h2>
@@ -991,7 +1151,7 @@
     </div>
   </section>
 
-  <!-- ===== TEAM SECTION ===== -->
+  <!-- ===== TEAM SECTION (unchanged) ===== -->
   <section class="team-section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Our Core Team</h2>
@@ -1037,7 +1197,7 @@
     </div>
   </section>
 
-  <!-- ===== CO2 IMPACT SECTION ===== -->
+  <!-- ===== CO2 IMPACT SECTION (unchanged) ===== -->
   <section class="impact-section">
     <div class="container">
       <div class="impact-content">
@@ -1058,7 +1218,7 @@
     </div>
   </section>
 
-  <!-- ===== HORIZONTAL TIMELINE SECTION ===== -->
+  <!-- ===== HORIZONTAL TIMELINE SECTION (unchanged) ===== -->
   <section class="timeline-section" id="timelineSection">
     <div class="timeline-container">
       <h2 class="section-title">Our Journey Through Time</h2>
@@ -1102,7 +1262,7 @@
     </div>
   </section>
 
-  <!-- ===== WHY CHOOSE KVB ===== -->
+  <!-- ===== WHY CHOOSE KVB (unchanged) ===== -->
   <section class="why-choose-section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Why Choose KVB</h2>
@@ -1118,34 +1278,15 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER (index style) ===== -->
+  <!-- ===== FOOTER ===== -->
   <div id="footer"></div>
-    <script>
-        // Load header/footer components
-        function loadComponent(id, paths) {
-            const tryPath = (index) => {
-                if (index >= paths.length) return;
-                fetch(paths[index])
-                    .then(res => {
-                        if (!res.ok) throw new Error();
-                        return res.text();
-                    })
-                    .then(data => {
-                        document.getElementById(id).innerHTML = data;
-                    })
-                    .catch(() => tryPath(index + 1));
-            };
-            tryPath(0);
-        }
-        loadComponent("header", ["components/header.html", "../components/header.html"]);
-        loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
-    </script>   
+
   <!-- WhatsApp floating button -->
   <div class="whatsapp-float">
     <a href="https://wa.me/9545529950" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <!-- Back to Top Button (now added) -->
+  <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
   <!-- AOS + Mobile menu + year + timeline JS -->
@@ -1164,17 +1305,20 @@
       }
 
       // ===== COPYRIGHT YEAR =====
-      document.getElementById('current-year').innerText = new Date().getFullYear();
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.innerText = new Date().getFullYear();
 
       // ===== STICKY HEADER =====
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
-        if (window.scrollY > 50) {
-          header.style.background = 'rgba(255,255,255,0.95)';
-          header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
-        } else {
-          header.style.background = 'rgba(255,255,255,0.8)';
-          header.style.boxShadow = 'none';
+        if (header) {
+          if (window.scrollY > 50) {
+            header.style.background = 'rgba(255,255,255,0.95)';
+            header.style.boxShadow = '0 6px 20px rgba(0,20,10,0.05)';
+          } else {
+            header.style.background = 'rgba(255,255,255,0.8)';
+            header.style.boxShadow = 'none';
+          }
         }
       });
 
@@ -1247,35 +1391,41 @@
 
       let currentStep = 0;
       const totalSteps = timelineData.length;
-      totalStepsEl.textContent = totalSteps;
+      if (totalStepsEl) totalStepsEl.textContent = totalSteps;
 
       function updateTimelineDisplay() {
-        currentStepEl.textContent = currentStep + 1;
+        if (currentStepEl) currentStepEl.textContent = currentStep + 1;
         const progressPercentage = (currentStep / (totalSteps - 1)) * 100;
-        timelineProgress.style.width = `${progressPercentage}%`;
-        tractorIndicator.style.left = `${progressPercentage}%`;
+        if (timelineProgress) timelineProgress.style.width = `${progressPercentage}%`;
+        if (tractorIndicator) tractorIndicator.style.left = `${progressPercentage}%`;
 
-        timelineSteps.forEach((step, index) => {
-          if (index === currentStep) step.classList.add('active');
-          else step.classList.remove('active');
-        });
+        if (timelineSteps.length) {
+          timelineSteps.forEach((step, index) => {
+            if (index === currentStep) step.classList.add('active');
+            else step.classList.remove('active');
+          });
+        }
 
         const currentData = timelineData[currentStep];
-        timelineContentTitle.textContent = `${currentData.title} (${currentData.year})`;
-        timelineContentDescription.textContent = currentData.description;
-        timelineAchievements.innerHTML = '';
-        currentData.achievements.forEach(achievement => {
-          const li = document.createElement('li');
-          li.textContent = achievement;
-          timelineAchievements.appendChild(li);
-        });
+        if (timelineContentTitle) timelineContentTitle.textContent = `${currentData.title} (${currentData.year})`;
+        if (timelineContentDescription) timelineContentDescription.textContent = currentData.description;
+        if (timelineAchievements) {
+          timelineAchievements.innerHTML = '';
+          currentData.achievements.forEach(achievement => {
+            const li = document.createElement('li');
+            li.textContent = achievement;
+            timelineAchievements.appendChild(li);
+          });
+        }
 
-        prevBtn.disabled = currentStep === 0;
-        nextBtn.disabled = currentStep === totalSteps - 1;
+        if (prevBtn) prevBtn.disabled = currentStep === 0;
+        if (nextBtn) nextBtn.disabled = currentStep === totalSteps - 1;
 
         const contentBox = document.getElementById('timelineContent');
-        contentBox.style.transform = 'scale(0.98)';
-        setTimeout(() => { contentBox.style.transform = 'scale(1)'; }, 50);
+        if (contentBox) {
+          contentBox.style.transform = 'scale(0.98)';
+          setTimeout(() => { contentBox.style.transform = 'scale(1)'; }, 50);
+        }
       }
 
       function nextStep() {
@@ -1310,6 +1460,25 @@
 
       // Initialize timeline
       updateTimelineDisplay();
+
+      // Load header/footer components
+      function loadComponent(id, paths) {
+        const tryPath = (index) => {
+          if (index >= paths.length) return;
+          fetch(paths[index])
+            .then(res => {
+              if (!res.ok) throw new Error();
+              return res.text();
+            })
+            .then(data => {
+              document.getElementById(id).innerHTML = data;
+            })
+            .catch(() => tryPath(index + 1));
+        };
+        tryPath(0);
+      }
+      loadComponent("header", ["components/header.html", "../components/header.html"]);
+      loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
     })();
   </script>
 </body>
