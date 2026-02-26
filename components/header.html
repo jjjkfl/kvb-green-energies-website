@@ -46,32 +46,33 @@ gap:20px;
 color:#555;
 }
 
-/* NAVBAR */
+/* NAVBAR – logo left, nav right */
 .navbar{
 max-width:1400px;
 margin:auto;
 padding:12px 40px;
 display:flex;
 align-items:center;
+justify-content:space-between;
 }
 
 .logo img{
 height:65px;
 }
 
-/* RIGHT */
-.nav-right{
-margin-left:auto;
-display:flex;
-align-items:center;
-gap:25px;
+/* Menu toggle – hidden on desktop */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
 }
 
-/* MENU */
+/* Navigation menu – pushed to the right on desktop */
 .nav-menu{
 display:flex;
 gap:28px;
 list-style:none;
+margin-left:auto;          /* aligns menu to the right */
 }
 
 .nav-menu a{
@@ -98,10 +99,14 @@ transition:.25s;
 width:100%;
 }
 
-/* DROPDOWN */
+/* DROPDOWN – fix positioning */
+.dropdown{
+position:relative;
+}
+
 .dropdown-menu{
 position:absolute;
-top:120%;
+top:calc(100% + 8px);      /* just below the link */
 left:0;
 background:white;
 border:1px solid rgba(0,0,0,.08);
@@ -112,6 +117,7 @@ opacity:0;
 visibility:hidden;
 transform:translateY(10px);
 transition:.25s;
+z-index:1001;              /* above other content */
 }
 
 .dropdown:hover .dropdown-menu{
@@ -129,7 +135,7 @@ padding:10px 18px;
 background:#f5f5f5;
 }
 
-/* CTA */
+/* CTA (optional – hidden for now) */
 .cta-button{
 background:var(--eco-green);
 color:#fff;
@@ -141,13 +147,6 @@ font-weight:600;
 
 /* ================= MOBILE ================= */
 
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
-
-/* MOBILE MENU PANEL */
 @media(max-width:900px){
 
 .top-bar{
@@ -155,14 +154,13 @@ display:none;
 }
 
 .menu-toggle{
-display:block;
-margin-left:auto;
+display:block;              /* show hamburger on mobile */
 }
 
 .nav-menu{
 position:fixed;
 top:0;
-right:-100%;
+right:-100%;                /* off‑canvas from right */
 height:100vh;
 width:260px;
 background:#fff;
@@ -171,12 +169,15 @@ padding:90px 25px;
 gap:22px;
 box-shadow:-5px 0 20px rgba(0,0,0,.1);
 transition:.35s ease;
+margin-left:0;               /* override desktop margin */
+overflow-y:auto;             /* allow scroll if many items */
 }
 
 .nav-menu.active{
 right:0;
 }
 
+/* on mobile, dropdown is static and hidden by default */
 .dropdown-menu{
 position:static;
 opacity:1;
@@ -185,10 +186,16 @@ transform:none;
 display:none;
 border:none;
 box-shadow:none;
+background:transparent;
+padding-left:1rem;
 }
 
 .dropdown.active .dropdown-menu{
 display:block;
+}
+
+.dropdown-menu a{
+padding:8px 12px;
 }
 
 .cta-button{
@@ -223,7 +230,7 @@ height:110px;
 <div class="navbar">
 
 <div class="logo">
-<img src="../images/products/New Logo Design.jpg.jpeg">
+<img src="../images/products/New Logo Design.jpg.jpeg" alt="KVB Logo">
 </div>
 
 <div class="menu-toggle" id="menuBtn">☰</div>
@@ -236,14 +243,30 @@ height:110px;
 <li class="dropdown">
 <a href="#">Products</a>
 <div class="dropdown-menu">
-<a href="#">Solar Steam Cooking</a>
-<a href="#">Solar Dryers</a>
-<a href="#">Scheffler</a>
-<a href="#">AI Crop Detection</a>
+<a href="../products/solar-steam-cooking.html">Solar Steam Cooking</a>
+<a href="../products/solar-dryers.html">Solar Dryers</a>
+<a href="../products/scheffler-concentrators.html">Scheffler</a>
+<a href="../products/ai-crop-detection.html">AI Crop Detection</a>
+<a href="../products/microgreen-systems.html">Microgreen Systems</a>
+<a href="../products/thermal-storage.html">Thermal Storage</a>
 </div>
 </li>
 
-<li><a href="../application.html">Application</a></li>
+<li class="dropdown">
+<a href="#">Application</a>
+<div class="dropdown-menu">
+<a href="../app/Chemical Industry.html">Chemical Industry</a>
+<a href="../app/Tea processing Industry.html">Tea Processing</a>
+<a href="../app/leather footwear.html">Leather & Footwear</a>
+
+<a href="../app/Food-Processing-Industry.html">Food Processing</a>
+<a href="../app/automobile industry.html">Automobile Industry</a>
+<a href="../app/Paper & Pulp Industry.html">Paper & Pulp Industry</a>
+<a href="../app/Textile Industry.html">Textile Industry</a>
+<a href="../app/Dairy Industry.html">Dairy Industry</a>
+</div>
+</li>
+
 <li><a href="../contact.html">Contact</a></li>
 
 </ul>

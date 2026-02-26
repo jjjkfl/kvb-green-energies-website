@@ -236,7 +236,7 @@
         }
  .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.7fr 1.6fr;
     gap: 4rem;
     align-items: center;
 }
@@ -246,6 +246,9 @@
 }
 
 .hero-right {
+      width: 100%;
+    max-width: 900px;   /* bigger than before */
+    margin-left: auto;
     position: relative;
     width: 100%;
     border-radius: 28px;
@@ -257,7 +260,7 @@
 .hero-right::before {
     content: "";
     display: block;
-    padding-top: 56.25%;
+    padding-top: 75%;
 }
 
 .hero-right iframe {
