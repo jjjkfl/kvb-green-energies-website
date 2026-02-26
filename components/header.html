@@ -9,165 +9,201 @@
 
 <style>
 
-:root {
-  --eco-green: #3A7D44;
+:root{
+  --eco-green:#3A7D44;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-}
-
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  z-index: 1000;
+/* ================= HEADER ================= */
+.header{
+position:fixed;
+top:0;
+width:100%;
+background:#fff;
+border-bottom:1px solid rgba(0,0,0,0.06);
+z-index:1000;
 }
 
 /* TOP BAR */
-.top-bar {
-  font-size: 13px;
-  padding: 6px 40px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+.top-bar{
+font-size:13px;
+padding:6px 40px;
+border-bottom:1px solid rgba(0,0,0,0.05);
 }
 
-.top-content {
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 24px;
-  color: #555;
+.top-content{
+max-width:1400px;
+margin:auto;
+display:flex;
+justify-content:flex-end;
+gap:20px;
+color:#555;
 }
 
 /* NAVBAR */
-.navbar {
-  max-width: 1400px;
-  margin: auto;
-  padding: 12px 40px;
-  display: flex;
-  align-items: center;
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:12px 40px;
+display:flex;
+align-items:center;
 }
 
-/* LOGO */
-.logo img {
-  height: 50px;
+.logo img{
+height:65px;
 }
 
-/* RIGHT SIDE */
-.nav-right {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 28px;
+/* RIGHT */
+.nav-right{
+margin-left:auto;
+display:flex;
+align-items:center;
+gap:25px;
 }
 
 /* MENU */
-.nav-menu {
-  display: flex;
-  gap: 28px;
-  list-style: none;
+.nav-menu{
+display:flex;
+gap:28px;
+list-style:none;
 }
 
-.nav-menu li {
-  position: relative;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #111;
-  position: relative;
+.nav-menu a{
+text-decoration:none;
+color:#111;
+font-weight:500;
+font-size:.95rem;
+position:relative;
 }
 
 /* underline */
-.nav-menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #111;
-  transition: width 0.25s ease;
+.nav-menu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:2px;
+background:#111;
+transition:.25s;
 }
 
-.nav-menu a:hover::after {
-  width: 100%;
+.nav-menu a:hover::after{
+width:100%;
 }
 
 /* DROPDOWN */
-.dropdown-menu {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  border-radius: 6px;
-  min-width: 220px;
-  padding: 8px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  transition: 0.2s ease;
-  z-index: 999;
+.dropdown-menu{
+position:absolute;
+top:120%;
+left:0;
+background:white;
+border:1px solid rgba(0,0,0,.08);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+border-radius:6px;
+min-width:220px;
+opacity:0;
+visibility:hidden;
+transform:translateY(10px);
+transition:.25s;
 }
 
-.dropdown-menu a {
-  display: block;
-  padding: 10px 18px;
-  font-size: 0.9rem;
+.dropdown:hover .dropdown-menu{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
 }
 
-.dropdown-menu a:hover {
-  background: #f5f5f5;
+.dropdown-menu a{
+display:block;
+padding:10px 18px;
 }
 
-/* SHOW DROPDOWN */
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.dropdown-menu a:hover{
+background:#f5f5f5;
 }
 
-/* BUTTON */
-.cta-button {
-  background: var(--eco-green);
-  color: white;
-  padding: 8px 22px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
+/* CTA */
+.cta-button{
+background:var(--eco-green);
+color:#fff;
+padding:8px 22px;
+border-radius:20px;
+text-decoration:none;
+font-weight:600;
 }
 
-/* SPACER */
-.header-spacer {
-  height: 110px;
+/* ================= MOBILE ================= */
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
 }
 
-/* MOBILE */
-@media (max-width: 900px) {
+/* MOBILE MENU PANEL */
+@media(max-width:900px){
 
-  .nav-menu {
-    display: none;
-  }
+.top-bar{
+display:none;
+}
 
-  .header-spacer {
-    height: 90px;
-  }
+.menu-toggle{
+display:block;
+margin-left:auto;
+}
 
+.nav-menu{
+position:fixed;
+top:0;
+right:-100%;
+height:100vh;
+width:260px;
+background:#fff;
+flex-direction:column;
+padding:90px 25px;
+gap:22px;
+box-shadow:-5px 0 20px rgba(0,0,0,.1);
+transition:.35s ease;
+}
+
+.nav-menu.active{
+right:0;
+}
+
+.dropdown-menu{
+position:static;
+opacity:1;
+visibility:visible;
+transform:none;
+display:none;
+border:none;
+box-shadow:none;
+}
+
+.dropdown.active .dropdown-menu{
+display:block;
+}
+
+.cta-button{
+display:none;
+}
+
+.header-spacer{
+height:85px;
+}
+
+}
+
+/* spacer */
+.header-spacer{
+height:110px;
 }
 
 </style>
@@ -177,53 +213,86 @@ body {
 
 <header class="header">
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="top-content">
-      <div>📞 +91 95455 29950</div>
-      <div>📍 R16, KSIDC, Belur Industrial Estate Dharwad-580011</div>
-    </div>
-  </div>
+<div class="top-bar">
+<div class="top-content">
+<div>📞 +91 95455 29950</div>
+<div>📍 KSIDC Belur Industrial Estate Dharwad</div>
+</div>
+</div>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
+<div class="navbar">
 
-    <div class="logo">
-      <img src="../images/products/kvb.jpeg" alt="Logo">
-    </div>
+<div class="logo">
+<img src="../images/products/New Logo Design.jpg.jpeg">
+</div>
 
-    <div class="nav-right">
+<div class="menu-toggle" id="menuBtn">☰</div>
 
-      <ul class="nav-menu">
+<ul class="nav-menu" id="navMenu">
 
-        <li><a href="../index.html">Home</a></li>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../about.html">About</a></li>
 
-        <li><a href="../about.html">About</a></li>
+<li class="dropdown">
+<a href="#">Products</a>
+<div class="dropdown-menu">
+<a href="#">Solar Steam Cooking</a>
+<a href="#">Solar Dryers</a>
+<a href="#">Scheffler</a>
+<a href="#">AI Crop Detection</a>
+</div>
+</li>
 
-        <li class="dropdown">
-          <a href="#">Products</a>
+<li><a href="../application.html">Application</a></li>
+<li><a href="../contact.html">Contact</a></li>
 
-          <div class="dropdown-menu">
-            <a href="../products/solar-steam-cooking.html">Solar Steam Cooking</a>
-            <a href="../products/solar-dryers.html">Solar Dryers</a>
-            <a href="../products/scheffler-concentrators.html">Scheffler Concentrators</a>
-            <a href="../products/ai-crop-detection.html">AI Crop Detection</a>
-            <a href="../products/microgreen-systems.html">Microgreen Systems</a>
-            <a href="../products/thermal-storage.html">Thermal Storage</a>
-          </div>
-        </li>
+</ul>
 
-      </ul>
-
-      <a href="../contact.html" class="cta-button">Contact</a>
-
-    </div>
-
-  </div>
+</div>
 
 </header>
 
 <div class="header-spacer"></div>
+
+<script>
+
+/* MOBILE MENU */
+const btn=document.getElementById("menuBtn");
+const menu=document.getElementById("navMenu");
+
+btn.onclick=()=>{
+menu.classList.toggle("active");
+};
+
+/* MOBILE DROPDOWN */
+document.querySelectorAll(".dropdown > a")
+.forEach(el=>{
+el.addEventListener("click",e=>{
+if(window.innerWidth<900){
+e.preventDefault();
+el.parentElement.classList.toggle("active");
+}
+});
+});
+
+/* ================= BASIC INSPECT BLOCK ================= */
+
+// disable right click
+document.addEventListener("contextmenu",e=>e.preventDefault());
+
+// disable keys
+document.onkeydown=function(e){
+if(
+e.keyCode==123 || // F12
+(e.ctrlKey && e.shiftKey && e.keyCode==73) ||
+(e.ctrlKey && e.shiftKey && e.keyCode==74) ||
+(e.ctrlKey && e.keyCode==85)
+){
+return false;
+}
+};
+
+</script>
 
 </body>
 </html>
