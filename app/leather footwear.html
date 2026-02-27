@@ -12,157 +12,173 @@
 <style>
 
 :root{
-    --eco-green:#3A7D44;
-    --background:#FFFFFF;
-    --background-alt:#F9F9FB;
-    --text-primary:#1D1D1F;
-    --text-secondary:#86868B;
-    --border:#E6E6E8;
-    --radius-md:20px;
-    --radius-lg:28px;
+--eco-green:#3A7D44;
+--background:#FFFFFF;
+--background-alt:#F9F9FB;
+--text-primary:#1D1D1F;
+--text-secondary:#86868B;
+--border:#E6E6E8;
+--radius-lg:28px;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    background:#fff;
-    color:var(--text-primary);
+background:#fff;
+color:var(--text-primary);
 }
 
+/* ================= CONTAINER ================= */
+
 .container{
-    max-width:1280px;
-    margin:auto;
-    padding:0 32px;
+max-width:1280px;
+margin:auto;
+padding:0 32px;
 }
 
 h1,h2{
-    font-family:'Montserrat',sans-serif;
+font-family:'Montserrat',sans-serif;
 }
 
 h1{
-    font-size:3rem;
-    margin-bottom:1rem;
+font-size:3rem;
+margin-bottom:1rem;
 }
 
 h2{
-    font-size:2.2rem;
-    margin-bottom:2rem;
+font-size:2.2rem;
+margin-bottom:2rem;
 }
 
 p{
-    color:var(--text-secondary);
-    margin-bottom:1.5rem;
+color:var(--text-secondary);
+margin-bottom:1.5rem;
 }
 
 /* ================= SECTIONS ================= */
 
 .content-section{
-    padding:5rem 0;
-    border-bottom:1px solid var(--border);
+padding:5rem 0;
+border-bottom:1px solid var(--border);
 }
 
-/* ================= GRID ================= */
+/* ================= GRID FIX ================= */
 
 .grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:3rem;
-    align-items:center;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:4rem;
+align-items:center;
 }
 
 .grid-3{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:2rem;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:2rem;
 }
 
 /* ================= CARDS ================= */
 
 .card{
-    background:var(--background-alt);
-    border:1px solid var(--border);
-    padding:2rem;
-    border-radius:var(--radius-md);
+background:var(--background-alt);
+border:1px solid var(--border);
+padding:2rem;
+border-radius:20px;
 }
 
 .card i{
-    font-size:2rem;
-    color:var(--eco-green);
-    margin-bottom:1rem;
+font-size:2rem;
+color:var(--eco-green);
+margin-bottom:1rem;
 }
 
 /* ================= LIST ================= */
 
 .feature-list{
-    list-style:none;
+list-style:none;
 }
 
 .feature-list li{
-    padding:12px 0;
-    display:flex;
-    gap:10px;
-    border-bottom:1px solid var(--border);
+padding:12px 0;
+display:flex;
+gap:10px;
+border-bottom:1px solid var(--border);
 }
 
 .feature-list i{
-    color:var(--eco-green);
+color:var(--eco-green);
 }
 
-/* ================= IMAGE FIX ================= */
+/* ================= IMAGE PERFECT ALIGN ================= */
 
 .image-wrapper{
-    text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .image-full{
-    width:100%;
-    max-width:600px;   /* ✅ FIXED SIZE */
-    height:auto;
-    display:block;
-    margin:2rem auto;
-    border-radius:var(--radius-lg);
+width:100%;
+max-width:520px;
+height:auto;
+display:block;
+margin:auto;
+border-radius:var(--radius-lg);
 }
 
 /* ================= STATS ================= */
 
 .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:2rem;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:2rem;
 }
 
 .stat-item{text-align:center;}
 
 .stat-number{
-    font-size:2.5rem;
-    color:var(--eco-green);
-    font-weight:600;
+font-size:2.5rem;
+color:var(--eco-green);
+font-weight:600;
 }
 
 /* ================= BUTTON ================= */
 
 .btn{
-    background:var(--eco-green);
-    color:white;
-    padding:.8rem 2rem;
-    border-radius:40px;
-    text-decoration:none;
+background:var(--eco-green);
+color:white;
+padding:.8rem 2rem;
+border-radius:40px;
+text-decoration:none;
+transition:.2s;
+}
+
+.btn:hover{
+background:#2F5E2F;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
-.grid-2,.grid-3{
-    grid-template-columns:1fr;
+
+.grid-2,
+.grid-3{
+grid-template-columns:1fr;
 }
+
 h1{
-    font-size:2.2rem;
+font-size:2.2rem;
 }
+
+.image-full{
+max-width:90%;
+}
+
 }
 
 </style>
@@ -182,20 +198,13 @@ Beamhouse operations, tanning, drying – solar steam for tanneries.
 </div>
 </section>
 
-<!-- ✅ FIRST IMAGE FIXED -->
-<div class="container image-wrapper">
-<img
-src="../images/application1/leather/Picture22.png"
-alt="Leather processing solar thermal diagram"
-class="image-full">
-</div>
-
 <!-- PROCESS -->
 <section class="content-section">
 <div class="container">
 
 <div class="grid-2">
 
+<!-- TEXT -->
 <div>
 <h2>Leather Processes</h2>
 
@@ -208,11 +217,11 @@ class="image-full">
 </ul>
 </div>
 
-<!-- SECOND IMAGE -->
+<!-- IMAGE -->
 <div class="image-wrapper">
 <img
-src="../images/application1/solar ptc/Picture7.png"
-alt="Solar parabolic trough field"
+src="../images/application1/leather/Picture22.png"
+alt="Leather solar thermal process"
 class="image-full">
 </div>
 
@@ -292,7 +301,7 @@ class="image-full">
 
 <div id="footer"></div>
 
-<!-- HEADER FOOTER LOAD -->
+<!-- HEADER FOOTER -->
 <script>
 function loadComponent(id, paths){
 const tryPath=(i)=>{
