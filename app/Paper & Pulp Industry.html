@@ -1,355 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper & Pulp Solar Steam | KVB Green Energies</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root{
-            --eco-green:#3A7D44;
-            --background:#FFFFFF;
-            --background-alt:#F9F9FB;
-            --text-primary:#1D1D1F;
-            --text-secondary:#86868B;
-            --border:#E6E6E8;
-            --primary-light:#E9F3EA;
-            --shadow-sm:0 2px 8px rgba(0,0,0,0.02),0 4px 12px rgba(0,0,0,0.02);
-            --shadow-md:0 4px 16px rgba(0,0,0,0.04),0 8px 24px rgba(0,0,0,0.04);
-            --radius-md:20px;
-            --radius-lg:28px;
-        }
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-        body{background:var(--background);color:var(--text-primary);line-height:1.5;-webkit-font-smoothing:antialiased;}
-        /* ===== HEADER ===== */
-        .header{
-            position:fixed;
-            top:0;
-            width:100%;
-            background:#fff;
-            border-bottom:1px solid rgba(0,0,0,0.06);
-            z-index:1000;
-        }
-        .top-bar{
-            font-size:13px;
-            padding:6px 40px;
-            border-bottom:1px solid rgba(0,0,0,0.05);
-        }
-        .top-content{
-            max-width:1400px;
-            margin:auto;
-            display:flex;
-            justify-content:flex-end;
-            gap:20px;
-            color:#555;
-        }
-        .navbar{
-            max-width:1400px;
-            margin:auto;
-            padding:12px 40px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-        }
-        .logo img{height:65px;}
-        .menu-toggle{display:none;font-size:26px;cursor:pointer;}
-        .nav-menu{
-            display:flex;
-            gap:28px;
-            list-style:none;
-            margin-left:auto;
-        }
-        .nav-menu a{
-            text-decoration:none;
-            color:#111;
-            font-weight:500;
-            font-size:.95rem;
-            position:relative;
-        }
-        .nav-menu a::after{
-            content:"";
-            position:absolute;
-            left:0;
-            bottom:-4px;
-            width:0;
-            height:2px;
-            background:#111;
-            transition:.25s;
-        }
-        .nav-menu a:hover::after{width:100%;}
-        .dropdown{position:relative;}
-        .dropdown-menu{
-            position:absolute;
-            top:calc(100% + 8px);
-            left:0;
-            background:white;
-            border:1px solid rgba(0,0,0,.08);
-            box-shadow:0 10px 25px rgba(0,0,0,.08);
-            border-radius:6px;
-            min-width:220px;
-            opacity:0;
-            visibility:hidden;
-            transform:translateY(10px);
-            transition:.25s;
-            z-index:1001;
-        }
-        .dropdown:hover .dropdown-menu{
-            opacity:1;
-            visibility:visible;
-            transform:translateY(0);
-        }
-        .dropdown-menu a{display:block;padding:10px 18px;}
-        .dropdown-menu a:hover{background:#f5f5f5;}
-        .header-spacer{height:110px;}
-        @media(max-width:900px){
-            .top-bar{display:none;}
-            .menu-toggle{display:block;}
-            .nav-menu{
-                position:fixed;
-                top:0;
-                right:-100%;
-                height:100vh;
-                width:260px;
-                background:#fff;
-                flex-direction:column;
-                padding:90px 25px;
-                gap:22px;
-                box-shadow:-5px 0 20px rgba(0,0,0,.1);
-                transition:.35s ease;
-                margin-left:0;
-                overflow-y:auto;
-            }
-            .nav-menu.active{right:0;}
-            .dropdown-menu{
-                position:static;
-                opacity:1;
-                visibility:visible;
-                transform:none;
-                display:none;
-                border:none;
-                box-shadow:none;
-                background:transparent;
-                padding-left:1rem;
-            }
-            .dropdown.active .dropdown-menu{display:block;}
-            .header-spacer{height:85px;}
-        }
-        /* ===== PAGE CONTENT ===== */
-        .container{max-width:1280px;margin:0 auto;padding:0 32px;}
-        h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:-0.02em;}
-        h1{font-size:3.2rem;margin-bottom:1.2rem;}
-        h2{font-size:2.5rem;margin-bottom:2rem;}
-        p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:1.05rem;}
-        .section-title{text-align:center;margin-bottom:2.5rem;}
-        .section-title:after{content:'';display:block;width:60px;height:3px;background:var(--eco-green);margin:1rem auto 0;border-radius:2px;}
-        .btn{
-            display:inline-block;padding:0.8rem 2rem;border-radius:40px;font-weight:500;text-decoration:none;transition:.2s;
-            background:var(--eco-green);color:white;box-shadow:0 4px 12px rgba(74,139,74,0.2);
-        }
-        .btn:hover{background:#2F5E2F;transform:scale(1.02);}
-        .content-section{padding:5rem 0;border-bottom:1px solid var(--border);}
-        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
-        .card{
-            background:var(--background-alt);border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;
-        }
-        .card i{font-size:2.5rem;color:var(--eco-green);margin-bottom:1.5rem;}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin:3rem 0;}
-        .stat-item{text-align:center;}
-        .stat-number{font-size:3rem;font-weight:600;color:var(--eco-green);line-height:1;margin-bottom:0.5rem;}
-        .stat-label{color:var(--text-secondary);}
-        .feature-list{list-style:none;margin:2rem 0;}
-        .feature-list li{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);}
-        .feature-list i{color:var(--eco-green);font-size:1.2rem;}
-        .diagram-placeholder{
-            background:#eef1ee;border-radius:var(--radius-lg);padding:3rem;text-align:center;color:#aaa;
-            border:1px dashed var(--border);
-        }
-        .diagram-placeholder i{font-size:4rem;color:var(--primary-light);margin-bottom:1rem;}
-        .image-full{width:100%;border-radius:var(--radius-lg);margin:2rem 0;box-shadow:var(--shadow-md);}
-        @media(max-width:992px){.grid-2,.grid-3{grid-template-columns:1fr;gap:2rem;}}
-        @media(max-width:768px){.container{padding:0 20px;}h1{font-size:2.5rem;}}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper & Pulp Solar Steam | KVB Green Energies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<style>
+
+:root{
+ --eco-green:#3A7D44;
+ --background:#FFFFFF;
+ --background-alt:#F9F9FB;
+ --text-primary:#1D1D1F;
+ --text-secondary:#86868B;
+ --border:#E6E6E8;
+ --radius-lg:28px;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Inter',sans-serif;
+}
+
+body{
+ background:#fff;
+ color:var(--text-primary);
+}
+
+.container{
+ max-width:1280px;
+ margin:auto;
+ padding:0 32px;
+}
+
+h1,h2,h3{
+ font-family:'Montserrat',sans-serif;
+}
+
+h1{
+ font-size:3rem;
+ margin-bottom:1rem;
+}
+
+p{
+ color:var(--text-secondary);
+}
+
+/* ===== SECTIONS ===== */
+
+.content-section{
+ padding:6rem 0;
+ border-bottom:1px solid var(--border);
+}
+
+/* ===== TWO COLUMN ===== */
+
+.grid-2{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:4rem;
+ align-items:center;
+}
+
+/* ===== FEATURE LIST ===== */
+
+.feature-list{
+ list-style:none;
+ margin-top:2rem;
+}
+
+.feature-list li{
+ padding:14px 0;
+ border-bottom:1px solid var(--border);
+ display:flex;
+ gap:10px;
+}
+
+.feature-list i{
+ color:var(--eco-green);
+}
+
+/* ===== CAROUSEL ===== */
+
+.carousel-container{
+ position:relative;
+ border-radius:28px;
+ overflow:hidden;
+ box-shadow:0 15px 40px rgba(0,0,0,.06);
+}
+
+.carousel-image{
+ width:100%;
+ display:block;
+ cursor:pointer;
+}
+
+.carousel-arrow{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ border:none;
+ background:white;
+ cursor:pointer;
+ box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.carousel-arrow.left{left:15px;}
+.carousel-arrow.right{right:15px;}
+
+.carousel-dots{
+ position:absolute;
+ bottom:15px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:8px;
+}
+
+.dot{
+ width:10px;
+ height:10px;
+ border-radius:50%;
+ background:rgba(255,255,255,.5);
+ cursor:pointer;
+}
+
+.dot.active{
+ background:white;
+}
+
+/* ===== CARDS ===== */
+
+.grid-3{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:2rem;
+}
+
+.card{
+ background:var(--background-alt);
+ border:1px solid var(--border);
+ border-radius:20px;
+ padding:2rem;
+}
+
+.card i{
+ font-size:2rem;
+ color:var(--eco-green);
+ margin-bottom:1rem;
+}
+
+/* ===== TECH ===== */
+
+.section-title{
+ text-align:center;
+ margin-bottom:3rem;
+}
+
+.section-title:after{
+ content:'';
+ display:block;
+ width:60px;
+ height:3px;
+ background:var(--eco-green);
+ margin:1rem auto 0;
+}
+
+.stats-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:2rem;
+ margin-top:4rem;
+ text-align:center;
+}
+
+.stat-number{
+ font-size:3rem;
+ color:var(--eco-green);
+ font-weight:600;
+}
+
+.stat-label{
+ color:var(--text-secondary);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+.grid-2{grid-template-columns:1fr;}
+.grid-3{grid-template-columns:1fr;}
+.stats-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+</style>
 </head>
+
 <body>
-    <div id="header"></div>
-    <!-- Hero Section -->
-    <section class="content-section" style="padding-top:2rem;">
-        <div class="container">
-            <h1>Parabolic Trough Solar Thermal<br>for Paper & Pulp Industry</h1>
-            <p style="font-size:1.3rem; max-width:700px;">Dryer sections, evaporation, chemical recovery – reliable solar steam for paper mills.</p>
-        </div>
-    </section>
 
-    <!-- Image 1: Paper mill overview -->
-    <div class="container">
-        <img class="image-full" src="https://images.unsplash.com/photo-1581092335871-4c7c9e3b5b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Paper mill industrial view">
-    </div>
+<div id="header"></div>
 
-    <!-- Thermal Processes -->
-    <section class="content-section">
-        <div class="container">
-            <div class="grid-2">
-                <div>
-                    <h2>Thermal Processes</h2>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> Pulp digesters</li>
-                        <li><i class="fas fa-check-circle"></i> Evaporation & concentration (120–160°C)</li>
-                        <li><i class="fas fa-check-circle"></i> Paper dryer cylinders (120–180°C)</li>
-                        <li><i class="fas fa-check-circle"></i> Chemical recovery & recausticizing</li>
-                        <li><i class="fas fa-check-circle"></i> Bleaching & screening</li>
-                        <li><i class="fas fa-check-circle"></i> Boiler feedwater preheating</li>
-                    </ul>
-                    <p>Paper and pulp production is one of the most thermally intensive industries, with continuous, high-volume steam demand.</p>
-                </div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-newspaper"></i>
-                    <p>24/7 thermal load profile</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="content-section" style="padding-top:2rem;">
+<div class="container">
+<h1>Parabolic Trough Solar Thermal<br>for Paper & Pulp Industry</h1>
+<p style="font-size:1.2rem;max-width:700px;">
+Dryer sections, evaporation, chemical recovery – reliable solar steam for paper mills.
+</p>
+</div>
+</section>
 
-    <!-- Image 2: Paper drying section -->
-    <div class="container">
-        <img class="image-full" src="https://images.unsplash.com/photo-1581092335397-9583eb0b3b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Paper drying cylinders">
-    </div>
+<!-- THERMAL PROCESSES + CAROUSEL -->
+<section class="content-section">
+<div class="container grid-2">
 
-    <!-- Why PTC for Paper -->
-    <section class="content-section" style="background:var(--background-alt);">
-        <div class="container">
-            <h2 class="section-title">Why Parabolic Trough for Paper & Pulp</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-thermometer-half"></i>
-                    <h4>Perfect temperature match</h4>
-                    <p>120–250°C output covers all mill processes – from evaporation to drying.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-percent"></i>
-                    <h4>20–60% fuel displacement</h4>
-                    <p>Significant reduction in fossil fuel consumption and carbon footprint.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-cogs"></i>
-                    <h4>Hybrid integration</h4>
-                    <p>Works seamlessly with existing boilers; automatic backup ensures 24/7 operation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div>
+<h2>Thermal Processes</h2>
 
-    <!-- Technical Performance -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">Technical Performance</h2>
-            <div class="stats-grid">
-                <div class="stat-item"><div class="stat-number">120–250°C</div><div class="stat-label">Thermal output</div></div>
-                <div class="stat-item"><div class="stat-number">20–60%</div><div class="stat-label">Solar fraction</div></div>
-                <div class="stat-item"><div class="stat-number">50–70%</div><div class="stat-label">Efficiency</div></div>
-                <div class="stat-item"><div class="stat-number">20–30 yr</div><div class="stat-label">System life</div></div>
-            </div>
-            <p style="text-align:center; margin-top:2rem;">Tracking accuracy ±0.1° · Modular field expansion · Thermal storage optional</p>
-        </div>
-    </section>
+<ul class="feature-list">
+<li><i class="fas fa-check-circle"></i>Pulp digesters</li>
+<li><i class="fas fa-check-circle"></i>Evaporation & concentration (120–160°C)</li>
+<li><i class="fas fa-check-circle"></i>Paper dryer cylinders (120–180°C)</li>
+<li><i class="fas fa-check-circle"></i>Chemical recovery & recausticizing</li>
+<li><i class="fas fa-check-circle"></i>Bleaching & screening</li>
+<li><i class="fas fa-check-circle"></i>Boiler feedwater preheating</li>
+</ul>
 
-    <!-- Image 3: Evaporators -->
-    <div class="container">
-        <img class="image-full" src="https://images.unsplash.com/photo-1581092335397-9583eb0b3b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Evaporation towers">
-    </div>
+<p>
+Paper and pulp production is one of the most thermally intensive
+industries with continuous steam demand.
+</p>
+</div>
 
-    <!-- Economic Feasibility -->
-    <section class="content-section" style="background:var(--background-alt);">
-        <div class="container">
-            <h2 class="section-title">Economic Feasibility (India)</h2>
-            <div style="max-width:600px; margin:0 auto; text-align:center;">
-                <div class="stat-number" style="color:var(--eco-green);">2–5 years</div>
-                <p style="font-size:1.3rem;">Typical payback period</p>
-            </div>
-            <div class="grid-3" style="margin-top:3rem;">
-                <div class="card"><i class="fas fa-fire"></i><h4>Fuel savings</h4><p>Replace LPG/FO/coal</p></div>
-                <div class="card"><i class="fas fa-sun"></i><h4>High irradiation</h4><p>5–6 kWh/m²/day</p></div>
-                <div class="card"><i class="fas fa-coins"></i><h4>Incentives</h4><p>Government support</p></div>
-            </div>
-        </div>
-    </section>
+<div class="carousel-container">
 
-    <!-- Integration Modes -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">Integration Modes</h2>
-            <div class="grid-3">
-                <div class="card"><i class="fas fa-tint"></i><h4>Feedwater preheat</h4><p>Increase boiler efficiency</p></div>
-                <div class="card"><i class="fas fa-steam"></i><h4>Direct steam</h4><p>Solar steam to process</p></div>
-                <div class="card"><i class="fas fa-database"></i><h4>Thermal storage</h4><p>Extend solar availability</p></div>
-            </div>
-        </div>
-    </section>
+<img id="carouselImage"
+class="carousel-image"
+src="https://images.unsplash.com/photo-1581092335871-4c7c9e3b5b5a?auto=format&fit=crop&w=1200&q=80">
 
-    <!-- Call to Action -->
-    <section class="content-section" style="background:var(--background-alt);">
-        <div class="container" style="text-align:center;">
-            <h2>Ready to cut your paper mill’s energy cost?</h2>
-            <p style="max-width:600px; margin:0 auto 2rem;">Get a free steam load assessment and customized ROI model for your facility.</p>
-            <a href="#" class="btn">Contact our experts</a>
-        </div>
-    </section>
+<button class="carousel-arrow left" id="prevBtn">
+<i class="fas fa-chevron-left"></i>
+</button>
 
-    <script>
-        // Mobile menu
-        const btn = document.getElementById("menuBtn");
-        const menu = document.getElementById("navMenu");
-        if (btn) {
-            btn.onclick = () => {
-                menu.classList.toggle("active");
-            };
-        }
+<button class="carousel-arrow right" id="nextBtn">
+<i class="fas fa-chevron-right"></i>
+</button>
 
-        // Mobile dropdown toggle
-        document.querySelectorAll(".dropdown > a").forEach(el => {
-            el.addEventListener("click", e => {
-                if (window.innerWidth < 900) {
-                    e.preventDefault();
-                    el.parentElement.classList.toggle("active");
-                }
-            });
-        });
+<div class="carousel-dots" id="carouselDots"></div>
 
-        // Disable inspect (optional)
-        document.addEventListener("contextmenu", e => e.preventDefault());
-        document.onkeydown = function(e) {
-            if (
-                e.keyCode == 123 ||
-                (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
-                (e.ctrlKey && e.shiftKey && e.keyCode == 74) ||
-                (e.ctrlKey && e.keyCode == 85)
-            ) {
-                return false;
-            }
-        };
-    </script>
-     <div id="footer"></div>
+</div>
 
-    <script>
-        // Load header/footer components
-        function loadComponent(id, paths) {
-            const tryPath = (index) => {
-                if (index >= paths.length) return;
-                fetch(paths[index])
-                    .then(res => {
-                        if (!res.ok) throw new Error();
-                        return res.text();
-                    })
-                    .then(data => {
-                        document.getElementById(id).innerHTML = data;
-                    })
-                    .catch(() => tryPath(index + 1));
-            };
-            tryPath(0);
-        }
-        loadComponent("header", ["components/header.html", "../components/header.html"]);
-        loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
-    </script>
+</div>
+</section>
+
+<!-- WHY PTC -->
+<section class="content-section" style="background:var(--background-alt);">
+<div class="container">
+<h2 class="section-title">Why Parabolic Trough for Paper & Pulp</h2>
+
+<div class="grid-3">
+<div class="card"><i class="fas fa-thermometer-half"></i><h4>Perfect temperature match</h4><p>120–250°C output covers all mill processes.</p></div>
+<div class="card"><i class="fas fa-percent"></i><h4>20–60% fuel displacement</h4><p>Reduce fossil fuel consumption.</p></div>
+<div class="card"><i class="fas fa-cogs"></i><h4>Hybrid integration</h4><p>Works seamlessly with boilers.</p></div>
+</div>
+
+</div>
+</section>
+
+<!-- TECH PERFORMANCE -->
+<section class="content-section">
+<div class="container">
+
+<h2 class="section-title">Technical Performance</h2>
+
+<div class="stats-grid">
+<div><div class="stat-number">120–250°C</div><div class="stat-label">Thermal output</div></div>
+<div><div class="stat-number">20–60%</div><div class="stat-label">Solar fraction</div></div>
+<div><div class="stat-number">50–70%</div><div class="stat-label">Efficiency</div></div>
+<div><div class="stat-number">20–30 yr</div><div class="stat-label">System life</div></div>
+</div>
+
+</div>
+</section>
+
+<div id="footer"></div>
+
+<script>
+
+/* HEADER FOOTER */
+function loadComponent(id,paths){
+const tryPath=i=>{
+if(i>=paths.length)return;
+fetch(paths[i])
+.then(r=>r.ok?r.text():Promise.reject())
+.then(d=>document.getElementById(id).innerHTML=d)
+.catch(()=>tryPath(i+1));
+};
+tryPath(0);
+}
+loadComponent("header",["components/header.html","../components/header.html"]);
+loadComponent("footer",["components/footer.html","../components/footer.html"]);
+
+/* CAROUSEL */
+
+const images=[
+"../images/application1/paper/Picture17.png",
+"../images/application1/paper/Picture18.png",
+"../images/application1/paper/Picture19.png"
+];
+
+let index=0;
+const img=document.getElementById("carouselImage");
+const dots=document.getElementById("carouselDots");
+
+function update(i){
+if(i<0)i=images.length-1;
+if(i>=images.length)i=0;
+index=i;
+img.src=images[index];
+renderDots();
+}
+
+function renderDots(){
+dots.innerHTML="";
+images.forEach((_,i)=>{
+const d=document.createElement("span");
+d.className="dot"+(i===index?" active":"");
+d.onclick=()=>update(i);
+dots.appendChild(d);
+});
+}
+
+document.getElementById("prevBtn").onclick=()=>update(index-1);
+document.getElementById("nextBtn").onclick=()=>update(index+1);
+img.onclick=()=>update(index+1);
+
+update(0);
+
+</script>
+
 </body>
 </html>
