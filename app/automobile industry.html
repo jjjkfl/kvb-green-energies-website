@@ -161,17 +161,12 @@
         .feature-list{list-style:none;margin:2rem 0;}
         .feature-list li{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);}
         .feature-list i{color:var(--eco-green);font-size:1.2rem;}
-        .diagram-placeholder{
-            background:#eef1ee;border-radius:var(--radius-lg);padding:3rem;text-align:center;color:#aaa;
-            border:1px dashed var(--border);
-        }
-        .diagram-placeholder i{font-size:4rem;color:var(--primary-light);margin-bottom:1rem;}
         .image-full{width:100%;border-radius:var(--radius-lg);margin:2rem 0;box-shadow:var(--shadow-md);}
         @media(max-width:992px){.grid-2,.grid-3{grid-template-columns:1fr;gap:2rem;}}
         @media(max-width:768px){.container{padding:0 20px;}h1{font-size:2.5rem;}}</style>
 </head>
 <body>
-    <div id="header"></div>>
+    <div id="header"></div>
 
     <section class="content-section" style="padding-top:2rem;">
         <div class="container">
@@ -180,7 +175,10 @@
         </div>
     </section>
 
-    <div class="container"><img class="image-full" src="https://images.unsplash.com/photo-1560963689-b5682b5d0ae7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Car assembly line"></div>
+    <!-- First image: auto/Picture16.png (car assembly line) -->
+    <div class="container">
+        <img class="image-full" src="images/application1/auto/Picture16.png" alt="Car assembly line">
+    </div>
 
     <section class="content-section">
         <div class="container">
@@ -195,15 +193,16 @@
                         <li><i class="fas fa-check-circle"></i> Boiler feedwater heating</li>
                     </ul>
                 </div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-car"></i>
-                    <p>High‑temperature processes</p>
-                </div>
+                <!-- Second instance of auto/Picture16.png (parabolic trough collectors) -->
+                <img class="image-full" src="images/application1/auto/Picture16.png" alt="Parabolic trough solar thermal collectors for automobile plant">
             </div>
         </div>
     </section>
 
-    <div class="container"><img class="image-full" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Paint shop oven"></div>
+    <!-- Second image: solar ptc/Picture7.png (solar field) – note encoded space -->
+    <div class="container">
+        <img class="image-full" src="images/application1/solar%20ptc/Picture7.png" alt="Solar parabolic trough field for industrial process heat">
+    </div>
 
     <section class="content-section" style="background:var(--background-alt);">
         <div class="container">
@@ -234,7 +233,7 @@
             <a href="#" class="btn">Contact us</a>
         </div>
     </section>
- <div id="footer"></div>
+    <div id="footer"></div>
 
     <script>
         // Load header/footer components
@@ -257,7 +256,8 @@
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
     </script>
 
-    <script>const btn=document.getElementById("menuBtn");
+    <script>
+        const btn=document.getElementById("menuBtn");
         const menu=document.getElementById("navMenu");
         if(btn){btn.onclick=()=>{menu.classList.toggle("active");};}
         document.querySelectorAll(".dropdown > a").forEach(el=>{
@@ -266,6 +266,7 @@
         document.addEventListener("contextmenu",e=>e.preventDefault());
         document.onkeydown=function(e){
             if(e.keyCode==123||(e.ctrlKey&&e.shiftKey&&e.keyCode==73)||(e.ctrlKey&&e.shiftKey&&e.keyCode==74)||(e.ctrlKey&&e.keyCode==85))return false;
-        };</script>
+        };
+    </script>
 </body>
 </html>

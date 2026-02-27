@@ -180,7 +180,8 @@
         </div>
     </section>
 
-    <div class="container"><img class="image-full" src="https://images.unsplash.com/photo-1581092335397-9583eb0b3b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Chemical plant"></div>
+    <!-- First image: Chemical plant (Unsplash) -->
+    
 
     <section class="content-section">
         <div class="container">
@@ -195,15 +196,16 @@
                         <li><i class="fas fa-check-circle"></i> CIP & hot water</li>
                     </ul>
                 </div>
-                <div class="diagram-placeholder">
-                    <i class="fas fa-flask"></i>
-                    <p>High‑temperature heat</p>
-                </div>
+                <!-- Local image: solar thermal installation for chemical industry -->
+                <img class="image-full" src="../images/application1/chemical/Picture20.png" alt="Solar thermal installation for chemical industry">
             </div>
         </div>
     </section>
 
-    <div class="container"><img class="image-full" src="https://images.unsplash.com/photo-1581092335397-9583eb0b3b5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Reactor vessel"></div>
+    <!-- Third image: Solar field (Picture7) with encoded space in folder name -->
+    <div class="container">
+        <img class="image-full" src="../images/application1/solar ptc/Picture7.png" alt="Solar parabolic trough field">
+    </div>
 
     <section class="content-section" style="background:var(--background-alt);">
         <div class="container">
@@ -257,15 +259,25 @@
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
     </script>
 
-    <script>const btn=document.getElementById("menuBtn");
-        const menu=document.getElementById("navMenu");
-        if(btn){btn.onclick=()=>{menu.classList.toggle("active");};}
-        document.querySelectorAll(".dropdown > a").forEach(el=>{
-            el.addEventListener("click",e=>{if(window.innerWidth<900){e.preventDefault();el.parentElement.classList.toggle("active");}});
+    <script>
+        const btn = document.getElementById("menuBtn");
+        const menu = document.getElementById("navMenu");
+        if(btn) {
+            btn.onclick = () => { menu.classList.toggle("active"); };
+        }
+        document.querySelectorAll(".dropdown > a").forEach(el => {
+            el.addEventListener("click", e => {
+                if(window.innerWidth < 900) {
+                    e.preventDefault();
+                    el.parentElement.classList.toggle("active");
+                }
+            });
         });
-        document.addEventListener("contextmenu",e=>e.preventDefault());
-        document.onkeydown=function(e){
-            if(e.keyCode==123||(e.ctrlKey&&e.shiftKey&&e.keyCode==73)||(e.ctrlKey&&e.shiftKey&&e.keyCode==74)||(e.ctrlKey&&e.keyCode==85))return false;
-        };</script>
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.shiftKey && e.keyCode == 74) || (e.ctrlKey && e.keyCode == 85))
+                return false;
+        };
+    </script>
 </body>
-</html>
+</html>P
