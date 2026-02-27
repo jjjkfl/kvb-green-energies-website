@@ -3,115 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Tea Processing Solar Steam | KVB Green Energies</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
 
 :root{
---eco-green:#3A7D44;
---background:#FFFFFF;
---background-alt:#F9F9FB;
---text-primary:#1D1D1F;
---text-secondary:#86868B;
---border:#E6E6E8;
---radius-lg:28px;
+ --eco-green:#3A7D44;
+ --text-primary:#1D1D1F;
+ --text-secondary:#7A7A7A;
+ --border:#E6E6E8;
 }
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Inter',sans-serif;
+}
+
+body{
+ background:#fff;
 }
 
 .container{
-max-width:1280px;
-margin:auto;
-padding:0 32px;
+ max-width:1280px;
+ margin:auto;
+ padding:0 32px;
 }
 
-.content-section{
-padding:5rem 0;
-border-bottom:1px solid var(--border);
+h1,h2,h3{
+ font-family:'Montserrat',sans-serif;
 }
 
-h1,h2{
-font-family:'Montserrat',sans-serif;
+h1{
+ font-size:3rem;
+ margin-bottom:1rem;
 }
 
-h1{font-size:3rem;}
-h2{text-align:center;margin-bottom:2rem;}
-
-p{color:var(--text-secondary);}
-
-/* ✅ IMAGE STYLE SAME AS LEATHER PAGE */
-
-.image-wrapper{
-text-align:center;
+p{
+ color:var(--text-secondary);
+ line-height:1.6;
 }
 
-.image-full{
-width:100%;
-max-width:900px;
-height:auto;
-display:block;
-margin:2rem auto;
-border-radius:var(--radius-lg);
+/* HERO */
+.hero-section{
+ padding:2rem 0 1rem;
 }
 
-/* grids */
-
-.grid-3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:2rem;
+/* TWO COLUMN */
+.two-col{
+ display:flex;
+ gap:4rem;
+ align-items:flex-start;
+ padding:4rem 0;
 }
+
+.left-col{flex:1;}
+.right-col{flex:1;}
 
 .feature-list{
-list-style:none;
-max-width:800px;
-margin:auto;
+ list-style:none;
+ margin-top:1.5rem;
 }
 
 .feature-list li{
-padding:12px 0;
-border-bottom:1px solid var(--border);
+ padding:14px 0;
+ border-bottom:1px solid var(--border);
+ display:flex;
+ gap:10px;
+ align-items:center;
 }
 
-.card{
-background:#F9F9FB;
-padding:2rem;
-border-radius:20px;
+.feature-list i{
+ color:var(--eco-green);
 }
 
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:2rem;
-text-align:center;
+/* CAROUSEL */
+.carousel-container{
+ position:relative;
+ border-radius:24px;
+ overflow:hidden;
+ box-shadow:0 15px 40px rgba(0,0,0,.06);
 }
 
-.stat-number{
-font-size:2.5rem;
-color:var(--eco-green);
-font-weight:600;
+.carousel-image{
+ width:100%;
+ display:block;
+ cursor:pointer;
+}
+
+.carousel-arrow{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ width:40px;
+ height:40px;
+ border-radius:50%;
+ border:none;
+ background:white;
+ cursor:pointer;
+ box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.carousel-arrow.left{left:15px;}
+.carousel-arrow.right{right:15px;}
+
+.carousel-dots{
+ position:absolute;
+ bottom:15px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:8px;
+}
+
+.dot{
+ width:10px;
+ height:10px;
+ border-radius:50%;
+ background:rgba(255,255,255,.5);
+ cursor:pointer;
+}
+
+.dot.active{background:white;}
+
+/* BENEFITS */
+.center-section{
+ padding:5rem 0;
+ text-align:center;
+}
+
+.benefits-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:2.5rem;
+ margin-top:2rem;
+}
+
+.benefit-card{
+ padding:2rem;
+}
+
+.benefit-card h3{
+ margin-bottom:1rem;
+}
+
+/* TECHNICAL PERFORMANCE — EXACT SCREENSHOT STYLE */
+
+.performance-section{
+ background:#F4F5F6;
+ padding:6rem 0;
+ text-align:center;
+}
+
+.performance-section h2{
+ font-size:2.5rem;
+ margin-bottom:1rem;
+}
+
+.performance-underline{
+ width:60px;
+ height:4px;
+ background:var(--eco-green);
+ margin:1rem auto 4rem auto;
+ border-radius:3px;
+}
+
+.performance-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:2rem;
+}
+
+.perf-value{
+ font-size:3.2rem;
+ font-weight:700;
+ color:var(--eco-green);
+ margin-bottom:.5rem;
+}
+
+.perf-label{
+ font-size:1rem;
+ color:var(--text-secondary);
 }
 
 .btn{
-background:var(--eco-green);
-color:white;
-padding:.8rem 2rem;
-border-radius:40px;
-text-decoration:none;
+ display:inline-block;
+ margin-top:4rem;
+ padding:1rem 3rem;
+ background:var(--eco-green);
+ color:white;
+ border-radius:40px;
+ text-decoration:none;
+ font-weight:500;
 }
 
+/* MOBILE */
 @media(max-width:900px){
-.grid-3{grid-template-columns:1fr;}
+
+.two-col{flex-direction:column;}
+
+.benefits-grid{
+ grid-template-columns:1fr;
+}
+
+.performance-grid{
+ grid-template-columns:repeat(2,1fr);
+}
+
 h1{font-size:2.2rem;}
+
 }
 
 </style>
@@ -122,131 +227,169 @@ h1{font-size:2.2rem;}
 <div id="header"></div>
 
 <!-- HERO -->
-<section class="content-section" style="padding-top:2rem;">
+<section class="hero-section">
 <div class="container">
 <h1>Parabolic Trough Solar Thermal<br>for Tea Processing</h1>
-<p>Withering, drying, fixation – solar steam for tea factories.</p>
+<p style="font-size:1.2rem;max-width:700px;">
+Withering, drying, fixation – solar steam for tea factories,
+reducing fuel costs and emissions.
+</p>
 </div>
 </section>
 
-<!-- ✅ TEA IMAGE -->
-<div class="container image-wrapper">
-<img
-src="../images/application1/tea/Picture21.png"
-alt="Tea processing"
-class="image-full">
-</div>
+<!-- PROCESS + IMAGE -->
+<section>
+<div class="container two-col">
 
-<!-- PROCESS -->
-<section class="content-section">
-<div class="container">
-
-<h2>Tea Processes</h2>
-
+<div class="left-col">
+<h2 style="text-align:left;">Tea Processes</h2>
 <ul class="feature-list">
-<li>Withering air heating (80–100°C)</li>
-<li>Kill-green / fixation (100–140°C)</li>
-<li>Drying (120–180°C)</li>
-<li>Boiler feedwater preheat</li>
+<li><i class="fas fa-square"></i> Withering air heating (80–100°C)</li>
+<li><i class="fas fa-square"></i> Kill-green / fixation (100–140°C)</li>
+<li><i class="fas fa-square"></i> Drying (120–180°C)</li>
+<li><i class="fas fa-square"></i> Boiler feedwater preheat</li>
 </ul>
+</div>
+
+<div class="right-col">
+<div class="carousel-container">
+<img src="../images/application1/tea/Picture21.png"
+id="carouselImage"
+class="carousel-image">
+
+<button class="carousel-arrow left" id="prevBtn">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<button class="carousel-arrow right" id="nextBtn">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+<div class="carousel-dots" id="carouselDots"></div>
+</div>
+</div>
 
 </div>
 </section>
-
-<!-- ✅ SOLAR PTC IMAGE -->
-<div class="container image-wrapper">
-<img
-src="../images/application1/solar ptc/Picture7.png"
-alt="Solar parabolic trough"
-class="image-full">
-</div>
 
 <!-- BENEFITS -->
-<section class="content-section" style="background:#F9F9FB;">
+<section class="center-section">
 <div class="container">
 
 <h2>Benefits</h2>
 
-<div class="grid-3">
-
-<div class="card">
-<h4>Fuel savings</h4>
-<p>Replace LPG / FO usage</p>
+<div class="benefits-grid">
+<div class="benefit-card">
+<h3>Fuel savings</h3>
+<p>Replace LPG / FO usage by 20–60%</p>
 </div>
 
-<div class="card">
-<h4>Payback 2–5 years</h4>
-<p>Strong ROI</p>
+<div class="benefit-card">
+<h3>Payback 2–5 years</h3>
+<p>Strong ROI with long system life</p>
 </div>
 
-<div class="card">
-<h4>Lower emissions</h4>
-<p>Support sustainability</p>
+<div class="benefit-card">
+<h3>Lower emissions</h3>
+<p>Support sustainability goals</p>
+</div>
 </div>
 
-</div>
 </div>
 </section>
 
-<!-- PERFORMANCE -->
-<section class="content-section">
+<!-- TECHNICAL PERFORMANCE -->
+<section class="performance-section">
+
 <div class="container">
 
 <h2>Technical Performance</h2>
+<div class="performance-underline"></div>
 
-<div class="stats-grid">
-
-<div>
-<div class="stat-number">120–250°C</div>
-<div>Output</div>
-</div>
+<div class="performance-grid">
 
 <div>
-<div class="stat-number">20–60%</div>
-<div>Solar Fraction</div>
+<div class="perf-value">120–250°C</div>
+<div class="perf-label">Output</div>
 </div>
 
 <div>
-<div class="stat-number">50–70%</div>
-<div>Efficiency</div>
+<div class="perf-value">20–60%</div>
+<div class="perf-label">Solar fraction</div>
 </div>
 
 <div>
-<div class="stat-number">20–30 yr</div>
-<div>Life</div>
+<div class="perf-value">50–70%</div>
+<div class="perf-label">Efficiency</div>
+</div>
+
+<div>
+<div class="perf-value">20–30 yr</div>
+<div class="perf-label">Life</div>
 </div>
 
 </div>
-</div>
-</section>
 
-<!-- CTA -->
-<section class="content-section" style="background:#F9F9FB;text-align:center;">
-<div class="container">
-<h2>Ready to reduce your tea factory’s fuel bill?</h2>
 <a href="#" class="btn">Get Free Steam Evaluation</a>
+
 </div>
 </section>
 
 <div id="footer"></div>
 
 <script>
+
+/* HEADER + FOOTER */
 function loadComponent(id, paths){
-const tryPath=(i)=>{
-if(i>=paths.length)return;
-fetch(paths[i])
-.then(r=>r.text())
-.then(data=>document.getElementById(id).innerHTML=data)
-.catch(()=>tryPath(i+1));
-};
-tryPath(0);
+ const vars=[...paths,'../'+paths[0],'../../'+paths[0]];
+ function tryPath(i){
+  if(i>=vars.length)return;
+  fetch(vars[i])
+   .then(r=>r.ok?r.text():Promise.reject())
+   .then(d=>document.getElementById(id).innerHTML=d)
+   .catch(()=>tryPath(i+1));
+ }
+ tryPath(0);
 }
 
-loadComponent("header",
-["components/header.html","../components/header.html"]);
+loadComponent('header',['components/header.html']);
+loadComponent('footer',['components/footer.html']);
 
-loadComponent("footer",
-["components/footer.html","../components/footer.html"]);
+/* CAROUSEL */
+
+const images=[
+'../images/application1/tea/Picture21.png',
+'../images/application1/solar ptc/Picture7.png'
+];
+
+let index=0;
+const img=document.getElementById('carouselImage');
+const dots=document.getElementById('carouselDots');
+
+function update(i){
+ if(i<0)i=images.length-1;
+ if(i>=images.length)i=0;
+ index=i;
+ img.src=images[index];
+ renderDots();
+}
+
+function renderDots(){
+ dots.innerHTML='';
+ images.forEach((_,i)=>{
+  const d=document.createElement('span');
+  d.className='dot'+(i===index?' active':'');
+  d.onclick=()=>update(i);
+  dots.appendChild(d);
+ });
+}
+
+document.getElementById('prevBtn').onclick=()=>update(index-1);
+document.getElementById('nextBtn').onclick=()=>update(index+1);
+img.onclick=()=>update(index+1);
+
+update(0);
+
 </script>
 
 </body>

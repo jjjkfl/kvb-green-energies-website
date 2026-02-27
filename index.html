@@ -20,7 +20,7 @@
       background-color: #ffffff;
     }
 
-    /* ===== CINEMATIC INTRO ===== */
+    /* ===== CINEMATIC INTRO (unchanged) ===== */
     .intro-container {
       position: fixed;
       inset: 0;
@@ -265,7 +265,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== REVISED HERO SECTION – full background with alternating videos ===== */
     .hero-section {
       position: relative;
       min-height: 100vh;
@@ -276,28 +276,33 @@
       padding: 0;
     }
 
-    .hero-videos {
+    /* Background container covering full hero */
+    .hero-background {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
       z-index: 0;
     }
 
-    .video-half {
-      flex: 1;
-      overflow: hidden;
-    }
-
-    .video-half video {
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      opacity: 0;
+      transition: opacity 1.8s ease-in-out;
+      will-change: opacity;
     }
 
+    .hero-video.visible {
+      opacity: 1;
+    }
+
+    /* Overlay stays on top of videos */
     .overlay {
       position: absolute;
       inset: 0;
@@ -400,7 +405,7 @@
       60% { transform: translateY(-5px) translateX(-50%); }
     }
 
-    /* ===== SOLUTIONS ECOSYSTEM – product cards ===== */
+    /* ===== SOLUTIONS ECOSYSTEM – product cards (unchanged) ===== */
     .solutions-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -451,11 +456,11 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    /* ===== TRUSTED NATIONALLY – infinite horizontal marquee ===== */
+    /* ===== TRUSTED NATIONALLY – marquee (unchanged) ===== */
     .trust-section {
       background: #f7f8f9;
       padding: 6rem 0;
-      overflow: hidden; /* prevent horizontal scrollbar */
+      overflow: hidden;
     }
 
     .marquee-wrapper {
@@ -532,7 +537,6 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.02);
     }
 
-
     .innovation-item i {
       font-size: 3rem;
       color: #4a8b4a;
@@ -557,7 +561,7 @@
       margin: 0;
     }
 
-    /* ----- PILLARS ----- */
+    /* ----- PILLARS (unchanged) ----- */
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -594,7 +598,7 @@
       line-height: 1.6;
     }
 
-    /* ----- IMPACT ----- */
+    /* ----- IMPACT (unchanged) ----- */
     .impact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -606,37 +610,7 @@
     .stat-message h3 { font-size: 1.5rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
     .stat-message p { color: #86868b; }
 
-    /* ----- CERTIFICATIONS ----- */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 2.5rem;
-      margin-top: 4rem;
-      justify-content: center;
-    }
-    .cert-card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 2.8rem 1.8rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.15rem;
-      color: #1d1d1f;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.03);
-      border: 1px solid #f1f1f1;
-      cursor: default;
-    }
-    @media (max-width: 1200px) {
-      .cert-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .cert-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .cert-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ----- SUSTAINABILITY MESSAGE ----- */
+    /* ----- SUSTAINABILITY MESSAGE (unchanged) ----- */
     .sustainability-message {
       background: #f9f9fb; padding: 5rem 0; text-align: center;
     }
@@ -646,20 +620,7 @@
     }
     .fa-quote-left, .fa-quote-right { color: #4a8b4a; opacity: 0.2; font-size: 2rem; }
 
-    /* ----- AUDIENCE GRID ----- */
-    .audience-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;
-    }
-    .audience-card {
-      background: white; border: 1px solid #f0f0f0; border-radius: 20px; padding: 2rem 1.5rem; text-align: center;
-      color: #1d1d1f; transition: border-color 0.2s, box-shadow 0.2s;
-      cursor: default;
-    }
-    .audience-card i { font-size: 2rem; color: #4a8b4a; margin-bottom: 1rem; }
-    .audience-card h3 { font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Montserrat', sans-serif; }
-    .audience-card p { color: #86868b; font-size: 0.9rem; }
-
-    /* ----- CTA BANNER ----- */
+    /* ----- CTA BANNER (unchanged) ----- */
     .cta-banner {
       background: #4a8b4a; padding: 5rem 0; color: white; text-align: center;
     }
@@ -685,7 +646,7 @@
       background: #e5a800;
     }
 
-    /* ----- WHATSAPP FLOAT ----- */
+    /* ----- WHATSAPP FLOAT (unchanged) ----- */
     .whatsapp-float {
       position: fixed; bottom: 30px; right: 30px; background: #25d366; border-radius: 50%;
       width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
@@ -699,8 +660,6 @@
       .hero-title { font-size: 3rem; }
     }
     @media (max-width: 768px) {
-      .hero-videos { flex-direction: column; }
-      .video-half { flex: 1; height: 50%; }
       .hero-title { font-size: 2.2rem; }
       .hero-content { max-width: 100%; padding: 0 1rem; }
       .hero-buttons { flex-direction: column; align-items: center; }
@@ -718,7 +677,7 @@
   </style>
 </head>
 <body>
-  <!-- CINEMATIC INTRO -->
+  <!-- CINEMATIC INTRO (unchanged) -->
   <div class="intro-container" id="introScreen">
     <video class="intro-video-bg" autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2021/08/09/84269-589985131_large.mp4" type="video/mp4">
@@ -744,21 +703,18 @@
     <!-- header placeholder -->
     <div id="header"></div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION – full background alternating videos -->
     <section class="hero-section">
-      <div class="hero-videos">
-        <div class="video-half video-agri">
-          <video autoplay muted loop playsinline>
-            <source src="videos/DJI_0958_2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-half video-renew">
-          <video autoplay muted loop playsinline>
-            <source src="videos\784-139519770_medium.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="overlay"></div>
+      <!-- Background video container (full, no split) -->
+      <div class="hero-background">
+        <video class="hero-video visible" id="heroVideo1" autoplay muted loop playsinline>
+          <source src="videos/DJI_0958_2.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video" id="heroVideo2" autoplay muted loop playsinline>
+          <source src="videos/784-139519770_medium.mp4" type="video/mp4">
+        </video>
       </div>
+      <div class="overlay"></div>
       <div class="container hero-content">
         <h1 class="hero-title">Agriculture Processing for Indian Farmers</h1>
         <p class="hero-subtitle">
@@ -805,7 +761,7 @@
         <p class="section-subtitle">Complete renewable energy and smart agriculture solutions</p>
         <div class="solutions-grid">
           <a href="products/solar-steam-cooking.html" class="product-card">
-            <div class="product-image"><img src="images\products\parabolic-cooker1.jpg" alt="Solar Steam Cooking"></div>
+            <div class="product-image"><img src="images/products/parabolic-cooker1.jpg" alt="Solar Steam Cooking"></div>
             <div class="product-name">Solar Steam Cooking Systems</div>
           </a>
           <a href="products/scheffler-concentrators.html" class="product-card">
@@ -836,141 +792,42 @@
       </div>
     </section>
 
-    <!-- TRUSTED NATIONALLY – infinite horizontal marquee with logos -->
-    <!-- TRUSTED NATIONALLY – infinite horizontal marquee with logos -->
-<section class="trust-section" data-aos="fade-up">
-  <div class="container">
-    <h2 class="section-title">Trusted Nationally</h2>
-    <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <!-- First set -->
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/indian army.png" alt="Indian Army"></div>
-          <div class="client-name">Indian Army</div>
+    <!-- TRUSTED NATIONALLY – infinite horizontal marquee -->
+    <section class="trust-section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Trusted Nationally</h2>
+        <p class="section-subtitle">Our technologies are deployed where reliability is critical</p>
+        <div class="marquee-wrapper">
+          <div class="marquee-track">
+            <!-- First set (exactly as provided) -->
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/indian army.png" alt="Indian Army"></div><div class="client-name">Indian Army</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/IIT_Dharwad.svg" alt="IIT Dharwad"></div><div class="client-name">IIT Dharwad</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/yashada.jpeg" alt="Yashada Pune"></div><div class="client-name">Yashada Pune</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/geda-goa.jpeg" alt="GEDA Goa"></div><div class="client-name">GEDA Goa</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/uhs b.jpeg" alt="UHS Bagalkot"></div><div class="client-name">UHS Bagalkot</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/ins madavi goa.jpeg" alt="INS Mandavi Goa"></div><div class="client-name">INS Mandavi Goa</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/ksnau.jpeg" alt="KSNAU Shimoga"></div><div class="client-name">KSNAU Shimoga</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/caet.jpeg" alt="CAET Godhra"></div><div class="client-name">CAET Godhra</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/org-karwar.webp" alt="Prakruti Organics Karwar"></div><div class="client-name">Prakruti Organics Karwar</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/uas b.jpeg" alt="UAS Bangalore"></div><div class="client-name">UAS Bangalore</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/mauli.png" alt="Mauli Pratishthan A' Nagar"></div><div class="client-name">Mauli Pratishthan A' Nagar</div></div>
+            <!-- Duplicate set for seamless loop -->
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/indian army.png" alt="Indian Army"></div><div class="client-name">Indian Army</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/IIT_Dharwad.svg" alt="IIT Dharwad"></div><div class="client-name">IIT Dharwad</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/yashada.jpeg" alt="Yashada Pune"></div><div class="client-name">Yashada Pune</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/geda-goa.jpeg" alt="GEDA Goa"></div><div class="client-name">GEDA Goa</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/uas b.jpeg" alt="UHS Bagalkot"></div><div class="client-name">UHS Bagalkot</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/ins madavi goa.jpeg" alt="INS Mandavi Goa"></div><div class="client-name">INS Mandavi Goa</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/ksnau.jpeg" alt="KSNAU Shimoga"></div><div class="client-name">KSNAU Shimoga</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/caet.jpeg" alt="CAET Godhra"></div><div class="client-name">CAET Godhra</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/org-karwar.webp" alt="Prakruti Organics Karwar"></div><div class="client-name">Prakruti Organics Karwar</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/uas bangalore.png" alt="UAS Bangalore"></div><div class="client-name">UAS Bangalore</div></div>
+            <div class="marquee-item"><div class="client-logo"><img src="images/certificates/mauli.png" alt="Mauli Pratishthan A' Nagar"></div><div class="client-name">Mauli Pratishthan A' Nagar</div></div>
+          </div>
         </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/IIT_Dharwad.svg" alt="IIT Dharwad"></div>
-          <div class="client-name">IIT Dharwad</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/yashada.jpeg" alt="Yashada Pune"></div>
-          <div class="client-name">Yashada Pune</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/geda-goa.jpeg" alt="GEDA Goa"></div>
-          <div class="client-name">GEDA Goa</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images\certificates\uhs b.jpeg" alt="UHS Bagalkot"></div>
-          <div class="client-name">UHS Bagalkot</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/ins madavi goa.jpeg" alt="INS Mandavi Goa"></div>
-          <div class="client-name">INS Mandavi Goa</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/ksnau.jpeg" alt="KSNAU Shimoga"></div>
-          <div class="client-name">KSNAU Shimoga</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/caet.jpeg" alt="CAET Godhra"></div>
-          <div class="client-name">CAET Godhra</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/org-karwar.webp" alt="Prakruti Organics Karwar"></div>
-          <div class="client-name">Prakruti Organics Karwar</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/uas b.jpeg" alt="UAS Bangalore"></div>
-          <div class="client-name">UAS Bangalore</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/mauli.png" alt="Mauli Pratishthan A' Nagar"></div>
-          <div class="client-name">Mauli Pratishthan A' Nagar</div>
-        </div>
-       <!-- <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/goldco tithy.png" alt="Goldco – Tithy"></div>
-          <div class="client-name">Goldco – Tithy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/wamsod tithy.png" alt="Wamsod – Tithy"></div>
-          <div class="client-name">Wamsod – Tithy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/hotel rock railway.png" alt="Golden Rock Railway Workshop"></div>
-          <div class="client-name">Golden Rock Railway Workshop-Trichy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/hospital mysore.png" alt="Hospital – Mysore"></div>
-          <div class="client-name">Hospital – Mysore</div>
-        </div>-->
-
-        <!-- Duplicate set for seamless loop -->
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/indian army.png" alt="Indian Army"></div>
-          <div class="client-name">Indian Army</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/IIT_Dharwad.svg" alt="IIT Dharwad"></div>
-          <div class="client-name">IIT Dharwad</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/yashada.jpeg" alt="Yashada Pune"></div>
-          <div class="client-name">Yashada Pune</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/geda-goa.jpeg" alt="GEDA Goa"></div>
-          <div class="client-name">GEDA Goa</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/uas b.jpeg" alt="UHS Bagalkot"></div>
-          <div class="client-name">UHS Bagalkot</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/ins madavi goa.jpeg" alt="INS Mandavi Goa"></div>
-          <div class="client-name">INS Mandavi Goa</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/ksnau.jpeg" alt="KSNAU Shimoga"></div>
-          <div class="client-name">KSNAU Shimoga</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/caet.jpeg" alt="CAET Godhra"></div>
-          <div class="client-name">CAET Godhra</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/org-karwar.webp" alt="Prakruti Organics Karwar"></div>
-          <div class="client-name">Prakruti Organics Karwar</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/uas bangalore.png" alt="UAS Bangalore"></div>
-          <div class="client-name">UAS Bangalore</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/mauli.png" alt="Mauli Pratishthan A' Nagar"></div>
-          <div class="client-name">Mauli Pratishthan A' Nagar</div>
-        </div>
-       <!-- <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/goldco tithy.png" alt="Goldco – Tithy"></div>
-          <div class="client-name">Goldco – Tithy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/wamsod tithy.png" alt="Wamsod – Tithy"></div>
-          <div class="client-name">Wamsod – Tithy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/hotel rock railway.png" alt="Golden Rock Railway Workshop-Trichy"></div>
-          <div class="client-name">Golden Rock Railway Workshop-Trichy</div>
-        </div>
-        <div class="marquee-item">
-          <div class="client-logo"><img src="images/certificates/hospital mysore.png" alt="Hospital – Mysore"></div>
-          <div class="client-name">Hospital – Mysore</div>
-        </div>-->
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
     <!-- REAL IMPACT -->
     <section class="section" data-aos="fade-up">
       <div class="container">
@@ -999,20 +856,6 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS 
-    <section class="section" data-aos="fade-up">
-      <div class="container">
-        <h2 class="section-title">Certifications & Accreditations</h2>
-        <div class="cert-grid">
-          <div class="cert-card">UNIDO Empanelment</div>
-          <div class="cert-card">MNRE Certification</div>
-          <div class="cert-card">UHS Performance Tested</div>
-          <div class="cert-card">University MoUs</div>
-          <div class="cert-card">Govt Empanelments</div>
-        </div>
-      </div>
-    </section>-->
-
     <!-- SUSTAINABILITY MESSAGE -->
     <section class="sustainability-message" data-aos="fade-up">
       <div class="container">
@@ -1021,20 +864,6 @@
         <i class="fas fa-quote-right"></i>
       </div>
     </section>
-
-    <!-- AUDIENCE GRID 
-    <section class="section" data-aos="fade-up">
-      <div class="container">
-        <h2 class="section-title">How Can We Help You?</h2>
-        <p class="section-subtitle">Select your path for tailored solutions</p>
-        <div class="audience-grid">
-          <div class="audience-card"><i class="fas fa-university"></i><h3>Government & Institutions</h3><p>Solar cooking systems for community kitchens</p></div>
-          <div class="audience-card"><i class="fas fa-tractor"></i><h3>Farmers & Agri Industries</h3><p>Solar drying, smart farming</p></div>
-          <div class="audience-card"><i class="fas fa-industry"></i><h3>Food Processing Industry</h3><p>Industrial solar thermal systems</p></div>
-          <div class="audience-card"><i class="fas fa-handshake"></i><h3>Partners & Investors</h3><p>Collaboration & investment</p></div>
-        </div>
-      </div>
-    </section>-->
 
     <!-- CTA BANNER -->
     <section class="cta-banner" data-aos="fade-up">
@@ -1075,7 +904,7 @@
         }, 3000);
       }
 
-      // header and footer loader
+      // header and footer loader (unchanged)
       function loadComponent(id, paths) {
         const tryPath = (index) => {
           if (index >= paths.length) return;
@@ -1114,6 +943,28 @@
           }
         }
       });
+
+      // NEW: Alternating fullscreen hero videos (first one plays, then the other, covers entire hero)
+      const video1 = document.getElementById('heroVideo1');
+      const video2 = document.getElementById('heroVideo2');
+      let current = 1; // 1 = video1 visible, 2 = video2 visible
+
+      // Ensure both videos are playing
+      video1.play().catch(e => console.log('Video1 autoplay blocked:', e));
+      video2.play().catch(e => console.log('Video2 autoplay blocked:', e));
+
+      // Switch videos every 10 seconds
+      setInterval(() => {
+        if (current === 1) {
+          video1.classList.remove('visible');
+          video2.classList.add('visible');
+          current = 2;
+        } else {
+          video2.classList.remove('visible');
+          video1.classList.add('visible');
+          current = 1;
+        }
+      }, 10000); // 10 seconds per video – adjust as needed
     })();
   </script>
 </body>
