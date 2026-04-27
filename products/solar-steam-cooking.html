@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -72,7 +72,7 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 1.2rem;
-            
+
             font-size: 2.6rem;
             margin-bottom: 2rem;
             position: relative;
@@ -752,7 +752,9 @@
             <div class="hero-video-wrapper">
                 <div class="shine"></div>
                 <video autoplay muted loop playsinline>
-                    <source src="../videos/VID-20260327-WA0000.mp4" type="video/mp4">
+                    <source
+                        src="https://res.cloudinary.com/dacj4jdic/video/upload/v1777051590/VID-20260327-WA0000_j2g1ji.mp4"
+                        type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -1055,7 +1057,7 @@
         loadComponent("header", ["components/header.html", "../components/header.html"]);
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
 
-        
+
 
         // EmailJS init
         (function () {
@@ -1126,7 +1128,7 @@
         }, { threshold: 0.1 });
         reveals.forEach(el => observer.observe(el));
     </script>
-<script src="../js/fix-logo.js"></script>
+    <script src="../js/fix-logo.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Smart Fish Dryer | KVB Green Energies – 24×7 Solar‑Assisted Seafood Drying</title>
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -37,9 +40,9 @@
             --primary-dark: #2C5E2C;
             --primary-light: #EAF5EA;
             --primary-glow: rgba(59, 122, 59, 0.08);
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.02);
-            --shadow-md: 0 8px 20px rgba(0,0,0,0.04);
-            --shadow-lg: 0 16px 32px rgba(0,0,0,0.06);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.06);
             --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 28px;
@@ -53,7 +56,10 @@
             padding: 0 32px;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-heading);
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -75,9 +81,11 @@
             position: relative;
             display: inline-block;
         }
+
         .section-title {
             text-align: center;
         }
+
         .section-title h2:after {
             content: '';
             position: absolute;
@@ -108,21 +116,25 @@
             border: none;
             font-size: 1rem;
         }
+
         .btn-primary {
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 12px rgba(59, 122, 59, 0.15);
         }
+
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(59, 122, 59, 0.25);
         }
+
         .btn-outline {
             border: 1px solid var(--primary);
             background: transparent;
             color: var(--primary);
         }
+
         .btn-outline:hover {
             background: var(--primary-light);
             transform: translateY(-2px);
@@ -134,7 +146,7 @@
             top: 0;
             width: 100%;
             z-index: 100;
-            background: rgba(255,255,255,0.92);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-light);
         }
@@ -150,21 +162,26 @@
             padding: 100px 0 60px;
             text-align: center;
         }
+
         .hero-light .hero-full-width {
             width: 100%;
             padding: 0 20px;
         }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto 2rem;
         }
+
         .hero-content h1 {
             text-align: center;
         }
+
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
+
         .hero-tags {
             display: flex;
             flex-wrap: wrap;
@@ -172,6 +189,7 @@
             gap: 0.8rem;
             margin-top: 1.5rem;
         }
+
         .tag {
             background: white;
             border: 1px solid var(--border-light);
@@ -185,12 +203,17 @@
             transition: all 0.2s;
             box-shadow: var(--shadow-sm);
         }
-        .tag i { color: var(--primary); }
+
+        .tag i {
+            color: var(--primary);
+        }
+
         .tag:hover {
             transform: translateY(-2px);
             border-color: var(--primary);
             box-shadow: var(--shadow-md);
         }
+
         .hero-video-wrapper {
             width: 100%;
             max-width: 1040px;
@@ -202,15 +225,19 @@
             box-shadow: var(--shadow-lg);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
+
         .hero-video-wrapper:hover {
             transform: translateY(-5px);
-            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
         }
+
         .hero-video-wrapper::before {
             content: "";
             display: block;
-            padding-top: 56.25%; /* 16:9 aspect ratio */
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
         }
+
         .hero-video-wrapper iframe,
         .hero-video-wrapper video {
             position: absolute;
@@ -220,22 +247,30 @@
             border: none;
             object-fit: cover;
         }
+
         .hero-video-wrapper .shine {
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.15), transparent 60%);
+            background: linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.15), transparent 60%);
             transform: rotate(25deg);
             animation: shineMove 6s infinite linear;
             pointer-events: none;
             z-index: 2;
         }
+
         @keyframes shineMove {
-            from { transform: translateX(-50%) rotate(25deg); }
-            to { transform: translateX(50%) rotate(25deg); }
+            from {
+                transform: translateX(-50%) rotate(25deg);
+            }
+
+            to {
+                transform: translateX(50%) rotate(25deg);
+            }
         }
+
         @media (max-width: 768px) {
             .hero-video-wrapper {
                 width: 95vw;
@@ -248,6 +283,7 @@
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -263,21 +299,25 @@
             box-shadow: var(--shadow-md);
             transition: all 0.2s ease;
         }
+
         .highlight-tech h2 {
             margin-bottom: 1rem;
             display: inline-block;
             background: none;
             font-size: 2rem;
         }
+
         .highlight-tech h2:after {
             display: none;
         }
+
         .highlight-tech p {
             font-size: 1.1rem;
             line-height: 1.7;
             max-width: 95%;
             color: var(--text-primary);
         }
+
         .highlight-tech strong {
             color: var(--primary-dark);
         }
@@ -289,6 +329,7 @@
             gap: 2rem;
             margin: 4rem 0;
         }
+
         .feature-card {
             background: white;
             border: 1px solid var(--border-light);
@@ -298,27 +339,32 @@
             box-shadow: var(--shadow-sm);
             height: 100%;
         }
+
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary-light);
             box-shadow: var(--shadow-lg);
         }
+
         .feature-card i {
             font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 1rem;
             display: inline-block;
         }
+
         .feature-card h3 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
+
         .feature-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .feature-list li {
             margin-bottom: 0.75rem;
             padding-left: 1.4rem;
@@ -327,6 +373,7 @@
             line-height: 1.45;
             color: var(--text-secondary);
         }
+
         .feature-list li:before {
             content: "▹";
             position: absolute;
@@ -335,6 +382,7 @@
             font-weight: 600;
             font-size: 1rem;
         }
+
         @media (max-width: 768px) {
             .feature-matrix {
                 grid-template-columns: 1fr;
@@ -349,6 +397,7 @@
             gap: 2rem;
             margin: 4rem 0;
         }
+
         .card {
             background: white;
             border: 1px solid var(--border-light);
@@ -357,16 +406,19 @@
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
         }
+
         .card:hover {
             transform: translateY(-6px);
             border-color: var(--primary-light);
             box-shadow: var(--shadow-lg);
         }
+
         .card i {
             font-size: 2.6rem;
             color: var(--primary);
             margin-bottom: 1.2rem;
         }
+
         .card h3 {
             font-size: 1.6rem;
             margin-bottom: 0.8rem;
@@ -378,6 +430,7 @@
             gap: 2rem;
             margin: 4rem 0;
         }
+
         .app-card {
             background: white;
             border: 1px solid var(--border-light);
@@ -387,20 +440,24 @@
             box-shadow: var(--shadow-sm);
             text-align: center;
         }
+
         .app-card:hover {
             transform: translateY(-6px);
             border-color: var(--primary-light);
             box-shadow: var(--shadow-lg);
         }
+
         .app-card i {
             font-size: 2.6rem;
             color: var(--primary);
             margin-bottom: 1.2rem;
         }
+
         .app-card h3 {
             font-size: 1.4rem;
             margin-bottom: 0.8rem;
         }
+
         @media (max-width: 1200px) {
             .applications-grid {
                 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -416,20 +473,25 @@
             margin: 3rem 0;
             box-shadow: var(--shadow-sm);
         }
+
         .soft-table table {
             width: 100%;
             border-collapse: collapse;
         }
-        .soft-table th, .soft-table td {
+
+        .soft-table th,
+        .soft-table td {
             padding: 1rem 1.5rem;
             text-align: left;
             border-bottom: 1px solid var(--border-light);
         }
+
         .soft-table th {
             background: var(--primary-light);
             font-weight: 600;
             color: var(--text-primary);
         }
+
         .soft-table tr:last-child td {
             border-bottom: none;
         }
@@ -441,6 +503,7 @@
             gap: 2rem;
             margin: 4rem 0;
         }
+
         .gallery-item {
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -449,21 +512,24 @@
             border: 1px solid var(--border-light);
             transition: transform 0.4s;
         }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.7s;
         }
+
         .gallery-item:hover img {
             transform: scale(1.03);
         }
+
         .gallery-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
             color: white;
             padding: 1rem;
             font-weight: 500;
@@ -475,6 +541,7 @@
             max-width: 900px;
             display: none;
         }
+
         .lock-card {
             background: white;
             border: 1px solid var(--border-light);
@@ -485,16 +552,19 @@
             transition: all 0.3s;
             box-shadow: var(--shadow-sm);
         }
+
         .lock-card:hover {
             border-color: var(--primary);
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
+
         .lock-icon {
             font-size: 3.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
+
         .form-container {
             background: white;
             border: 1px solid var(--border-light);
@@ -504,19 +574,25 @@
             display: none;
             box-shadow: var(--shadow-md);
         }
+
         .form-container.visible {
             display: block;
             animation: fadeUp 0.5s;
         }
+
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.2rem;
         }
+
         .form-group.full {
             grid-column: span 2;
         }
-        input, select, textarea {
+
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 0.9rem 1rem;
             background: var(--bg-soft);
@@ -525,11 +601,15 @@
             font-family: inherit;
             transition: 0.2s;
         }
-        input:focus, select:focus, textarea:focus {
+
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-glow);
         }
+
         .btn-submit {
             background: var(--primary);
             width: 100%;
@@ -541,17 +621,21 @@
             cursor: pointer;
             transition: 0.2s;
         }
+
         .btn-submit:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
         }
+
         .hidden-content {
             display: none;
             margin-top: 2rem;
         }
+
         .hidden-content.visible {
             display: block;
         }
+
         .success-banner {
             background: var(--primary-light);
             border-left: 4px solid var(--primary);
@@ -562,12 +646,14 @@
             align-items: center;
             gap: 1rem;
         }
+
         .premium-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.2rem;
             margin: 2rem 0;
         }
+
         .premium-card {
             background: var(--bg-soft);
             border-radius: var(--radius-md);
@@ -575,6 +661,7 @@
             text-align: center;
             border: 1px solid var(--border-light);
         }
+
         .premium-card i {
             font-size: 2rem;
             color: var(--primary);
@@ -589,21 +676,43 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 992px) {
-            .form-grid { grid-template-columns: 1fr; }
-            .form-group.full { grid-column: span 1; }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
         }
+
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
+            .container {
+                padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <div id="header"></div>
 
@@ -612,12 +721,13 @@
         <div class="hero-full-width">
             <div class="hero-content">
                 <h1>Smart Fish Dryer</h1>
-                
+
             </div>
             <div class="hero-video-wrapper">
                 <div class="shine"></div>
                 <!-- Local video demonstrating solar fish drying -->
-                <video src="../videos/fish dryer.mp4" autoplay loop muted playsinline></video>
+                <video src="https://res.cloudinary.com/dacj4jdic/video/upload/v1777051453/fish_dryer_r33giy.mp4"
+                    autoplay loop muted playsinline></video>
             </div>
         </div>
     </section>
@@ -628,12 +738,19 @@
             <div style="margin-bottom: 0.5rem;">
                 <h2 style="margin-bottom: 0.5rem;">🐟 Smart Solar‑Assisted Seafood Drying</h2>
             </div>
-            <p>The <strong>Smart Fish Dryer</strong> is a next‑generation, hygienic drying system engineered specifically for fish and seafood processing. It integrates <strong>solar thermal energy, biomass heating, and intelligent control systems</strong> to deliver consistent, high‑quality drying with 24×7 operational capability. Designed for modern processing units, the system ensures odor‑controlled operation, uniform moisture removal, and export‑grade product quality – ideal for fisheries, coastal industries, and value‑added seafood businesses.</p>
+            <p>The <strong>Smart Fish Dryer</strong> is a next‑generation, hygienic drying system engineered
+                specifically for fish and seafood processing. It integrates <strong>solar thermal energy, biomass
+                    heating, and intelligent control systems</strong> to deliver consistent, high‑quality drying with
+                24×7 operational capability. Designed for modern processing units, the system ensures odor‑controlled
+                operation, uniform moisture removal, and export‑grade product quality – ideal for fisheries, coastal
+                industries, and value‑added seafood businesses.</p>
         </div>
 
         <!-- 2x2 Feature Matrix (Core Capabilities) -->
         <div class="reveal">
-            <div class="section-title"><h2>Core Capabilities</h2></div>
+            <div class="section-title">
+                <h2>Core Capabilities</h2>
+            </div>
             <div class="feature-matrix">
                 <div class="feature-card">
                     <i class="fas fa-temperature-high"></i>
@@ -682,61 +799,153 @@
         <!-- Engineering Specifications Table -->
         <div class="reveal soft-table">
             <h2 style="margin-left: 1.5rem; margin-top: 1rem;">📐 Engineering Specifications</h2>
-             <table>
-                <thead> <tr><th>Parameter</th><th>Specification</th></tr> </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Specification</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><strong>System Type</strong></td><td>Smart Solar Fish Dryer (Tunnel / Chamber Type)</td></tr>
-                    <tr><td><strong>Drying Capacity</strong></td><td>100 kg – 2000 kg per batch</td></tr>
-                    <tr><td><strong>Structural Frame</strong></td><td>GI / MS (Hot Dip Galvanized)</td></tr>
-                    <tr><td><strong>Inner Chamber</strong></td><td>Food‑grade Stainless Steel (SS 304)</td></tr>
-                    <tr><td><strong>Insulation</strong></td><td>PUF / Glass Wool (High Thermal Retention)</td></tr>
-                    <tr><td><strong>External Cover</strong></td><td>UV Stabilized Sheet / Insulated Panels</td></tr>
-                    <tr><td><strong>Tray Material</strong></td><td>SS 304 / Food‑grade Mesh</td></tr>
-                    <tr><td><strong>Tray Capacity</strong></td><td>10 – 100 trays (configurable)</td></tr>
-                    <tr><td><strong>Airflow System</strong></td><td>Forced Convection (High‑efficiency blowers)</td></tr>
-                    <tr><td><strong>Air Distribution</strong></td><td>Uniform duct‑based airflow system</td></tr>
+                    <tr>
+                        <td><strong>System Type</strong></td>
+                        <td>Smart Solar Fish Dryer (Tunnel / Chamber Type)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Drying Capacity</strong></td>
+                        <td>100 kg – 2000 kg per batch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Structural Frame</strong></td>
+                        <td>GI / MS (Hot Dip Galvanized)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inner Chamber</strong></td>
+                        <td>Food‑grade Stainless Steel (SS 304)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insulation</strong></td>
+                        <td>PUF / Glass Wool (High Thermal Retention)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>External Cover</strong></td>
+                        <td>UV Stabilized Sheet / Insulated Panels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tray Material</strong></td>
+                        <td>SS 304 / Food‑grade Mesh</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tray Capacity</strong></td>
+                        <td>10 – 100 trays (configurable)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Airflow System</strong></td>
+                        <td>Forced Convection (High‑efficiency blowers)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Air Distribution</strong></td>
+                        <td>Uniform duct‑based airflow system</td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Heating Integration Table -->
         <div class="reveal soft-table">
             <h2 style="margin-left: 1.5rem; margin-top: 1rem;">🔥 Smart Heating Integration</h2>
-             <table>
-                <thead> <tr><th>Component</th><th>Specification</th></tr> </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Specification</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><strong>Solar Heating</strong></td><td>Utilizes solar energy as primary heat input – reduces operational energy cost significantly</td></tr>
-                    <tr><td><strong>Biomass Fuel Type</strong></td><td>Briquettes / Coconut Shell / Wood Pellets</td></tr>
-                    <tr><td><strong>Furnace Type</strong></td><td>Indirect Heating Biomass Furnace (≥80% efficiency)</td></tr>
-                    <tr><td><strong>Function</strong></td><td>Night operation & load balancing</td></tr>
-                    <tr><td><strong>Integration</strong></td><td>Synchronized with smart temperature control</td></tr>
+                    <tr>
+                        <td><strong>Solar Heating</strong></td>
+                        <td>Utilizes solar energy as primary heat input – reduces operational energy cost significantly
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biomass Fuel Type</strong></td>
+                        <td>Briquettes / Coconut Shell / Wood Pellets</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Furnace Type</strong></td>
+                        <td>Indirect Heating Biomass Furnace (≥80% efficiency)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Function</strong></td>
+                        <td>Night operation & load balancing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Integration</strong></td>
+                        <td>Synchronized with smart temperature control</td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- System Architecture & Operating Modes -->
         <div class="reveal soft-table">
             <h2 style="margin-left: 1.5rem; margin-top: 1rem;">⚙️ System Architecture & Operating Modes</h2>
-             <table>
-                <thead> <tr><th>Mode / Component</th><th>Description</th></tr> </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mode / Component</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><strong>Solar Mode</strong></td><td>Primary drying using solar thermal energy</td></tr>
-                    <tr><td><strong>Smart Assisted Mode</strong></td><td>Automatic temperature stabilization using biomass support</td></tr>
-                    <tr><td><strong>Biomass Mode</strong></td><td>Continuous drying during night or low solar conditions</td></tr>
-                    <tr><td><strong>Key Components</strong></td><td>Solar‑assisted drying chamber • Insulated SS chamber • Biomass furnace with heat exchanger • High‑efficiency blowers • Air ducts with uniform distribution • Smart control panel (PLC optional) • Exhaust system with odor control • Tray/trolley handling system</td></tr>
+                    <tr>
+                        <td><strong>Solar Mode</strong></td>
+                        <td>Primary drying using solar thermal energy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Smart Assisted Mode</strong></td>
+                        <td>Automatic temperature stabilization using biomass support</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biomass Mode</strong></td>
+                        <td>Continuous drying during night or low solar conditions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Components</strong></td>
+                        <td>Solar‑assisted drying chamber • Insulated SS chamber • Biomass furnace with heat exchanger •
+                            High‑efficiency blowers • Air ducts with uniform distribution • Smart control panel (PLC
+                            optional) • Exhaust system with odor control • Tray/trolley handling system</td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Applications – one row on large screens -->
         <div class="reveal">
-            <div class="section-title"><h2>📍 Application Scope</h2></div>
+            <div class="section-title">
+                <h2>📍 Application Scope</h2>
+            </div>
             <div class="applications-grid">
-                <div class="app-card"><i class="fas fa-fish"></i><h3>Marine Fish</h3><p>Coastal fish processing units</p></div>
-                <div class="app-card"><i class="fas fa-water"></i><h3>Inland Fish</h3><p>Freshwater fish drying</p></div>
-                <div class="app-card"><i class="fas fa-shrimp"></i><h3>Shrimp & Prawn</h3><p>Premium value‑added drying</p></div>
-                <div class="app-card"><i class="fas fa-chart-line"></i><h3>Export Industries</h3><p>Dry fish for global markets</p></div>
-                <div class="app-card"><i class="fas fa-users"></i><h3>Fisheries Cooperatives</h3><p>Community‑owned drying centers</p></div>
+                <div class="app-card"><i class="fas fa-fish"></i>
+                    <h3>Marine Fish</h3>
+                    <p>Coastal fish processing units</p>
+                </div>
+                <div class="app-card"><i class="fas fa-water"></i>
+                    <h3>Inland Fish</h3>
+                    <p>Freshwater fish drying</p>
+                </div>
+                <div class="app-card"><i class="fas fa-shrimp"></i>
+                    <h3>Shrimp & Prawn</h3>
+                    <p>Premium value‑added drying</p>
+                </div>
+                <div class="app-card"><i class="fas fa-chart-line"></i>
+                    <h3>Export Industries</h3>
+                    <p>Dry fish for global markets</p>
+                </div>
+                <div class="app-card"><i class="fas fa-users"></i>
+                    <h3>Fisheries Cooperatives</h3>
+                    <p>Community‑owned drying centers</p>
+                </div>
             </div>
         </div>
 
@@ -745,36 +954,82 @@
         <!-- Safety & Sustainability Table -->
         <div class="reveal soft-table">
             <h2 style="margin-left: 1.5rem; margin-top: 1rem;">🔒 Safety & Sustainability Impact</h2>
-             <table>
-                <thead> <tr><th>Parameter</th><th>Value / Benefit</th></tr> </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value / Benefit</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><strong>Safety & Hygiene</strong></td><td>Indirect heating – zero smoke contamination • Food‑grade SS contact surfaces • Fully enclosed, dust‑free drying chamber • Controlled exhaust for odor management • Over‑temperature protection system</td></tr>
-                    <tr><td><strong>Installation</strong></td><td>Timeline: 2–4 weeks • Civil foundation required</td></tr>
-                    <tr><td><strong>Maintenance</strong></td><td>Cleaning of trays after each batch • Furnace ash removal • Blower inspection & servicing • Sensor calibration and system checks</td></tr>
-                    <tr><td><strong>Scalability</strong></td><td>Modular & expandable design • Capacity: 100 kg to 2 ton per batch • Custom‑built for coastal humidity conditions • Suitable for SMEs, FPOs, and large processing industries</td></tr>
+                    <tr>
+                        <td><strong>Safety & Hygiene</strong></td>
+                        <td>Indirect heating – zero smoke contamination • Food‑grade SS contact surfaces • Fully
+                            enclosed, dust‑free drying chamber • Controlled exhaust for odor management •
+                            Over‑temperature protection system</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Installation</strong></td>
+                        <td>Timeline: 2–4 weeks • Civil foundation required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maintenance</strong></td>
+                        <td>Cleaning of trays after each batch • Furnace ash removal • Blower inspection & servicing •
+                            Sensor calibration and system checks</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scalability</strong></td>
+                        <td>Modular & expandable design • Capacity: 100 kg to 2 ton per batch • Custom‑built for coastal
+                            humidity conditions • Suitable for SMEs, FPOs, and large processing industries</td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Advanced Smart Add‑ons Table -->
         <div class="reveal soft-table">
             <h2 style="margin-left: 1.5rem; margin-top: 1rem;">🚀 Advanced Smart Add‑ons</h2>
-             <table>
-                <thead> <tr><th>Add‑on</th><th>Benefit</th></tr> </thead>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Add‑on</th>
+                        <th>Benefit</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td>Fully automatic biomass feeding system</td><td>Reduces manual intervention, improves consistency</td></tr>
-                    <tr><td>IoT‑based remote monitoring dashboard</td><td>Real‑time data, alerts, performance analytics</td></tr>
-                    <tr><td>AI‑based drying optimization</td><td>Self‑learning algorithm minimizes energy use</td></tr>
-                    <tr><td>Cold storage integration</td><td>End‑to‑end value chain solution</td></tr>
-                    <tr><td>Solar PV system for auxiliary loads</td><td>Complete off‑grid / hybrid operation</td></tr>
-                    <tr><td>HACCP / export‑compliant design upgrades</td><td>Meets international food safety standards</td></tr>
+                    <tr>
+                        <td>Fully automatic biomass feeding system</td>
+                        <td>Reduces manual intervention, improves consistency</td>
+                    </tr>
+                    <tr>
+                        <td>IoT‑based remote monitoring dashboard</td>
+                        <td>Real‑time data, alerts, performance analytics</td>
+                    </tr>
+                    <tr>
+                        <td>AI‑based drying optimization</td>
+                        <td>Self‑learning algorithm minimizes energy use</td>
+                    </tr>
+                    <tr>
+                        <td>Cold storage integration</td>
+                        <td>End‑to‑end value chain solution</td>
+                    </tr>
+                    <tr>
+                        <td>Solar PV system for auxiliary loads</td>
+                        <td>Complete off‑grid / hybrid operation</td>
+                    </tr>
+                    <tr>
+                        <td>HACCP / export‑compliant design upgrades</td>
+                        <td>Meets international food safety standards</td>
+                    </tr>
                 </tbody>
-             </table>
+            </table>
         </div>
 
         <!-- Gallery (placeholder images) -->
         <div class="reveal">
-            <div class="section-title"><h2>System in Action</h2></div>
+            <div class="section-title">
+                <h2>System in Action</h2>
+            </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="../images/products/fish2.jpeg" alt="Smart Fish Dryer Unit">
@@ -789,48 +1044,79 @@
                     <div class="gallery-caption"></div>
                 </div>
             </div>
-        <!-- Premium Unlock -->
-        <div class="premium-wrapper reveal">
-            <div id="lockContainer" class="lock-card">
-                <div class="lock-icon"><i class="fas fa-lock"></i></div>
-                <h3>Unlock Premium Technical Library</h3>
-                <p>Get detailed engineering drawings, performance data, ROI calculator, and verified case studies for the Smart Fish Dryer – designed for fisheries, cooperatives, and seafood exporters.</p>
-                <span class="btn-outline" style="margin-top: 1rem; display: inline-block; padding: 0.6rem 1.8rem;">Unlock now →</span>
-            </div>
+            <!-- Premium Unlock -->
+            <div class="premium-wrapper reveal">
+                <div id="lockContainer" class="lock-card">
+                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Unlock Premium Technical Library</h3>
+                    <p>Get detailed engineering drawings, performance data, ROI calculator, and verified case studies
+                        for the Smart Fish Dryer – designed for fisheries, cooperatives, and seafood exporters.</p>
+                    <span class="btn-outline"
+                        style="margin-top: 1rem; display: inline-block; padding: 0.6rem 1.8rem;">Unlock now →</span>
+                </div>
 
-            <div id="unlockFormContainer" class="form-container">
-                <h3>Access Premium Content</h3>
-                <p>Enter your details – we’ll send the link instantly.</p>
-                <form id="premiumForm">
-                    <div class="form-grid">
-                        <div class="form-group"><input type="text" id="fullname" placeholder="Full name *" required></div>
-                        <div class="form-group"><input type="email" id="emailid" placeholder="Email address *" required></div>
-                        <div class="form-group"><input type="tel" id="phoneNum" placeholder="Phone (optional)"></div>
-                        <div class="form-group"><input type="text" id="organization" placeholder="Organization / Fishery"></div>
-                        <div class="form-group full"><textarea rows="2" id="message" placeholder="Tell us about your fish processing requirements..."></textarea></div>
-                        <input type="hidden" id="productName" value="Smart Fish Dryer">
-                        <div class="form-group full"><button type="submit" class="btn-submit"><i class="fas fa-unlock-alt"></i> Unlock Library</button></div>
-                    </div>
-                    <p style="font-size: 0.8rem; text-align: center; margin-top: 1rem;">We respect your privacy. No spam.</p>
-                </form>
-            </div>
+                <div id="unlockFormContainer" class="form-container">
+                    <h3>Access Premium Content</h3>
+                    <p>Enter your details – we’ll send the link instantly.</p>
+                    <form id="premiumForm">
+                        <div class="form-grid">
+                            <div class="form-group"><input type="text" id="fullname" placeholder="Full name *" required>
+                            </div>
+                            <div class="form-group"><input type="email" id="emailid" placeholder="Email address *"
+                                    required></div>
+                            <div class="form-group"><input type="tel" id="phoneNum" placeholder="Phone (optional)">
+                            </div>
+                            <div class="form-group"><input type="text" id="organization"
+                                    placeholder="Organization / Fishery"></div>
+                            <div class="form-group full"><textarea rows="2" id="message"
+                                    placeholder="Tell us about your fish processing requirements..."></textarea></div>
+                            <input type="hidden" id="productName" value="Smart Fish Dryer">
+                            <div class="form-group full"><button type="submit" class="btn-submit"><i
+                                        class="fas fa-unlock-alt"></i> Unlock Library</button></div>
+                        </div>
+                        <p style="font-size: 0.8rem; text-align: center; margin-top: 1rem;">We respect your privacy. No
+                            spam.</p>
+                    </form>
+                </div>
 
-            <div id="hiddenPremiumContent" class="hidden-content">
-                <div id="successMessage" class="success-banner" style="display: none;"><i class="fas fa-check-circle"></i> <strong>Access granted!</strong> Your premium resources are ready.</div>
-                <div style="background: var(--bg-soft); border-radius: var(--radius-lg); padding: 2rem;">
-                    <h3><i class="fas fa-file-alt" style="color: var(--primary);"></i> Premium Technical Library</h3>
-                    <div class="premium-grid">
-                        <div class="premium-card"><i class="fas fa-file-pdf"></i><h4>Engineering Drawings</h4><p>CAD files, tunnel layouts, SS tray designs</p><span style="color: var(--primary);">✓ available</span></div>
-                        <div class="premium-card"><i class="fas fa-chart-line"></i><h4>ROI Calculator</h4><p>Custom Excel for payback & profitability</p><span style="color: var(--primary);">✓ included</span></div>
-                        <div class="premium-card"><i class="fas fa-video"></i><h4>Installation Videos</h4><p>Step‑by‑step assembly & operation</p><span style="color: var(--primary);">✓ watch</span></div>
-                        <div class="premium-card"><i class="fas fa-chalkboard-user"></i><h4>Case Studies</h4><p>Fisheries, cooperatives – real data</p><span style="color: var(--primary);">✓ read</span></div>
+                <div id="hiddenPremiumContent" class="hidden-content">
+                    <div id="successMessage" class="success-banner" style="display: none;"><i
+                            class="fas fa-check-circle"></i> <strong>Access granted!</strong> Your premium resources are
+                        ready.</div>
+                    <div style="background: var(--bg-soft); border-radius: var(--radius-lg); padding: 2rem;">
+                        <h3><i class="fas fa-file-alt" style="color: var(--primary);"></i> Premium Technical Library
+                        </h3>
+                        <div class="premium-grid">
+                            <div class="premium-card"><i class="fas fa-file-pdf"></i>
+                                <h4>Engineering Drawings</h4>
+                                <p>CAD files, tunnel layouts, SS tray designs</p><span style="color: var(--primary);">✓
+                                    available</span>
+                            </div>
+                            <div class="premium-card"><i class="fas fa-chart-line"></i>
+                                <h4>ROI Calculator</h4>
+                                <p>Custom Excel for payback & profitability</p><span style="color: var(--primary);">✓
+                                    included</span>
+                            </div>
+                            <div class="premium-card"><i class="fas fa-video"></i>
+                                <h4>Installation Videos</h4>
+                                <p>Step‑by‑step assembly & operation</p><span style="color: var(--primary);">✓
+                                    watch</span>
+                            </div>
+                            <div class="premium-card"><i class="fas fa-chalkboard-user"></i>
+                                <h4>Case Studies</h4>
+                                <p>Fisheries, cooperatives – real data</p><span style="color: var(--primary);">✓
+                                    read</span>
+                            </div>
+                        </div>
+                        <div
+                            style="margin-top: 2rem; padding: 1rem; background: white; border-radius: var(--radius-md);">
+                            <p><strong>🏆 Success stories:</strong> Marine Products Export Development Authority (MPEDA)
+                                supported unit – 500 kg/day, 40% faster drying, export‑grade quality. Coastal Fishery
+                                Coop, Tamil Nadu – 60% fuel savings, payback 1.6 years.</p>
+                        </div>
                     </div>
-                    <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: var(--radius-md);">
-                        <p><strong>🏆 Success stories:</strong> Marine Products Export Development Authority (MPEDA) supported unit – 500 kg/day, 40% faster drying, export‑grade quality. Coastal Fishery Coop, Tamil Nadu – 60% fuel savings, payback 1.6 years.</p>
-                    </div>
+                </div>
             </div>
-        </div>
-    </div>
     </main>
 
     <!-- Universal Footer -->
@@ -849,7 +1135,7 @@
         loadComponent("footer", ["components/footer.html", "../components/footer.html"]);
 
         // EmailJS init
-        (function() {
+        (function () {
             emailjs.init('dU0o-KrI0m49D4wqR');
             window.emailjsConfig = {
                 serviceId: 'service_t3i4ttm',
@@ -917,6 +1203,7 @@
         }, { threshold: 0.1 });
         reveals.forEach(el => observer.observe(el));
     </script>
-<script src="../js/fix-logo.js"></script>
+    <script src="../js/fix-logo.js"></script>
 </body>
+
 </html>
